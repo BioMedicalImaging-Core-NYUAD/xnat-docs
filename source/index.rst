@@ -1,17 +1,36 @@
-.. NYUAD XNAT User Documentation documentation master file, created by
-   sphinx-quickstart on Mon Nov 18 11:12:30 2024.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+Welcome to NYUAD XNAT Documentation
+=================================
 
-NYUAD XNAT User Documentation documentation
-===========================================
-
-Add your content using ``reStructuredText`` syntax. See the
-`reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
-documentation for details.
-
+Welcome to the NYUAD XNAT platform documentation. This guide will help you understand and effectively use our XNAT installation for neuroimaging data management.
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Getting Started
+
+   getting_started/introduction
+   getting_started/access
+   getting_started/navigation
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Data Management
+
+   data_management/uploading
+   data_management/downloading
+   data_management/organizing
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Advanced Usage
+
+   advanced/pipelines
+   advanced/scripting
+   advanced/best_practices
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Support
+
+   support/faq
+   support/contact
 
