@@ -6,10 +6,14 @@ sphinx:
 
 # Python environment setup
 python:
-  interpreter: python3.9  # Specify the Python version
+  interpreter: python3.10
   install:
     - requirements: docs/requirements.txt  # Install dependencies from this file
 
 # Build environment settings
 build:
   os: ubuntu-22.04  # Default Ubuntu version
+
+# Define the build command to run
+commands:
+  - sphinx-build -b html docs/source _build/html
