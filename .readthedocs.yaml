@@ -1,0 +1,22 @@
+version: 2
+
+# Sphinx configuration file location
+sphinx:
+  configuration: docs/source/conf.py  # Path to your Sphinx conf.py file
+
+# Python environment setup
+python:
+  version: 3.9  # Use Python 3.9
+  install:
+    - requirements: docs/requirements.txt  # Install dependencies from this file
+
+# Build environment settings
+build:
+  os: ubuntu-22.04  # Read the Docs default Ubuntu version
+  tools:
+    python: "3.9"   # Python version to use
+
+# Optionally, define commands to run during the build
+commands:
+  - sphinx-build -b html docs/source docs/_build/html
+
