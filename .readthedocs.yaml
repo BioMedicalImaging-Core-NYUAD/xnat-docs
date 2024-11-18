@@ -6,7 +6,7 @@ sphinx:
 
 # Python environment setup
 python:
-  version: 3.9  # Use Python 3.9
+  version: 3.9  # Use Python 3.10
   install:
     - requirements: docs/requirements.txt  # Install dependencies from this file
 
@@ -14,7 +14,7 @@ python:
 build:
   os: ubuntu-22.04  # Read the Docs default Ubuntu version
   tools:
-    python: "3.9"   # Python version to use
+    python: "3.10"   # Python version to use
 
 # Optionally, define commands to run during the build
 commands:
