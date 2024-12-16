@@ -1,4 +1,4 @@
-Welcome to NYUAD XNAT Documentation
+Ameen to NYUAD XNAT Documentation
 =================================
 
 Welcome to the NYUAD XNAT platform documentation. This guide will help you understand and effectively use our XNAT installation for neuroimaging data management.
