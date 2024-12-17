@@ -21,11 +21,9 @@ Welcome to the NYUAD XNAT platform documentation. This guide will help you under
 
 .. toctree::
    :maxdepth: 2
-   :caption: Advanced Usage
+   :caption: Running Pipelines
 
-   advanced/pipelines
-   advanced/scripting
-   advanced/best_practices
+   running_pipelines/pipelines
 
 .. toctree::
    :maxdepth: 1
