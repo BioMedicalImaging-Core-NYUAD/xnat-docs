@@ -59,15 +59,15 @@ can find DICOMS and BIDS data under “scansˮ, and derivatives under
 1. Navigate to Manage Files → resources → Pipeline 
 
 .. image:: ../_static/deriv_1.png
-
+|
 2. Click on the pipeline name to view its output. In this case, we will look at Freesurfer
 
 .. image:: ../_static/deriv_2.png
-
+|
 3. Expand the directory to explore the output contents. Selecting a file will download it
 
 .. image:: ../_static/deriv_3.png
-
+|
 
 Viewing BIDS
 ------------

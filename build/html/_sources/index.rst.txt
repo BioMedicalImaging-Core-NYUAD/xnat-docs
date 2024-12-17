@@ -13,6 +13,12 @@ Welcome to the NYUAD XNAT platform documentation. This guide will help you under
 
 .. toctree::
    :maxdepth: 2
+   :caption: Navigating XNAT
+
+   navigating_xnat/navigation
+
+.. toctree::
+   :maxdepth: 2
    :caption: Data Management
 
    data_management/uploading
