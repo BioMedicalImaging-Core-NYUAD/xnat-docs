@@ -25,8 +25,7 @@ Adding & Modifying a BIDS config.json file
 
 The following instructions go through the steps needed to add and download a BIDS config.json file to a project. The config file is the responsibility of the project owner. If you do not have a BIDS config.json file, you can find a sample here:
 
-   :download:`Download JSON file <_static/config.json>`
-
+:download:`Download config.json <../_static/config.json>`
 
 New Project
 ^^^^^^^^^^^
