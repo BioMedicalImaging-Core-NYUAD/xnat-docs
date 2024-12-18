@@ -56,7 +56,7 @@ Manage Files is the file manager for the raw and and derivative imaging files. Y
 can find DICOMS and BIDS data under “scansˮ, and derivatives under
 “resourcesˮ. To view pipeline output:
 
-1. Navigate to Manage Files → resources → Pipeline 
+1. Navigate to Manage Files → resources → Pipeline
 
 .. image:: ../_static/deriv_1.png
 |

@@ -27,6 +27,15 @@ Welcome to the NYUAD XNAT User Documentation! This guide will help you understan
 
 .. toctree::
    :maxdepth: 2
+   :caption: BIDS
+
+   bids/dcm2bids
+   bids/view_BIDS
+   bids/config_file
+
+
+.. toctree::
+   :maxdepth: 2
    :caption: Running Pipelines
 
    running_pipelines/pipelines
