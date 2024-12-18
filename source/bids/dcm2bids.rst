@@ -31,29 +31,43 @@ The following instructions go through the steps needed to add and download a BID
 New Project
 ^^^^^^^^^^^
 1. XNAT requires a folder to upload your config files to. This only needs to be done once when a new project is created on XNAT
-2. Navigate to your project page, and select “Manage Files”
 
-3. Click on “Add Folder”
+   .. image:: ../_static/config_1.png
 
-4. Select “resources” from the “Level” drop-down menu
+2. Navigate to your project page, and select "Manage Files"
 
-5. Name the folder and click “Create”. This will be the location of your BIDS config.json file
+   .. image:: ../_static/config_2.png
+
+3. Click on "Add Folder"
+
+   .. image:: ../_static/config_3.png
+
+4. Select "resources" from the "Level" drop-down menu
+
+   .. image:: ../_static/config_4.png
+
+5. Name the folder and click "Create". This will be the location of your BIDS config.json file
+
+   .. image:: ../_static/config_5.png
 
 Uploading a config.json file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-1. Click on “Upload Files”
+1. Click on "Upload Files"
 
-2. Select “resources” from the “Level” drop-down menu, and then the folder you wish to upload the config file to
+   .. image:: ../_static/config_6.png
 
-3. Click on “Choose File”, select you config file, and then hit “Upload”
+2. Select "resources" from the "Level" drop-down menu, and then the folder you wish to upload the config file to
 
-Your config file has now been uploaded! dcm2bids will now use your config file to perform BIDS conversions for this project
+   .. image:: ../_static/config_7.png
 
-**Notes**
-1. If you want to download the config file on XNAT, simply click on the config.json and the download will begin
-2. To upload a new config file, delete the old config file and upload the new one using the same instructions above
+3. Click on "Choose File", select you config file, and then hit "Upload"
+
+   .. image:: ../_static/config_8.png
+
+Your config file has now been uploaded! dcm2bids will now use your config file to perform BIDS conversions for this project.
+
+* If you want to download the config file on XNAT, simply click on the config.json and the download will begin
+* To modify the config.json, you will need to delete the old config file and upload a new, one using the instructions above
 
 
-
-**add a sample config file**
 
