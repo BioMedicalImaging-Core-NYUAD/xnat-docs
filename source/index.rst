@@ -32,7 +32,12 @@ Welcome to the NYUAD XNAT User Documentation! This guide will help you understan
    bids/dcm2bids
    bids/view_BIDS
    bids/config_file
+   
+.. toctree::
+   :maxdepth: 2
+   :caption: XNAT CLI
 
+   xnat_cli/cli
 
 .. toctree::
    :maxdepth: 2
