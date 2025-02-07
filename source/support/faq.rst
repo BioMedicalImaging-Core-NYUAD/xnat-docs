@@ -14,7 +14,7 @@ How can I share data with collaborators?
 [Add answer]
 
 Technical Issues
---------------
+----------------
 
 What should I do if uploads fail?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

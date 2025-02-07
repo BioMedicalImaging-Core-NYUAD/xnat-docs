@@ -8,13 +8,13 @@ XNAT contains multiple projects that contain:
 
 .. image:: ../_static/xnat_home.png
 
-|
+
 Raw data is uploaded into the appropriate scan session (arranged by scan date), and placed under a unique subject identifier (i.e. sub-0100). Subjects can be found under different projects, as shown in the screenshot below:
 
 
 .. image:: ../_static/project_page.png
 
-|
+
 Project
 -------
 * The home page displays all projects you have access to

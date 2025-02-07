@@ -42,7 +42,7 @@ Setup
 Click on the “Manage Alias Tokens” tab in the left side of the page
 
 .. image:: ../_static/alias_2.png
-|
+
 Click on “View” on any unexpired token. A new window will pop up.
    
 .. image:: ../_static/alias_3.png

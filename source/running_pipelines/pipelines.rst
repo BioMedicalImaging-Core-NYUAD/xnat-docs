@@ -25,23 +25,23 @@ Running Pipelines for a Project
 1. Navigate to your project's page, click on Actions → Processing Dashboard → MR Sessions
 
    .. image:: ../_static/pipe_proj_1.png
-|
+
 2. Select a pipeline to run
 
    .. image:: ../_static/pipe_proj_2.png
-|
+
 3. Select the subjects/sessions to be processed
 
    .. image:: ../_static/pipe_proj_3.png
-|
+
 4. Verify the details of your job and submit. This will run the selected pipeline on the selected sessions in parallel
 
    .. image:: ../_static/pipe_proj_4.png
-|
+
 5. To view log files, navigate to the "All Processing History" tab
 
    .. image:: ../_static/pipe_proj_5.png
-|
+
 6. Log files are viewed the same way as described in the session level 
    instructions: hover over the job, click the eye icon and select "View StdOut.log"
 
