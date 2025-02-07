@@ -10,10 +10,8 @@ Running dcm2bids
 
 .. image:: ../_static/run_dcm2bids.png
 
-|
 * The "dcm2bids" pipeline will perform BIDS conversion *and* BIDS validation
 
-|
 Viewing BIDS Output
 -------------------
 * To view BIDS output, navigate to Manage Files → resources → BIDS, and expand to view the contents
