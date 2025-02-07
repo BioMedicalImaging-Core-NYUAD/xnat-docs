@@ -17,7 +17,7 @@ Viewing BIDS Output
 * To view BIDS output, navigate to Manage Files → resources → BIDS, and expand to view the contents
 * To view the validator output,  scroll down to the “Historyˮ window and click on the StdOut.log associated with the "bids-validator - session" activity:
 
-|
+
 Adding & Modifying a BIDS config.json file
 ------------------------------------------
 

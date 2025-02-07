@@ -3,11 +3,12 @@ Uploading Data to XNAT
 
 Supported Data Types
 --------------------
+
 * MRI Data (DICOM)
 * [Add other supported data types]
 
 Upload Methods
-------------
+--------------
 
 Web Interface Upload
 ^^^^^^^^^^^^^^^^^^^^
