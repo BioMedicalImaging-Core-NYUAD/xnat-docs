@@ -1,8 +1,9 @@
 Introduction to XNAT at NYUAD
-============================
+=============================
 
 What is XNAT?
 -------------
+
 XNAT is an open-source imaging informatics platform developed by the Neuroinformatics Research Group at Washington University. It facilitates common management, productivity, and quality assurance tasks for imaging and associated data.
 
 Our Installation

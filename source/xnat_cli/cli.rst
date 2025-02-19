@@ -35,21 +35,21 @@ Setup
 
    Log onto <a href="https://xnat.abudhabi.nyu.edu/" target="_blank">XNAT</a>, click on your name after “Logged in as:”. This will take you to the *Manage User Login and Profile* page
 
-|
+
 .. image:: ../_static/alias_1.png
 
-|
+
 Click on the “Manage Alias Tokens” tab in the left side of the page
 
-      .. image:: ../_static/alias_2.png
-|  
+.. image:: ../_static/alias_2.png
+
 Click on “View” on any unexpired token. A new window will pop up.
    
-     .. image:: ../_static/alias_3.png
-|  
-Copy and paste the “Alias” and the “Secret” fields into the command in the next step. They serve as a username and password for the script to access XNAT using your account
+.. image:: ../_static/alias_3.png
 
-    .. image:: ../_static/alias_4.png
+Copy and paste the "Alias" and the "Secret" fields into the command in the next step. They serve as a username and password for the script to access XNAT using your account
+
+.. image:: ../_static/alias_4.png
 
 
 Run the following command in the terminal: 
@@ -93,7 +93,7 @@ To find the project and subject IDs, navigate to the project page on XNAT:
 
      .. image:: ../_static/proj_id.png
 
-|
+
 Downloading DICOM data for one subject
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 To download a subject's DICOM data, include the download_dicom option, subject ID, and project ID, i.e.:

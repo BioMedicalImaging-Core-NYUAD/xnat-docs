@@ -9,7 +9,6 @@ Welcome to the NYUAD XNAT User Documentation! This guide will help you understan
 
    getting_started/introduction
    getting_started/access
-   getting_started/navigation
 
 .. toctree::
    :maxdepth: 2

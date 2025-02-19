@@ -25,23 +25,23 @@ Running Pipelines for a Project
 1. Navigate to your project's page, click on Actions → Processing Dashboard → MR Sessions
 
    .. image:: ../_static/pipe_proj_1.png
-|
+
 2. Select a pipeline to run
 
    .. image:: ../_static/pipe_proj_2.png
-|
+
 3. Select the subjects/sessions to be processed
 
    .. image:: ../_static/pipe_proj_3.png
-|
+
 4. Verify the details of your job and submit. This will run the selected pipeline on the selected sessions in parallel
 
    .. image:: ../_static/pipe_proj_4.png
-|
+
 5. To view log files, navigate to the "All Processing History" tab
 
    .. image:: ../_static/pipe_proj_5.png
-|
+
 6. Log files are viewed the same way as described in the session level 
    instructions: hover over the job, click the eye icon and select "View StdOut.log"
 
@@ -59,18 +59,19 @@ can find DICOMS and BIDS data under “scansˮ, and derivatives under
 1. Navigate to Manage Files → resources → Pipeline
 
 .. image:: ../_static/deriv_1.png
-|
+
 2. Click on the pipeline name to view its output. In this case, we will look at Freesurfer
 
 .. image:: ../_static/deriv_2.png
-|
+
 3. Expand the directory to explore the output contents. Selecting a file will download it
 
 .. image:: ../_static/deriv_3.png
-|
+
 
 Viewing BIDS
 ------------
+
 * To view BIDS output, navigate to "Manage Files" → "BIDS" → BIDS_map.json. A sample BIDS_map.json for an ARI subject would look like:
 
 ::
