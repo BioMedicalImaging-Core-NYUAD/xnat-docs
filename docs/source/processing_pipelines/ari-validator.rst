@@ -96,7 +96,7 @@ Data Validation Dashboard
 
 .. note::
    This dashboard is automatically updated when the ARI validation pipeline runs.
-   Data is imported directly from the validation results CSV file.
+   Last updated: 2025-07-17 18:20:23 UTC
 
 Quick Summary
 ~~~~~~~~~~~~~
