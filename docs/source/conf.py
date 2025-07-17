@@ -7,8 +7,8 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'NYUAD XNAT User Documentation'
-copyright = '2024, Ameen Qadi'
-author = 'Ameen Qadi'
+copyright = '2025, Puti Wen, Soumen Mohanty'
+author = 'Puti Wen, Soumen Mohanty'
 release = '0.1'
 
 # -- General configuration ---------------------------------------------------
