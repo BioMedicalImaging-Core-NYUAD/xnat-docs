@@ -4,7 +4,7 @@ Data Validation Dashboard
 
 .. note::
    This dashboard is automatically updated when the ARI validation pipeline runs.
-   Last updated: 2025-07-17 17:15:01 UTC
+   Last updated: 2025-07-17 17:22:27 UTC
 
 Quick Summary
 ~~~~~~~~~~~~~
