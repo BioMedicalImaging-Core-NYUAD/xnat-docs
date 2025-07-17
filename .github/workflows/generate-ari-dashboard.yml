@@ -58,7 +58,12 @@ jobs:
       run: |
         mkdir -p docs/source/_static
         cp xnat_ari_dashboard.csv docs/source/_static/
-        echo "CSV file copied to documentation static folder"
+        echo "Full CSV file copied to documentation static folder"
+        
+    - name: Generate filtered CSV for display
+      run: |
+        python3 filter_dashboard_csv.py xnat_ari_dashboard.csv docs/source/_static/xnat_ari_dashboard_display.csv
+        echo "Filtered CSV generated for documentation display"
         
     - name: Update ari-validator.rst with dashboard content
       run: |
@@ -110,6 +115,7 @@ jobs:
         name: ari-dashboard-${{ github.run_id }}
         path: |
           xnat_ari_dashboard.csv
+          docs/source/_static/xnat_ari_dashboard_display.csv
           dashboard_timestamp.txt
           dashboard_content.rst
         retention-days: 30
