@@ -146,8 +146,3 @@ Next Steps After Preprocessing
 
 
 
-fMRIprep code
--------------
-
-.. literalinclude:: ../../../fmriprep/code/fmriprep.py
-  :language: python
