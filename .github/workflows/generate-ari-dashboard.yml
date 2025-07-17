@@ -46,6 +46,51 @@ jobs:
         cp /home/mri/Documents/GitHub/ARIdashboard/xnat_ari_dashboard.csv ./
         echo "Dashboard file copied to repository"
         
+    - name: Generate dashboard content for documentation
+      run: |
+        python3 generate_dashboard.py
+        echo "Dashboard content generated"
+        
+    - name: Copy CSV to documentation static folder
+      run: |
+        mkdir -p docs/source/_static
+        cp xnat_ari_dashboard.csv docs/source/_static/
+        echo "CSV file copied to documentation static folder"
+        
+    - name: Update ari-validator.rst with dashboard content
+      run: |
+        # Read the dashboard content
+        if [ -f "dashboard_content.rst" ]; then
+          # Create a temporary file with the updated content
+          python3 -c "
+import re
+
+# Read the original file
+with open('docs/source/processing_pipelines/ari-validator.rst', 'r') as f:
+    content = f.read()
+
+# Read the dashboard content
+with open('dashboard_content.rst', 'r') as f:
+    dashboard = f.read()
+
+# Replace the section after 'Output and Reports' with our dashboard
+pattern = r'(Output and Reports\s*------------------.*?)\[PLACEHOLDER.*?\]'
+if re.search(pattern, content, re.DOTALL):
+    updated_content = re.sub(pattern, r'\1' + dashboard, content, flags=re.DOTALL)
+else:
+    # If no placeholder found, add before 'Troubleshooting'
+    pattern = r'(Troubleshooting\s*---------------)'
+    updated_content = re.sub(pattern, dashboard + r'\n\n\1', content, flags=re.DOTALL)
+
+# Write the updated content
+with open('docs/source/processing_pipelines/ari-validator.rst', 'w') as f:
+    f.write(updated_content)
+"
+          echo "Documentation updated with dashboard content"
+        else
+          echo "Error: dashboard_content.rst not found"
+        fi
+        
     - name: Create timestamp file
       run: |
         echo "Generated on: $(date)" > dashboard_timestamp.txt
@@ -58,17 +103,13 @@ jobs:
     - name: Check for changes
       id: check_changes
       run: |
-        if [ -f "xnat_ari_dashboard.csv" ]; then
-          if git diff --quiet HEAD -- xnat_ari_dashboard.csv; then
-            echo "changes=false" >> $GITHUB_OUTPUT
-            echo "No changes detected in dashboard file"
-          else
-            echo "changes=true" >> $GITHUB_OUTPUT
-            echo "Changes detected in dashboard file"
-          fi
+        git add .
+        if git diff --quiet --cached; then
+          echo "changes=false" >> $GITHUB_OUTPUT
+          echo "No changes detected in repository"
         else
           echo "changes=true" >> $GITHUB_OUTPUT
-          echo "New dashboard file created"
+          echo "Changes detected in repository"
         fi
         
     - name: Configure git
@@ -80,8 +121,7 @@ jobs:
     - name: Commit and push changes
       if: steps.check_changes.outputs.changes == 'true'
       run: |
-        git add xnat_ari_dashboard.csv dashboard_timestamp.txt
-        git commit -m "Update ARI dashboard data - $(date '+%Y-%m-%d %H:%M:%S')"
+        git commit -m "Update ARI dashboard data and documentation - $(date '+%Y-%m-%d %H:%M:%S')"
         git push
         
     - name: Upload dashboard as artifact
@@ -91,6 +131,7 @@ jobs:
         path: |
           xnat_ari_dashboard.csv
           dashboard_timestamp.txt
+          dashboard_content.rst
         retention-days: 30
         
     - name: Summary
