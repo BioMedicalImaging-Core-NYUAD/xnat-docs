@@ -4,7 +4,7 @@ Data Validation Dashboard
 
 .. note::
    This dashboard is automatically updated when the ARI validation pipeline runs.
-   Last updated: 2025-07-17 18:04:43 UTC
+   Last updated: 2025-07-17 18:20:23 UTC
 
 Quick Summary
 ~~~~~~~~~~~~~
@@ -24,8 +24,8 @@ Validation Results Table
 | sub-0097   | HAS ISSUE  | CORRECT       | CORRECT     | CORRECT         | INCORRECT       | CORRECT     | INCORRECT      | VERSION 1 (DEPRECATED  | VERSION 2 (LATEST)     |
 | sub-0161   | HAS ISSUE  | CORRECT       | CORRECT     | CORRECT         | CORRECT         | CORRECT     | INCORRECT      | VERSION 1 (DEPRECATED  | VERSION 1 (DEPRECATED  |
 | sub-0183   | HAS ISSUE  | CORRECT       | CORRECT     | CORRECT         | CORRECT         | CORRECT     | INCORRECT      | VERSION 1 (DEPRECATED  | VERSION 1 (DEPRECATED  |
-| sub-0200   | HAS ISSUE  | INCORRECT     | CORRECT     | CORRECT         | INCORRECT       | INCORRECT   | INCORRECT      | UNKNOWN                | UNKNOWN                |
 | sub-0200   | Unknown    | CORRECT       | CORRECT     | CORRECT         | CORRECT         | CORRECT     | CORRECT        | UNKNOWN                | UNKNOWN                |
+| sub-0200   | HAS ISSUE  | INCORRECT     | CORRECT     | CORRECT         | INCORRECT       | INCORRECT   | INCORRECT      | UNKNOWN                | UNKNOWN                |
 | sub-0200   | HAS ISSUE  | INCORRECT     | CORRECT     | CORRECT         | INCORRECT       | INCORRECT   | INCORRECT      | UNKNOWN                | UNKNOWN                |
 | sub-0200   | HAS ISSUE  | INCORRECT     | CORRECT     | CORRECT         | INCORRECT       | INCORRECT   | INCORRECT      | UNKNOWN                | UNKNOWN                |
 | sub-0201   | HAS ISSUE  | CORRECT       | CORRECT     | CORRECT         | CORRECT         | CORRECT     | INCORRECT      | VERSION 1 (DEPRECATED  | VERSION 1 (DEPRECATED  |
@@ -44,8 +44,8 @@ Validation Results Table
 | sub-0286   | PASSED     | CORRECT       | CORRECT     | CORRECT         | CORRECT         | CORRECT     | CORRECT        | VERSION 2 (LATEST)     | VERSION 2 (LATEST)     |
 | sub-0302   | PASSED     | CORRECT       | CORRECT     | CORRECT         | CORRECT         | CORRECT     | CORRECT        | VERSION 2 (LATEST)     | VERSION 2 (LATEST)     |
 | sub-0303   | HAS ISSUE  | CORRECT       | CORRECT     | CORRECT         | CORRECT         | CORRECT     | INCORRECT      | VERSION 1 (DEPRECATED  | VERSION 1 (DEPRECATED  |
-| sub-0308   | HAS ISSUE  | INCORRECT     | CORRECT     | CORRECT         | INCORRECT       | INCORRECT   | INCORRECT      | UNKNOWN                | UNKNOWN                |
 | sub-0308   | HAS ISSUE  | INCORRECT     | INCORRECT   | INCORRECT       | INCORRECT       | INCORRECT   | INCORRECT      | UNKNOWN                | UNKNOWN                |
+| sub-0308   | HAS ISSUE  | INCORRECT     | CORRECT     | CORRECT         | INCORRECT       | INCORRECT   | INCORRECT      | UNKNOWN                | UNKNOWN                |
 | sub-0314   | HAS ISSUE  | CORRECT       | CORRECT     | CORRECT         | CORRECT         | CORRECT     | INCORRECT      | VERSION 1 (DEPRECATED  | VERSION 1 (DEPRECATED  |
 | sub-0325   | HAS ISSUE  | INCORRECT     | INCORRECT   | INCORRECT       | INCORRECT       | INCORRECT   | INCORRECT      | UNKNOWN                | UNKNOWN                |
 | sub-0325   | HAS ISSUE  | INCORRECT     | CORRECT     | CORRECT         | INCORRECT       | INCORRECT   | INCORRECT      | UNKNOWN                | UNKNOWN                |
