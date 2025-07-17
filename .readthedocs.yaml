@@ -12,8 +12,8 @@ build:
 
 
 submodules:
-  include: true  # <--- this line ensures submodules are cloned
-# Build documentation in the docs/ directory with Sphinx
+  include: all
+
 sphinx:
    configuration: docs/source/conf.py
    fail_on_warning: true
