@@ -57,5 +57,6 @@ Welcome to the NYUAD XNAT User Documentation! This guide focuses on the three es
 
    support/faq
    support/troubleshooting
+   support/contributing
    support/contact
 

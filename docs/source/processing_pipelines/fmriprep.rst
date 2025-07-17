@@ -143,3 +143,6 @@ Next Steps After Preprocessing
 
 .. note::
    Currently, we are running **fMRIPrep** (v24.1.1) and **FreeSurfer** (v7.3.2). We are working on making more versions available. If you have an urgent request for a specific version, please contact us.
+
+
+
