@@ -10,6 +10,9 @@ build:
    tools:
      python: "3.10"
 
+
+submodules:
+  include: true  # <--- this line ensures submodules are cloned
 # Build documentation in the docs/ directory with Sphinx
 sphinx:
    configuration: docs/source/conf.py
