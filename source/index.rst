@@ -1,53 +1,61 @@
 NYUAD XNAT User Documentation
 =============================
 
-Welcome to the NYUAD XNAT User Documentation! This guide will help you understand and effectively use our XNAT installation for neuroimaging data management and processing.
+Welcome to the NYUAD XNAT User Documentation! This guide focuses on the three essential activities for effective MRI data management: understanding data formats, using XNAT pipelines, and downloading data efficiently.
 
 .. toctree::
    :maxdepth: 2
    :caption: Getting Started
 
-   getting_started/introduction
-   getting_started/access
+   getting_started/overview
 
 .. toctree::
    :maxdepth: 2
-   :caption: Navigating XNAT
+   :caption: Understanding MRI Data
 
-   navigating_xnat/navigation
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Data Management
-
-   data_management/uploading
-   data_management/downloading
-   data_management/organizing
+   understanding_data/overview
+   understanding_data/bids
 
 .. toctree::
    :maxdepth: 2
-   :caption: BIDS
+   :caption: XNAT Pipelines
 
-   bids/dcm2bids
-   bids/view_BIDS
-   bids/config_file
-   
+   processing_pipelines/overview
+   processing_pipelines/dcm2niix
+   processing_pipelines/dcm2bids
+   processing_pipelines/dcm2hcp
+   processing_pipelines/mriqc
+   processing_pipelines/ari-validator
+   processing_pipelines/fmriprep
+   processing_pipelines/tractoflow
+   processing_pipelines/hcp-pipeline
+
 .. toctree::
    :maxdepth: 2
-   :caption: XNAT CLI
+   :caption: Data Download Methods
 
-   xnat_cli/cli
+   data_download/browser
+   data_download/desktop_client
+   data_download/python_scripts
+   data_download/matlab_scripts
 
 .. toctree::
    :maxdepth: 2
-   :caption: Running Pipelines
+   :caption: Working with XNAT
 
-   running_pipelines/pipelines
+   working_with_xnat/access
+   working_with_xnat/install_desktop_client
+   working_with_xnat/running_pipelines
+   working_with_xnat/enabling_pipelines
+   working_with_xnat/navigation
+   working_with_xnat/uploading
+   working_with_xnat/project_management
 
 .. toctree::
    :maxdepth: 1
    :caption: Support
 
    support/faq
+   support/troubleshooting
    support/contact
 
