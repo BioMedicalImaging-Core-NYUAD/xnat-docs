@@ -1,25 +1,25 @@
-# .readthedocs.yaml
-# Read the Docs configuration file
-
-# Required
+# .readthedocs.yaml  ─── make sub-modules auto-refresh
 version: 2
 
-# Set the version of Python and other tools you might need
 build:
-   os: ubuntu-22.04
-   tools:
-     python: "3.10"
+  os: ubuntu-22.04
+  tools:
+    python: "3.10"
 
+  # ── NEW: ask RTD to fetch the tip of the tracked branch
+  jobs:
+    post_checkout:          # runs immediately after git clone
+      - git submodule update --init --recursive --remote
 
 submodules:
-  include: all
+  include: all              # clone every sub-module
+  recursive: true           # and any nested ones
 
 sphinx:
-   configuration: docs/source/conf.py
-   fail_on_warning: true
+  configuration: docs/source/conf.py
+  fail_on_warning: true
 
-formats:
-  - pdf
+formats: [pdf]
 
 python:
   install:
