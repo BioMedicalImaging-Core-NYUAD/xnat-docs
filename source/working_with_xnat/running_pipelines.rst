@@ -1,5 +1,5 @@
 Running Pipelines on XNAT
-==========================
+=========================
 
 This page provides general instructions for running any processing pipeline on XNAT. Individual pipeline pages reference this guide for the basic workflow.
 
@@ -104,5 +104,5 @@ After completing this general overview:
   - :doc:`../processing_pipelines/dcm2bids` for DICOM conversion
   - :doc:`../processing_pipelines/fmriprep` for fMRI preprocessing
   - :doc:`../processing_pipelines/tractoflow` for tractography
-- Learn about :doc:`../data_download/overview` for accessing results
+- Learn about :doc:`../data_download/browser` for accessing results
 - See :doc:`../support/troubleshooting` for common issues

@@ -1,5 +1,5 @@
 HCP (Under Development)
-=================================
+=======================
 .. note::
    For step-by-step instructions on running any pipeline, see :doc:`../working_with_xnat/running_pipelines`. To enable pipelines for your project, see :doc:`../working_with_xnat/enabling_pipelines`.
 

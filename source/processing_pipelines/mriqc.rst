@@ -1,5 +1,5 @@
 MRIQC 
-===============
+=====
 .. note::
    For step-by-step instructions on running any pipeline, see :doc:`../working_with_xnat/running_pipelines`. To enable pipelines for your project, see :doc:`../working_with_xnat/enabling_pipelines`.
 
@@ -140,4 +140,4 @@ Next Steps
 - Make data inclusion/exclusion decisions
 - Proceed with preprocessing using :doc:`fmriprep` for quality data
 - Learn about :doc:`../understanding_data/bids` format requirements
-- See :doc:`../data_download/overview` for accessing QC reports
+- See :doc:`../data_download/browser` for accessing QC reports

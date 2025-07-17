@@ -29,7 +29,7 @@ For technical support with our XNAT instance:
 For comprehensive support resources, see the `official XNAT support documentation <https://wiki.xnat.org/documentation/>`_.
 
 Administrative Support
-~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
 
 [PLACEHOLDER: Administrative contact information]
 

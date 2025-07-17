@@ -1,5 +1,5 @@
 Frequently Asked Questions
-===========================
+==========================
 
 This section contains answers to commonly asked questions about using XNAT.
 
@@ -280,7 +280,7 @@ Complete metadata ensures data usability and compliance with research standards:
 - Use standardized terminology when possible
 - Include units for all numerical measurements
 - Document any coding schemes or scales used
-- Regularly backup metadata along with imaging data.
+- Regularly backup metadata along with imaging data
 
 How do I manage data versions?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -354,7 +354,7 @@ Running processing pipelines in XNAT follows a standardized workflow:
 For detailed instructions, see :doc:`../working_with_xnat/running_pipelines`.
 
 What processing pipelines are available?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Our XNAT instance offers several categories of processing pipelines:
 
@@ -537,7 +537,7 @@ Effective bug reporting helps administrators resolve issues quickly:
 - **Provide feedback** on the support process
 
 Data Security and Privacy
---------------------------
+-------------------------
 
 How is my data protected?
 ~~~~~~~~~~~~~~~~~~~~~~~~~

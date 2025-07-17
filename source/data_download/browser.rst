@@ -1,5 +1,5 @@
 Download via Browser
-======================
+====================
 
 This guide covers how to download data directly from the XNAT web interface using your browser.
 
@@ -22,9 +22,6 @@ Accessing the Web Interface
 
 https://xnat.abudhabi.nyu.edu/
 
-
---------------------------------
-
 Navigating to Your Data
 ~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -32,9 +29,6 @@ Navigating to Your Data
    :alt: browser navigate
    :align: center
    :width: 680px
-
-
---------------------------------
 
 Single File Download
 ~~~~~~~~~~~~~~~~~~~~
@@ -44,9 +38,6 @@ Single File Download
    :align: center
    :width: 680px
 
-
---------------------------------
-
 Session Download
 ~~~~~~~~~~~~~~~~
 
@@ -55,9 +46,6 @@ Session Download
    :align: center
    :width: 680px
 
-
---------------------------------
-
 Bulk Download
 ~~~~~~~~~~~~~
 
@@ -65,9 +53,6 @@ Bulk Download
    :alt: browser bulk
    :align: center
    :width: 680px
-
-
---------------------------------
 
 Troubleshooting
 ---------------

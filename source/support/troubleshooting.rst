@@ -1,5 +1,5 @@
 Troubleshooting Guide
-====================
+=====================
 
 This guide provides systematic approaches to resolving common issues with XNAT.
 
@@ -17,7 +17,7 @@ Connection and Access Issues
 ----------------------------
 
 Cannot Connect to XNAT
-~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
 
 **Symptoms:**
 - Unable to load the XNAT website
@@ -194,7 +194,7 @@ Browser and Interface Issues
 ----------------------------
 
 Display Problems
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~
 
 **Symptoms:**
 - Missing interface elements
@@ -260,7 +260,7 @@ Pipeline Failures
 [PLACEHOLDER: Pipeline problem solutions]
 
 Performance Issues
-~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~
 
 **Symptoms:**
 - Slow processing times
@@ -329,7 +329,7 @@ System Performance
 ------------------
 
 General Slowness
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~
 
 **Symptoms:**
 - Slow page loading
@@ -350,7 +350,7 @@ General Slowness
 [PLACEHOLDER: Performance solutions]
 
 Memory Issues
-~~~~~~~~~~~~
+~~~~~~~~~~~~~
 
 **Symptoms:**
 - Browser crashes
@@ -384,7 +384,7 @@ Before Contacting Support
 4. Document steps to reproduce
 
 Contacting Support
-~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~
 
 [PLACEHOLDER: Support contact procedures]
 
@@ -393,7 +393,7 @@ Contacting Support
 - Response time expectations
 
 Community Resources
-~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
 
 [PLACEHOLDER: Community help resources]
 
@@ -407,7 +407,7 @@ See Also
 - :doc:`faq` - For frequently asked questions
 - :doc:`contact` - For support contact information
 - :doc:`../working_with_xnat/navigation` - For navigation basics
-- :doc:`../data_download/overview` - For download procedures
+- :doc:`../data_download/browser` - For download procedures
 
 Next Steps
 ----------

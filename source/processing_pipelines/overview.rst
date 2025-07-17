@@ -1,5 +1,5 @@
 XNAT Pipelines Overview
-==============================
+=======================
 
 We offer pipelines organized into three main categories: **Data Conversion**, **Quality Control**, and **Preprocessing**
 
@@ -29,7 +29,7 @@ Data Conversion Pipelines
 - See: :doc:`dcm2hcp`
 
 Quality Control Pipelines
---------------------------
+-------------------------
 
 **mriqc**
 - Comprehensive quality control for structural and functional MRI data
@@ -64,6 +64,6 @@ Next Steps
 ----------
 
 - Learn about :doc:`../understanding_data/bids` format requirements
-- See :doc:`../data_download/overview` for accessing pipeline outputs
+- See :doc:`../data_download/browser` for accessing pipeline outputs
 - Explore individual pipeline documentation for detailed usage
 - For general pipeline running instructions, see :doc:`../working_with_xnat/running_pipelines`

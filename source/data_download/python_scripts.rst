@@ -1,5 +1,5 @@
 Download via Python
-=================================
+===================
 
 Automated data download using Python scripts from the XNAT-NYUAD template-scripts repository.
 

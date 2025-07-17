@@ -14,7 +14,7 @@ XNAT project management involves coordinating data collection, user access, and 
 - Workflow automation
 
 Project Setup
---------------
+-------------
 
 Creating Projects
 ~~~~~~~~~~~~~~~~~
@@ -47,7 +47,7 @@ User Management
 ---------------
 
 User Roles and Permissions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 [PLACEHOLDER: Explanation of user roles and permission levels]
 

@@ -1,5 +1,5 @@
 Download via MATLAB
-======================
+===================
 
 This guide covers using MATLAB scripts to download data from XNAT programmatically.
 

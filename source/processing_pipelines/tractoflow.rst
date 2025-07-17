@@ -120,5 +120,5 @@ Next Steps
 - Quality check tractography results
 - Use bundle metrics for statistical analysis
 - Learn about :doc:`../understanding_data/tractography` concepts
-- See :doc:`../data_download/overview` for accessing tractography data
+- See :doc:`../data_download/browser` for accessing tractography data
 - Consider integration with :doc:`qsiprep-jubail` preprocessing

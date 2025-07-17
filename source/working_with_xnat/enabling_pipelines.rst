@@ -1,10 +1,10 @@
 Enabling Pipelines for Your Project
-====================================
+===================================
 
 This page explains how to enable processing pipelines for your XNAT project. Pipeline availability depends on project configuration and user permissions.
 
 Pipeline Availability
-----------------------
+---------------------
 
 **By Default:**
 - New projects have limited pipeline access
@@ -140,7 +140,7 @@ After enabling pipelines for your project:
 5. **Train** project members on pipeline usage
 
 Related Documentation
---------------------
+---------------------
 
 - :doc:`running_pipelines` - How to run any pipeline
 - :doc:`../processing_pipelines/overview` - Available pipelines

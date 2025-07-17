@@ -5,7 +5,7 @@ This section explains the different MRI data formats used in research and how th
 Understanding these formats will greatly help you working with XNAT, so we start here.
 
 Data Format Relationships
---------------------------
+-------------------------
 
 MRI data follows a specific conversion pathway that determines which analysis pipelines you can use:
 

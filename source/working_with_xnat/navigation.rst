@@ -45,7 +45,7 @@ Sidebar Navigation
 - Quick actions menu
 
 Data Hierarchy
----------------
+--------------
 
 Understanding Structure
 ~~~~~~~~~~~~~~~~~~~~~~~

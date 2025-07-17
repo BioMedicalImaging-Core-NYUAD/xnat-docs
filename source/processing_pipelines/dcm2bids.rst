@@ -70,10 +70,10 @@ Next Steps
 
 1. **Quality Control**: Run :doc:`mriqc` to assess data quality  
 2. **Preprocessing**: Use :doc:`fmriprep` for functional data processing
-3. **Data Access**: Use :doc:`../data_download/overview` to download converted data
+3. **Data Access**: Use :doc:`../data_download/browser` to download converted data
 
 Related Documentation
---------------------
+---------------------
 
 - :doc:`../understanding_data/bids` - Understanding BIDS format
 - :doc:`mriqc` - Quality control after conversion

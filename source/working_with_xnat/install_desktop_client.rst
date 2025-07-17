@@ -115,8 +115,8 @@ Once installed and configured:
 3. **Set up** automated download workflows
 
 Related Documentation
---------------------
+---------------------
 
 - :doc:`../data_download/desktop_client` - Using the Desktop Client
-- :doc:`../data_download/overview` - All download methods
+- :doc:`../data_download/browser` - Browser download methods
 - `Official XNAT Desktop Client Documentation <https://wiki.xnat.org/xnat-tools/xnat-desktop-client-dxm>`_

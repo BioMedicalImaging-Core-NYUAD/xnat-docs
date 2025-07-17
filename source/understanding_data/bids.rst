@@ -51,7 +51,7 @@ BIDS on XNAT
 - **dwi**: Diffusion-weighted images
 
 File Naming and Organization
----------------------------
+----------------------------
 
 BIDS uses systematic file naming with key-value pairs separated by underscores:
 
@@ -89,7 +89,7 @@ Next Steps
 4. **Learn more**: Visit the `BIDS Starter Kit <https://bids-standard.github.io/bids-starter-kit/>`_ for comprehensive tutorials
 
 Related Documentation
---------------------
+---------------------
 
 - :doc:`../processing_pipelines/dcm2bids` - Convert DICOM to BIDS
 - :doc:`../processing_pipelines/overview` - All available pipelines

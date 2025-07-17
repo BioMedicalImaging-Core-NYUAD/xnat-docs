@@ -1,5 +1,5 @@
 Download via Desktop Client
-============================
+===========================
 
 This guide covers using the XNAT Desktop Client for downloading data from XNAT. The Desktop Client provides the most reliable method for downloading large datasets with features like pause, resume, and background processing.
 
@@ -138,9 +138,8 @@ After downloading your data:
 4. **Consider automation** for regular download workflows
 
 Related Documentation
---------------------
+---------------------
 
 - :doc:`../working_with_xnat/install_desktop_client` - Installation guide
 - :doc:`browser` - Web browser download method
 - :doc:`python_scripts` - Programmatic download methods
-- :doc:`overview` - All available download methods

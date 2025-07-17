@@ -1,5 +1,5 @@
 ari-validator 
-======================
+=============
 .. note::
    For step-by-step instructions on running any pipeline, see :doc:`../working_with_xnat/running_pipelines`. To enable pipelines for your project, see :doc:`../working_with_xnat/enabling_pipelines`.
 
@@ -109,4 +109,4 @@ Next Steps
 - Fix any validation errors identified
 - Proceed with preprocessing using :doc:`fmriprep` or :doc:`qsiprep-jubail`
 - Learn about :doc:`../understanding_data/bids` format requirements
-- See :doc:`../data_download/overview` for accessing validated data
+- See :doc:`../data_download/browser` for accessing validated data

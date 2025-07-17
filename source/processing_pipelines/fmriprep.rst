@@ -1,5 +1,5 @@
 fMRIPrep
-========================
+========
 
 This page provides information on running the fMRIPrep pipeline via XNAT. 
 We will explain **what fMRIPrep does**, show you **what you need to run fMRIPrep** and the exact steps to launch it, and help you understand some of the key **fMRIPrep outputs**. We will also talk about important **configuration options**, **common issues** to watch for, and how to **troubleshoot problems**. 
@@ -137,7 +137,7 @@ Troubleshooting
 
 Next Steps After Preprocessing
 ------------------------------
-1. Use :doc:`../data_download/overview` to access results
+1. Use :doc:`../data_download/browser` to access results
 2. **Enjoy!**
 
 
