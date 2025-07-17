@@ -280,7 +280,7 @@ Complete metadata ensures data usability and compliance with research standards:
 - Use standardized terminology when possible
 - Include units for all numerical measurements
 - Document any coding schemes or scales used
-- Regularly backup metadata along with imaging data
+- Regularly backup metadata along with imaging data.
 
 How do I manage data versions?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
