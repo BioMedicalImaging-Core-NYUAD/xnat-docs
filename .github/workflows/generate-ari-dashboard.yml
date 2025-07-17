@@ -1,0 +1,107 @@
+name: Generate ARI Dashboard
+
+on:
+  workflow_dispatch:
+    inputs:
+      description:
+        description: 'Optional description for this run'
+        required: false
+        default: 'Manual trigger'
+        type: string
+
+jobs:
+  generate-dashboard:
+    runs-on: self-hosted
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Set up Python environment
+      run: |
+        python3 -m pip install --upgrade pip
+        python3 -m pip install pandas
+        
+    - name: Run ARI validation parser
+      run: |
+        echo "Starting ARI validation parser..."
+        cd /home/mri/Documents/GitHub/ARIdashboard
+        python3 parse_ari_validation.py
+        echo "Parser completed successfully"
+        
+    - name: Verify output file exists
+      run: |
+        if [ -f "/home/mri/Documents/GitHub/ARIdashboard/xnat_ari_dashboard.csv" ]; then
+          echo "Output file found"
+          ls -la /home/mri/Documents/GitHub/ARIdashboard/xnat_ari_dashboard.csv
+        else
+          echo "Error: Output file not found"
+          exit 1
+        fi
+        
+    - name: Copy dashboard file to repository
+      run: |
+        cp /home/mri/Documents/GitHub/ARIdashboard/xnat_ari_dashboard.csv ./
+        echo "Dashboard file copied to repository"
+        
+    - name: Create timestamp file
+      run: |
+        echo "Generated on: $(date)" > dashboard_timestamp.txt
+        echo "Triggered by: ${{ github.actor }}" >> dashboard_timestamp.txt
+        echo "Run ID: ${{ github.run_id }}" >> dashboard_timestamp.txt
+        if [ -n "${{ inputs.description }}" ]; then
+          echo "Description: ${{ inputs.description }}" >> dashboard_timestamp.txt
+        fi
+        
+    - name: Check for changes
+      id: check_changes
+      run: |
+        if [ -f "xnat_ari_dashboard.csv" ]; then
+          if git diff --quiet HEAD -- xnat_ari_dashboard.csv; then
+            echo "changes=false" >> $GITHUB_OUTPUT
+            echo "No changes detected in dashboard file"
+          else
+            echo "changes=true" >> $GITHUB_OUTPUT
+            echo "Changes detected in dashboard file"
+          fi
+        else
+          echo "changes=true" >> $GITHUB_OUTPUT
+          echo "New dashboard file created"
+        fi
+        
+    - name: Configure git
+      if: steps.check_changes.outputs.changes == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        
+    - name: Commit and push changes
+      if: steps.check_changes.outputs.changes == 'true'
+      run: |
+        git add xnat_ari_dashboard.csv dashboard_timestamp.txt
+        git commit -m "Update ARI dashboard data - $(date '+%Y-%m-%d %H:%M:%S')"
+        git push
+        
+    - name: Upload dashboard as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ari-dashboard-${{ github.run_id }}
+        path: |
+          xnat_ari_dashboard.csv
+          dashboard_timestamp.txt
+        retention-days: 30
+        
+    - name: Summary
+      run: |
+        echo "=== ARI Dashboard Generation Summary ===" 
+        echo "Status: ✅ Success"
+        echo "Generated: $(date)"
+        echo "File location: ./xnat_ari_dashboard.csv"
+        if [ -f "xnat_ari_dashboard.csv" ]; then
+          echo "File size: $(du -h xnat_ari_dashboard.csv | cut -f1)"
+          echo "Number of subjects: $(tail -n +2 xnat_ari_dashboard.csv | wc -l)"
+        fi
+        echo "Changes committed: ${{ steps.check_changes.outputs.changes }}"
+        echo "Repository: https://github.com/BioMedicalImaging-Core-NYUAD/xnat-docs"
