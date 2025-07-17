@@ -722,13 +722,14 @@
 - <strong>GET /projects/{project}/experiments:</strong> List sessions/experiments
 - <strong>POST /projects/{project}/subjects:</strong> Create new subjects
 - <strong>PUT /projects/{project}/experiments/{ID}/resources/{resource}/files:</strong> Upload files</p>
-<p><strong>Example Python Usage:</strong>
-<a href="#id2"><span class="problematic" id="id3">``</span></a><a href="#id4"><span class="problematic" id="id5">`</span></a>python
-import requests</p>
-<p># Using alias token
-headers = {‘Authorization’: ‘alias_token_here’}
-response = requests.get(’<a class="reference external" href="https://xnat.abudhabi.nyu.edu/xapi/projects">https://xnat.abudhabi.nyu.edu/xapi/projects</a>’, headers=headers)
-<a href="#id6"><span class="problematic" id="id7">``</span></a><a href="#id8"><span class="problematic" id="id9">`</span></a></p>
+<p><strong>Example Python Usage:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="c1"># Using alias token</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;alias_token_here&#39;</span><span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://xnat.abudhabi.nyu.edu/xapi/projects&#39;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+</pre></div>
+</div>
 <p><strong>Available Libraries:</strong>
 - <strong>Python:</strong> xnatpy library provides high-level interface
 - <strong>MATLAB:</strong> XNAT MATLAB tools available

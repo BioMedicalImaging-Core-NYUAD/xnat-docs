@@ -54,14 +54,16 @@ How to Run
 ----------
 
 **Basic Validation:**
-```bash
-python aricheck.py /path/to/bids/directory
-```
+.. code-block:: bash
+
+   python aricheck.py /path/to/bids/directory
+
 
 **Ignore DWI Parameter Mismatches:**
-```bash
-python aricheck.py --ignoredwi /path/to/bids/directory
-```
+.. code-block:: bash
+
+   python aricheck.py --ignoredwi /path/to/bids/directory
+
 
 **XNAT Interface:**
 

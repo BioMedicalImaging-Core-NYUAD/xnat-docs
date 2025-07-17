@@ -42,10 +42,10 @@ Output Structure
 ----------------
 
 **Generated Files:**
-- `*.nii.gz` - NIfTI image files
-- `*.json` - Metadata sidecar files
-- `conversion_report.txt` - Conversion log
-- `validation_summary.html` - Quality control report
+- ``*.nii.gz`` - NIfTI image files
+- ``*.json`` - Metadata sidecar files
+- ``conversion_report.txt`` - Conversion log
+- ``validation_summary.html`` - Quality control report
 
 **File Organization:**
 - Files organized by scan type and sequence

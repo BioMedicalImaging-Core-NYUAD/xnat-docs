@@ -660,13 +660,15 @@ XNAT provides a RESTful API for programmatic access to data and functionality:
 - **PUT /projects/{project}/experiments/{ID}/resources/{resource}/files:** Upload files
 
 **Example Python Usage:**
-```python
-import requests
 
-# Using alias token
-headers = {'Authorization': 'alias_token_here'}
-response = requests.get('https://xnat.abudhabi.nyu.edu/xapi/projects', headers=headers)
-```
+.. code-block:: python
+
+   import requests
+
+   # Using alias token
+   headers = {'Authorization': 'alias_token_here'}
+   response = requests.get('https://xnat.abudhabi.nyu.edu/xapi/projects', headers=headers)
+
 
 **Available Libraries:**
 - **Python:** xnatpy library provides high-level interface

@@ -42,18 +42,18 @@ Setup Instructions
 
 **1. Environment Setup:**
 
-```bash
-# Install Miniconda (if not already installed)
-# Visit: https://docs.anaconda.com/miniconda/install/
+.. code-block:: bash
 
-# Create and activate environment
-conda create -n xnat-env python=3.9
-conda activate xnat-env
+   # Install Miniconda (if not already installed)
+   # Visit: https://docs.anaconda.com/miniconda/install/
 
-# Install required packages
-conda install pip
-pip install xnat
-```
+   # Create and activate environment
+   conda create -n xnat-env python=3.9
+   conda activate xnat-env
+
+   # Install required packages
+   conda install pip
+   pip install xnat
 
 **2. Authentication Setup:**
 
@@ -68,48 +68,53 @@ pip install xnat
 
 **3. Download Scripts:**
 
-```bash
-# Clone the repository
-git clone https://github.com/XNAT-NYUAD/template-scripts.git
-cd template-scripts
-```
+.. code-block:: bash
+
+   # Clone the repository
+   git clone https://github.com/XNAT-NYUAD/template-scripts.git
+   cd template-scripts
+
 
 Usage Examples
 --------------
 
 **List Available Projects:**
 
-```python
-python 1_list_projects.py
-```
+.. code-block:: python
+
+   python 1_list_projects.py
+
 
 **List Subjects in Project:**
 
-```python
-python 2_list_subjects.py
-# Follow prompts to specify project ID
-```
+.. code-block:: python
+
+   python 2_list_subjects.py
+   # Follow prompts to specify project ID
+
 
 **Download Single Scan:**
 
-```python
-python 3_download_single_scan.py
-# Follow prompts to specify:
-# - Project ID
-# - Subject ID
-# - Session ID
-# - Scan ID
-```
+.. code-block:: python
+
+   python 3_download_single_scan.py
+   # Follow prompts to specify:
+   # - Project ID
+   # - Subject ID
+   # - Session ID
+   # - Scan ID
+
 
 **Download Complete Session:**
 
-```python
-python 4_download_session.py
-# Follow prompts to specify:
-# - Project ID
-# - Subject ID
-# - Session ID
-```
+.. code-block:: python
+
+   python 4_download_session.py
+   # Follow prompts to specify:
+   # - Project ID
+   # - Subject ID
+   # - Session ID
+
 
 Customization
 -------------

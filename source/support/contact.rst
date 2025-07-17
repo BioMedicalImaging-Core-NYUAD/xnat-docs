@@ -107,7 +107,7 @@ Support Request Examples
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Good Example:**
-```
+
 Subject: Cannot upload DICOM files - validation error
 
 Hello,
@@ -130,14 +130,14 @@ Project: XYZ-2023-001
 Screenshots attached.
 
 Thanks for your help!
-```
+
 
 **Poor Example:**
-```
+
 Subject: Help!
 
 XNAT is broken and I can't upload anything. Please fix it ASAP.
-```
+
 
 Emergency Contact
 -----------------
