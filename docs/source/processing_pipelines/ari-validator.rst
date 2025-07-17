@@ -91,7 +91,55 @@ Output and Reports
 - IntendedFor field validation
 - DWI parameter matching results
 
-[PLACEHOLDER - Example validation report]
+Data Validation Dashboard
+-------------------------
+
+.. note::
+   This dashboard is automatically updated when the ARI validation pipeline runs.
+   The dashboard will be populated with real-time validation data from your project.
+
+Project Validation Status
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. raw:: html
+
+   <div style="display: flex; flex-wrap: wrap; gap: 20px; margin: 20px 0;">
+     <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #28a745;">
+       <h4 style="margin: 0 0 10px 0; color: #28a745;">✅ Validation Summary</h4>
+       <p style="margin: 5px 0;"><strong>Status:</strong> Dashboard will show live data</p>
+       <p style="margin: 5px 0;"><strong>Total Subjects:</strong> Automatically updated</p>
+       <p style="margin: 5px 0;"><strong>Pass Rate:</strong> Real-time calculation</p>
+     </div>
+     <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #17a2b8;">
+       <h4 style="margin: 0 0 10px 0; color: #17a2b8;">📊 Live Dashboard Features</h4>
+       <p style="margin: 5px 0;">• Real-time validation statistics</p>
+       <p style="margin: 5px 0;">• Subject-by-subject results table</p>
+       <p style="margin: 5px 0;">• Downloadable detailed reports</p>
+       <p style="margin: 5px 0;">• Automatic updates on pipeline runs</p>
+     </div>
+   </div>
+
+How the Dashboard Works
+~~~~~~~~~~~~~~~~~~~~~~~
+
+The dashboard automatically updates when:
+
+1. **ARI Validation Pipeline Runs**: Each time validation is executed
+2. **GitHub Action Triggers**: Manual or automated workflow execution
+3. **Data Processing**: CSV data is processed and formatted for display
+4. **Documentation Updates**: ReadTheDocs rebuilds with new content
+
+**Dashboard Components:**
+
+- **Summary Statistics**: Overall pass/fail rates and issue counts
+- **Results Table**: Subject-by-subject validation status
+- **Detailed Reports**: Downloadable CSV with full validation details
+- **Version Tracking**: DWI and ASL version distribution
+- **Issue Breakdown**: Categorized validation failures
+
+**Data Sources:**
+The dashboard pulls data from validation files located at:
+``/Volumes/CTP-XNAT/xnat-main/xnat-data/archive/rokerslab_ari-hfs_2024_001/*/RESOURCES/ari-validation/``
 
 Troubleshooting
 ---------------
