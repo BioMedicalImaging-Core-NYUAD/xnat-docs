@@ -31,8 +31,8 @@ def update_documentation():
         dashboard = f.read()
     
     # Replace the dashboard section
-    # Look for the existing dashboard section and replace it
-    pattern = r'(Data Validation Dashboard\s*-------------------------.*?)(?=\n\n\w+\s*[-=]+|\Z)'
+    # Look for the existing dashboard section and replace it completely
+    pattern = r'Data Validation Dashboard\s*-------------------------.*?(?=\n\n[A-Z]|\nTroubleshooting|\Z)'
     
     if re.search(pattern, content, re.DOTALL):
         # Replace existing dashboard section
@@ -40,9 +40,9 @@ def update_documentation():
         print("Updated existing dashboard section")
     else:
         # If no dashboard section found, add before 'Troubleshooting'
-        pattern = r'(\n\nTroubleshooting\s*[-=]+)'
+        pattern = r'(\nTroubleshooting\s*[-=]+)'
         if re.search(pattern, content):
-            updated_content = re.sub(pattern, f'\n\n{dashboard.strip()}\\1', content, flags=re.DOTALL)
+            updated_content = re.sub(pattern, f'\n{dashboard.strip()}\\1', content, flags=re.DOTALL)
             print("Added new dashboard section before Troubleshooting")
         else:
             # If no Troubleshooting section, add at the end
