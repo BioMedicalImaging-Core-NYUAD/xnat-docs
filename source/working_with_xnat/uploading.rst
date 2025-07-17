@@ -230,7 +230,7 @@ See Also
 
 - :doc:`navigation` - For general XNAT navigation
 - :doc:`project_management` - For project administration
-- :doc:`../understanding_data/dicom` - For DICOM data specifics
+- Learn about DICOM format from the `official DICOM documentation <https://www.dicomstandard.org/>`_
 - :doc:`../support/troubleshooting` - For additional troubleshooting
 
 Next Steps
