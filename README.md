@@ -2,7 +2,4 @@ XNAT-NYUAD Documentation repo
 =============================
 
 
-NA
-
-
-
+Test2
