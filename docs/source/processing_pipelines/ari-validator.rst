@@ -96,21 +96,6 @@ Data Validation Dashboard
 
 .. note::
    This dashboard is automatically updated when the ARI validation pipeline runs.
-   Dashboard will be populated with real-time data when the GitHub Action executes.
-
-*Dashboard content will be automatically generated and inserted here by the GitHub Action workflow.*
-
-To update the dashboard with current validation data:
-
-1. **Run the GitHub Action** → Go to the Actions tab in your repository
-2. **Click "Generate ARI Dashboard"** → Run the workflow manually
-3. **Dashboard Updates** → The content below will be replaced with current data
-4. **ReadTheDocs Rebuilds** → Live documentation will show updated results
-
-**Expected Dashboard Content:**
-- Summary statistics (total subjects, pass rate, common issues)
-- Validation results table with the columns you specified
-- Download link for complete CSV data
 
 Troubleshooting
 ---------------
