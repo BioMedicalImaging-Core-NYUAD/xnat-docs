@@ -38,7 +38,7 @@ For general instructions on running pipelines, see: :doc:`../working_with_xnat/r
 Next Steps
 ----------
 
-- Learn about :doc:`../understanding_data/hcp` format
+- Learn about HCP format from the `Human Connectome Project documentation <https://www.humanconnectome.org/>`_
 - Explore :doc:`dcm2bids` as an alternative for current use
-- See :doc:`../understanding_data/relationships` for format comparisons
+- Compare with :doc:`../understanding_data/bids` for data format information
 - Contact support for development timeline updates

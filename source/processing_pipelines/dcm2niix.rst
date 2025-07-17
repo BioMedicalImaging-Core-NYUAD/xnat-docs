@@ -71,4 +71,4 @@ Next Steps
 - Organize converted NIfTI files using :doc:`dcm2bids`
 - Run quality control with :doc:`ari-validator`
 - Proceed with preprocessing pipelines
-- Learn about :doc:`../understanding_data/nifti` format
+- Learn about NIfTI format from the `official NIfTI documentation <https://nifti.nimh.nih.gov/>`_

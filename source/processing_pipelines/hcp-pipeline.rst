@@ -56,7 +56,7 @@ While the HCP pipeline is under development, consider these alternatives:
 Next Steps
 ----------
 
-- Learn about :doc:`../understanding_data/hcp` format
+- Learn about HCP format from the `Human Connectome Project documentation <https://www.humanconnectome.org/>`_
 - Explore :doc:`fmriprep` for current fMRI preprocessing
-- See :doc:`../understanding_data/relationships` for format comparisons
+- Compare with :doc:`../understanding_data/bids` for data format information
 - Contact support for development timeline updates

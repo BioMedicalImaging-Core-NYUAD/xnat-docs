@@ -149,7 +149,9 @@ How do I upload large datasets?
 For large datasets, use these strategies to ensure successful uploads:
 
 **Recommended Upload Methods:**
+
 1. **XNAT Desktop Client** - Best for datasets > 1GB
+
    - Supports resume functionality
    - Better progress monitoring
    - See :doc:`../working_with_xnat/install_desktop_client`
@@ -188,7 +190,9 @@ Download failures can occur for several reasons. Here are common issues and solu
 - **Server Load:** High server usage can cause slow or failed downloads
 
 **Solutions by Download Method:**
+
 1. **Browser Downloads:**
+
    - Try smaller file selections
    - Use "Save As" instead of direct opening
    - Clear browser cache and cookies

@@ -119,6 +119,6 @@ Next Steps
 
 - Quality check tractography results
 - Use bundle metrics for statistical analysis
-- Learn about :doc:`../understanding_data/tractography` concepts
+- Learn about tractography concepts from neuroimaging literature
 - See :doc:`../data_download/browser` for accessing tractography data
-- Consider integration with :doc:`qsiprep-jubail` preprocessing
+- Consider integration with diffusion preprocessing pipelines

@@ -69,6 +69,7 @@ Initial Setup
 2. Click "Settings" (gear icon) in the upper right corner
 3. Navigate to server connections
 4. Add your XNAT server:
+
    - **Server URL**: ``xnat.abudhabi.nyu.edu``
    - **Username**: Your XNAT alias (get from browser: click your name → copy alias)
    - **Password**: Secret key (get from browser: click your name → copy secret)

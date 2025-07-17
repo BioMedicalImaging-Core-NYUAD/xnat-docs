@@ -109,6 +109,6 @@ Next Steps
 ----------
 
 - Fix any validation errors identified
-- Proceed with preprocessing using :doc:`fmriprep` or :doc:`qsiprep-jubail`
+- Proceed with preprocessing using :doc:`fmriprep` or :doc:`tractoflow`
 - Learn about :doc:`../understanding_data/bids` format requirements
 - See :doc:`../data_download/browser` for accessing validated data
