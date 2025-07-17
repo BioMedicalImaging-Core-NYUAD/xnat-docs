@@ -142,7 +142,7 @@ Validation Results Table
    - **Version**: Version 1 (Deprecated) or Version 2 (Latest)
 
 Download Complete Data
-~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
 
 For detailed validation information including specific file names and parameters:
 
