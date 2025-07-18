@@ -2,8 +2,8 @@ name: Generate ARI Dashboard
 
 on:
   schedule:
-    # Run daily at 9:00 AM UTC
-    - cron: '0 9 * * *'
+    # Run daily at 9:00 AM Abu Dhabi time (5:00 AM UTC)
+    - cron: '0 5 * * *'
   workflow_dispatch:
     inputs:
       description:
