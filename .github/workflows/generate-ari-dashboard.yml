@@ -1,6 +1,9 @@
 name: Generate ARI Dashboard
 
 on:
+  schedule:
+    # Run daily at 9:00 AM UTC
+    - cron: '0 9 * * *'
   workflow_dispatch:
     inputs:
       description:
@@ -80,8 +83,13 @@ jobs:
         echo "Generated on: $(date)" > dashboard_timestamp.txt
         echo "Triggered by: ${{ github.actor }}" >> dashboard_timestamp.txt
         echo "Run ID: ${{ github.run_id }}" >> dashboard_timestamp.txt
-        if [ -n "${{ inputs.description }}" ]; then
+        echo "Event: ${{ github.event_name }}" >> dashboard_timestamp.txt
+        if [ "${{ github.event_name }}" = "schedule" ]; then
+          echo "Trigger: Scheduled daily run" >> dashboard_timestamp.txt
+        elif [ -n "${{ inputs.description }}" ]; then
           echo "Description: ${{ inputs.description }}" >> dashboard_timestamp.txt
+        else
+          echo "Trigger: Manual run" >> dashboard_timestamp.txt
         fi
         
     - name: Check for changes
@@ -106,7 +114,11 @@ jobs:
     - name: Commit and push changes
       if: steps.check_changes.outputs.changes == 'true'
       run: |
-        git commit -m "Update ARI dashboard data and documentation - $(date '+%Y-%m-%d %H:%M:%S')"
+        if [ "${{ github.event_name }}" = "schedule" ]; then
+          git commit -m "📊 Daily ARI dashboard update - $(date '+%Y-%m-%d %H:%M:%S')"
+        else
+          git commit -m "Update ARI dashboard data and documentation - $(date '+%Y-%m-%d %H:%M:%S')"
+        fi
         git push origin ${{ github.ref_name }}
         
     - name: Upload dashboard as artifact
