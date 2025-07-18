@@ -4,7 +4,7 @@ Data Validation Dashboard
 
 .. note::
    This dashboard is automatically updated when the ARI validation pipeline runs.
-   Last updated: 2025-07-17 18:20:23 UTC
+   Last updated: 2025-07-17 18:45:35 UTC
 
 Quick Summary
 ~~~~~~~~~~~~~
@@ -24,9 +24,9 @@ Validation Results Table
 | sub-0097   | HAS ISSUE  | CORRECT       | CORRECT     | CORRECT         | INCORRECT       | CORRECT     | INCORRECT      | VERSION 1 (DEPRECATED  | VERSION 2 (LATEST)     |
 | sub-0161   | HAS ISSUE  | CORRECT       | CORRECT     | CORRECT         | CORRECT         | CORRECT     | INCORRECT      | VERSION 1 (DEPRECATED  | VERSION 1 (DEPRECATED  |
 | sub-0183   | HAS ISSUE  | CORRECT       | CORRECT     | CORRECT         | CORRECT         | CORRECT     | INCORRECT      | VERSION 1 (DEPRECATED  | VERSION 1 (DEPRECATED  |
+| sub-0200   | HAS ISSUE  | INCORRECT     | CORRECT     | CORRECT         | INCORRECT       | INCORRECT   | INCORRECT      | UNKNOWN                | UNKNOWN                |
+| sub-0200   | HAS ISSUE  | INCORRECT     | CORRECT     | CORRECT         | INCORRECT       | INCORRECT   | INCORRECT      | UNKNOWN                | UNKNOWN                |
 | sub-0200   | Unknown    | CORRECT       | CORRECT     | CORRECT         | CORRECT         | CORRECT     | CORRECT        | UNKNOWN                | UNKNOWN                |
-| sub-0200   | HAS ISSUE  | INCORRECT     | CORRECT     | CORRECT         | INCORRECT       | INCORRECT   | INCORRECT      | UNKNOWN                | UNKNOWN                |
-| sub-0200   | HAS ISSUE  | INCORRECT     | CORRECT     | CORRECT         | INCORRECT       | INCORRECT   | INCORRECT      | UNKNOWN                | UNKNOWN                |
 | sub-0200   | HAS ISSUE  | INCORRECT     | CORRECT     | CORRECT         | INCORRECT       | INCORRECT   | INCORRECT      | UNKNOWN                | UNKNOWN                |
 | sub-0201   | HAS ISSUE  | CORRECT       | CORRECT     | CORRECT         | CORRECT         | CORRECT     | INCORRECT      | VERSION 1 (DEPRECATED  | VERSION 1 (DEPRECATED  |
 | sub-0203   | HAS ISSUE  | CORRECT       | CORRECT     | CORRECT         | CORRECT         | CORRECT     | INCORRECT      | VERSION 1 (DEPRECATED  | VERSION 1 (DEPRECATED  |
