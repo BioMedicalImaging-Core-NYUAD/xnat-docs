@@ -4,7 +4,7 @@ Data Validation Dashboard
 
 .. note::
    This dashboard is automatically updated when the ARI validation pipeline runs.
-   Last updated: 2025-07-18 18:12:35 UTC
+   Last updated: 2025-07-18 18:59:45 UTC
 
 Quick Summary
 ~~~~~~~~~~~~~
@@ -37,7 +37,7 @@ Validation Results Table
 | sub-0255   | HAS ISSUES          | INCORRECT     | INCORRECT   | INCORRECT       | CORRECT         | CORRECT     | INCORRECT      | UNKNOWN         | UNKNOWN         |
 | sub-0261   | HAS ISSUES          | INCORRECT     | INCORRECT   | INCORRECT       | CORRECT         | INCORRECT   | INCORRECT      | UNKNOWN         | UNKNOWN         |
 | sub-0263   | PASSED              | CORRECT       | CORRECT     | CORRECT         | CORRECT         | CORRECT     | CORRECT        | v2 (LATEST)     | v2 (LATEST)     |
-| sub-0285   | Validation Outdate  | CORRECT       | CORRECT     | CORRECT         | CORRECT         | CORRECT     | CORRECT        | UNKNOWN         | UNKNOWN         |
+| sub-0285   | Validation Outdate  | nan           | nan         | nan             | nan             | nan         | nan            | nan             | nan             |
 | sub-0286   | PASSED              | CORRECT       | CORRECT     | CORRECT         | CORRECT         | CORRECT     | CORRECT        | v2 (LATEST)     | v2 (LATEST)     |
 | sub-0302   | PASSED              | CORRECT       | CORRECT     | CORRECT         | CORRECT         | CORRECT     | CORRECT        | v2 (LATEST)     | v2 (LATEST)     |
 | sub-0303   | HAS ISSUES          | CORRECT       | CORRECT     | CORRECT         | CORRECT         | CORRECT     | INCORRECT      | v1 (DEPRECATED  | v1 (DEPRECATED  |
