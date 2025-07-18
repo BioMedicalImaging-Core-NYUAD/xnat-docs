@@ -137,5 +137,5 @@ After gaining access to XNAT:
 
 - Explore :doc:`navigation` to learn the XNAT interface
 - Set up :doc:`install_desktop_client` for bulk downloads
-- Learn about :doc:`../data_download/overview` methods
+- Learn about :doc:`../data_download/browser` methods
 - Review :doc:`../processing_pipelines/overview` for data analysis
