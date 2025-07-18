@@ -114,7 +114,7 @@ The table below shows a summary of validation results for all subjects. The tabl
 
    <div class="dashboard-container" style="max-height: 400px; overflow-y: auto; border: 1px solid #ddd; margin: 20px 0; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
      <table class="dashboard-table" style="width: 100%; border-collapse: collapse; font-size: 0.9em;">
-       <thead style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; position: sticky; top: 0; z-index: 10;">
+       <thead style="background: linear-gradient(135deg, #6c757d 0%, #495057 100%); color: white; position: sticky; top: 0; z-index: 10;">
          <tr>
            <th style="padding: 12px 8px; border: 1px solid #ddd; text-align: left; font-weight: 600;">Subject ID</th>
            <th style="padding: 12px 8px; border: 1px solid #ddd; text-align: left; font-weight: 600;">Status</th>
