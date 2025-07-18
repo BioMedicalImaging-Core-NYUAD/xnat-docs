@@ -1,165 +1,151 @@
 Download via Python
 ===================
 
-Automated data download using Python scripts from the XNAT-NYUAD template-scripts repository.
+Automated data download using Python scripts from the XNAT template-scripts repository.
 
 Overview
 --------
 
-Python scripts provide:
-- Automated, programmatic data access
-- Batch download capabilities
-- Integration with analysis workflows
-- Reproducible download procedures
+Python scripts provide automated, programmatic data access with batch download capabilities and integration with analysis workflows.
 
 Available Scripts
 -----------------
 
-The template-scripts repository (https://github.com/XNAT-NYUAD/template-scripts) provides four main scripts:
+Four main Python scripts are available for different download tasks:
 
-**1. List Projects** (`1_list_projects.py`)
-- Lists all accessible projects on XNAT
-- Useful for discovering available data
-- Returns project IDs and descriptions
+**1. List Projects** (``1_list_projects.py``)
+   Lists all accessible projects on XNAT with IDs, names, and descriptions.
 
-**2. List Subjects** (`2_list_subjects.py`)
-- Lists all subjects in a specific project
-- Shows subject IDs and metadata
-- Helps plan download strategies
+**2. List Subjects** (``2_list_subjects.py``)
+   Shows detailed information for subjects in a project, including sessions, scans, and metadata.
 
-**3. Download Single Scan** (`3_download_single_scan.py`)
-- Downloads a specific scan from XNAT
-- Precise control over what gets downloaded
-- Good for selective data retrieval
+**3. Download Single Scan** (``3_download_single_scan.py``)
+   Downloads DICOM files from a specific scan with precise control over selection.
 
-**4. Download Session** (`4_download_session.py`)
-- Downloads an entire session with all scans
-- Comprehensive data retrieval
-- Maintains session organization
+**4. Download Session** (``4_download_session.py``)
+   Downloads all scans from a session, with optional filtering by scan type.
 
 Setup Instructions
 ------------------
 
-**1. Environment Setup:**
+**1. Environment Setup**
 
 .. code-block:: bash
 
-   # Install Miniconda (if not already installed)
-   # Visit: https://docs.anaconda.com/miniconda/install/
-
-   # Create and activate environment
+   # Create conda environment
    conda create -n xnat-env python=3.9
    conda activate xnat-env
-
-   # Install required packages
-   conda install pip
    pip install xnat
 
-**2. Authentication Setup:**
-
-1. Create API token in XNAT web interface:
-   - Go to `<your name>` → `Manage Alias Tokens`
-   - Create new token
-   - Copy 'alias' and 'secret'
-
-2. Configure each script with your credentials:
-   - Edit `DEFAULT_TOKEN` variable with your alias
-   - Edit `DEFAULT_SECRET` variable with your secret
-
-**3. Download Scripts:**
+**2. Get Template Scripts**
 
 .. code-block:: bash
 
-   # Clone the repository
    git clone https://github.com/XNAT-NYUAD/template-scripts.git
    cd template-scripts
 
+**3. Configure Authentication**
+
+1. Create API token in XNAT:
+   - Go to your profile → "Manage Alias Tokens"
+   - Click "Create New Token"
+   - Copy the alias and secret values
+
+2. Edit each script file and replace:
+   - ``TOKEN_USER = "<paste your token alias here>"``
+   - ``TOKEN_SECRET = "<paste your token secret here>"``
 
 Usage Examples
 --------------
 
-**List Available Projects:**
+**List Available Projects**
 
-.. code-block:: python
+.. code-block:: bash
 
    python 1_list_projects.py
 
+**Examine Subject Details**
 
-**List Subjects in Project:**
+.. code-block:: bash
 
-.. code-block:: python
-
+   # Show first subject in project
    python 2_list_subjects.py
-   # Follow prompts to specify project ID
+   
+   # Show specific subject
+   python 2_list_subjects.py --subject sub-001
 
+**Download Single Scan**
 
-**Download Single Scan:**
+.. code-block:: bash
 
-.. code-block:: python
-
+   # Download first scan (uses default project)
    python 3_download_single_scan.py
-   # Follow prompts to specify:
-   # - Project ID
-   # - Subject ID
-   # - Session ID
-   # - Scan ID
+   
+   # Download specific scan
+   python 3_download_single_scan.py --subject sub-001 --session ses-01 --scan 1
 
+**Download Complete Session**
 
-**Download Complete Session:**
+.. code-block:: bash
 
-.. code-block:: python
+   # Download all scans
+   python 4_download_session.py --subject sub-001 --session ses-01
+   
+   # Download only T1 and T2 scans
+   python 4_download_session.py --subject sub-001 --session ses-01 --scan-types T1 T2
 
-   python 4_download_session.py
-   # Follow prompts to specify:
-   # - Project ID
-   # - Subject ID
-   # - Session ID
+Script Configuration
+--------------------
 
+Each script contains these configurable parameters:
 
-Customization
--------------
+- ``XNAT_SERVER``: Server URL (default: https://xnat.abudhabi.nyu.edu)
+- ``TOKEN_USER``: Your API token alias
+- ``TOKEN_SECRET``: Your API token secret
+- ``PROJECT_ID``: Default project (default: rokerslab_ari-clean)
 
-[PLACEHOLDER - How to modify scripts for specific needs]
+Output Structure
+----------------
 
-[PLACEHOLDER - Adding custom filtering and selection]
+Downloaded files are organized as:
 
-[PLACEHOLDER - Integrating with analysis pipelines]
+.. code-block:: text
 
-Best Practices
---------------
+   downloaded_data/
+   ├── scan-1_T1/          # Single scan downloads
+   │   ├── file1.dcm
+   │   └── file2.dcm
+   └── session-ses-01/     # Session downloads
+       ├── scan-1_T1/
+       ├── scan-2_T2/
+       └── scan-3_func/
 
-**Security:**
+Security Best Practices
+-----------------------
+
 - Never commit API tokens to version control
-- Use environment variables for sensitive data
 - Regularly rotate API tokens
-
-**Performance:**
-- Test with small datasets first
-- Use parallel downloads for large datasets
-- Monitor network usage and server load
-
-**Organization:**
-- Plan your download directory structure
-- Use consistent naming conventions
-- Document your download procedures
+- Use project-specific tokens when possible
+- Store tokens in environment variables for production use
 
 Troubleshooting
 ---------------
 
-**Common Issues:**
-- [PLACEHOLDER - Authentication errors]
-- [PLACEHOLDER - Network timeout problems]
-- [PLACEHOLDER - Permission denied errors]
+**Authentication Errors**
+   Verify your API token is correct and hasn't expired. Create a new token if needed.
 
-**Error Resolution:**
-- [PLACEHOLDER - How to debug script issues]
-- [PLACEHOLDER - Checking API token validity]
-- [PLACEHOLDER - Network connectivity testing]
+**Project Not Found**
+   Check project ID spelling and ensure you have access permissions.
+
+**No Scans Found**
+   Verify subject/session IDs exist and contain DICOM data.
+
+**Download Failures**
+   Check network connectivity and ensure sufficient disk space.
 
 Next Steps
 ----------
 
-- Learn about :doc:`../understanding_data/overview` to understand downloaded data formats
-- See :doc:`../processing_pipelines/overview` for processing downloaded data
-- Explore :doc:`matlab_scripts` for MATLAB-based alternatives
-- Consider :doc:`desktop_client` for GUI-based downloads
+- Learn about :doc:`../understanding_data/bids` for data organization
+- See :doc:`../processing_pipelines/overview` for processing pipelines
+- Try :doc:`matlab_scripts` for MATLAB-based downloads

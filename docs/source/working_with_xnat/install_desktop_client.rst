@@ -4,6 +4,7 @@ Install XNAT Desktop Client
 The XNAT Desktop Client (also called "Data Transfer Manager" or DXM) is a robust desktop application for downloading imaging data from XNAT servers. It's particularly valuable for downloading large datasets reliably with pause, resume, and cancel capabilities.
 
 **Key Advantages:**
+
 - **Bulk download reliability** - handles large datasets that might fail with browser downloads
 - **Transfer management** - pause, resume, and cancel downloads as needed
 - **Background processing** - downloads continue even if you close your browser
@@ -38,11 +39,13 @@ Linux Installation
 Linux installation requires additional setup steps. For detailed instructions, see the `official Linux installation guide <https://wiki.xnat.org/xnat-tools/installing-the-xnat-desktop-client>`_.
 
 **Requirements:**
+
 - Compatible JRE (Java Runtime Environment)
 - C++ ABI version 1.3.9 support
 - Supported distributions: Ubuntu 18.04+, CentOS 8
 
 **Basic Steps:**
+
 1. Verify system requirements
 2. Install Java 8 JRE
 3. Download .AppImage file
@@ -52,11 +55,13 @@ System Requirements
 -------------------
 
 **General:**
+
 - Compatible with Mac, Windows, and Linux
 - Recommended for native (non-virtualized) systems
 - Network access to your XNAT server
 
 **Linux Specific:**
+
 - Java 8 JRE
 - C++ ABI version 1.3.9 support
 - Note: RHEL/CentOS 7.x and Fedora 19 (and earlier) are not supported
@@ -65,6 +70,7 @@ Initial Setup
 -------------
 
 **Server Connection:**
+
 1. Launch the XNAT Desktop Client
 2. Click "Settings" (gear icon) in the upper right corner
 3. Navigate to server connections
@@ -73,9 +79,6 @@ Initial Setup
    - **Server URL**: ``xnat.abudhabi.nyu.edu``
    - **Username**: Your XNAT alias (get from browser: click your name → copy alias)
    - **Password**: Secret key (get from browser: click your name → copy secret)
-
-.. note::
-   The Desktop Client uses secure tokens rather than passwords and never saves XNAT account passwords. You'll need to reauthenticate each session.
 
 **Default Download Location:**
 Set a default download location in Application Settings to avoid selecting a folder each time.
@@ -93,15 +96,18 @@ Troubleshooting
 ---------------
 
 **Security Warnings (macOS):**
+
 - Open System Preferences > Security > General
 - Allow the application when prompted
 
 **Connection Issues:**
+
 - Verify server URL is correct: ``xnat.abudhabi.nyu.edu``
 - Ensure you're using alias/secret from XNAT web interface
 - Check network connectivity to XNAT server
 
 **Linux Installation Issues:**
+
 - Verify Java 8 JRE is properly installed
 - Check C++ ABI compatibility
 - Consult the `official Linux guide <https://wiki.xnat.org/xnat-tools/installing-the-xnat-desktop-client>`_

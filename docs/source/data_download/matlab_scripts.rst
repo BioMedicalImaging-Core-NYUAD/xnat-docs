@@ -1,152 +1,200 @@
 Download via MATLAB
 ===================
 
-This guide covers using MATLAB scripts to download data from XNAT programmatically.
+MATLAB scripts for downloading data from XNAT, integrating seamlessly with MATLAB analysis workflows.
 
 Overview
 --------
 
-MATLAB scripts provide a powerful way to download data from XNAT within the MATLAB environment. This method is particularly useful for:
+MATLAB scripts provide automated data download capabilities within the MATLAB environment, ideal for researchers who work primarily in MATLAB and want to integrate data retrieval with their analysis pipelines.
 
-- Researchers already working in MATLAB
-- Integration with existing MATLAB workflows
-- Custom data processing pipelines
-- Batch operations within MATLAB
+Available Scripts
+-----------------
 
-Prerequisites
--------------
+The ``matlab-example`` folder contains three main MATLAB scripts:
 
-- MATLAB installed on your system
-- Network access to the XNAT server
-- Valid XNAT credentials
-- Basic MATLAB programming knowledge
+**1. Environment Setup** (``setup_xnat_env.m``)
+   Creates and configures a conda environment with required Python packages.
 
-Getting Started
----------------
+**2. Download Function** (``downloadXNAT.m``)
+   Main download function that handles DICOM files and session resources.
 
-Example Scripts
-~~~~~~~~~~~~~~~
+**3. Example Usage** (``run_download.m``)
+   Demonstrates configuration and usage patterns.
 
-The ``matlab-example`` folder in the template-scripts repository contains several example scripts:
+Setup Instructions
+------------------
 
-- ``downloadXNAT.m`` - Main download function
-- ``run_download.m`` - Example usage script
-- ``setup_xnat_env.m`` - Environment setup script
-- ``session-download-v1.py`` - Python helper script
-- ``session-resources-v1.py`` - Resource listing script
+**1. Prerequisites**
 
-[PLACEHOLDER: Add detailed description of each script's purpose and usage]
+- MATLAB installed
+- Miniconda or Anaconda installed
+- Network access to XNAT server
 
-Installation and Setup
-----------------------
+**2. Get Template Scripts**
 
-Environment Setup
-~~~~~~~~~~~~~~~~~
+.. code-block:: bash
 
-[PLACEHOLDER: Instructions for setting up the MATLAB environment]
+   git clone https://github.com/XNAT-NYUAD/template-scripts.git
+   cd template-scripts/matlab-example
 
-1. Add the matlab-example folder to your MATLAB path
-2. Configure server connection settings
-3. Set up authentication credentials
+**3. Environment Setup**
 
-Dependencies
-~~~~~~~~~~~~
+Run this once to create the Python environment:
 
-[PLACEHOLDER: List any required MATLAB toolboxes or external dependencies]
+.. code-block:: matlab
+
+   setup_xnat_env;
+
+This creates a conda environment named ``xnat_env`` with required Python packages.
+
+**4. Configure Authentication**
+
+Edit ``run_download.m`` and update:
+
+.. code-block:: matlab
+
+   config.api_token_id = 'your_token_alias';
+   config.api_token_secret = 'your_token_secret';
+   config.project_id = 'your_project_id';
 
 Basic Usage
 -----------
 
-Simple Download
-~~~~~~~~~~~~~~~
-
-[PLACEHOLDER: Basic example of downloading a single session]
+**Download DICOM Files**
 
 .. code-block:: matlab
 
-   % Example usage (to be filled with actual code)
-   % setup_xnat_env;
-   % [PLACEHOLDER: Add actual function calls]
+   % Configure XNAT connection
+   config = struct();
+   config.server_url = 'https://xnat.abudhabi.nyu.edu/';
+   config.api_token_id = 'your_alias';
+   config.api_token_secret = 'your_secret';
+   config.project_id = 'your_project';
+   
+   % Download specific subject/session
+   status = downloadXNAT('config', config, ...
+                        'subjects', {'sub-001'}, ...
+                        'sessions', {'ses-01'});
 
-Batch Downloads
-~~~~~~~~~~~~~~~
+**Download Session Resources**
 
-[PLACEHOLDER: Instructions for downloading multiple sessions]
+.. code-block:: matlab
 
-Advanced Usage
---------------
+   % Download processed data (e.g., 'rawdata' folder)
+   status = downloadXNAT('config', config, ...
+                        'subjects', {'sub-001'}, ...
+                        'sessions', {'ses-01'}, ...
+                        'resource', 'rawdata');
 
-Custom Filtering
-~~~~~~~~~~~~~~~~
+**Test Mode**
 
-[PLACEHOLDER: Information about filtering data before download]
+.. code-block:: matlab
+
+   % Test connection without downloading
+   status = downloadXNAT('config', config, ...
+                        'test', true);
+
+Function Parameters
+-------------------
+
+The ``downloadXNAT`` function accepts these parameters:
+
+- ``config`` (required): Struct with server and authentication settings
+- ``subjects``: Cell array of subject IDs to download
+- ``sessions``: Cell array of session IDs to download  
+- ``resource``: Specific resource name (e.g., 'rawdata', 'BIDS')
+- ``test``: Boolean flag for test mode (no actual download)
+
+Output Structure
+----------------
+
+Downloads are organized in the script directory:
+
+.. code-block:: text
+
+   matlab-example/
+   ├── downloads/           # Downloaded data
+   │   ├── session-ses-01/
+   │   └── session-ses-02/
+   └── logs/               # Download logs
+       ├── download.log
+       └── download_complete
 
 Error Handling
-~~~~~~~~~~~~~~
+--------------
 
-[PLACEHOLDER: Best practices for error handling in MATLAB scripts]
+The scripts include comprehensive error handling:
 
-Integration with Processing
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-[PLACEHOLDER: Examples of integrating downloads with processing pipelines]
+- **Conda not found**: Install Miniconda or Anaconda
+- **Environment creation failed**: Check conda permissions
+- **Python package installation failed**: Verify internet connectivity
+- **Download failed**: Check authentication and project access
 
 Configuration Options
 ---------------------
 
-Server Settings
-~~~~~~~~~~~~~~~
+**Server Configuration**
 
-[PLACEHOLDER: Information about configuring server connections]
+.. code-block:: matlab
 
-Authentication
-~~~~~~~~~~~~~~
+   config.server_url = 'https://xnat.abudhabi.nyu.edu/';
+   config.api_token_id = 'your_alias';
+   config.api_token_secret = 'your_secret';
+   config.project_id = 'your_project';
 
-[PLACEHOLDER: Security considerations and authentication setup]
+**Download Options**
 
-Download Parameters
-~~~~~~~~~~~~~~~~~~~
+- Download entire sessions (DICOM files)
+- Download specific resources (processed data)
+- Test connections before downloading
+- Filter by subject and session IDs
 
-[PLACEHOLDER: Available parameters for customizing downloads]
+Integration with Workflows
+--------------------------
 
-- File format options
-- Compression settings
-- Metadata inclusion
+**Example Analysis Pipeline**
+
+.. code-block:: matlab
+
+   % 1. Download data
+   status = downloadXNAT('config', config, ...
+                        'subjects', {'sub-001'});
+   
+   % 2. Process downloaded data
+   if status == 0
+       dataPath = fullfile(pwd, 'downloads', 'session-ses-01');
+       % Add your analysis code here
+       dicomFiles = dir(fullfile(dataPath, '**', '*.dcm'));
+       % Process DICOM files...
+   end
+
+Security Best Practices
+-----------------------
+
+- Store API tokens securely, never in version control
+- Use project-specific tokens when possible
+- Regularly rotate API tokens
+- Test with limited data first
 
 Troubleshooting
 ---------------
 
-Common Issues
-~~~~~~~~~~~~~
+**Conda Environment Issues**
+   Run ``setup_xnat_env`` again or check conda installation.
 
-[PLACEHOLDER: Common MATLAB-specific issues and solutions]
+**Authentication Errors**
+   Verify API token alias and secret are correct and haven't expired.
 
-- Path configuration problems
-- Authentication failures
-- Network connectivity issues
+**Download Failures**
+   Check project access permissions and network connectivity.
 
-Performance Tips
-~~~~~~~~~~~~~~~~
-
-[PLACEHOLDER: Tips for optimizing MATLAB download performance]
-
-- Memory management
-- Parallel processing options
-- Large file handling
-
-See Also
---------
-
-- :doc:`python_scripts` - For Python-based downloads
-- :doc:`browser` - For web-based downloads
-- :doc:`../support/troubleshooting` - For additional troubleshooting
+**Python Environment Problems**
+   Ensure conda is properly installed and accessible from MATLAB.
 
 Next Steps
 ----------
 
-[PLACEHOLDER: Suggested next steps after setting up MATLAB downloads]
-
-- Integrate with existing MATLAB workflows
-- Explore custom processing pipelines
-- Set up automated download schedules
-- Develop custom analysis scripts
+- Learn about :doc:`../understanding_data/bids` for data organization
+- See :doc:`../processing_pipelines/overview` for analysis pipelines
+- Try :doc:`python_scripts` for Python-based alternatives
