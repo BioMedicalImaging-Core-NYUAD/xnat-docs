@@ -30,6 +30,8 @@ Navigating to Your Data
    :align: center
    :width: 680px
 
+--------------------------------
+
 Single File Download
 ~~~~~~~~~~~~~~~~~~~~
 
@@ -37,6 +39,9 @@ Single File Download
    :alt: browser single
    :align: center
    :width: 680px
+
+
+--------------------------------
 
 Session Download
 ~~~~~~~~~~~~~~~~
@@ -46,6 +51,8 @@ Session Download
    :align: center
    :width: 680px
 
+--------------------------------
+
 Bulk Download
 ~~~~~~~~~~~~~
 
@@ -53,6 +60,8 @@ Bulk Download
    :alt: browser bulk
    :align: center
    :width: 680px
+
+--------------------------------
 
 Troubleshooting
 ---------------

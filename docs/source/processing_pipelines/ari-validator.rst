@@ -112,7 +112,7 @@ Data Validation Dashboard
      })
      .catch(error => {
        console.error('Error loading validation summary:', error);
-       document.getElementById('validation-summary').innerHTML = 'The ARI validation pipeline has been run on subjects. The following dashboard shows the current status. This dashboard is updated daily at 3:00 AM Abu Dhabi time.';
+       document.getElementById('validation-summary').innerHTML = 'The ARI validation pipeline has been run on subjects. The following dashboard shows the current status. This dashboard is updated daily at 4:00 AM Abu Dhabi time.';
      });
    </script>
 
