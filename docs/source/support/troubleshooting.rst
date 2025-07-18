@@ -203,16 +203,10 @@ Display Problems
 
 **Diagnostic Steps:**
 
-[PLACEHOLDER: Display troubleshooting procedures]
-
 1. Check browser compatibility
 2. Clear browser cache
 3. Disable browser extensions
 4. Test with different browsers
-
-**Solutions:**
-
-[PLACEHOLDER: Display problem solutions]
 
 JavaScript Errors
 ~~~~~~~~~~~~~~~~~
@@ -224,16 +218,11 @@ JavaScript Errors
 
 **Diagnostic Steps:**
 
-[PLACEHOLDER: JavaScript troubleshooting]
-
 1. Enable JavaScript
 2. Check for script blockers
 3. Clear browser cache
 4. Test with minimal extensions
 
-**Solutions:**
-
-[PLACEHOLDER: JavaScript error solutions]
 
 Processing Pipeline Issues
 --------------------------
@@ -248,16 +237,11 @@ Pipeline Failures
 
 **Diagnostic Steps:**
 
-[PLACEHOLDER: Pipeline troubleshooting procedures]
-
 1. Check input data quality
 2. Verify pipeline parameters
 3. Review processing logs
 4. Check resource availability
 
-**Solutions:**
-
-[PLACEHOLDER: Pipeline problem solutions]
 
 Performance Issues
 ~~~~~~~~~~~~~~~~~~
@@ -269,16 +253,10 @@ Performance Issues
 
 **Diagnostic Steps:**
 
-[PLACEHOLDER: Performance troubleshooting]
-
 1. Check system resources
 2. Monitor processing queues
 3. Optimize parameters
 4. Schedule during off-peak times
-
-**Solutions:**
-
-[PLACEHOLDER: Performance solutions]
 
 API and Script Issues
 ---------------------
@@ -293,16 +271,10 @@ Authentication Problems
 
 **Diagnostic Steps:**
 
-[PLACEHOLDER: API troubleshooting procedures]
-
 1. Verify API credentials
 2. Check token validity
 3. Test authentication endpoints
 4. Review API documentation
-
-**Solutions:**
-
-[PLACEHOLDER: API authentication solutions]
 
 Script Errors
 ~~~~~~~~~~~~~
@@ -314,16 +286,10 @@ Script Errors
 
 **Diagnostic Steps:**
 
-[PLACEHOLDER: Script troubleshooting]
-
 1. Check script dependencies
 2. Verify API endpoints
 3. Test with simple examples
 4. Review error messages
-
-**Solutions:**
-
-[PLACEHOLDER: Script error solutions]
 
 System Performance
 ------------------
@@ -338,16 +304,11 @@ General Slowness
 
 **Diagnostic Steps:**
 
-[PLACEHOLDER: Performance troubleshooting procedures]
-
 1. Check network connectivity
 2. Clear browser cache
 3. Test at different times
 4. Check system resources
 
-**Solutions:**
-
-[PLACEHOLDER: Performance solutions]
 
 Memory Issues
 ~~~~~~~~~~~~~
@@ -359,16 +320,10 @@ Memory Issues
 
 **Diagnostic Steps:**
 
-[PLACEHOLDER: Memory troubleshooting]
-
 1. Check available memory
 2. Close unnecessary applications
 3. Use alternative browsers
 4. Process smaller datasets
-
-**Solutions:**
-
-[PLACEHOLDER: Memory solutions]
 
 Getting Help
 ------------
@@ -376,43 +331,20 @@ Getting Help
 Before Contacting Support
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-[PLACEHOLDER: Pre-support checklist]
-
 1. Try the solutions in this guide
 2. Check the FAQ section
 3. Gather error messages and logs
 4. Document steps to reproduce
-
-Contacting Support
-~~~~~~~~~~~~~~~~~~
-
-[PLACEHOLDER: Support contact procedures]
-
-- When to contact support
-- Information to include
-- Response time expectations
-
-Community Resources
-~~~~~~~~~~~~~~~~~~~
-
-[PLACEHOLDER: Community help resources]
-
-- User forums
-- Documentation wiki
-- Training materials
 
 See Also
 --------
 
 - :doc:`faq` - For frequently asked questions
 - :doc:`contact` - For support contact information
-- :doc:`../working_with_xnat/navigation` - For navigation basics
 - :doc:`../data_download/browser` - For download procedures
 
 Next Steps
 ----------
-
-[PLACEHOLDER: Next steps after troubleshooting]
 
 - Document successful solutions
 - Report persistent issues

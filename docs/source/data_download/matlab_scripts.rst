@@ -121,15 +121,6 @@ Downloads are organized in the script directory:
        ├── download.log
        └── download_complete
 
-Error Handling
---------------
-
-The scripts include comprehensive error handling:
-
-- **Conda not found**: Install Miniconda or Anaconda
-- **Environment creation failed**: Check conda permissions
-- **Python package installation failed**: Verify internet connectivity
-- **Download failed**: Check authentication and project access
 
 Configuration Options
 ---------------------
