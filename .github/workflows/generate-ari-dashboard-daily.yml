@@ -58,6 +58,11 @@ jobs:
         cp xnat_ari_dashboard.csv docs/source/_static/
         echo "Full CSV file copied to documentation static folder"
         
+    - name: Copy validation summary to documentation static folder
+      run: |
+        cp /home/mri/Documents/GitHub/ARIdashboard/validation_summary.txt docs/source/_static/
+        echo "Validation summary file copied to documentation static folder"
+        
     - name: Generate filtered CSV for display
       run: |
         python3 filter_dashboard_csv.py xnat_ari_dashboard.csv docs/source/_static/xnat_ari_dashboard_display.csv
@@ -107,6 +112,7 @@ jobs:
         path: |
           xnat_ari_dashboard.csv
           docs/source/_static/xnat_ari_dashboard_display.csv
+          docs/source/_static/validation_summary.txt
           dashboard_timestamp.txt
         retention-days: 30
         

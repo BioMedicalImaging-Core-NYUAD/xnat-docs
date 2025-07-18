@@ -18,16 +18,16 @@ def filter_dashboard_csv(input_file, output_file):
         output_file (str): Path to write the filtered CSV
     """
     
-    # Define the columns we want to display
+    # Define the columns we want to display (in requested order)
     display_columns = [
         'Subject_ID',
         'Overall_Status', 
-        'Missing_Files',
-        'Extra_Files',
-        'File_Properties',
         'Sbref_Direction',
         'IntendedFor',
         'DWI_Parameters',
+        'File_Properties',
+        'Missing_Files',
+        'Extra_Files',
         'DWI_Version',
         'ASL_Version'
     ]

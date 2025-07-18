@@ -3,112 +3,118 @@ ari-validator
 .. note::
    For step-by-step instructions on running any pipeline, see :doc:`../working_with_xnat/running_pipelines`. To enable pipelines for your project, see :doc:`../working_with_xnat/enabling_pipelines`.
 
-The ari-validator pipeline validates BIDS datasets for project ARI. 
-Similar pipelines can be created for your projects if you have specific requirements for your scans and want to have a way to validate your data before spending time on preprocessing. A dashboard is also provided to track the status of your data.
+The ari-validator pipeline validates ARI project datasets by checking BIDS and ARI-specific compliance, producing a detailed log file which can be used to track the status of your data.
 
-Features
---------
-
-- **BIDS Validation:** Ensures data adheres to BIDS standards
-- **ARI Compliance:** Specialized validation for ARI lab requirements
-- **Comprehensive Reporting:** Detailed validation logs and summaries
-- **Quality Control:** File integrity and parameter checking
-- **Integration:** Seamless integration with XNAT processing workflows
+Similar validation pipelines can be created for your projects if you have specific requirements for your scans and want to have a way to validate your data before spending time on preprocessing. 
 
 Validation Steps
 ----------------
 
-The validator performs these checks:
+1. **Sbref Phase Encoding:** Validates phase encoding directions of sbref scans. 
+2. **Fieldmap IntendedFor:** Ensures bold images are associated with the correct fieldmap.
+3. **DWI Parameter Matching:** Verifies diffusion parameter between DWI and reverse b0.
+4. **NIFTI Properties:** Checks image dimensions, TR, and other parameters
+5. **Required Files Presence:** Verifies all necessary files exist
+6. **Unexpected Extra Files:** Identifies files that shouldn't be present
+7. **Protocol Version:** Checks the version of of the protocol used for the DWI and ASL scans.
 
-1. **Required Files Presence:** Verifies all necessary files exist
-2. **Unexpected Extra Files:** Identifies files that shouldn't be present
-3. **NIFTI Properties:** Checks image dimensions, TR, and other parameters
-4. **Sbref Phase Encoding:** Validates phase encoding directions
-5. **Fieldmap IntendedFor:** Ensures proper fieldmap associations
-6. **DWI Parameter Matching:** Verifies diffusion parameter consistency
 
 Input Requirements
 ------------------
 
 **Required:**
-- BIDS-formatted dataset
-- Python 3 environment
-- FreeSurfer (mri_info command must be available)
+- :doc:`dcm2bids` must have been run on the data before running the ari-validator pipeline.
 
-**Supported Data Types:**
-- Structural MRI (T1w, T2w)
-- Functional MRI (task, resting-state)
-- Diffusion MRI (DWI)
-- Fieldmap data
+How to Launch the Pipeline
+--------------------------
+.. note::
+   For step-by-step instructions on running any pipeline, see :doc:`../working_with_xnat/running_pipelines`. To enable pipelines for your project, see :doc:`../working_with_xnat/enabling_pipelines`.
 
-How to Run
-----------
-
-**Basic Validation:**
-.. code-block:: bash
-
-   python aricheck.py /path/to/bids/directory
-
-
-**Ignore DWI Parameter Mismatches:**
-.. code-block:: bash
-
-   python aricheck.py --ignoredwi /path/to/bids/directory
-
-
-**XNAT Interface:**
-
-For general instructions on running pipelines, see: :doc:`../working_with_xnat/running_pipelines`
-
-**Pipeline-Specific Parameters:**
-- **BIDS Directory:** Path to BIDS dataset for validation
-- **Validation Mode:** Standard or strict compliance checking
-- **Ignore DWI:** Option to skip DWI parameter validation
-- **Output Location:** Where to save validation reports
 
 Output and Reports
 ------------------
 
 **Validation Log:**
-- Creates `ari_validation.log` in current directory
-- Returns 0 if validation passes, 1 if fails
-- Detailed summary of findings
+- Creates `ari-validation-details.txt` in session directory with detailed logs
 
-**Report Contents:**
-- Missing files summary
-- Extra files identification
-- NIFTI properties validation
-- Phase encoding direction checks
-- IntendedFor field validation
-- DWI parameter matching results
+.. raw:: html
+
+   <style>
+     /* overall container */
+     .two-col{
+       display: flex;
+       gap: 20px;              /* space between the two panes */
+       width: 680px;           /* total width as requested */
+       margin: 20px auto;      /* centre the whole block */
+     }
+
+     /* generic scrollable pane */
+     .scroll-box{
+       flex: 1 1 0;            /* grow & shrink evenly */
+       width: 340px;           /* each column 340px wide */
+       height: 300px;          /* height as requested */
+       overflow-y: auto;
+       border: 1px solid #ccc;
+       padding: 10px;
+       margin: 0;
+       background-color: #f8f9fa;
+       border-radius: 4px;
+       font-family: monospace;
+       font-size: 12px;
+       line-height: 1.4;
+     }
+     
+     .scroll-box h3 {
+       margin: 0 0 10px 0;
+       padding: 8px;
+       background-color: #e9ecef;
+       border-radius: 4px;
+       font-size: 14px;
+       font-weight: bold;
+       text-align: center;
+     }
+   </style>
+
+   <div class="two-col">
+     <div class="scroll-box">
+       <h3>Example log of valid data</h3>
+       <iframe src="../_static/3.5.ari-validation-details-good.txt" 
+               style="width: 100%; height: 250px; border: none; background: white;">
+       </iframe>
+     </div>
+     <div class="scroll-box">
+       <h3>Example log of data with issues</h3>
+       <iframe src="../_static/3.5.ari-validation-details-bad.txt" 
+               style="width: 100%; height: 250px; border: none; background: white;">
+       </iframe>
+     </div>
+   </div>
+
+*can you tell what is wrong with the data on the right?*
+
+
 
 Data Validation Dashboard
 -------------------------
 
-Download Complete Data
-~~~~~~~~~~~~~~~~~~~~~~
-
-For detailed validation information including specific file names and parameters:
-
 .. raw:: html
 
-   <div style="margin: 20px 0;">
-     <a href="../_static/xnat_ari_dashboard.csv" 
-        style="display: inline-block; background: #007bff; color: white; padding: 10px 20px; 
-               text-decoration: none; border-radius: 5px;">
-       📥 Download Complete Dashboard Data (CSV)
-     </a>
+   <div id="validation-summary" style="margin-bottom: 10px;">
+     Loading validation summary...
    </div>
 
-Quick Summary
-~~~~~~~~~~~~~
-
-The ARI validation pipeline has been run on all available subjects. The results show the current status of BIDS compliance and data quality across the dataset.
-
-Validation Results
-~~~~~~~~~~~~~~~~~~
-
-The table below shows a summary of validation results for all subjects. The table displays 15 rows at a time - scroll within the table to view more subjects. For complete details including specific file names and parameters, download the full CSV file.
+   <script>
+   // Load validation summary from text file
+   fetch('../_static/validation_summary.txt')
+     .then(response => response.text())
+     .then(data => {
+       document.getElementById('validation-summary').innerHTML = data.trim();
+     })
+     .catch(error => {
+       console.error('Error loading validation summary:', error);
+       document.getElementById('validation-summary').innerHTML = 'The ARI validation pipeline has been run on subjects. The following dashboard shows the current status. This dashboard is updated daily at 9:00 AM Abu Dhabi time.';
+     });
+   </script>
 
 .. raw:: html
 
@@ -118,12 +124,12 @@ The table below shows a summary of validation results for all subjects. The tabl
          <tr>
            <th style="padding: 12px 8px; border: 1px solid #ddd; text-align: left; font-weight: 600;">Subject ID</th>
            <th style="padding: 12px 8px; border: 1px solid #ddd; text-align: left; font-weight: 600;">Status</th>
-           <th style="padding: 12px 8px; border: 1px solid #ddd; text-align: left; font-weight: 600;">Missing Files</th>
-           <th style="padding: 12px 8px; border: 1px solid #ddd; text-align: left; font-weight: 600;">Extra Files</th>
-           <th style="padding: 12px 8px; border: 1px solid #ddd; text-align: left; font-weight: 600;">File Properties</th>
            <th style="padding: 12px 8px; border: 1px solid #ddd; text-align: left; font-weight: 600;">Sbref Direction</th>
            <th style="padding: 12px 8px; border: 1px solid #ddd; text-align: left; font-weight: 600;">IntendedFor</th>
            <th style="padding: 12px 8px; border: 1px solid #ddd; text-align: left; font-weight: 600;">DWI Parameters</th>
+           <th style="padding: 12px 8px; border: 1px solid #ddd; text-align: left; font-weight: 600;">File Properties</th>
+           <th style="padding: 12px 8px; border: 1px solid #ddd; text-align: left; font-weight: 600;">Missing Files</th>
+           <th style="padding: 12px 8px; border: 1px solid #ddd; text-align: left; font-weight: 600;">Extra Files</th>
            <th style="padding: 12px 8px; border: 1px solid #ddd; text-align: left; font-weight: 600;">DWI Version</th>
            <th style="padding: 12px 8px; border: 1px solid #ddd; text-align: left; font-weight: 600;">ASL Version</th>
          </tr>
@@ -253,7 +259,6 @@ The table below shows a summary of validation results for all subjects. The tabl
        infoDiv.style.marginTop = '10px';
        infoDiv.style.fontSize = '0.9em';
        infoDiv.style.color = '#6c757d';
-       infoDiv.innerHTML = `<strong>Total subjects: ${totalRows}</strong> • Scroll within table to view all rows`;
        document.querySelector('.dashboard-container').parentNode.appendChild(infoDiv);
      })
      .catch(error => {
@@ -263,10 +268,7 @@ The table below shows a summary of validation results for all subjects. The tabl
      });
    </script>
 
-Download Complete Data
-~~~~~~~~~~~~~~~~~~~~~~
-
-For detailed validation information including specific file names and parameters:
+*For detailed validation information including specific file names and parameters:*
 
 .. raw:: html
 
