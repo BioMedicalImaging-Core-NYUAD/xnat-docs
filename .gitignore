@@ -23,4 +23,12 @@ __pycache__/
 
 # OS specific files
 .DS_Store
-Thumbs.db 
+Thumbs.db
+
+# Auto-generated dashboard files (updated by GitHub Actions)
+docs/source/_static/xnat_ari_dashboard.csv
+docs/source/_static/xnat_ari_dashboard_display.csv
+docs/source/_static/validation_summary.txt
+
+# Adobe Illustrator files
+docs/source/_static/*.ai 
