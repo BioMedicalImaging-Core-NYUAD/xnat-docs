@@ -49,11 +49,6 @@ jobs:
         cp /home/mri/Documents/GitHub/ARIdashboard/xnat_ari_dashboard.csv ./
         echo "Dashboard file copied to repository"
         
-    - name: Generate dashboard content for documentation
-      run: |
-        python3 generate_dashboard.py
-        echo "Dashboard content generated"
-        
     - name: Copy CSV to documentation static folder
       run: |
         mkdir -p docs/source/_static
@@ -64,16 +59,6 @@ jobs:
       run: |
         python3 filter_dashboard_csv.py xnat_ari_dashboard.csv docs/source/_static/xnat_ari_dashboard_display.csv
         echo "Filtered CSV generated for documentation display"
-        
-    - name: Update ari-validator.rst with dashboard content
-      run: |
-        if [ -f "dashboard_content.rst" ]; then
-          python3 update_docs.py
-          echo "Documentation updated with dashboard content"
-        else
-          echo "Error: dashboard_content.rst not found"
-          exit 1
-        fi
         
     - name: Create timestamp file
       run: |
@@ -120,7 +105,6 @@ jobs:
           xnat_ari_dashboard.csv
           docs/source/_static/xnat_ari_dashboard_display.csv
           dashboard_timestamp.txt
-          dashboard_content.rst
         retention-days: 30
         
     - name: Summary

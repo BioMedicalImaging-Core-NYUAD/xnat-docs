@@ -4,13 +4,12 @@ ari-validator
    For step-by-step instructions on running any pipeline, see :doc:`../working_with_xnat/running_pipelines`. To enable pipelines for your project, see :doc:`../working_with_xnat/enabling_pipelines`.
 
 The ari-validator pipeline validates BIDS datasets for project ARI. 
-Similiar pipelines can be created for your projects if you have specific requirements for your scans and want to have a way to validate your data before spending time on preprocessing. 
-
+Similar pipelines can be created for your projects if you have specific requirements for your scans and want to have a way to validate your data before spending time on preprocessing. A dashboard is also provided to track the status of your data.
 
 Features
 --------
 
-- **BIDS Validation:** Ensures data adheres to BIDS standards.
+- **BIDS Validation:** Ensures data adheres to BIDS standards
 - **ARI Compliance:** Specialized validation for ARI lab requirements
 - **Comprehensive Reporting:** Detailed validation logs and summaries
 - **Quality Control:** File integrity and parameter checking
@@ -117,7 +116,6 @@ The table below shows a summary of validation results for all subjects. For comp
    :widths: 15, 12, 10, 10, 12, 12, 10, 12, 15, 15
    :class: dashboard-table
 
-
 Download Complete Data
 ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -133,6 +131,17 @@ For detailed validation information including specific file names and parameters
      </a>
    </div>
 
+Troubleshooting
+---------------
+
+**Common Issues:**
+- [PLACEHOLDER - Missing file errors]
+- [PLACEHOLDER - Parameter mismatch problems]
+- [PLACEHOLDER - FreeSurfer dependency issues]
+
+**Error Resolution:**
+- [PLACEHOLDER - How to fix common validation failures]
+- [PLACEHOLDER - When to ignore specific warnings]
 
 Next Steps
 ----------
