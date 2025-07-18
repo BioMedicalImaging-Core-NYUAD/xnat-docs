@@ -29,6 +29,17 @@ MRI data follows a specific conversion pathway that determines which analysis pi
 - :doc:`../processing_pipelines/dcm2bids` - DICOM to BIDS
 - :doc:`../processing_pipelines/dcm2hcp` - DICOM to HCP (under development)
 
+
+How does this work with XNAT?
+-----------------------------
+
+.. image:: ../_static/2.1.xnat.structure.png
+   :alt: xnat structure
+   :align: center
+   :width: 680px
+
+
+
 Format Overview
 ---------------
 
