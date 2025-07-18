@@ -2,8 +2,8 @@ name: Generate ARI Dashboard (Daily)
 
 on:
   schedule:
-    # Run at 5:45 PM Abu Dhabi time (1:45 PM UTC) - FOR IMMEDIATE TESTING
-    - cron: '45 13 * * *'
+    # Run at 5:47 PM Abu Dhabi time (1:47 PM UTC) - FOR IMMEDIATE TESTING
+    - cron: '47 13 * * *'
 
 jobs:
   generate-dashboard:
@@ -77,7 +77,7 @@ jobs:
         echo "Triggered by: Scheduled daily run" >> dashboard_timestamp.txt
         echo "Run ID: ${{ github.run_id }}" >> dashboard_timestamp.txt
         echo "Event: ${{ github.event_name }}" >> dashboard_timestamp.txt
-        echo "Time: 5:37 PM Abu Dhabi (1:37 PM UTC) - TESTING" >> dashboard_timestamp.txt
+        echo "Time: 5:47 PM Abu Dhabi (1:47 PM UTC) - TESTING" >> dashboard_timestamp.txt
         
     - name: Check for changes
       id: check_changes
@@ -101,7 +101,7 @@ jobs:
     - name: Commit and push changes
       if: steps.check_changes.outputs.changes == 'true'
       run: |
-        git commit -m "📊 Daily ARI dashboard update - $(date '+%Y-%m-%d %H:%M:%S') [5:37PM Abu Dhabi - TESTING]"
+        git commit -m "📊 Daily ARI dashboard update - $(date '+%Y-%m-%d %H:%M:%S') [5:47PM Abu Dhabi - TESTING]"
         git push origin ${{ github.ref_name }}
         
     - name: Upload dashboard as artifact
@@ -120,7 +120,7 @@ jobs:
         echo "=== ARI Dashboard Daily Generation Summary ===" 
         echo "Status: ✅ Success"
         echo "Generated: $(date)"
-        echo "Schedule: Daily at 5:37 PM Abu Dhabi time (TESTING)"
+        echo "Schedule: Daily at 5:47 PM Abu Dhabi time (TESTING)"
         echo "File location: ./xnat_ari_dashboard.csv"
         if [ -f "xnat_ari_dashboard.csv" ]; then
           echo "File size: $(du -h xnat_ari_dashboard.csv | cut -f1)"
