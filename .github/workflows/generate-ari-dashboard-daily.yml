@@ -4,6 +4,7 @@ on:
   schedule:
     # Run at 6:15 PM Abu Dhabi time (2:15 PM UTC) - FOR IMMEDIATE TESTING
     - cron: '15 14 * * *'
+  workflow_dispatch:
 
 jobs:
   generate-dashboard:
