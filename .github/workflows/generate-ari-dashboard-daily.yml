@@ -2,8 +2,8 @@ name: Generate ARI Dashboard (Daily)
 
 on:
   schedule:
-    # Run daily at 5:37 PM Abu Dhabi time (1:37 PM UTC) - FOR TESTING
-    - cron: '37 13 * * *'
+    # Run at 5:45 PM Abu Dhabi time (1:45 PM UTC) - FOR IMMEDIATE TESTING
+    - cron: '45 13 * * *'
 
 jobs:
   generate-dashboard:
