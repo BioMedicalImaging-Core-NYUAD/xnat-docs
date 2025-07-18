@@ -1,13 +1,9 @@
-name: Generate ARI Dashboard (Manual)
+name: Generate ARI Dashboard (Daily)
 
 on:
-  workflow_dispatch:
-    inputs:
-      description:
-        description: 'Optional description for this run'
-        required: false
-        default: 'Manual trigger'
-        type: string
+  schedule:
+    # Run daily at 9:00 AM Abu Dhabi time (5:00 AM UTC)
+    - cron: '0 5 * * *'
 
 jobs:
   generate-dashboard:
@@ -78,14 +74,10 @@ jobs:
     - name: Create timestamp file
       run: |
         echo "Generated on: $(date)" > dashboard_timestamp.txt
-        echo "Triggered by: ${{ github.actor }}" >> dashboard_timestamp.txt
+        echo "Triggered by: Scheduled daily run" >> dashboard_timestamp.txt
         echo "Run ID: ${{ github.run_id }}" >> dashboard_timestamp.txt
         echo "Event: ${{ github.event_name }}" >> dashboard_timestamp.txt
-        if [ -n "${{ inputs.description }}" ]; then
-          echo "Description: ${{ inputs.description }}" >> dashboard_timestamp.txt
-        else
-          echo "Trigger: Manual run" >> dashboard_timestamp.txt
-        fi
+        echo "Time: 9:00 AM Abu Dhabi (5:00 AM UTC)" >> dashboard_timestamp.txt
         
     - name: Check for changes
       id: check_changes
@@ -109,13 +101,13 @@ jobs:
     - name: Commit and push changes
       if: steps.check_changes.outputs.changes == 'true'
       run: |
-        git commit -m "🔧 Manual ARI dashboard update - $(date '+%Y-%m-%d %H:%M:%S')"
+        git commit -m "📊 Daily ARI dashboard update - $(date '+%Y-%m-%d %H:%M:%S') [9AM Abu Dhabi]"
         git push origin ${{ github.ref_name }}
         
     - name: Upload dashboard as artifact
       uses: actions/upload-artifact@v4
       with:
-        name: ari-dashboard-${{ github.run_id }}
+        name: ari-dashboard-daily-${{ github.run_id }}
         path: |
           xnat_ari_dashboard.csv
           docs/source/_static/xnat_ari_dashboard_display.csv
@@ -125,9 +117,10 @@ jobs:
         
     - name: Summary
       run: |
-        echo "=== ARI Dashboard Generation Summary ===" 
+        echo "=== ARI Dashboard Daily Generation Summary ===" 
         echo "Status: ✅ Success"
         echo "Generated: $(date)"
+        echo "Schedule: Daily at 9:00 AM Abu Dhabi time"
         echo "File location: ./xnat_ari_dashboard.csv"
         if [ -f "xnat_ari_dashboard.csv" ]; then
           echo "File size: $(du -h xnat_ari_dashboard.csv | cut -f1)"
