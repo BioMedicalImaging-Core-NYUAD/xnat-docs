@@ -4,13 +4,6 @@ on:
   schedule:
     # Run at 5:55 PM Abu Dhabi time (1:55 PM UTC) - FOR IMMEDIATE TESTING
     - cron: '55 13 * * *'
-  workflow_dispatch:
-    inputs:
-      description:
-        description: 'Test run description'
-        required: false
-        default: 'Manual test of scheduled workflow'
-        type: string
 
 jobs:
   generate-dashboard:
@@ -81,15 +74,8 @@ jobs:
     - name: Create timestamp file
       run: |
         echo "Generated on: $(date)" > dashboard_timestamp.txt
-        if [ "${{ github.event_name }}" = "schedule" ]; then
-          echo "Triggered by: Scheduled daily run" >> dashboard_timestamp.txt
-          echo "Time: 5:55 PM Abu Dhabi (1:55 PM UTC) - TESTING" >> dashboard_timestamp.txt
-        else
-          echo "Triggered by: Manual test run" >> dashboard_timestamp.txt
-          if [ -n "${{ inputs.description }}" ]; then
-            echo "Description: ${{ inputs.description }}" >> dashboard_timestamp.txt
-          fi
-        fi
+        echo "Triggered by: Scheduled daily run" >> dashboard_timestamp.txt
+        echo "Time: 5:55 PM Abu Dhabi (1:55 PM UTC) - TESTING" >> dashboard_timestamp.txt
         echo "Run ID: ${{ github.run_id }}" >> dashboard_timestamp.txt
         echo "Event: ${{ github.event_name }}" >> dashboard_timestamp.txt
         
@@ -115,11 +101,7 @@ jobs:
     - name: Commit and push changes
       if: steps.check_changes.outputs.changes == 'true'
       run: |
-        if [ "${{ github.event_name }}" = "schedule" ]; then
-          git commit -m "📊 Daily ARI dashboard update - $(date '+%Y-%m-%d %H:%M:%S') [5:55PM Abu Dhabi - TESTING]"
-        else
-          git commit -m "📊 Manual ARI dashboard update - $(date '+%Y-%m-%d %H:%M:%S') [Testing daily workflow]"
-        fi
+        git commit -m "📊 Daily ARI dashboard update - $(date '+%Y-%m-%d %H:%M:%S') [5:55PM Abu Dhabi - TESTING]"
         git push origin ${{ github.ref_name }}
         
     - name: Upload dashboard as artifact
@@ -138,11 +120,7 @@ jobs:
         echo "=== ARI Dashboard Daily Generation Summary ===" 
         echo "Status: ✅ Success"
         echo "Generated: $(date)"
-        if [ "${{ github.event_name }}" = "schedule" ]; then
-          echo "Schedule: Daily at 5:55 PM Abu Dhabi time (TESTING)"
-        else
-          echo "Trigger: Manual test run"
-        fi
+        echo "Schedule: Daily at 5:55 PM Abu Dhabi time (TESTING)"
         echo "File location: ./xnat_ari_dashboard.csv"
         if [ -f "xnat_ari_dashboard.csv" ]; then
           echo "File size: $(du -h xnat_ari_dashboard.csv | cut -f1)"
