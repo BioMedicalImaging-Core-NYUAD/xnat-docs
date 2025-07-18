@@ -3,26 +3,22 @@ NYUAD XNAT User Documentation
 
 Welcome to the NYUAD XNAT User Documentation. This guide is designed to help you effectively use xnat with a focus on practical, hands-on workflows.
 
-.. image:: ../_static/1.1.docStructure.png 
-   :alt: XNAT Documentation Structure
-   :align: center
-   :width: 680px
    
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Getting Started
 
    getting_started/overview
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Understanding MRI Data
 
    understanding_data/overview
    understanding_data/bids
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: XNAT Pipelines
 
    processing_pipelines/overview
@@ -36,7 +32,7 @@ Welcome to the NYUAD XNAT User Documentation. This guide is designed to help you
    processing_pipelines/hcp-pipeline
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Data Download Methods
 
    data_download/browser
@@ -45,7 +41,7 @@ Welcome to the NYUAD XNAT User Documentation. This guide is designed to help you
    data_download/matlab_scripts
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Working with XNAT
 
    working_with_xnat/access

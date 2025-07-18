@@ -1,9 +1,9 @@
-name: Generate ARI Dashboard (Daily)
+name: Generate ARI Dashboard (Every 30 minutes)
 
 on:
   schedule:
-    # Run at 9:00 AM Abu Dhabi time (5:00 AM UTC) - Daily production schedule
-    - cron: '00 05 * * *'
+    # Run every 30 minutes (more reliable than 15 minutes)
+    - cron: '*/30 * * * *'
   workflow_dispatch:
     inputs:
       description:
@@ -15,11 +15,21 @@ on:
 jobs:
   generate-dashboard:
     runs-on: self-hosted
+    # Only run on main branch for scheduled triggers
+    if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
     permissions:
       contents: write
       actions: read
     
     steps:
+    - name: Debug trigger information
+      run: |
+        echo "Event name: ${{ github.event_name }}"
+        echo "Repository: ${{ github.repository }}"
+        echo "Branch: ${{ github.ref }}"
+        echo "Default branch: ${{ github.event.repository.default_branch }}"
+        echo "Triggered at: $(date)"
+        
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
@@ -71,9 +81,9 @@ jobs:
     - name: Create timestamp file
       run: |
         echo "Generated on: $(date)" > dashboard_timestamp.txt
-        echo "Triggered by: Scheduled daily run" >> dashboard_timestamp.txt
+        echo "Triggered by: Scheduled 30-minute run" >> dashboard_timestamp.txt
         if [ "${{ github.event_name }}" = "schedule" ]; then
-          echo "Time: 9:00 AM Abu Dhabi (5:00 AM UTC) - Daily" >> dashboard_timestamp.txt
+          echo "Time: Every 30 minutes - $(date)" >> dashboard_timestamp.txt
         else
           echo "Time: Manual trigger - $(date)" >> dashboard_timestamp.txt
         fi
@@ -102,13 +112,13 @@ jobs:
     - name: Commit and push changes
       if: steps.check_changes.outputs.changes == 'true'
       run: |
-        git commit -m "📊 Daily ARI dashboard update - $(date '+%Y-%m-%d %H:%M:%S') [9:00 AM Abu Dhabi]"
+        git commit -m "📊 ARI dashboard update - $(date '+%Y-%m-%d %H:%M:%S') [Every 30 minutes]"
         git push origin ${{ github.ref_name }}
         
     - name: Upload dashboard as artifact
       uses: actions/upload-artifact@v4
       with:
-        name: ari-dashboard-daily-${{ github.run_id }}
+        name: ari-dashboard-30min-${{ github.run_id }}
         path: |
           xnat_ari_dashboard.csv
           docs/source/_static/xnat_ari_dashboard_display.csv
@@ -118,10 +128,10 @@ jobs:
         
     - name: Summary
       run: |
-        echo "=== ARI Dashboard Daily Generation Summary ===" 
+        echo "=== ARI Dashboard 30-minute Generation Summary ===" 
         echo "Status: ✅ Success"
         echo "Generated: $(date)"
-        echo "Schedule: Daily at 9:00 AM Abu Dhabi time"
+        echo "Schedule: Every 30 minutes"
         echo "File location: ./xnat_ari_dashboard.csv"
         if [ -f "xnat_ari_dashboard.csv" ]; then
           echo "File size: $(du -h xnat_ari_dashboard.csv | cut -f1)"
