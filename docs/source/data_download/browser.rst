@@ -30,6 +30,8 @@ Navigating to Your Data
    :align: center
    :width: 680px
 
+Navigate through the XNAT interface to find your project and browse available subjects and sessions.
+
 --------------------------------
 
 Single File Download
@@ -40,6 +42,7 @@ Single File Download
    :align: center
    :width: 680px
 
+Click on individual files to download them one at a time directly through the browser.
 
 --------------------------------
 
@@ -51,6 +54,8 @@ Session Download
    :align: center
    :width: 680px
 
+Use the session-level download options to get all scans from a single imaging session.
+
 --------------------------------
 
 Bulk Download
@@ -60,6 +65,8 @@ Bulk Download
    :alt: browser bulk
    :align: center
    :width: 680px
+
+Access bulk download features to download multiple sessions or entire projects at once.
 
 --------------------------------
 
