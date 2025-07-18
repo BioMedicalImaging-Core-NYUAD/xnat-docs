@@ -1,8 +1,13 @@
 NYUAD XNAT User Documentation
 =============================
 
-Welcome to the NYUAD XNAT User Documentation! This guide focuses on the three essential activities for effective MRI data management: understanding data formats, using XNAT pipelines, and downloading data efficiently.
+Welcome to the NYUAD XNAT User Documentation. This guide is designed to help you effectively use xnat with a focus on practical, hands-on workflows.
 
+.. image:: ../_static/1.1.docStructure.png 
+   :alt: XNAT Documentation Structure
+   :align: center
+   :width: 680px
+   
 .. toctree::
    :maxdepth: 2
    :caption: Getting Started
