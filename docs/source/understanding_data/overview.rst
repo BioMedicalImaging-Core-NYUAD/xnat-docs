@@ -1,5 +1,5 @@
 Understanding Data Structure
-===========================
+============================
 
 This section explains the different MRI data formats used in research and how they relate to each other. 
 Understanding these formats will greatly help you working with XNAT, so we start here.
@@ -26,6 +26,7 @@ How does this work with XNAT?
    :alt: xnat structure
    :align: center
    :width: 900px
+   
 --------------------------------
 
 The scanner sends DICOMs to XNAT, which is stores under the corresponding ``Project``, ``Subject``, and ``Session``. 
