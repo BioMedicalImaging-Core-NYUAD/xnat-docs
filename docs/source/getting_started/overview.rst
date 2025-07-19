@@ -11,7 +11,7 @@ This documentation focuses on **three core activities** for effective MRI data m
 .. image:: ../_static/1.1.docStructure.png 
    :alt: XNAT Documentation Structure
    :align: center
-   :width: 680px
+   :width: 900px
 
 **1. Understanding MRI Data**
    Data formats and their relationships (DICOM → NIfTI → BIDS/HCP)

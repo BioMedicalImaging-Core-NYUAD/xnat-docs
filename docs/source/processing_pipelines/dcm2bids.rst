@@ -1,5 +1,5 @@
 dcm2bids
-=================
+========
 
 The dcm2bids converts your DICOM data to BIDS format on XNAT. This is the **essential first step** that unlocks access to all modern analysis pipelines including :doc:`mriqc`, :doc:`fmriprep`, :doc:`tractoflow`, and others.
 

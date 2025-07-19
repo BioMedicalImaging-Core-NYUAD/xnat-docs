@@ -6,7 +6,7 @@ BIDS (Brain Imaging Data Structure) is **the main data structure we support on X
 What is BIDS?
 -------------
 
-BIDS is a community-driven standard for organizing brain imaging data. When you organize your data in BIDS format via :doc:`../processing_pipelines/dcm2bids` pipeline, it opens your data up to many available pipelines such as :doc:`../processing_pipelines/mriqc`, :doc:`../processing_pipelines/fmriprep`, :doc:`../processing_pipelines/tractoflow`, and many others.
+BIDS is a community-driven standard for organizing brain imaging data. When you organize your data in BIDS format via :doc:`../processing_pipelines/dcm2bids`, it opens your data up to many available pipelines such as :doc:`../processing_pipelines/mriqc`, :doc:`../processing_pipelines/fmriprep`, :doc:`../processing_pipelines/tractoflow`, and many others.
 
 **Key Benefits:**
 
