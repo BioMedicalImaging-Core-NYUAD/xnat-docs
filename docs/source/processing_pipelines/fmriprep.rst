@@ -25,7 +25,7 @@ Before running fMRIPrep, you need to run :doc:`dcm2bids`, which will convert the
 .. image:: ../_static/3.6.fmriprep.input.png
    :alt: fMRIPrep input
    :align: center
-   :width: 680px
+   :width: 900px
 
 Incorrect sbref and fieldmaps are some of the most common issues when running fMRIPrep. Please refer to the :doc:`dcm2bids` page for more details. If dcm2bids ran successfully, there's nothing else you need to do.
 
@@ -40,7 +40,7 @@ Navigate to your **session** on XNAT, click **"Run Preprocessing Pipeline"**, se
 .. image:: ../_static/3.6.fmriprep.run.preprocessing.pipeline.png
    :alt: fmriprep run preprocessing pipeline
    :align: center
-   :width: 680px
+   :width: 900px
 
 
 - **Anat Only**: Checkbox to run anatomical preprocessing only (freesurfer recon-all)

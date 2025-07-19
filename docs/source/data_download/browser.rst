@@ -28,7 +28,7 @@ Navigating to Your Data
 .. image:: ../_static/4.1.browser.navigate.png
    :alt: browser navigate
    :align: center
-   :width: 680px
+   :width: 900px
 
 Navigate through the XNAT interface to find your project and browse available subjects and sessions.
 
@@ -40,7 +40,7 @@ Single File Download
 .. image:: ../_static/4.1.browser.single.png
    :alt: browser single
    :align: center
-   :width: 680px
+   :width: 900px
 
 Click on individual files to download them one at a time directly through the browser.
 
@@ -52,7 +52,7 @@ Session Download
 .. image:: ../_static/4.1.browser.session.png
    :alt: browser session
    :align: center
-   :width: 680px
+   :width: 900px
 
 Use the session-level download options to get all scans from a single imaging session.
 
@@ -64,7 +64,7 @@ Bulk Download
 .. image:: ../_static/4.1.browser.bulk.png
    :alt: browser bulk
    :align: center
-   :width: 680px
+   :width: 900px
 
 Access bulk download features to download multiple sessions or entire projects at once.
 

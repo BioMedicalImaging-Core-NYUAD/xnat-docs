@@ -6,7 +6,7 @@ We offer pipelines organized into three main categories: **Data Conversion**, **
 .. image:: ../_static/3.0.pipeline.overview.png
    :alt: XNAT pipeline Structure
    :align: center
-   :width: 800px
+   :width: 900px
 
 Data Conversion Pipelines
 -------------------------

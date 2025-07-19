@@ -17,7 +17,7 @@ Generate XML file in XNAT
 .. image:: ../_static/4.2.desktop.xml.png
    :alt: desktop xml
    :align: center
-   :width: 680px
+   :width: 900px
 
 --------------------------------
   
@@ -32,7 +32,7 @@ Import to Desktop Client
 .. image:: ../_static/4.2.desktop.client.png
    :alt: desktop xml
    :align: center
-   :width: 680px
+   :width: 900px
 
 --------------------------------
 
