@@ -74,7 +74,6 @@ Available BIDS Pipelines
 
 Once your data is in BIDS format, you can run these pipelines:
 
-
 - :doc:`../processing_pipelines/mriqc` - Automated quality metrics and reports
 - :doc:`../processing_pipelines/fmriprep` - Robust fMRI preprocessing
 - :doc:`../processing_pipelines/tractoflow` - Diffusion MRI processing

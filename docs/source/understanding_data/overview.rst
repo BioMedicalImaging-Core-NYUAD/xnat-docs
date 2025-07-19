@@ -26,7 +26,7 @@ How does this work with XNAT?
    :alt: xnat structure
    :align: center
    :width: 900px
-   
+
 --------------------------------
 
 The scanner sends DICOMs to XNAT, which is stores under the corresponding ``Project``, ``Subject``, and ``Session``. 
@@ -35,6 +35,7 @@ Within each individual scan folder, you can convert the DICOM files to NIfTI fil
 
 Note that there is also a ``RESOURCE`` folder under ``Session`` which contains the output of various pipelines such as the BIDS rawdata or fmriprep output. 
 This ``RESOURCE`` folder is available for every level of the hierarchy, meaning that under ``Subject`` and ``Project`` you will also find a ``RESOURCE`` folder.
+You can also read more about this `here <https://wiki.xnat.org/documentation/understanding-the-xnat-data-model>`_.
 The ``Project`` level ``RESOURCE`` folder contains files that are shared across all subjects in the project. For example, we store the ``dcm2bids`` configuration file here, which is used to run the :doc:`../processing_pipelines/dcm2bids` pipeline.
 
 :doc:`../processing_pipelines/dcm2niix` pipeline is a scan level pipeline while :doc:`../processing_pipelines/dcm2bids` is a session level pipeline.
