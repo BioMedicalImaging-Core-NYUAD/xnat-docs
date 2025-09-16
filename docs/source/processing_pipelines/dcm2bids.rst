@@ -3,7 +3,7 @@ dcm2bids
 
 The dcm2bids converts your DICOM data to BIDS format on XNAT. This is the **essential first step** that unlocks access to all modern analysis pipelines including :doc:`mriqc`, :doc:`fmriprep`, :doc:`tractoflow`, and others.
 
-For comprehensive information about dcm2bids, visit the `official documentation <https://unfmontreal.github.io/Dcm2Bids/3.1.1/>`_.
+For comprehensive information about dcm2bids, visit the `official documentation <https://unfmontreal.github.io/Dcm2Bids/>`_.
 
 What You Need
 -------------
@@ -52,7 +52,7 @@ Configuration Files (Advanced)
 
 For non-standard acquisition protocols, create a **config.json** file and upload it to your parent project. The pipeline will automatically detect and use it.
 
-For configuration file creation, see the `dcm2bids configuration guide <https://unfmontreal.github.io/Dcm2Bids/3.1.1/how-to/create-config-file/>`_.
+For configuration file creation, see the `dcm2bids configuration guide <https://unfmontreal.github.io/Dcm2Bids/3.2.0/how-to/create-config-file/>`_.
 
 
 Common Issues

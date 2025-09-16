@@ -44,7 +44,7 @@ Output and Reports
      .two-col{
        display: flex;
        gap: 20px;              /* space between the two panes */
-       width: 680px;           /* total width as requested */
+       width: 800px;           /* total width as requested */
        margin: 20px auto;      /* centre the whole block */
      }
 
