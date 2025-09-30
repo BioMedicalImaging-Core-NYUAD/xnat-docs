@@ -14,10 +14,7 @@ Input Requirements
 - BIDS-formatted T1w anatomical images
 - Freesurfer output 
 
-How to Run
-----------
 
-For general instructions on running pipelines, see: :doc:`../working_with_xnat/running_pipelines`
 
 
 [PLACEHOLDER]
