@@ -21,7 +21,7 @@ For general instructions on running pipelines, see: :doc:`../working_with_xnat/r
 Job Management Utilities
 ------------------------
 
-Job submission and management utilities are available in the `job.py` script: :download:`fmriprep/code/utilities/job.py`
+Job submission and management utilities are available in the `job.py` script: :download:`../../../../fmriprep/code/utilities/job.py`
 
 [PLACEHOLDER - Tractography algorithm selection]
 
