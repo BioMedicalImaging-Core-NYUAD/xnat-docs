@@ -37,7 +37,7 @@ Select the pipelines and subjects you want to process and launch the pipeline.
 
 
 Related Documentation
---------------------
+---------------------
 
 - :doc:`enabling_pipelines` - Setting up pipeline access
 - :doc:`../processing_pipelines/overview` - Available pipelines
