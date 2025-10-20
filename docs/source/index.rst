@@ -46,8 +46,9 @@ Welcome to the NYUAD XNAT User Documentation. This guide is designed to help you
 
    working_with_xnat/access
    working_with_xnat/install_desktop_client
-   working_with_xnat/running_pipelines
    working_with_xnat/enabling_pipelines
+   working_with_xnat/running_pipelines
+   working_with_xnat/parallel_processing
    working_with_xnat/navigation
    working_with_xnat/uploading
    working_with_xnat/project_management

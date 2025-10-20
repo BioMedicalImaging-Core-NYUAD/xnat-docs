@@ -33,7 +33,7 @@ Incorrect sbref and fieldmaps are some of the most common issues when running fM
 How to Launch the Pipeline
 --------------------------
 .. note::
-   For step-by-step instructions on running any pipeline, see :doc:`../working_with_xnat/running_pipelines`. To enable pipelines for your project, see :doc:`../working_with_xnat/enabling_pipelines`.
+   For step-by-step instructions on running any pipeline, see :doc:`../working_with_xnat/running_pipelines`. To enable pipelines for your project, see :doc:`../working_with_xnat/enabling_pipelines`. For running pipelines across multiple subjects in parallel, see :doc:`../working_with_xnat/parallel_processing`.
 
 Navigate to your **session** on XNAT, click **"Run Preprocessing Pipeline"**, select **"fMRIPrep"** from the pipeline dropdown, and then configure the parameters below (see screenshot)
 
