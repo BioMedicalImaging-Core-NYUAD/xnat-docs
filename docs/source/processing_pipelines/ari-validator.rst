@@ -281,6 +281,64 @@ Data Validation Dashboard
    </div>
 
 
+
+.. raw:: html
+
+   <br>
+   <br>
+
+Validation Scope & Disclaimer
+-----------------------------
+
+.. note::
+   We provide a simple validation check to ensure data compliance with basic BIDS standards, but **it is ultimately the researcher's responsibility to verify their own data in detail.**
+
+We do **not** check everything. Do not assume that data passing our check is perfect.
+
+- **What we check:** Basic properties of BIDS ``rawdata`` (e.g., ``anat``, ``fmap``, ``func``, ``dwi``, ``asl``).
+- **What we do NOT check:** Data currently outside the standard pipeline scope, such as abdomen scans, OCT scans, or behavioral data.
+- **Custom Checks:** If you have specific properties you wish to validate (e.g., checking for specific parameters), please inform us, and we can work on implementing those checks if suitable.
+
+.. raw:: html
+
+   <br>
+   <br>
+
+ARI Project Versions
+--------------------
+
+Over time, several ARI project folders have been created. This log clarifies the purpose and status of each:
+
+1. **ARI (ari)**:
+   - **Status**: **Current / Active**
+   - **Description**: This is the main project folder displayed on the dashboard above. All new data collected after Summer 2025 is stored here. usage.
+   - **Validity**: Data here is supposed to be verified and valid. If invalid scans are found, they are removed.
+   - **User Action**: This is the primary folder for end-users.
+
+2. **ARI HFS - new (rokerslab_ari-hfs_2024_001)**:
+   - **Status**: **Archive / In-Progress**
+   - **Description**: Contains all older data collected before Summer 2025. It includes both valid and invalid data.
+   - **Activity**: RAs are actively validating this folder. Valid data is being migrated to the new **ARI** folder, while invalid data is either removed or kept here as an archive.
+
+3. **ARI Clean (okerslab_ari-clean)**:
+   - **Status**: **Internal / Testing**
+   - **Description**: Made for temporary analysis of the 100 ARI dataset. Puti and Soumen used this as a testing ground for pipelines.
+   - **User Action**: You do not need access to this folder.
+
+4. **ARI HFS (Rokerslab_ari-hfs_2024_001)**:
+   - **Status**: **Deprecated**
+   - **Description**: The first ARI folder on XNAT. It had many issues and is now outdated.
+   - **User Action**: Users no longer need to access this folder.
+
+5. **UAEU ARI (uaeu_ari)**:
+   - **Status**: **Active (External)**
+   - **Description**: Project hosting the ARI data collected at UAEU.
+
+.. raw:: html
+
+   <br>
+   <br>
+
 Troubleshooting
 ---------------
 
