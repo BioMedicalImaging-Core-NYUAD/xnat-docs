@@ -285,7 +285,21 @@ Data Validation Dashboard
 .. raw:: html
 
    <br>
+
+Troubleshooting
+---------------
+
+- **SBREF:** Sometimes the phase encoding directions is flipped even though the the AP/PA direction in the file name is correct. You should delete the incorrect sbref files. 
+- **IntendedFor:** Check the intendedFor field in the epi.json file in fmap and see exacly what is incorrect. First thing to check is if there's missing or extra files. If that's not the issue, then please contact us and we can help you take a look.
+- **DWI Parameters:** Version 1 of the DWI protocol is deprecated due to mismatches in the DWI and reverse b0 parameters. If someone was not scanned under version 1 yet still has mismatching issues then you need to investigate further. 
+- **Incorrect dimensions and TR:** Check if data is incomplete or if wrong sequence was used.
+- **Missing files:** transfer missing files to the correct location.
+- **Extra files:** delete extra files depending on the reason.
+
+.. raw:: html
+
    <br>
+
 
 Validation Scope & Disclaimer
 -----------------------------
@@ -302,57 +316,40 @@ We do **not** check everything. Do not assume that data passing our check is per
 .. raw:: html
 
    <br>
-   <br>
 
 ARI Project Versions
 --------------------
 
 Over time, several ARI project folders have been created. This log clarifies the purpose and status of each:
 
-**1. ARI (ari)**
+**1. ARI (ari)** - Current / Active
 
-- **Status**: **Current / Active**
-- **Description**: This is the main project folder displayed on the dashboard above. All new data collected after Summer 2025 is stored here.
-- **Validity**: Data here is supposed to be verified and valid. If invalid scans are found, they are removed.
-- **User Action**: This is the primary folder for end-users.
+- This is the main project folder displayed on the dashboard above. All new data collected after Summer 2025 is stored here.
+- Data here is supposed to be verified and valid. If invalid scans are found, they are removed.
+- This is the primary folder for end-users.
 
-**2. ARI HFS - new (rokerslab_ari-hfs_2024_001)**
+**2. ARI HFS - new (rokerslab_ari-hfs_2024_001)** - Archive / In-Progress
 
-- **Status**: **Archive / In-Progress**
-- **Description**: Contains all older data collected before Summer 2025. It includes both valid and invalid data.
-- **Activity**: RAs are actively validating this folder. Valid data is being migrated to the new **ARI** folder, while invalid data is either removed or kept here as an archive.
+- Contains all older data collected, includes both valid and invalid data.
+- RAs are actively validating this folder. Valid data is being migrated to the new **ARI** folder, while invalid data is either removed or kept here as an archive.
 
-**3. ARI Clean (okerslab_ari-clean)**
+**3. ARI Clean (okerslab_ari-clean)** - Internal / Testing
 
-- **Status**: **Internal / Testing**
-- **Description**: Made for temporary analysis of the 100 ARI dataset. Puti and Soumen used this as a testing ground for pipelines.
-- **User Action**: You do not need access to this folder.
+- Made for temporary analysis of the 100 ARI dataset. XNAT admins also use this as a testing ground for pipelines.
+- Users do not need access to this folder.
 
-**4. ARI HFS (Rokerslab_ari-hfs_2024_001)**
+**4. ARI HFS (Rokerslab_ari-hfs_2024_001)** - Deprecated
 
-- **Status**: **Deprecated**
-- **Description**: The first ARI folder on XNAT. It had many issues and is now outdated.
-- **User Action**: Users no longer need to access this folder.
+- The first ARI folder on XNAT. It had many issues and is now outdated.
+- Users no longer need to access this folder.
 
-**5. UAEU ARI (uaeu_ari)**
+**5. UAEU ARI (uaeu_ari)** - Active / External
 
-- **Status**: **Active (External)**
-- **Description**: Project hosting the ARI data collected at UAEU.
+- Project hosting the ARI data collected at UAEU.
 
 .. raw:: html
 
    <br>
-   <br>
-
-Troubleshooting
----------------
-
-- **SBREF:** Sometimes the phase encoding directions is flipped even though the the AP/PA direction in the file name is correct. You should delete the incorrect sbref files. 
-- **IntendedFor:** Check the intendedFor field in the epi.json file in fmap and see exacly what is incorrect. First thing to check is if there's missing or extra files. If that's not the issue, then please contact us and we can help you take a look.
-- **DWI Parameters:** Version 1 of the DWI protocol is deprecated due to mismatches in the DWI and reverse b0 parameters. If someone was not scanned under version 1 yet still has mismatching issues then you need to investigate further. 
-- **Incorrect dimensions and TR:** Check if data is incomplete or if wrong sequence was used.
-- **Missing files:** transfer missing files to the correct location.
-- **Extra files:** delete extra files depending on the reason.
 
 
 Next Steps
