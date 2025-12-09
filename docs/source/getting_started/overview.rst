@@ -2,6 +2,7 @@ Getting Started with XNAT Documentation
 =======================================
 
 Welcome to the NYUAD XNAT User Documentation. This guide is designed to help you effectively use xnat with a focus on practical, hands-on workflows.
+This documentation is currently in development and is not yet complete.
 
 Documentation Structure
 -----------------------
