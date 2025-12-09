@@ -10,6 +10,7 @@ What You Need
 
 - DICOM data uploaded to your XNAT session
 - Project permissions to run pipelines
+- dcm2bids configuration file
 
 
 How to Launch the Pipeline
