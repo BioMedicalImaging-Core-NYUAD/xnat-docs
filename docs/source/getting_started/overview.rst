@@ -6,7 +6,7 @@ Welcome to the NYUAD XNAT User Documentation. This guide is designed to help you
 Documentation Structure
 -----------------------
 
-This documentation focuses on **three core activities** for effective MRI data management:
+This documentation focuses on **three core activities** :
 
 .. image:: ../_static/1.1.docStructure.png 
    :alt: XNAT Documentation Structure
