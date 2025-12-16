@@ -289,7 +289,7 @@ Data Validation Dashboard
 Troubleshooting
 ---------------
 
-- **SBREF:** Sometimes the phase encoding directions is flipped even though the the AP/PA direction in the file name is correct. You should delete the incorrect sbref files. 
+- **SBREF:** Sometimes the phase encoding directions is flipped even though the the AP/PA direction in the file name is correct. You should delete the incorrect sbref files. `See example of incorrect SBREF <../_static/3.5.sbref-flip-example.png>`_ 
 - **IntendedFor:** Check the intendedFor field in the epi.json file in fmap and see exacly what is incorrect. First thing to check is if there's missing or extra files. If that's not the issue, then please contact us and we can help you take a look.
 - **DWI Parameters:** Version 1 of the DWI protocol is deprecated due to mismatches in the DWI and reverse b0 parameters. If someone was not scanned under version 1 yet still has mismatching issues then you need to investigate further. 
 - **Incorrect dimensions and TR:** Check if data is incomplete or if wrong sequence was used.
