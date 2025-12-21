@@ -222,7 +222,7 @@ Regardless of the method used, ensuring your data is organized helps prevent err
 **Pre-Upload Checklist**
 
 *   Verify that all DICOM files are present and readable
-*   Ensure data is properly anonymized (see the :ref:`data-anonymization-warning` section above)
+*   Ensure data is properly anonymized (see the `Data Anonymization` warning in the Important Considerations section above)
 *   Remove non-image files (like desktop thumbs, hidden system files, or log files) before zipping for the Compressed Uploader
 *   Check that Subject and Session labels follow your project's naming conventions
 *   Verify you have the necessary permissions for the target project

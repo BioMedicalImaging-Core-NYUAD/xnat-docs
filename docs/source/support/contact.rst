@@ -13,7 +13,7 @@ Please email this address with your questions or issues. Someone will get back t
 For more urgent requests, you can also CC the appropriate administrator below based on your issue type.
 
 XNAT Administrators
-------------------
+-------------------
 
 +--------------------------------+----------------------+--------------------------+
 | Issue Type                     | Contact              | Email                    |
