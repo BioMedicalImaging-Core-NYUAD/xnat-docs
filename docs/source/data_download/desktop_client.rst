@@ -89,5 +89,6 @@ Related Documentation
 ---------------------
 
 - :doc:`../working_with_xnat/install_desktop_client` - Installation guide
+- :doc:`../working_with_xnat/transferring_data` - For transferring data between projects
 - :doc:`browser` - Web browser download method
 - :doc:`python_scripts` - Programmatic download methods

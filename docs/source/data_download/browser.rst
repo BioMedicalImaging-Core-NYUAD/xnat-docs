@@ -86,4 +86,5 @@ See Also
 
 - :doc:`python_scripts` - For programmatic downloads
 - :doc:`desktop_client` - For desktop application downloads
+- :doc:`../working_with_xnat/transferring_data` - For transferring data between projects
 - :doc:`../working_with_xnat/navigation` - For general XNAT navigation

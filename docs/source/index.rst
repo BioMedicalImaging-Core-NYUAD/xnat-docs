@@ -17,6 +17,7 @@ Welcome to the NYUAD XNAT User Documentation. This guide is designed to help you
 
    working_with_xnat/access
    working_with_xnat/uploading
+   working_with_xnat/transferring_data
    working_with_xnat/install_desktop_client
    working_with_xnat/enabling_pipelines
    working_with_xnat/running_pipelines
@@ -58,6 +59,7 @@ Welcome to the NYUAD XNAT User Documentation. This guide is designed to help you
 
    support/faq
    support/troubleshooting
+   support/data_loss_recovery
    support/contributing
    support/contact
 

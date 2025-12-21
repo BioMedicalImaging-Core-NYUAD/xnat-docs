@@ -274,6 +274,7 @@ See Also
 
 **Related Documentation**
 
+*   :doc:`transferring_data` - Guide for transferring data between projects
 *   :doc:`install_desktop_client` - Installation and setup guide for Desktop Client
 *   :doc:`project_management` - Project management and configuration
 *   :doc:`navigation` - General XNAT navigation
