@@ -435,6 +435,7 @@ See Also
 
 **Support**
 
+- :doc:`../support/data_loss_recovery` - Information about backups and data recovery
 - :doc:`../support/troubleshooting` - Troubleshooting guide
 - :doc:`../support/faq` - Frequently asked questions
 - :doc:`../support/contact` - Contact information

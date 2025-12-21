@@ -276,6 +276,7 @@ See Also
 
 *   :doc:`transferring_data` - Guide for transferring data between projects
 *   :doc:`install_desktop_client` - Installation and setup guide for Desktop Client
+*   :doc:`../support/data_loss_recovery` - Information about backups and data recovery
 *   :doc:`project_management` - Project management and configuration
 *   :doc:`navigation` - General XNAT navigation
 

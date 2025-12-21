@@ -95,6 +95,10 @@ Troubleshooting
 - Review pipeline documentation for parameter requirements
 - Contact support if issues persist
 
+**Data Loss Concerns:**
+- If you accidentally delete pipeline outputs or data, see :doc:`../support/data_loss_recovery` for recovery options
+- Contact XNAT administrators immediately if critical data is lost
+
 Next Steps
 ----------
 
