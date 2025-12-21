@@ -99,26 +99,45 @@ Ensure you have the XNAT Desktop Client installed. (See :doc:`install_desktop_cl
 
 **Step-by-Step Upload Guide**
 
+You can start an upload in two ways:
+
+**Option 1: Launch from XNAT Web Interface**
+
+Navigate to the project or subject page where you want to upload data. Click **Upload Images** from the **Actions** menu. This will automatically open the Desktop Client and log you in using your current web session credentials.
+
+    .. figure:: images/desktop_client_launch_from_web.png
+       :alt: Launching Desktop Client from XNAT web interface
+       :width: 600px
+       
+       *Clicking "Upload Images" from the Actions menu automatically opens and logs into the Desktop Client*
+
+**Option 2: Launch Desktop Client Directly**
+
 1.  **Login**: Open the Desktop Client and log in with your XNAT credentials.
 2.  **Start Upload**: Click the **Upload Images** button on the main dashboard.
 
-    .. figure:: images/desktop_client_upload_button.png
-       :alt: XNAT Desktop Client Dashboard
-       
-       *[SCREENSHOT: XNAT Desktop Client Dashboard - highlighting the 'Upload Images' button]*
-
 3.  **Select Project**: Choose the destination project for your upload. The Desktop Client will retrieve project-specific settings that may affect your upload workflow.
 
-4.  **Select Files**: Drag and drop your DICOM folders or use the file browser to select them. The client will scan the files to identify image sessions.
+    .. figure:: images/desktop_client_project_selection.png
+       :alt: XNAT Desktop Client Project and Data Selection Screen
+       
+       *Project and Data Selection screen showing project list, folder selection, and project settings panel*
+
+4.  **Select Files**: Drag and drop your DICOM folders or use the file browser to select them. The client will scan the files to identify image sessions. The selected folder must contain one or more sets of uncompressed DICOM image files, which can be in a flat directory structure or in subfolders.
 
 **Single Session Upload Workflow**
 
-For single session uploads, you have access to the following options:
+After selecting your project and data folder, you will proceed to the "Confirm Details" step where you can configure the following options:
 
-*   **Subject Selection**: Choose an existing subject from your project, or create a new subject if your project allows subject creation.
+*   **Subject Selection**: Choose an existing subject from your project using the dropdown menu, or click "Create new subject" if your project allows subject creation.
 *   **Subject Label**: Ensure this matches your project's naming convention.
-*   **Session Label**: The client will auto-generate a session label based on the subject label and other variables. You can override this label if needed.
-*   **Scan Selection**: You can select which scan series to include in the upload. By default, all scans are selected.
+*   **Session Label**: The client will auto-generate a session label based on the subject label and other variables. You can override this label if needed. Allowed characters are alphanumeric, dash (-), and underscore (_). If you specify a session label that matches an existing session, XNAT will attempt to merge selected scans into the existing session.
+*   **Scan Selection**: You can select which scan series to include in the upload using the checkboxes in the scans table. The table displays Series Number, Series Description, Modality, File Count, and Size for each scan. By default, all scans are selected. Unchecked scans will not be uploaded.
+
+    .. figure:: images/desktop_client_confirm_details.png
+       :alt: XNAT Desktop Client Confirm Details Screen
+       
+       *Confirm Details screen showing project, subject, and session label fields, along with the scan selection table*
 
 **Bulk Upload Workflow**
 
@@ -147,7 +166,6 @@ Some project settings may affect your upload workflow, including:
 
 *   **Allow Subject Creation**: Whether you can create new subjects during upload
 *   **Upload Destination**: Whether data goes directly to Archive or to Prearchive first
-*   **Date Verification**: Whether you must verify the visit date before uploading
 *   **Bulk Upload Restrictions**: Whether bulk uploads are allowed for the project
 *   **Series Import Filters**: Which scan series are allowed or blocked
 
@@ -158,9 +176,9 @@ For more information on project settings, see the `official XNAT documentation o
 3. Compressed Uploader
 ~~~~~~~~~~~~~~~~~~~~~~
 
-The **Compressed Uploader** is a web-based tool for quickly uploading zipped archives of DICOM or ECAT sessions. This is useful for single-session uploads or when you already have compressed archives.
+The **Compressed Uploader** is a web-based tool for quickly uploading zipped archives of DICOM sessions. This is useful for single-session uploads or when you already have compressed archives.
 
-**Supported Formats**: ``.zip``, ``.tar.gz`` containing DICOM or ECAT files.
+**Supported Formats**: ``.zip``, ``.tar.gz``, or ``.tgz`` containing DICOM files.
 
 **Instructions**
 
@@ -170,20 +188,25 @@ The **Compressed Uploader** is a web-based tool for quickly uploading zipped arc
     .. figure:: images/compressed_uploader_menu.png
        :alt: Compressed Uploader Menu Navigation
        
-       *[SCREENSHOT: Web UI Navigation - showing Upload > Images > Compressed Uploader]*
+       *Navigation path: Upload > Images > Compressed Uploader*
 
-3.  **Select Project**: Choose the destination project.
-4.  **Select Destination**:
-    *   **Prearchive**: Recommended for safety. Allows review before archiving.
+3.  **Select Project**: Choose the destination project from the dropdown menu.
+4.  **Configure Upload Settings**:
+    *   **Importer handler**: Select "DICOM Zip" for DICOM files.
+    *   **Custom Labeling**: Choose "Extract From DICOM (Default)" to use DICOM metadata, or "Customize" to manually specify Subject ID and Session Label.
+    *   **Subject ID** and **Session Label**: If using custom labeling, enter the desired labels.
+    *   **Ignore unparsable files**: Check this option to skip files that cannot be parsed.
+5.  **Select Destination**:
+    *   **Prearchive**: Recommended for safety. This is a temporary holding space that allows you to review and correct metadata before archiving.
     *   **Archive**: Direct upload. Use only if you are confident in the data integrity and labels.
-5.  **Choose File**: Click **Browse** to select your ``.zip`` or ``.tar.gz`` file.
+6.  **Choose File**: Click **Choose File** to select your ``.zip``, ``.tar.gz``, or ``.tgz`` file.
 
     .. figure:: images/compressed_uploader_page.png
        :alt: Compressed Uploader Page
        
-       *[SCREENSHOT: Compressed Uploader Page - showing file selection and project dropdown]*
+       *Compressed Uploader interface showing project selection, labeling options, destination selection, and file upload*
 
-6.  **Start Upload**: Click **Upload**. Wait for the confirmation message.
+7.  **Start Upload**: Click **Begin Upload**. Wait for the confirmation message.
 
 Data Preparation
 ----------------
@@ -210,41 +233,41 @@ Regardless of the method used, ensuring your data is organized helps prevent err
 *   **Corrupted Files**: Corrupted DICOM files may cause upload failures. Verify file integrity before uploading.
 *   **Incomplete Sessions**: Ensure all scan series for a session are included in the upload folder.
 
+Verification After Upload
+--------------------------
+
+After completing an upload, it is important to verify that everything uploaded successfully:
+
+1.  **Check Upload Logs**: Review the upload logs in the Desktop Client transfer manager or check the upload status in the XNAT web interface to confirm all files were transferred successfully.
+
+2.  **Verify Data in XNAT**: Navigate to your project in the XNAT web interface and verify that:
+    *   Subjects were created correctly (if new subjects were created)
+    *   Sessions appear with the expected labels
+    *   All scan series are present and complete
+    *   File counts and sizes match your expectations
+
+3.  **Retry Failed Uploads**: If any uploads failed, you can retry them from the Desktop Client transfer manager or re-upload via the Compressed Uploader.
+
+4.  **Contact Support**: If anything isn't working as expected, or if subjects or sessions were not created properly, contact the XNAT administrators at admin.nyuad.xnat@nyu.edu for assistance.
+
 Troubleshooting
 ---------------
 
-**Connection Issues (DICOM Receiver)**
+**Common Issues**
 
-*   **Connection Refused**: Check if you are on the correct network (VPN/Intranet) to access ``10.230.12.52``.
-*   **Data Not Routing Automatically**: Verify that the DICOM Study Description field contains the routing string in the format ``xnat://project_id/subject_label/session_label``. If the routing string is missing or incorrect, data will remain in the Prearchive until manually routed.
+*   **Connection Refused (DICOM Receiver)**: Ensure you are on the correct network (VPN/Intranet) to access ``10.230.12.52``. For routing issues, verify the DICOM Study Description field contains ``xnat://project_id/subject_label/session_label``. Missing or incorrect routing strings require manual routing from the Prearchive.
 
-**Permission Errors**
+*   **Permission Errors**: Ensure you have "Member" or "Owner" access to the destination project. If subject creation is restricted, register subjects in the project before uploading.
 
-*   **Cannot Upload to Project**: Ensure you have "Member" or "Owner" access to the destination project. Contact the project owner or XNAT NYUAD administrator if you need access.
-*   **Cannot Create Subject**: Some projects restrict subject creation. You must register subjects in the project before uploading data to them. Check with the project owner or administrator.
+*   **Upload Failures**: Check file permissions, quota limits, and avoid special characters in Subject/Session labels. Rejected series may be due to Series Import Filters—contact the project administrator if needed.
 
-**Upload Failures**
+*   **Labeling Issues**: Use only alphanumeric characters, hyphens, and underscores. Duplicate labels will merge data with existing sessions.
 
-*   **Upload Failed (Web/Desktop)**: Check your file permissions and quota. Ensure special characters are not used in Subject/Session labels.
-*   **Series Rejected**: Some projects have Series Import Filters that whitelist or blacklist specific scan series. Rejected series will not appear in the Prearchive or Archive. Contact the project administrator if you believe a series should be accepted.
+*   **Bulk Upload Restrictions**: Some projects restrict bulk uploads. Upload sessions individually or contact the project administrator.
 
-**Subject and Session Labeling Issues**
+*   **Network/Performance**: Large datasets take time to upload. Use the transfer manager to monitor progress. Desktop Client supports resumable uploads if connectivity is interrupted.
 
-*   **Invalid Characters**: Avoid special characters in Subject and Session labels. Use alphanumeric characters, hyphens, and underscores.
-*   **Duplicate Labels**: The Desktop Client will warn you if a Subject or Session label already exists. You can override this, but be aware that data may merge with existing sessions.
-
-**Date Verification**
-
-*   **Date Verification Required**: Some projects require you to enter the visit date before uploading. If you don't know the date, you can select "I don't know the dates of these sessions" to proceed, but this may violate your project's recommended processes.
-
-**Bulk Upload Restrictions**
-
-*   **Bulk Upload Not Available**: Some projects restrict bulk uploads for security or workflow reasons. You may need to upload sessions one at a time. Contact the project administrator if you need bulk upload enabled.
-
-**General Issues**
-
-*   **Slow Uploads**: Large datasets take time to upload. Use the transfer manager to monitor progress. Uploads continue in the background as long as the Desktop Client is running.
-*   **Network Interruptions**: The Desktop Client supports resumable uploads. If your connection is interrupted, you can resume the upload when connectivity is restored.
+For additional help, contact the XNAT administrators at admin.nyuad.xnat@nyu.edu.
 
 See Also
 --------
