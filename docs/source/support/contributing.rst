@@ -1,46 +1,23 @@
-Contributing to this repository
-===============================
+Contributing to this Documentation
+===================================
 
-Your contribution, mistake correction, code contributions are very welcome.
-Contributions are made through pull reqests, please do the following steps:
+We welcome contributions to improve this documentation!
 
-- Fork the current repository to your account
-- Create a new branch named with the feature you are developping or change you are making
-- Make the change on that branch
-- Create a pull request from this branch  to the main brach
-- Wait until your pull request is approved, or commented on
-- Address all comments until the PR is approved
-- Once the PR is merged to the main branch, delete your branch
+Reporting Issues
+----------------
 
+If you find errors, have suggestions, or notice missing information, please raise an issue on our GitHub repository:
 
-Sphinx header templates
-^^^^^^^^^^^^^^^^^^^^^^^
+- `GitHub Issues <https://github.com/XNAT-NYUAD/xnat-docs/issues>`_
 
+When creating an issue, please include:
+- A clear description of the problem or suggestion
+- The page or section affected
+- Any relevant screenshots or examples
 
-If you'd like to contribute to this documentation, please follow the heading-adornment conventions below:
+Contributing Documentation Content
+----------------------------------
 
-+---------------------+------------------------+----------------+------------+
-| Level               | Overline & Underline   | Underline only | Character  |
-+=====================+========================+================+============+
-| Document title      | ``=============``      | N/A            | ``=``      |
-+---------------------+------------------------+----------------+------------+
-| Top-level section   | ``-------------``      | ``-----------``| ``-``      |
-+---------------------+------------------------+----------------+------------+
-| Sub-section         | N/A                    | ``^^^^^^^^``   | ``^``      |
-+---------------------+------------------------+----------------+------------+
-| Sub-sub-section     | N/A                    | ``""""""""``   | ``"``      |
-+---------------------+------------------------+----------------+------------+
-| Fourth-level        | N/A                    | ``~~~~~~~~``   | ``~``      |
-+---------------------+------------------------+----------------+------------+
-| Fifth-level         | N/A                    | ``++++++++``   | ``+``      |
-+---------------------+------------------------+----------------+------------+
+If you would like to contribute directly by writing or editing documentation content, please email the XNAT administrators at admin.nyuad.xnat@nyu.edu.
 
-
-Referencing your code that is in a repository or submodule into the documentation pages
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-You can reference code parts or full scripts that are in the repository or a submodule as such (Check the .rst code of this page)
-
-
-.. literalinclude:: ../../../fmriprep/code/fmriprep.py
-  :language: python
+We appreciate your help in making this documentation better for all users!

@@ -32,10 +32,11 @@ How to Use This Documentation
 
 **If you're new to XNAT:**
 
-1. Start with :doc:`../working_with_xnat/access` to set up your account
-2. Read :doc:`../understanding_data/overview` to understand data formats  
-3. Browse :doc:`../processing_pipelines/overview` to see available tools
-4. For general XNAT concepts, see the `official XNAT getting started guide <https://wiki.xnat.org/documentation/getting-started-with-xnat>`_
+1. Read :doc:`what_is_xnat` to understand what XNAT is and how we use it at NYUAD
+2. Start with :doc:`../working_with_xnat/access` to set up your account
+3. Read :doc:`../understanding_data/overview` to understand data formats  
+4. Browse :doc:`../processing_pipelines/overview` to see available tools
+5. For general XNAT concepts, see the `official XNAT getting started guide <https://wiki.xnat.org/documentation/getting-started-with-xnat>`_
 
 **If you're experienced:**
 

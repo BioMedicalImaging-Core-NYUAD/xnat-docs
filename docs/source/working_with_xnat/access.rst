@@ -3,6 +3,22 @@ Accessing XNAT
 
 This guide covers how to access the NYUAD XNAT platform, from initial account creation to project access.
 
+Network Access Requirements
+----------------------------
+
+.. important::
+   **XNAT at NYUAD is hosted within NYUAD's network and is not accessible to the public.**
+   
+   - **On Campus**: Users must be connected to NYU Abu Dhabi WiFi to access XNAT
+   - **Off Campus**: Users must connect to the NYUAD VPN before accessing XNAT
+   
+   **VPN Setup:**
+   
+   - VPN Address for Abu Dhabi: ``vpn.abudhabi.nyu.edu``
+   - For installation and setup instructions, see the `NYU VPN Guide <https://www.nyu.edu/life/information-technology/infrastructure/network-services/vpn.html>`_
+   
+   If you are unable to access XNAT, ensure you are connected to NYUAD WiFi or the VPN before attempting to log in.
+
 Account Registration
 --------------------
 
@@ -63,10 +79,11 @@ Signing In
 
 Once your account is approved:
 
-1. Navigate to https://xnat.abudhabi.nyu.edu
-2. Click "Sign in with Google"
-3. Use your approved Google account credentials
-4. Access your authorized projects
+1. **Ensure Network Access**: Make sure you are connected to NYUAD WiFi or the NYUAD VPN (``vpn.abudhabi.nyu.edu``)
+2. Navigate to https://xnat.abudhabi.nyu.edu
+3. Click "Sign in with Google"
+4. Use your approved Google account credentials
+5. Access your authorized projects
 
 **Authentication Method**
    XNAT uses Google OAuth for secure authentication. You must use the same Google account that was approved during registration.
