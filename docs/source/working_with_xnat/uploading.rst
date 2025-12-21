@@ -37,8 +37,6 @@ Before uploading, please be aware of the following safety guidelines:
    
    Your ability to upload, archive, or edit data depends on your user role and project permissions. If you encounter errors, ensure you have "Member" or "Owner" access to the destination project.
 
-.. _data-anonymization-warning:
-
 .. warning::
    **Data Anonymization**
    
