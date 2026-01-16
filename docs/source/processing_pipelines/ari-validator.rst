@@ -295,6 +295,8 @@ Troubleshooting
 - **Incorrect dimensions and TR:** Check if data is incomplete or if wrong sequence was used.
 - **Missing files:** transfer missing files to the correct location.
 - **Extra files:** delete extra files depending on the reason.
+- **Multiple sessions:** Scans collected in separate sessions should be merged into one session. For example, if anantomicals were skipped because they had already been collected before, please transfer a copy of the anat files to the new session so the data is complete.
+- **Repeated scans:** If a scan was collected multiple times, please delete the extra scans according to why the scan was repeated. Ideally, invalid scans should not be sent from scanner to XNAT in the first place.
 
 .. raw:: html
 
