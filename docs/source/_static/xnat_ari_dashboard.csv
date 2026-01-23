@@ -1,9 +1,12 @@
 Subject_ID,Overall_Status,Sbref_Direction,IntendedFor,DWI_Parameters,File_Properties,Missing_Files,Extra_Files,DWI_Version,ASL_Version,M0scan_Status,Total_Missing_Files,Total_Extra_Files,DWI_Dimensions,DWI_TR,RevB0_Dimensions,RevB0_TR,ASL_Dimensions,ASL_TR,Missing_Files_Detail,Extra_Files_Detail,Property_Issues_Detail,DWI_Parameter_Issues
 sub-0259,PASSED,CORRECT,CORRECT,CORRECT,CORRECT,CORRECT,CORRECT,v2 (LATEST),v2 (LATEST),SEPARATE,0.0,0.0,104 x 104 x 75 x 105,3200.0 ms,104 x 104 x 75,3200.0 ms,128 x 128 x 48 x 25,4200.0 ms,,,,
 sub-0593,PASSED,CORRECT,CORRECT,CORRECT,CORRECT,CORRECT,CORRECT,v2 (LATEST),v2 (LATEST),SEPARATE,0.0,0.0,104 x 104 x 75 x 105,3200.0 ms,104 x 104 x 75,3200.0 ms,128 x 128 x 48 x 25,4200.0 ms,,,,
+sub-0678,Validation Not Found,,,,,,,,,,,,,,,,,,,,,
 sub-0689,PASSED,CORRECT,CORRECT,CORRECT,CORRECT,CORRECT,CORRECT,v2 (LATEST),v2 (LATEST),SEPARATE,0.0,0.0,104 x 104 x 75 x 105,3200.0 ms,104 x 104 x 75,3200.0 ms,128 x 128 x 48 x 25,4200.0 ms,,,,
 sub-0718,Validation Not Found,,,,,,,,,,,,,,,,,,,,,
 sub-0731,PASSED,CORRECT,CORRECT,CORRECT,CORRECT,CORRECT,CORRECT,v2 (LATEST),v2 (LATEST),SEPARATE,0.0,0.0,104 x 104 x 75 x 105,3200.0 ms,104 x 104 x 75,3200.0 ms,128 x 128 x 48 x 25,4200.0 ms,,,,
+sub-0766,Validation Not Found,,,,,,,,,,,,,,,,,,,,,
+sub-0774,Validation Not Found,,,,,,,,,,,,,,,,,,,,,
 sub-0837,MULTIPLE SESSION,,,,,,,,,,,,,,,,,,,,,
 sub-0839,PASSED,CORRECT,CORRECT,CORRECT,CORRECT,CORRECT,CORRECT,v2 (LATEST),v2 (LATEST),SEPARATE,0.0,0.0,104 x 104 x 75 x 105,3200.0 ms,104 x 104 x 75,3200.0 ms,128 x 128 x 48 x 25,4200.0 ms,,,,
 sub-0842,HAS ISSUES,CORRECT,CORRECT,CORRECT,CORRECT,INCORRECT,CORRECT,v2 (LATEST),UNKNOWN,SEPARATE,2.0,0.0,104 x 104 x 75 x 105,3200.0 ms,104 x 104 x 75,3200.0 ms,N/A,N/A,"asl_nii, asl_json",,,
@@ -76,3 +79,5 @@ sub-0919,HAS ISSUES,INCORRECT,INCORRECT,INCORRECT,CORRECT,INCORRECT,INCORRECT,UN
 sub-0920,PASSED,CORRECT,CORRECT,CORRECT,CORRECT,CORRECT,CORRECT,v2 (LATEST),v2 (LATEST),SEPARATE,0.0,0.0,104 x 104 x 75 x 105,3200.0 ms,104 x 104 x 75,3200.0 ms,128 x 128 x 48 x 25,4200.0 ms,,,,
 sub-0921,PASSED,CORRECT,CORRECT,CORRECT,CORRECT,CORRECT,CORRECT,v2 (LATEST),v2 (LATEST),SEPARATE,0.0,0.0,104 x 104 x 75 x 105,3200.0 ms,104 x 104 x 75,3200.0 ms,128 x 128 x 48 x 25,4200.0 ms,,,,
 sub-0922,Validation Not Found,,,,,,,,,,,,,,,,,,,,,
+sub-0923,Validation Not Found,,,,,,,,,,,,,,,,,,,,,
+sub-0924,Validation Not Found,,,,,,,,,,,,,,,,,,,,,
