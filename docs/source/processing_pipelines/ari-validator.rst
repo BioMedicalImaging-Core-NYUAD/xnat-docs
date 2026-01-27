@@ -335,12 +335,12 @@ Over time, several ARI project folders have been created. This log clarifies the
 - Contains all older data collected, includes both valid and invalid data.
 - RAs are actively validating this folder. Valid data is being migrated to the new **ARI** folder, while invalid data is either removed or kept here as an archive.
 
-**3. ARI Clean (okerslab_ari-clean)** - Internal / Testing
+**3. ARI Clean (Rokerslab_ari-clean)** - Internal / Testing
 
 - Made for temporary analysis of the 100 ARI dataset. XNAT admins also use this as a testing ground for pipelines.
 - Users do not need access to this folder.
 
-**4. ARI HFS (Rokerslab_ari-hfs_2024_001)** - Deprecated
+**4. ARI HFS (Rokerslab_vri-hfs_2024_001)** - Deprecated
 
 - The first ARI folder on XNAT. It had many issues and is now outdated.
 - Users no longer need to access this folder.
