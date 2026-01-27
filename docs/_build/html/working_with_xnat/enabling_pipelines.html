@@ -1,0 +1,215 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enabling Pipelines for Your Project &mdash; NYUAD XNAT User Documentation 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1fb475a3" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Running Pipelines on XNAT" href="running_pipelines.html" />
+    <link rel="prev" title="Install XNAT Desktop Client" href="install_desktop_client.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NYUAD XNAT User Documentation
+              <img src="../_static/NYU_Logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/what_is_xnat.html">What is NYUAD XNAT?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Getting Started with XNAT Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Working with XNAT</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="access.html">Accessing XNAT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uploading.html">Data Upload Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transferring_data.html">Transferring Data Between Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_desktop_client.html">Install XNAT Desktop Client</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Enabling Pipelines for Your Project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-enable-pipelines">How to Enable Pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#available-pipelines">Available Pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#custom-pipeline-setup">Custom Pipeline Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#next-steps">Next Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#related-documentation">Related Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="running_pipelines.html">Running Pipelines on XNAT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parallel_processing.html">Running Pipelines Across Multiple Subjects</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Understanding MRI Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../understanding_data/overview.html">Understanding Data Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding_data/bids.html">BIDS Format</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">XNAT Pipelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/overview.html">XNAT Pipelines Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/dcm2niix.html">dcm2niix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/dcm2bids.html">dcm2bids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/dcm2hcp.html">dcm2hcp (Under Development)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/mriqc.html">MRIQC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/ari-validator.html">ari-validator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/fmriprep.html">fMRIPrep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/tractoflow.html">TractoFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/hcp-pipeline.html">HCP (Under Development)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Download Methods</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/browser.html">Download via Browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/desktop_client.html">Download via Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/python_scripts.html">Download via Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/matlab_scripts.html">Download via MATLAB</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/troubleshooting.html">Troubleshooting Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/data_loss_recovery.html">Data Loss and Recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">Contributing to this Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contact.html">Contact Information</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Coming Soon</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="navigation.html">XNAT Navigation Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_management.html">Project Management</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NYUAD XNAT User Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Enabling Pipelines for Your Project</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/working_with_xnat/enabling_pipelines.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="enabling-pipelines-for-your-project">
+<h1>Enabling Pipelines for Your Project<a class="headerlink" href="#enabling-pipelines-for-your-project" title="Link to this heading"></a></h1>
+<p>This page explains how to enable processing pipelines for your XNAT project.</p>
+<section id="how-to-enable-pipelines">
+<h2>How to Enable Pipelines<a class="headerlink" href="#how-to-enable-pipelines" title="Link to this heading"></a></h2>
+<p>If you have <strong>Project Owner</strong> access, you can enable pipelines directly:</p>
+<ol class="arabic simple">
+<li><p>Navigate to your project in XNAT</p></li>
+<li><p>Click on <strong>Project Settings</strong> in the left sidebar</p></li>
+<li><p>Scroll down to the <strong>Pipelines</strong> section</p></li>
+<li><p>Check the boxes next to the pipelines you want to enable</p></li>
+<li><p>Click <strong>Save</strong></p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/5.enable.pipeline.png"><img alt="../_images/5.enable.pipeline.png" class="align-center" src="../_images/5.enable.pipeline.png" style="width: 900px;" />
+</a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you don’t see the <strong>Project Settings</strong> option, you may not have Project Owner permissions. In that case, contact your project owner or the XNAT administrators and we will enable the pipelines for you.</p>
+</div>
+</section>
+<section id="available-pipelines">
+<h2>Available Pipelines<a class="headerlink" href="#available-pipelines" title="Link to this heading"></a></h2>
+<p>The following pipelines can be enabled for your project:</p>
+<ul class="simple">
+<li><p><strong>Data Conversion:</strong> dcm2niix, dcm2bids, dcm2hcp</p></li>
+<li><p><strong>Quality Control:</strong> mriqc, ari-validator</p></li>
+<li><p><strong>Preprocessing:</strong> fmriprep, tractoflow, HCP pipeline</p></li>
+</ul>
+<p>For details on each pipeline, see <a class="reference internal" href="../processing_pipelines/overview.html"><span class="doc">XNAT Pipelines Overview</span></a>.</p>
+</section>
+<section id="custom-pipeline-setup">
+<h2>Custom Pipeline Setup<a class="headerlink" href="#custom-pipeline-setup" title="Link to this heading"></a></h2>
+<p>If you need a new pipeline that is not currently available on XNAT, please schedule a meeting with the XNAT administrators to discuss your requirements.</p>
+</section>
+<section id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h2>
+<p>After enabling pipelines for your project:</p>
+<ol class="arabic simple">
+<li><p><strong>Review</strong> <a class="reference internal" href="running_pipelines.html"><span class="doc">Running Pipelines on XNAT</span></a> for usage instructions</p></li>
+<li><p><strong>Explore</strong> specific pipeline documentation in <a class="reference internal" href="../processing_pipelines/overview.html"><span class="doc">XNAT Pipelines Overview</span></a></p></li>
+<li><p><strong>Test</strong> pipeline functionality with sample data</p></li>
+</ol>
+</section>
+<section id="related-documentation">
+<h2>Related Documentation<a class="headerlink" href="#related-documentation" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="running_pipelines.html"><span class="doc">Running Pipelines on XNAT</span></a> - How to run any pipeline</p></li>
+<li><p><a class="reference internal" href="../processing_pipelines/overview.html"><span class="doc">XNAT Pipelines Overview</span></a> - Available pipelines</p></li>
+<li><p><a class="reference internal" href="../support/troubleshooting.html"><span class="doc">Troubleshooting Guide</span></a> - Common issues and solutions</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="install_desktop_client.html" class="btn btn-neutral float-left" title="Install XNAT Desktop Client" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="running_pipelines.html" class="btn btn-neutral float-right" title="Running Pipelines on XNAT" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Puti Wen, Soumen Mohanty.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

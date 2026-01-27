@@ -1,0 +1,431 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Upload Procedures &mdash; NYUAD XNAT User Documentation 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1fb475a3" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Transferring Data Between Projects" href="transferring_data.html" />
+    <link rel="prev" title="Accessing XNAT" href="access.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NYUAD XNAT User Documentation
+              <img src="../_static/NYU_Logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/what_is_xnat.html">What is NYUAD XNAT?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Getting Started with XNAT Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Working with XNAT</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="access.html">Accessing XNAT</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Data Upload Procedures</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#important-considerations">Important Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#upload-methods">Upload Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#uploading-using-scripts-dicom-receiver">1. Uploading using Scripts (DICOM Receiver)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#xnat-desktop-client">2. XNAT Desktop Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compressed-uploader">3. Compressed Uploader</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#data-preparation">Data Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#verification-after-upload">Verification After Upload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#see-also">See Also</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="transferring_data.html">Transferring Data Between Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_desktop_client.html">Install XNAT Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enabling_pipelines.html">Enabling Pipelines for Your Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running_pipelines.html">Running Pipelines on XNAT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parallel_processing.html">Running Pipelines Across Multiple Subjects</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Understanding MRI Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../understanding_data/overview.html">Understanding Data Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding_data/bids.html">BIDS Format</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">XNAT Pipelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/overview.html">XNAT Pipelines Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/dcm2niix.html">dcm2niix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/dcm2bids.html">dcm2bids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/dcm2hcp.html">dcm2hcp (Under Development)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/mriqc.html">MRIQC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/ari-validator.html">ari-validator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/fmriprep.html">fMRIPrep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/tractoflow.html">TractoFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/hcp-pipeline.html">HCP (Under Development)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Download Methods</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/browser.html">Download via Browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/desktop_client.html">Download via Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/python_scripts.html">Download via Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/matlab_scripts.html">Download via MATLAB</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/troubleshooting.html">Troubleshooting Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/data_loss_recovery.html">Data Loss and Recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">Contributing to this Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contact.html">Contact Information</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Coming Soon</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="navigation.html">XNAT Navigation Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_management.html">Project Management</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NYUAD XNAT User Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Data Upload Procedures</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/working_with_xnat/uploading.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="data-upload-procedures">
+<h1>Data Upload Procedures<a class="headerlink" href="#data-upload-procedures" title="Link to this heading"></a></h1>
+<p>This guide covers the various methods and procedures for uploading data to XNAT.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>XNAT provides multiple ways to upload research data, each suited for different use cases and data types.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Prearchive vs. Archive</strong>:
+In XNAT, data typically lands in a temporary holding area called the <strong>Prearchive</strong> first. Here, you can review, label, and clean up data before committing it to the permanent <strong>Archive</strong>.</p>
+<ul class="simple">
+<li><p><strong>Prearchive</strong>: Staging area. Data can be edited or deleted.</p></li>
+<li><p><strong>Archive</strong>: Permanent storage. Data is indexed and protected.</p></li>
+</ul>
+<p>For more details, refer to the <a class="reference external" href="https://wiki.xnat.org/display/XNAT18/Archiving+Data">Official XNAT Documentation on Data Archiving</a>.</p>
+</div>
+</section>
+<section id="important-considerations">
+<h2>Important Considerations<a class="headerlink" href="#important-considerations" title="Link to this heading"></a></h2>
+<p>Before uploading, please be aware of the following safety guidelines:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Overwriting and Merging Data</strong></p>
+<p>Uploading data to an existing project or session can overwrite existing files or merge new data into an existing session.</p>
+<ul class="simple">
+<li><p><strong>Overwrite</strong>: If you upload a file with the same name as an existing file, the old file may be replaced.</p></li>
+<li><p><strong>Merge</strong>: If you upload new scans to an existing session, they will be added to that session.</p></li>
+</ul>
+<p>Always check your project’s upload settings and ensure you are uploading to the correct Subject and Session labels.</p>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p><strong>Permissions</strong></p>
+<p>Your ability to upload, archive, or edit data depends on your user role and project permissions. If you encounter errors, ensure you have “Member” or “Owner” access to the destination project.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Data Anonymization</strong></p>
+<p>Data from MRI scanners is anonymized at the acquisition step. When uploading data manually (via Desktop Client or Compressed Uploader), ensure that your data is properly anonymized before upload. All personally identifiable information (PII) and protected health information (PHI) must be removed or de-identified according to your project’s requirements.</p>
+</div>
+</section>
+<section id="upload-methods">
+<h2>Upload Methods<a class="headerlink" href="#upload-methods" title="Link to this heading"></a></h2>
+<p>There are three primary ways to upload data to this XNAT instance.</p>
+<nav class="contents local" id="methods">
+<p class="topic-title">Methods</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#uploading-using-scripts-dicom-receiver" id="id6">1. Uploading using Scripts (DICOM Receiver)</a></p></li>
+<li><p><a class="reference internal" href="#xnat-desktop-client" id="id7">2. XNAT Desktop Client</a></p></li>
+<li><p><a class="reference internal" href="#compressed-uploader" id="id8">3. Compressed Uploader</a></p></li>
+</ul>
+</nav>
+<section id="uploading-using-scripts-dicom-receiver">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">1. Uploading using Scripts (DICOM Receiver)</a><a class="headerlink" href="#uploading-using-scripts-dicom-receiver" title="Link to this heading"></a></h3>
+<p>This method is the standard way for MRI scanners and automated scripts (like <cite>storescu</cite> or C-STORE clients) to push data directly to XNAT.</p>
+<p><strong>Connection Details</strong></p>
+<p>Configure your scanner or sender script with the following parameters:</p>
+<ul class="simple">
+<li><p><strong>Remote AE Title</strong>: <code class="docutils literal notranslate"><span class="pre">xnatad</span></code></p></li>
+<li><p><strong>Remote IP</strong>: <code class="docutils literal notranslate"><span class="pre">10.230.12.52</span></code></p></li>
+<li><p><strong>Remote Port</strong>: <code class="docutils literal notranslate"><span class="pre">8104</span></code></p></li>
+</ul>
+<p><strong>How it works</strong></p>
+<p>Data sent to this receiver is routed to the XNAT Prearchive. From the Prearchive, you can review and archive the sessions.</p>
+<p><strong>Study Description Routing</strong></p>
+<p>The DICOM Study Description field is used to automatically route data during the archiving process. The routing string must follow this format:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xnat</span><span class="p">:</span><span class="o">//</span><span class="n">project_id</span><span class="o">/</span><span class="n">subject_label</span><span class="o">/</span><span class="n">session_label</span>
+</pre></div>
+</div>
+<p><strong>Examples:</strong>
+* <code class="docutils literal notranslate"><span class="pre">xnat://MyProject/SUBJECT001/SESSION001</span></code>
+* <code class="docutils literal notranslate"><span class="pre">xnat://ResearchStudy/P001/Baseline</span></code></p>
+<p>If the Study Description field contains no routing information or conflicting information, the data will remain in the Prearchive until it is manually routed by an administrator or project member with appropriate permissions.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Manual Routing Required</strong></p>
+<p>If your scanner or DICOM sender cannot populate the Study Description field with the routing string, you will need to manually route sessions from the Prearchive after they are received. Contact the XNAT NYUAD administrator if you need assistance with automated routing setup.</p>
+</div>
+</section>
+<section id="xnat-desktop-client">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">2. XNAT Desktop Client</a><a class="headerlink" href="#xnat-desktop-client" title="Link to this heading"></a></h3>
+<p>The <strong>XNAT Desktop Client</strong> is a standalone application that provides a robust way to upload large batches of data or complex folder structures. It is recommended for users who prefer a graphical interface with resumable uploads.</p>
+<p><strong>Installation</strong>
+Ensure you have the XNAT Desktop Client installed. (See <a class="reference internal" href="install_desktop_client.html"><span class="doc">Install XNAT Desktop Client</span></a> if available, or check the <a class="reference external" href="https://wiki.xnat.org/xnat-tools/xnat-desktop-client">Official XNAT Desktop Client Wiki</a>).</p>
+<p><strong>Step-by-Step Upload Guide</strong></p>
+<p>You can start an upload in two ways:</p>
+<p><strong>Option 1: Launch from XNAT Web Interface</strong></p>
+<p>Navigate to the project or subject page where you want to upload data. Click <strong>Upload Images</strong> from the <strong>Actions</strong> menu. This will automatically open the Desktop Client and log you in using your current web session credentials.</p>
+<blockquote>
+<div><figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../_images/desktop_client_launch_from_web.png"><img alt="Launching Desktop Client from XNAT web interface" src="../_images/desktop_client_launch_from_web.png" style="width: 600px;" />
+</a>
+<figcaption>
+<p><span class="caption-text"><em>Clicking “Upload Images” from the Actions menu automatically opens and logs into the Desktop Client</em></span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<p><strong>Option 2: Launch Desktop Client Directly</strong></p>
+<ol class="arabic">
+<li><p><strong>Login</strong>: Open the Desktop Client and log in with your XNAT credentials.</p></li>
+<li><p><strong>Start Upload</strong>: Click the <strong>Upload Images</strong> button on the main dashboard.</p></li>
+<li><p><strong>Select Project</strong>: Choose the destination project for your upload. The Desktop Client will retrieve project-specific settings that may affect your upload workflow.</p>
+<figure class="align-default" id="id2">
+<img alt="XNAT Desktop Client Project and Data Selection Screen" src="../_images/desktop_client_project_selection.png" />
+<figcaption>
+<p><span class="caption-text"><em>Project and Data Selection screen showing project list, folder selection, and project settings panel</em></span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+<li><p><strong>Select Files</strong>: Drag and drop your DICOM folders or use the file browser to select them. The client will scan the files to identify image sessions. The selected folder must contain one or more sets of uncompressed DICOM image files, which can be in a flat directory structure or in subfolders.</p></li>
+</ol>
+<p><strong>Single Session Upload Workflow</strong></p>
+<p>After selecting your project and data folder, you will proceed to the “Confirm Details” step where you can configure the following options:</p>
+<ul>
+<li><p><strong>Subject Selection</strong>: Choose an existing subject from your project using the dropdown menu, or click “Create new subject” if your project allows subject creation.</p></li>
+<li><p><strong>Subject Label</strong>: Ensure this matches your project’s naming convention.</p></li>
+<li><p><strong>Session Label</strong>: The client will auto-generate a session label based on the subject label and other variables. You can override this label if needed. Allowed characters are alphanumeric, dash (-), and underscore (_). If you specify a session label that matches an existing session, XNAT will attempt to merge selected scans into the existing session.</p></li>
+<li><p><strong>Scan Selection</strong>: You can select which scan series to include in the upload using the checkboxes in the scans table. The table displays Series Number, Series Description, Modality, File Count, and Size for each scan. By default, all scans are selected. Unchecked scans will not be uploaded.</p>
+<figure class="align-default" id="id3">
+<img alt="XNAT Desktop Client Confirm Details Screen" src="../_images/desktop_client_confirm_details.png" />
+<figcaption>
+<p><span class="caption-text"><em>Confirm Details screen showing project, subject, and session label fields, along with the scan selection table</em></span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+</ul>
+<p><strong>Bulk Upload Workflow</strong></p>
+<p>If you have multiple image sessions queued, you will be taken to the Bulk Upload Screen. Bulk upload may be restricted for some projects. When available, you can:</p>
+<ul class="simple">
+<li><p>Apply standard subject and session labeling patterns</p></li>
+<li><p>Upload multiple sessions in a single workflow</p></li>
+<li><p>Note: Some features available in single session uploads (like scan selection) are not available in bulk upload mode until after the upload process</p></li>
+</ul>
+<p>For more details on bulk upload workflows, see the <a class="reference external" href="https://wiki.xnat.org/xnat-tools/uploading-image-sessions">official XNAT documentation on uploading image sessions</a>.</p>
+<p><strong>Transfer Management</strong></p>
+<ol class="arabic" start="5">
+<li><p><strong>Upload</strong>: Click <strong>Start Upload</strong>. You will be taken to the transfer manager screen where you can:
+*   Monitor upload progress in real-time
+*   Pause, resume, or cancel uploads
+*   Start another workflow while uploads continue in the background</p>
+<p>As long as the application is running and you have an active network connection, uploads will proceed in the background.</p>
+</li>
+</ol>
+<p>For more information on managing transfers, see the <a class="reference external" href="https://wiki.xnat.org/xnat-tools/managing-data-transfers">official XNAT documentation on managing data transfers</a>.</p>
+<p><strong>Project Settings</strong></p>
+<p>Some project settings may affect your upload workflow, including:</p>
+<ul class="simple">
+<li><p><strong>Allow Subject Creation</strong>: Whether you can create new subjects during upload</p></li>
+<li><p><strong>Upload Destination</strong>: Whether data goes directly to Archive or to Prearchive first</p></li>
+<li><p><strong>Bulk Upload Restrictions</strong>: Whether bulk uploads are allowed for the project</p></li>
+<li><p><strong>Series Import Filters</strong>: Which scan series are allowed or blocked</p></li>
+</ul>
+<p>These settings may not be enabled for all projects. If you have questions about project-specific settings or encounter restrictions during upload, contact the XNAT NYUAD administrator.</p>
+<p>For more information on project settings, see the <a class="reference external" href="https://wiki.xnat.org/xnat-tools/setting-project-defaults-for-desktop-client-behavi">official XNAT documentation on setting project defaults</a>.</p>
+</section>
+<section id="compressed-uploader">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">3. Compressed Uploader</a><a class="headerlink" href="#compressed-uploader" title="Link to this heading"></a></h3>
+<p>The <strong>Compressed Uploader</strong> is a web-based tool for quickly uploading zipped archives of DICOM sessions. This is useful for single-session uploads or when you already have compressed archives.</p>
+<p><strong>Supported Formats</strong>: <code class="docutils literal notranslate"><span class="pre">.zip</span></code>, <code class="docutils literal notranslate"><span class="pre">.tar.gz</span></code>, or <code class="docutils literal notranslate"><span class="pre">.tgz</span></code> containing DICOM files.</p>
+<p><strong>Instructions</strong></p>
+<ol class="arabic">
+<li><p>Log in to the XNAT web interface.</p></li>
+<li><p>In the top navigation bar, go to <strong>Upload</strong> &gt; <strong>Images</strong> &gt; <strong>Compressed Uploader</strong>.</p>
+<figure class="align-default" id="id4">
+<img alt="Compressed Uploader Menu Navigation" src="../_images/compressed_uploader_menu.png" />
+<figcaption>
+<p><span class="caption-text"><em>Navigation path: Upload &gt; Images &gt; Compressed Uploader</em></span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+<li><p><strong>Select Project</strong>: Choose the destination project from the dropdown menu.</p></li>
+<li><p><strong>Configure Upload Settings</strong>:
+*   <strong>Importer handler</strong>: Select “DICOM Zip” for DICOM files.
+*   <strong>Custom Labeling</strong>: Choose “Extract From DICOM (Default)” to use DICOM metadata, or “Customize” to manually specify Subject ID and Session Label.
+*   <strong>Subject ID</strong> and <strong>Session Label</strong>: If using custom labeling, enter the desired labels.
+*   <strong>Ignore unparsable files</strong>: Check this option to skip files that cannot be parsed.</p></li>
+<li><p><strong>Select Destination</strong>:
+*   <strong>Prearchive</strong>: Recommended for safety. This is a temporary holding space that allows you to review and correct metadata before archiving.
+*   <strong>Archive</strong>: Direct upload. Use only if you are confident in the data integrity and labels.</p></li>
+<li><p><strong>Choose File</strong>: Click <strong>Choose File</strong> to select your <code class="docutils literal notranslate"><span class="pre">.zip</span></code>, <code class="docutils literal notranslate"><span class="pre">.tar.gz</span></code>, or <code class="docutils literal notranslate"><span class="pre">.tgz</span></code> file.</p>
+<figure class="align-default" id="id5">
+<img alt="Compressed Uploader Page" src="../_images/compressed_uploader_page.png" />
+<figcaption>
+<p><span class="caption-text"><em>Compressed Uploader interface showing project selection, labeling options, destination selection, and file upload</em></span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+<li><p><strong>Start Upload</strong>: Click <strong>Begin Upload</strong>. Wait for the confirmation message.</p></li>
+</ol>
+</section>
+</section>
+<section id="data-preparation">
+<h2>Data Preparation<a class="headerlink" href="#data-preparation" title="Link to this heading"></a></h2>
+<p>Regardless of the method used, ensuring your data is organized helps prevent errors.</p>
+<p><strong>DICOM Structure Requirements</strong></p>
+<ul class="simple">
+<li><p><strong>Standard Directory Structure</strong>: Keep standard DICOM directory structures. Each session should be in its own folder.</p></li>
+<li><p><strong>Unique IDs</strong>: Ensure Patient IDs and Study Instance UIDs are consistent within a session.</p></li>
+<li><p><strong>File Organization</strong>: Organize DICOM files in a logical folder hierarchy. Avoid deeply nested folders that may cause issues during upload.</p></li>
+</ul>
+<p><strong>Pre-Upload Checklist</strong></p>
+<ul class="simple">
+<li><p>Verify that all DICOM files are present and readable</p></li>
+<li><p>Ensure data is properly anonymized (see the <cite>Data Anonymization</cite> warning in the Important Considerations section above)</p></li>
+<li><p>Remove non-image files (like desktop thumbs, hidden system files, or log files) before zipping for the Compressed Uploader</p></li>
+<li><p>Check that Subject and Session labels follow your project’s naming conventions</p></li>
+<li><p>Verify you have the necessary permissions for the target project</p></li>
+</ul>
+<p><strong>Common File Structure Issues</strong></p>
+<ul class="simple">
+<li><p><strong>Mixed File Types</strong>: Ensure folders contain only DICOM files. Remove any non-DICOM files before upload.</p></li>
+<li><p><strong>Corrupted Files</strong>: Corrupted DICOM files may cause upload failures. Verify file integrity before uploading.</p></li>
+<li><p><strong>Incomplete Sessions</strong>: Ensure all scan series for a session are included in the upload folder.</p></li>
+</ul>
+</section>
+<section id="verification-after-upload">
+<h2>Verification After Upload<a class="headerlink" href="#verification-after-upload" title="Link to this heading"></a></h2>
+<p>After completing an upload, it is important to verify that everything uploaded successfully:</p>
+<ol class="arabic simple">
+<li><p><strong>Check Upload Logs</strong>: Review the upload logs in the Desktop Client transfer manager or check the upload status in the XNAT web interface to confirm all files were transferred successfully.</p></li>
+<li><p><strong>Verify Data in XNAT</strong>: Navigate to your project in the XNAT web interface and verify that:
+*   Subjects were created correctly (if new subjects were created)
+*   Sessions appear with the expected labels
+*   All scan series are present and complete
+*   File counts and sizes match your expectations</p></li>
+<li><p><strong>Retry Failed Uploads</strong>: If any uploads failed, you can retry them from the Desktop Client transfer manager or re-upload via the Compressed Uploader.</p></li>
+<li><p><strong>Contact Support</strong>: If anything isn’t working as expected, or if subjects or sessions were not created properly, contact the XNAT administrators at <a class="reference external" href="mailto:admin&#46;nyuad&#46;xnat&#37;&#52;&#48;nyu&#46;edu">admin<span>&#46;</span>nyuad<span>&#46;</span>xnat<span>&#64;</span>nyu<span>&#46;</span>edu</a> for assistance.</p></li>
+</ol>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<p><strong>Common Issues</strong></p>
+<ul class="simple">
+<li><p><strong>Connection Refused (DICOM Receiver)</strong>: Ensure you are on the correct network (VPN/Intranet) to access <code class="docutils literal notranslate"><span class="pre">10.230.12.52</span></code>. For routing issues, verify the DICOM Study Description field contains <code class="docutils literal notranslate"><span class="pre">xnat://project_id/subject_label/session_label</span></code>. Missing or incorrect routing strings require manual routing from the Prearchive.</p></li>
+<li><p><strong>Permission Errors</strong>: Ensure you have “Member” or “Owner” access to the destination project. If subject creation is restricted, register subjects in the project before uploading.</p></li>
+<li><p><strong>Upload Failures</strong>: Check file permissions, quota limits, and avoid special characters in Subject/Session labels. Rejected series may be due to Series Import Filters—contact the project administrator if needed.</p></li>
+<li><p><strong>Labeling Issues</strong>: Use only alphanumeric characters, hyphens, and underscores. Duplicate labels will merge data with existing sessions.</p></li>
+<li><p><strong>Bulk Upload Restrictions</strong>: Some projects restrict bulk uploads. Upload sessions individually or contact the project administrator.</p></li>
+<li><p><strong>Network/Performance</strong>: Large datasets take time to upload. Use the transfer manager to monitor progress. Desktop Client supports resumable uploads if connectivity is interrupted.</p></li>
+</ul>
+<p>For additional help, contact the XNAT administrators at <a class="reference external" href="mailto:admin&#46;nyuad&#46;xnat&#37;&#52;&#48;nyu&#46;edu">admin<span>&#46;</span>nyuad<span>&#46;</span>xnat<span>&#64;</span>nyu<span>&#46;</span>edu</a>.</p>
+</section>
+<section id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading"></a></h2>
+<p><strong>Related Documentation</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="transferring_data.html"><span class="doc">Transferring Data Between Projects</span></a> - Guide for transferring data between projects</p></li>
+<li><p><a class="reference internal" href="install_desktop_client.html"><span class="doc">Install XNAT Desktop Client</span></a> - Installation and setup guide for Desktop Client</p></li>
+<li><p><a class="reference internal" href="../support/data_loss_recovery.html"><span class="doc">Data Loss and Recovery</span></a> - Information about backups and data recovery</p></li>
+<li><p><a class="reference internal" href="project_management.html"><span class="doc">Project Management</span></a> - Project management and configuration</p></li>
+<li><p><a class="reference internal" href="navigation.html"><span class="doc">XNAT Navigation Basics</span></a> - General XNAT navigation</p></li>
+</ul>
+<p><strong>Official XNAT Documentation</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://wiki.xnat.org/xnat-tools/uploading-image-sessions">XNAT Wiki: Uploading Image Sessions</a> - Comprehensive guide to uploading image sessions</p></li>
+<li><p><a class="reference external" href="https://wiki.xnat.org/xnat-tools/xnat-desktop-client">XNAT Desktop Client Documentation</a> - Complete Desktop Client reference</p></li>
+<li><p><a class="reference external" href="https://wiki.xnat.org/xnat-tools/setting-project-defaults-for-desktop-client-behavi">Setting Project Defaults for Desktop Client Behavior</a> - Project configuration options</p></li>
+<li><p><a class="reference external" href="https://wiki.xnat.org/xnat-tools/managing-data-transfers">Managing Data Transfers</a> - Transfer management guide</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="access.html" class="btn btn-neutral float-left" title="Accessing XNAT" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="transferring_data.html" class="btn btn-neutral float-right" title="Transferring Data Between Projects" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Puti Wen, Soumen Mohanty.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

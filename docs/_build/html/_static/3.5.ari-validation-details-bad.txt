@@ -1,0 +1,91 @@
+
+=== Starting validation for subject: sub-0630 ===
+Step 1: Checking required files...
+
+ANAT: (4/4 files found)
+
+FUNC: (16/16 files found)
+
+FMAP: (6/6 files found)
+
+DWI: (4/4 files found)
+
+PERF: (2/2 files found)
+
+Step 2: Checking for unexpected files...
+
+Step 3: Checking NIFTI properties...
+
+=== ANAT Properties ===
+File: sub-0630_ses-01_T1w.nii.gz (18.81 MB)
+Dimensions: 208 x 300 x 320 (TR = 2400.0 ms)
+File: sub-0630_ses-01_FLAIR.nii.gz (19.99 MB)
+Dimensions: 208 x 300 x 320 (TR = 7000.0 ms)
+
+=== FUNC Properties ===
+File: sub-0630_ses-01_task-restingstate_dir-AP_run-01_bold.nii.gz (262.84 MB)
+Dimensions: 88 x 88 x 64 x 490 (TR = 700.0 ms)
+File: sub-0630_ses-01_task-restingstate_dir-AP_run-02_bold.nii.gz (261.40 MB)
+Dimensions: 88 x 88 x 64 x 490 (TR = 700.0 ms)
+File: sub-0630_ses-01_task-restingstate_dir-PA_run-01_bold.nii.gz (261.01 MB)
+Dimensions: 88 x 88 x 64 x 490 (TR = 700.0 ms)
+File: sub-0630_ses-01_task-restingstate_dir-PA_run-02_bold.nii.gz (259.76 MB)
+Dimensions: 88 x 88 x 64 x 490 (TR = 700.0 ms)
+File: sub-0630_ses-01_task-restingstate_dir-AP_run-01_sbref.nii.gz (0.59 MB)
+Dimensions: 88 x 88 x 64 (TR = 5330.0 ms)
+File: sub-0630_ses-01_task-restingstate_dir-AP_run-02_sbref.nii.gz (0.59 MB)
+Dimensions: 88 x 88 x 64 (TR = 5330.0 ms)
+File: sub-0630_ses-01_task-restingstate_dir-PA_run-01_sbref.nii.gz (0.59 MB)
+Dimensions: 88 x 88 x 64 (TR = 5330.0 ms)
+File: sub-0630_ses-01_task-restingstate_dir-PA_run-02_sbref.nii.gz (0.59 MB)
+Dimensions: 88 x 88 x 64 (TR = 5330.0 ms)
+
+=== FMAP Properties ===
+File: sub-0630_ses-01_dir-AP_epi.nii.gz (1.87 MB)
+Dimensions: 88 x 88 x 64 x 3 (TR = 6350.0 ms)
+File: sub-0630_ses-01_dir-PA_run-01_epi.nii.gz (1.85 MB)
+Dimensions: 88 x 88 x 64 x 3 (TR = 6350.0 ms)
+File: sub-0630_ses-01_dir-PA_run-02_epi.nii.gz (0.69 MB)
+Dimensions: 104 x 104 x 72 (TR = 3600.0 ms)
+
+=== DWI Properties ===
+File: sub-0630_ses-01_dir-AP_dwi.nii.gz (60.92 MB)
+Dimensions: 104 x 104 x 72 x 105 (TR = 3200.0 ms)
+
+=== PERF Properties ===
+File: sub-0630_ses-01_asl.nii.gz (45.70 MB)
+Dimensions: 128 x 128 x 48 x 25 (TR = 4200.0 ms)
+
+Step 4: Validating sbref files...
+
+sbref Phase Encoding Direction Summary:
+AP: All correct
+PA: 0 correct, 2 incorrect, 0 missing
+
+Step 5: Checking fieldmap IntendedFor...
+Correct IntendedFor in sub-0630_ses-01_dir-AP_epi.json
+Correct IntendedFor in sub-0630_ses-01_dir-PA_run-01_epi.json
+
+Step 6: Comparing revb0 and dwi parameters...
+sub-0630: EchoTime mismatch - dwi: 0.079, revb0: 0.092
+sub-0630: RepetitionTime mismatch - dwi: 3.2, revb0: 3.6
+sub-0630: EffectiveEchoSpacing mismatch - dwi: 0.000670015, revb0: 0.000649996
+
+===== SUMMARY =====
+MISSING FILES: CORRECT
+
+EXTRA FILES: CORRECT
+
+FILE PROPERTIES: CORRECT
+
+SBREF DIRECTION: INCORRECT
+
+INTENDEDFOR: CORRECT
+
+DWI PARAMETERS: INCORRECT
+
+DWI VERSION: VERSION 1 (DEPRECATED)
+
+ASL VERSION: VERSION 2 (LATEST)
+
+OVERALL: INCORRECT

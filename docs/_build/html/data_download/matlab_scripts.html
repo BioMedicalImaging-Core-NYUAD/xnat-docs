@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Download via MATLAB &mdash; NYUAD XNAT User Documentation 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1fb475a3" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Frequently Asked Questions" href="../support/faq.html" />
+    <link rel="prev" title="Download via Python" href="python_scripts.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NYUAD XNAT User Documentation
+              <img src="../_static/NYU_Logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/what_is_xnat.html">What is NYUAD XNAT?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Getting Started with XNAT Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Working with XNAT</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/access.html">Accessing XNAT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/uploading.html">Data Upload Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/transferring_data.html">Transferring Data Between Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/install_desktop_client.html">Install XNAT Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/enabling_pipelines.html">Enabling Pipelines for Your Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/running_pipelines.html">Running Pipelines on XNAT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/parallel_processing.html">Running Pipelines Across Multiple Subjects</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Understanding MRI Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../understanding_data/overview.html">Understanding Data Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding_data/bids.html">BIDS Format</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">XNAT Pipelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/overview.html">XNAT Pipelines Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/dcm2niix.html">dcm2niix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/dcm2bids.html">dcm2bids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/dcm2hcp.html">dcm2hcp (Under Development)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/mriqc.html">MRIQC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/ari-validator.html">ari-validator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/fmriprep.html">fMRIPrep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/tractoflow.html">TractoFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/hcp-pipeline.html">HCP (Under Development)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Download Methods</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="browser.html">Download via Browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="desktop_client.html">Download via Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_scripts.html">Download via Python</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Download via MATLAB</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#available-scripts">Available Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setup-instructions">Setup Instructions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-usage">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#function-parameters">Function Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#output-structure">Output Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-options">Configuration Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#integration-with-workflows">Integration with Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#security-best-practices">Security Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#next-steps">Next Steps</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/troubleshooting.html">Troubleshooting Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/data_loss_recovery.html">Data Loss and Recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">Contributing to this Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contact.html">Contact Information</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Coming Soon</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/navigation.html">XNAT Navigation Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/project_management.html">Project Management</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NYUAD XNAT User Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Download via MATLAB</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/data_download/matlab_scripts.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="download-via-matlab">
+<h1>Download via MATLAB<a class="headerlink" href="#download-via-matlab" title="Link to this heading"></a></h1>
+<p>MATLAB scripts for downloading data from XNAT, integrating seamlessly with MATLAB analysis workflows.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>MATLAB scripts provide automated data download capabilities within the MATLAB environment, ideal for researchers who work primarily in MATLAB and want to integrate data retrieval with their analysis pipelines.</p>
+</section>
+<section id="available-scripts">
+<h2>Available Scripts<a class="headerlink" href="#available-scripts" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">matlab-example</span></code> folder contains three main MATLAB scripts:</p>
+<dl class="simple">
+<dt><strong>1. Environment Setup</strong> (<code class="docutils literal notranslate"><span class="pre">setup_xnat_env.m</span></code>)</dt><dd><p>Creates and configures a conda environment with required Python packages.</p>
+</dd>
+<dt><strong>2. Download Function</strong> (<code class="docutils literal notranslate"><span class="pre">downloadXNAT.m</span></code>)</dt><dd><p>Main download function that handles DICOM files and session resources.</p>
+</dd>
+<dt><strong>3. Example Usage</strong> (<code class="docutils literal notranslate"><span class="pre">run_download.m</span></code>)</dt><dd><p>Demonstrates configuration and usage patterns.</p>
+</dd>
+</dl>
+</section>
+<section id="setup-instructions">
+<h2>Setup Instructions<a class="headerlink" href="#setup-instructions" title="Link to this heading"></a></h2>
+<p><strong>1. Prerequisites</strong></p>
+<ul class="simple">
+<li><p>MATLAB installed</p></li>
+<li><p>Miniconda or Anaconda installed</p></li>
+<li><p>Network access to XNAT server</p></li>
+</ul>
+<p><strong>2. Get Template Scripts</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/XNAT-NYUAD/template-scripts.git
+<span class="nb">cd</span><span class="w"> </span>template-scripts/matlab-example
+</pre></div>
+</div>
+<p><strong>3. Environment Setup</strong></p>
+<p>Run this once to create the Python environment:</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">setup_xnat_env</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This creates a conda environment named <code class="docutils literal notranslate"><span class="pre">xnat_env</span></code> with required Python packages.</p>
+<p><strong>4. Configure Authentication</strong></p>
+<p>Edit <code class="docutils literal notranslate"><span class="pre">run_download.m</span></code> and update:</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="p">.</span><span class="n">api_token_id</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;your_token_alias&#39;</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">api_token_secret</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;your_token_secret&#39;</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">project_id</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;your_project_id&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="basic-usage">
+<h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Link to this heading"></a></h2>
+<p><strong>Download DICOM Files</strong></p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Configure XNAT connection</span>
+<span class="n">config</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">struct</span><span class="p">();</span>
+<span class="n">config</span><span class="p">.</span><span class="n">server_url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;https://xnat.abudhabi.nyu.edu/&#39;</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">api_token_id</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;your_alias&#39;</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">api_token_secret</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;your_secret&#39;</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">project_id</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;your_project&#39;</span><span class="p">;</span>
+
+<span class="c">% Download specific subject/session</span>
+<span class="n">status</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">downloadXNAT</span><span class="p">(</span><span class="s">&#39;config&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">config</span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
+<span class="w">                     </span><span class="s">&#39;subjects&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;sub-001&#39;</span><span class="p">},</span><span class="w"> </span><span class="k">...</span>
+<span class="w">                     </span><span class="s">&#39;sessions&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;ses-01&#39;</span><span class="p">});</span>
+</pre></div>
+</div>
+<p><strong>Download Session Resources</strong></p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Download processed data (e.g., &#39;rawdata&#39; folder)</span>
+<span class="n">status</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">downloadXNAT</span><span class="p">(</span><span class="s">&#39;config&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">config</span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
+<span class="w">                     </span><span class="s">&#39;subjects&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;sub-001&#39;</span><span class="p">},</span><span class="w"> </span><span class="k">...</span>
+<span class="w">                     </span><span class="s">&#39;sessions&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;ses-01&#39;</span><span class="p">},</span><span class="w"> </span><span class="k">...</span>
+<span class="w">                     </span><span class="s">&#39;resource&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;rawdata&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><strong>Test Mode</strong></p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Test connection without downloading</span>
+<span class="n">status</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">downloadXNAT</span><span class="p">(</span><span class="s">&#39;config&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">config</span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
+<span class="w">                     </span><span class="s">&#39;test&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="function-parameters">
+<h2>Function Parameters<a class="headerlink" href="#function-parameters" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">downloadXNAT</span></code> function accepts these parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">config</span></code> (required): Struct with server and authentication settings</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">subjects</span></code>: Cell array of subject IDs to download</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sessions</span></code>: Cell array of session IDs to download</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">resource</span></code>: Specific resource name (e.g., ‘rawdata’, ‘BIDS’)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test</span></code>: Boolean flag for test mode (no actual download)</p></li>
+</ul>
+</section>
+<section id="output-structure">
+<h2>Output Structure<a class="headerlink" href="#output-structure" title="Link to this heading"></a></h2>
+<p>Downloads are organized in the script directory:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>matlab-example/
+├── downloads/           # Downloaded data
+│   ├── session-ses-01/
+│   └── session-ses-02/
+└── logs/               # Download logs
+    ├── download.log
+    └── download_complete
+</pre></div>
+</div>
+</section>
+<section id="configuration-options">
+<h2>Configuration Options<a class="headerlink" href="#configuration-options" title="Link to this heading"></a></h2>
+<p><strong>Server Configuration</strong></p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="p">.</span><span class="n">server_url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;https://xnat.abudhabi.nyu.edu/&#39;</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">api_token_id</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;your_alias&#39;</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">api_token_secret</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;your_secret&#39;</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">project_id</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;your_project&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>Download Options</strong></p>
+<ul class="simple">
+<li><p>Download entire sessions (DICOM files)</p></li>
+<li><p>Download specific resources (processed data)</p></li>
+<li><p>Test connections before downloading</p></li>
+<li><p>Filter by subject and session IDs</p></li>
+</ul>
+</section>
+<section id="integration-with-workflows">
+<h2>Integration with Workflows<a class="headerlink" href="#integration-with-workflows" title="Link to this heading"></a></h2>
+<p><strong>Example Analysis Pipeline</strong></p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% 1. Download data</span>
+<span class="n">status</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">downloadXNAT</span><span class="p">(</span><span class="s">&#39;config&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">config</span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
+<span class="w">                     </span><span class="s">&#39;subjects&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;sub-001&#39;</span><span class="p">});</span>
+
+<span class="c">% 2. Process downloaded data</span>
+<span class="k">if</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="n">dataPath</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fullfile</span><span class="p">(</span><span class="nb">pwd</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;downloads&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;session-ses-01&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="c">% Add your analysis code here</span>
+<span class="w">    </span><span class="n">dicomFiles</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">dir</span><span class="p">(</span><span class="nb">fullfile</span><span class="p">(</span><span class="n">dataPath</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;**&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;*.dcm&#39;</span><span class="p">));</span>
+<span class="w">    </span><span class="c">% Process DICOM files...</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</section>
+<section id="security-best-practices">
+<h2>Security Best Practices<a class="headerlink" href="#security-best-practices" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Store API tokens securely, never in version control</p></li>
+<li><p>Use project-specific tokens when possible</p></li>
+<li><p>Regularly rotate API tokens</p></li>
+<li><p>Test with limited data first</p></li>
+</ul>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt><strong>Conda Environment Issues</strong></dt><dd><p>Run <code class="docutils literal notranslate"><span class="pre">setup_xnat_env</span></code> again or check conda installation.</p>
+</dd>
+<dt><strong>Authentication Errors</strong></dt><dd><p>Verify API token alias and secret are correct and haven’t expired.</p>
+</dd>
+<dt><strong>Download Failures</strong></dt><dd><p>Check project access permissions and network connectivity.</p>
+</dd>
+<dt><strong>Python Environment Problems</strong></dt><dd><p>Ensure conda is properly installed and accessible from MATLAB.</p>
+</dd>
+</dl>
+</section>
+<section id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Learn about <a class="reference internal" href="../understanding_data/bids.html"><span class="doc">BIDS Format</span></a> for data organization</p></li>
+<li><p>See <a class="reference internal" href="../processing_pipelines/overview.html"><span class="doc">XNAT Pipelines Overview</span></a> for analysis pipelines</p></li>
+<li><p>Try <a class="reference internal" href="python_scripts.html"><span class="doc">Download via Python</span></a> for Python-based alternatives</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="python_scripts.html" class="btn btn-neutral float-left" title="Download via Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../support/faq.html" class="btn btn-neutral float-right" title="Frequently Asked Questions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Puti Wen, Soumen Mohanty.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

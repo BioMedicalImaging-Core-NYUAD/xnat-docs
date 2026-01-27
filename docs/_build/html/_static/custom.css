@@ -1,0 +1,24 @@
+.wy-side-nav-search {
+    background-color: #57068c !important; /* NYU Violet */
+}
+
+.wy-side-nav-search .icon {
+    color: #ffffff !important; /* White color for the logo text or icon */
+}
+
+/* Main content area width */
+.wy-nav-content {
+    max-width: 1000px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+}
+
+
+/* Uniform font size and style across all text elements */
+.rst-content p {
+    /*font-size: 1.2em !important;*/
+    line-height: 1.5 !important;
+    text-align: justify !important;
+    font-weight: normal !important;
+}
+

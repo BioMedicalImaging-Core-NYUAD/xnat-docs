@@ -1,0 +1,300 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Install XNAT Desktop Client &mdash; NYUAD XNAT User Documentation 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1fb475a3" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Enabling Pipelines for Your Project" href="enabling_pipelines.html" />
+    <link rel="prev" title="Transferring Data Between Projects" href="transferring_data.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NYUAD XNAT User Documentation
+              <img src="../_static/NYU_Logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/what_is_xnat.html">What is NYUAD XNAT?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Getting Started with XNAT Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Working with XNAT</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="access.html">Accessing XNAT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uploading.html">Data Upload Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transferring_data.html">Transferring Data Between Projects</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Install XNAT Desktop Client</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#download-and-installation">Download and Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#windows-installation">Windows Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#macos-installation">macOS Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linux-installation">Linux Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#system-requirements">System Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#initial-setup">Initial Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#verification">Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#next-steps">Next Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#related-documentation">Related Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="enabling_pipelines.html">Enabling Pipelines for Your Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running_pipelines.html">Running Pipelines on XNAT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parallel_processing.html">Running Pipelines Across Multiple Subjects</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Understanding MRI Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../understanding_data/overview.html">Understanding Data Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding_data/bids.html">BIDS Format</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">XNAT Pipelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/overview.html">XNAT Pipelines Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/dcm2niix.html">dcm2niix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/dcm2bids.html">dcm2bids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/dcm2hcp.html">dcm2hcp (Under Development)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/mriqc.html">MRIQC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/ari-validator.html">ari-validator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/fmriprep.html">fMRIPrep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/tractoflow.html">TractoFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/hcp-pipeline.html">HCP (Under Development)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Download Methods</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/browser.html">Download via Browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/desktop_client.html">Download via Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/python_scripts.html">Download via Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/matlab_scripts.html">Download via MATLAB</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/troubleshooting.html">Troubleshooting Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/data_loss_recovery.html">Data Loss and Recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">Contributing to this Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contact.html">Contact Information</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Coming Soon</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="navigation.html">XNAT Navigation Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_management.html">Project Management</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NYUAD XNAT User Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Install XNAT Desktop Client</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/working_with_xnat/install_desktop_client.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="install-xnat-desktop-client">
+<h1>Install XNAT Desktop Client<a class="headerlink" href="#install-xnat-desktop-client" title="Link to this heading"></a></h1>
+<p>The XNAT Desktop Client (also called “Data Transfer Manager” or DXM) is a robust desktop application for downloading imaging data from XNAT servers. It’s particularly valuable for downloading large datasets reliably with pause, resume, and cancel capabilities.</p>
+<p><strong>Key Advantages:</strong></p>
+<ul class="simple">
+<li><p><strong>Bulk download reliability</strong> - handles large datasets that might fail with browser downloads</p></li>
+<li><p><strong>Transfer management</strong> - pause, resume, and cancel downloads as needed</p></li>
+<li><p><strong>Background processing</strong> - downloads continue even if you close your browser</p></li>
+<li><p><strong>Automatic authentication</strong> - seamless integration with XNAT web interface</p></li>
+</ul>
+<p>For comprehensive documentation, visit the <a class="reference external" href="https://wiki.xnat.org/xnat-tools/xnat-desktop-client-dxm">official XNAT Desktop Client documentation</a>.</p>
+<section id="download-and-installation">
+<h2>Download and Installation<a class="headerlink" href="#download-and-installation" title="Link to this heading"></a></h2>
+<p><strong>Download Location:</strong> <a class="reference external" href="https://www.xnat.org/download/desktop-client/">https://www.xnat.org/download/desktop-client/</a></p>
+<section id="windows-installation">
+<h3>Windows Installation<a class="headerlink" href="#windows-installation" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Download</strong> the .exe file from the official download page</p></li>
+<li><p><strong>Run</strong> the .exe file to launch the one-step installer</p></li>
+<li><p><strong>Automatic setup</strong> - installing the application will automatically install file-handling support for all your browsers</p></li>
+</ol>
+</section>
+<section id="macos-installation">
+<h3>macOS Installation<a class="headerlink" href="#macos-installation" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Download</strong> the .DMG file from the official download page</p></li>
+<li><p><strong>Install</strong> by opening the .DMG file and dragging the app into your Applications folder</p></li>
+<li><p><strong>Security setup</strong> - if you get a security warning when launching:
+- Open System Preferences &gt; Security &gt; General
+- Look for a message about this app and click “Open Anyway”</p></li>
+</ol>
+</section>
+<section id="linux-installation">
+<h3>Linux Installation<a class="headerlink" href="#linux-installation" title="Link to this heading"></a></h3>
+<p>Linux installation requires additional setup steps. For detailed instructions, see the <a class="reference external" href="https://wiki.xnat.org/xnat-tools/installing-the-xnat-desktop-client">official Linux installation guide</a>.</p>
+<p><strong>Requirements:</strong></p>
+<ul class="simple">
+<li><p>Compatible JRE (Java Runtime Environment)</p></li>
+<li><p>C++ ABI version 1.3.9 support</p></li>
+<li><p>Supported distributions: Ubuntu 18.04+, CentOS 8</p></li>
+</ul>
+<p><strong>Basic Steps:</strong></p>
+<ol class="arabic simple">
+<li><p>Verify system requirements</p></li>
+<li><p>Install Java 8 JRE</p></li>
+<li><p>Download .AppImage file</p></li>
+<li><p>Make file executable and run</p></li>
+</ol>
+</section>
+</section>
+<section id="system-requirements">
+<h2>System Requirements<a class="headerlink" href="#system-requirements" title="Link to this heading"></a></h2>
+<p><strong>General:</strong></p>
+<ul class="simple">
+<li><p>Compatible with Mac, Windows, and Linux</p></li>
+<li><p>Recommended for native (non-virtualized) systems</p></li>
+<li><p>Network access to your XNAT server</p></li>
+</ul>
+<p><strong>Linux Specific:</strong></p>
+<ul class="simple">
+<li><p>Java 8 JRE</p></li>
+<li><p>C++ ABI version 1.3.9 support</p></li>
+<li><p>Note: RHEL/CentOS 7.x and Fedora 19 (and earlier) are not supported</p></li>
+</ul>
+</section>
+<section id="initial-setup">
+<h2>Initial Setup<a class="headerlink" href="#initial-setup" title="Link to this heading"></a></h2>
+<p><strong>Server Connection:</strong></p>
+<ol class="arabic simple">
+<li><p>Launch the XNAT Desktop Client</p></li>
+<li><p>Click “Settings” (gear icon) in the upper right corner</p></li>
+<li><p>Navigate to server connections</p></li>
+<li><p>Add your XNAT server:</p>
+<ul class="simple">
+<li><p><strong>Server URL</strong>: <code class="docutils literal notranslate"><span class="pre">xnat.abudhabi.nyu.edu</span></code></p></li>
+<li><p><strong>Username</strong>: Your XNAT alias (get from browser: click your name → copy alias)</p></li>
+<li><p><strong>Password</strong>: Secret key (get from browser: click your name → copy secret)</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Default Download Location:</strong>
+Set a default download location in Application Settings to avoid selecting a folder each time.</p>
+</section>
+<section id="verification">
+<h2>Verification<a class="headerlink" href="#verification" title="Link to this heading"></a></h2>
+<p>After installation, verify the setup by:</p>
+<ol class="arabic simple">
+<li><p><strong>Launch</strong> the Desktop Client</p></li>
+<li><p><strong>Connect</strong> to your XNAT server using your credentials</p></li>
+<li><p><strong>Test</strong> with a small download to ensure everything works properly</p></li>
+</ol>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<p><strong>Security Warnings (macOS):</strong></p>
+<ul class="simple">
+<li><p>Open System Preferences &gt; Security &gt; General</p></li>
+<li><p>Allow the application when prompted</p></li>
+</ul>
+<p><strong>Connection Issues:</strong></p>
+<ul class="simple">
+<li><p>Verify server URL is correct: <code class="docutils literal notranslate"><span class="pre">xnat.abudhabi.nyu.edu</span></code></p></li>
+<li><p>Ensure you’re using alias/secret from XNAT web interface</p></li>
+<li><p>Check network connectivity to XNAT server</p></li>
+</ul>
+<p><strong>Linux Installation Issues:</strong></p>
+<ul class="simple">
+<li><p>Verify Java 8 JRE is properly installed</p></li>
+<li><p>Check C++ ABI compatibility</p></li>
+<li><p>Consult the <a class="reference external" href="https://wiki.xnat.org/xnat-tools/installing-the-xnat-desktop-client">official Linux guide</a></p></li>
+</ul>
+</section>
+<section id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h2>
+<p>Once installed and configured:</p>
+<ol class="arabic simple">
+<li><p><strong>Learn to use</strong> the client: <a class="reference internal" href="../data_download/desktop_client.html"><span class="doc">Download via Desktop Client</span></a></p></li>
+<li><p><strong>Download data</strong> from your XNAT projects</p></li>
+<li><p><strong>Set up</strong> automated download workflows</p></li>
+</ol>
+</section>
+<section id="related-documentation">
+<h2>Related Documentation<a class="headerlink" href="#related-documentation" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../data_download/desktop_client.html"><span class="doc">Download via Desktop Client</span></a> - Using the Desktop Client</p></li>
+<li><p><a class="reference internal" href="../data_download/browser.html"><span class="doc">Download via Browser</span></a> - Browser download methods</p></li>
+<li><p><a class="reference external" href="https://wiki.xnat.org/xnat-tools/xnat-desktop-client-dxm">Official XNAT Desktop Client Documentation</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="transferring_data.html" class="btn btn-neutral float-left" title="Transferring Data Between Projects" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="enabling_pipelines.html" class="btn btn-neutral float-right" title="Enabling Pipelines for Your Project" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Puti Wen, Soumen Mohanty.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

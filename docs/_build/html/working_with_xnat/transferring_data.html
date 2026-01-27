@@ -1,0 +1,610 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transferring Data Between Projects &mdash; NYUAD XNAT User Documentation 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1fb475a3" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Install XNAT Desktop Client" href="install_desktop_client.html" />
+    <link rel="prev" title="Data Upload Procedures" href="uploading.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NYUAD XNAT User Documentation
+              <img src="../_static/NYU_Logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/what_is_xnat.html">What is NYUAD XNAT?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Getting Started with XNAT Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Working with XNAT</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="access.html">Accessing XNAT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uploading.html">Data Upload Procedures</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Transferring Data Between Projects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites-planning">Prerequisites &amp; Planning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#access-requirements">Access Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pre-transfer-checklist">Pre-Transfer Checklist</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#important-considerations">Important Considerations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dicom-metadata-considerations">DICOM Metadata Considerations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#project-settings-differences">Project Settings Differences</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#transfer-methods">Transfer Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#method-1-desktop-client-recommended-for-large-transfers">Method 1: Desktop Client (Recommended for Large Transfers)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#method-2-browser-download-compressed-uploader">Method 2: Browser Download + Compressed Uploader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#method-3-browser-download-desktop-client-upload">Method 3: Browser Download + Desktop Client Upload</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#step-by-step-workflows">Step-by-Step Workflows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#workflow-a-copying-dicom-sessions-desktop-client">Workflow A: Copying DICOM Sessions (Desktop Client)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#workflow-b-copying-dicom-sessions-browser-compressed-uploader">Workflow B: Copying DICOM Sessions (Browser + Compressed Uploader)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#workflow-c-moving-data-copy-then-delete">Workflow C: Moving Data (Copy then Delete)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#about-resources-advanced-users">About Resources (Advanced Users)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-are-resources">What are Resources?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#when-to-transfer-resources">When to Transfer Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-transfer-resources-advanced">How to Transfer Resources (Advanced)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#verification-steps">Verification Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#common-issues-and-solutions">Common Issues and Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-help">Getting Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#best-practices">Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#see-also">See Also</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="install_desktop_client.html">Install XNAT Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enabling_pipelines.html">Enabling Pipelines for Your Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running_pipelines.html">Running Pipelines on XNAT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parallel_processing.html">Running Pipelines Across Multiple Subjects</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Understanding MRI Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../understanding_data/overview.html">Understanding Data Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding_data/bids.html">BIDS Format</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">XNAT Pipelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/overview.html">XNAT Pipelines Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/dcm2niix.html">dcm2niix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/dcm2bids.html">dcm2bids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/dcm2hcp.html">dcm2hcp (Under Development)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/mriqc.html">MRIQC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/ari-validator.html">ari-validator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/fmriprep.html">fMRIPrep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/tractoflow.html">TractoFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/hcp-pipeline.html">HCP (Under Development)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Download Methods</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/browser.html">Download via Browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/desktop_client.html">Download via Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/python_scripts.html">Download via Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/matlab_scripts.html">Download via MATLAB</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/troubleshooting.html">Troubleshooting Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/data_loss_recovery.html">Data Loss and Recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">Contributing to this Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contact.html">Contact Information</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Coming Soon</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="navigation.html">XNAT Navigation Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_management.html">Project Management</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NYUAD XNAT User Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Transferring Data Between Projects</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/working_with_xnat/transferring_data.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="transferring-data-between-projects">
+<h1>Transferring Data Between Projects<a class="headerlink" href="#transferring-data-between-projects" title="Link to this heading"></a></h1>
+<p>This guide covers how to transfer DICOM data between XNAT projects, including copying (sharing) and moving (relocating) data.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>Transferring data between projects is useful when:</p>
+<ul class="simple">
+<li><p><strong>Sharing data</strong> with collaborators in different projects</p></li>
+<li><p><strong>Moving data</strong> to a new project or consolidating projects</p></li>
+<li><p><strong>Creating backups</strong> or archival copies in separate projects</p></li>
+<li><p><strong>Reorganizing data</strong> across project structures</p></li>
+</ul>
+<p><strong>Primary Focus: DICOM Data Transfers</strong></p>
+<p>This guide focuses on transferring DICOM data (raw imaging data from scanners), which is the most common transfer scenario. DICOM data can be downloaded and re-uploaded using standard XNAT tools.</p>
+<p><strong>About Resources (Pipeline Outputs)</strong></p>
+<p>Data stored in Resources folders (such as BIDS rawdata, fMRIPrep outputs, MRIQC reports) are typically <strong>regenerated by running pipelines</strong> in the destination project rather than transferred. However, advanced users can transfer Resources using API methods (Python xnatpy, MATLAB scripts, or REST API) if needed. See <a class="reference internal" href="../data_download/python_scripts.html"><span class="doc">Download via Python</span></a> and <a class="reference internal" href="../data_download/matlab_scripts.html"><span class="doc">Download via MATLAB</span></a> for API-based transfer methods.</p>
+</section>
+<section id="prerequisites-planning">
+<h2>Prerequisites &amp; Planning<a class="headerlink" href="#prerequisites-planning" title="Link to this heading"></a></h2>
+<p>Before transferring data, ensure you have the necessary access and have planned the transfer carefully.</p>
+<section id="access-requirements">
+<h3>Access Requirements<a class="headerlink" href="#access-requirements" title="Link to this heading"></a></h3>
+<p>You must have appropriate permissions in <strong>both</strong> source and destination projects:</p>
+<ul class="simple">
+<li><p><strong>Source Project</strong>: Read access (Member or Owner role)</p></li>
+<li><p><strong>Destination Project</strong>: Write access (Member or Owner role)
+- May also need subject creation permissions if creating new subjects</p></li>
+</ul>
+<p>To check your access level, navigate to each project and verify you can view (source) or upload (destination) data. If you don’t have the required access, contact the project administrators or see <a class="reference internal" href="access.html"><span class="doc">Accessing XNAT</span></a> for requesting project access.</p>
+</section>
+<section id="pre-transfer-checklist">
+<h3>Pre-Transfer Checklist<a class="headerlink" href="#pre-transfer-checklist" title="Link to this heading"></a></h3>
+<p>Before starting a transfer, complete this checklist:</p>
+<ol class="arabic simple">
+<li><p><strong>Verify Access</strong>: Confirm you have read access to source project and write access to destination project</p></li>
+<li><p><strong>Check for Conflicts</strong>: Check if subjects/sessions with the same labels already exist in the destination project</p></li>
+<li><p><strong>Plan Label Mapping</strong>: If projects use different naming conventions, plan how to map subject/session labels</p></li>
+<li><p><strong>Review DICOM Metadata</strong>: Consider Study Instance UIDs, Patient IDs, and routing strings</p></li>
+<li><p><strong>Check Project Settings</strong>: Verify upload destination (Prearchive vs Archive) and subject creation permissions</p></li>
+<li><p><strong>Verify Anonymization</strong>: Ensure data is properly anonymized before transfer (critical for compliance)</p></li>
+</ol>
+</section>
+</section>
+<section id="important-considerations">
+<h2>Important Considerations<a class="headerlink" href="#important-considerations" title="Link to this heading"></a></h2>
+<p>Before transferring data, be aware of these critical considerations:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Data Overwriting and Merging</strong></p>
+<p>Uploading data to an existing project or session can overwrite existing files or merge new data into an existing session.</p>
+<ul class="simple">
+<li><p><strong>Merging</strong>: If you upload data with the same subject/session labels as existing data, XNAT will <strong>merge</strong> the new scans into the existing session (not overwrite)</p></li>
+<li><p><strong>File Overwriting</strong>: Files with identical names may be replaced</p></li>
+</ul>
+<p>Always check for existing subjects/sessions in the destination project before uploading to avoid unintended merges.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Data Anonymization</strong></p>
+<p>Data from MRI scanners is typically anonymized at acquisition. When transferring data manually, ensure that your data is properly anonymized before transfer. All personally identifiable information (PII) and protected health information (PHI) must be removed or de-identified according to your project’s requirements and institutional policies.</p>
+</div>
+<section id="dicom-metadata-considerations">
+<h3>DICOM Metadata Considerations<a class="headerlink" href="#dicom-metadata-considerations" title="Link to this heading"></a></h3>
+<p>When transferring DICOM data, consider:</p>
+<ul class="simple">
+<li><p><strong>Study Instance UIDs</strong>: Unique identifiers for each study</p></li>
+<li><p><strong>Patient IDs</strong>: May need to be consistent or updated depending on project requirements</p></li>
+<li><p><strong>Routing Strings</strong>: If using DICOM receiver for upload, Study Description routing strings (<code class="docutils literal notranslate"><span class="pre">xnat://project_id/subject_label/session_label</span></code>) need to be updated for the destination project</p></li>
+</ul>
+</section>
+<section id="project-settings-differences">
+<h3>Project Settings Differences<a class="headerlink" href="#project-settings-differences" title="Link to this heading"></a></h3>
+<p>Different projects may have different upload settings:</p>
+<ul class="simple">
+<li><p><strong>Upload Destination</strong>: Some projects send data directly to Archive, others use Prearchive first</p></li>
+<li><p><strong>Subject Creation</strong>: Some projects allow users to create subjects during upload, others require pre-registration</p></li>
+<li><p><strong>Bulk Upload Restrictions</strong>: Some projects restrict bulk uploads</p></li>
+</ul>
+<p>Check with the destination project administrator if you encounter restrictions. For more information, see <a class="reference internal" href="uploading.html"><span class="doc">Data Upload Procedures</span></a>.</p>
+</section>
+</section>
+<section id="transfer-methods">
+<h2>Transfer Methods<a class="headerlink" href="#transfer-methods" title="Link to this heading"></a></h2>
+<p>There are several methods for transferring DICOM data between projects. Choose the method that best fits your needs.</p>
+<section id="method-1-desktop-client-recommended-for-large-transfers">
+<h3>Method 1: Desktop Client (Recommended for Large Transfers)<a class="headerlink" href="#method-1-desktop-client-recommended-for-large-transfers" title="Link to this heading"></a></h3>
+<p>The <strong>XNAT Desktop Client</strong> is recommended for large transfers because it provides:</p>
+<ul class="simple">
+<li><p>Resume capability if transfers are interrupted</p></li>
+<li><p>Progress monitoring and transfer management</p></li>
+<li><p>Reliable handling of large datasets</p></li>
+<li><p>Ability to select specific scans during upload</p></li>
+</ul>
+<p>This method involves downloading from the source project using Desktop Client, then uploading to the destination project using the same tool.</p>
+<p>For detailed instructions, see:
+- <a class="reference internal" href="../data_download/desktop_client.html"><span class="doc">Download via Desktop Client</span></a> for download procedures
+- <a class="reference internal" href="uploading.html"><span class="doc">Data Upload Procedures</span></a> for upload procedures (Desktop Client section)</p>
+</section>
+<section id="method-2-browser-download-compressed-uploader">
+<h3>Method 2: Browser Download + Compressed Uploader<a class="headerlink" href="#method-2-browser-download-compressed-uploader" title="Link to this heading"></a></h3>
+<p>This method is best for:</p>
+<ul class="simple">
+<li><p>Small to medium transfers</p></li>
+<li><p>Single session transfers</p></li>
+<li><p>Quick one-off transfers</p></li>
+</ul>
+<p>It involves downloading sessions via the web browser, then uploading compressed archives using the Compressed Uploader.</p>
+<p>For detailed instructions, see:
+- <a class="reference internal" href="../data_download/browser.html"><span class="doc">Download via Browser</span></a> for browser download procedures
+- <a class="reference internal" href="uploading.html"><span class="doc">Data Upload Procedures</span></a> for Compressed Uploader procedures</p>
+</section>
+<section id="method-3-browser-download-desktop-client-upload">
+<h3>Method 3: Browser Download + Desktop Client Upload<a class="headerlink" href="#method-3-browser-download-desktop-client-upload" title="Link to this heading"></a></h3>
+<p>A hybrid approach where you download via browser but upload via Desktop Client. Useful when you prefer different methods for download and upload.</p>
+</section>
+</section>
+<section id="step-by-step-workflows">
+<h2>Step-by-Step Workflows<a class="headerlink" href="#step-by-step-workflows" title="Link to this heading"></a></h2>
+<section id="workflow-a-copying-dicom-sessions-desktop-client">
+<h3>Workflow A: Copying DICOM Sessions (Desktop Client)<a class="headerlink" href="#workflow-a-copying-dicom-sessions-desktop-client" title="Link to this heading"></a></h3>
+<p>This workflow uses Desktop Client for both download and upload, recommended for large or multiple sessions.</p>
+<p><strong>Step 1: Verify Access</strong></p>
+<ul class="simple">
+<li><p>Log into XNAT and verify you can access both source and destination projects</p></li>
+<li><p>Check that you have read access to source and write access to destination</p></li>
+</ul>
+<p><strong>Step 2: Download from Source Project</strong></p>
+<ol class="arabic simple">
+<li><p>Navigate to the source project in XNAT web interface</p></li>
+<li><p>Select the sessions you want to transfer (can select multiple)</p></li>
+<li><p>Click <strong>“Download Images”</strong> from the Actions menu</p></li>
+<li><p>Choose <strong>“Catalog XML”</strong> as the download format</p></li>
+<li><p>Download the XML file to your computer</p></li>
+<li><p>Open XNAT Desktop Client (see <a class="reference internal" href="install_desktop_client.html"><span class="doc">Install XNAT Desktop Client</span></a> if not installed)</p></li>
+<li><p>Ensure you’re logged into the correct XNAT server</p></li>
+<li><p>Select <strong>“Download Files”</strong> from the main menu</p></li>
+<li><p>Browse and select your downloaded XML file</p></li>
+<li><p>Set download location and click <strong>“Download”</strong></p></li>
+<li><p>Wait for download to complete</p></li>
+</ol>
+<p>For detailed download instructions, see <a class="reference internal" href="../data_download/desktop_client.html"><span class="doc">Download via Desktop Client</span></a>.</p>
+<p><strong>Step 3: Prepare Data</strong></p>
+<p>Before uploading, verify your downloaded data:</p>
+<ul class="simple">
+<li><p>Check that all expected sessions were downloaded</p></li>
+<li><p>Verify DICOM file structure is intact</p></li>
+<li><p>Ensure data is properly anonymized</p></li>
+<li><p>Remove any non-DICOM files if present</p></li>
+</ul>
+<p><strong>Step 4: Upload to Destination Project</strong></p>
+<ol class="arabic">
+<li><p>Navigate to the destination project in XNAT web interface</p></li>
+<li><p>Click <strong>“Upload Images”</strong> from the Actions menu (this opens Desktop Client automatically)</p>
+<p>OR</p>
+<p>Open Desktop Client directly and click <strong>“Upload Images”</strong></p>
+</li>
+<li><p>Select the destination project from the project dropdown</p></li>
+<li><p>Select the downloaded DICOM folders (drag and drop or browse)</p></li>
+<li><p>The client will scan files to identify sessions</p></li>
+<li><p><strong>Configure Upload Settings</strong>:
+- <strong>Subject Selection</strong>: Choose existing subject or create new (if allowed)
+- <strong>Subject Label</strong>: Ensure it matches destination project naming conventions
+- <strong>Session Label</strong>: Auto-generated or override if needed
+- <strong>Check for Conflicts</strong>: Verify no existing sessions with same labels
+- <strong>Scan Selection</strong>: Select which scans to include (uncheck any you don’t want)</p></li>
+<li><p><strong>Select Upload Destination</strong>: Choose Prearchive (recommended) or Archive</p></li>
+<li><p>Click <strong>“Start Upload”</strong></p></li>
+<li><p>Monitor progress in the transfer manager</p></li>
+</ol>
+<p>For detailed upload instructions, see <a class="reference internal" href="uploading.html"><span class="doc">Data Upload Procedures</span></a>.</p>
+<p><strong>Step 5: Verify Transfer Success</strong></p>
+<ol class="arabic simple">
+<li><p>Navigate to the destination project</p></li>
+<li><p>If uploaded to Prearchive, review the Prearchive first</p></li>
+<li><p>Check that subjects and sessions were created correctly</p></li>
+<li><p>Verify scan counts match between source and destination</p></li>
+<li><p>Compare file sizes to ensure completeness</p></li>
+<li><p>Test downloading a sample scan to verify integrity</p></li>
+</ol>
+<p><strong>Step 6: Archive (if using Prearchive)</strong></p>
+<ol class="arabic simple">
+<li><p>Review data in Prearchive</p></li>
+<li><p>Verify all metadata is correct</p></li>
+<li><p>Archive the sessions to move them to permanent storage</p></li>
+</ol>
+</section>
+<section id="workflow-b-copying-dicom-sessions-browser-compressed-uploader">
+<h3>Workflow B: Copying DICOM Sessions (Browser + Compressed Uploader)<a class="headerlink" href="#workflow-b-copying-dicom-sessions-browser-compressed-uploader" title="Link to this heading"></a></h3>
+<p>This workflow is faster for single sessions or small transfers.</p>
+<p><strong>Step 1: Verify Access</strong></p>
+<ul class="simple">
+<li><p>Verify access to both source and destination projects</p></li>
+</ul>
+<p><strong>Step 2: Download from Source Project</strong></p>
+<ol class="arabic simple">
+<li><p>Navigate to the session in the source project</p></li>
+<li><p>Use the session-level download option</p></li>
+<li><p>Download the session as a ZIP archive via browser</p></li>
+</ol>
+<p>For detailed instructions, see <a class="reference internal" href="../data_download/browser.html"><span class="doc">Download via Browser</span></a>.</p>
+<p><strong>Step 3: Upload to Destination Project</strong></p>
+<ol class="arabic simple">
+<li><p>Log into XNAT web interface</p></li>
+<li><p>Navigate to <strong>Upload</strong> &gt; <strong>Images</strong> &gt; <strong>Compressed Uploader</strong></p></li>
+<li><p><strong>Select Project</strong>: Choose the destination project from dropdown</p></li>
+<li><p><strong>Configure Upload Settings</strong>:
+- <strong>Importer handler</strong>: Select “DICOM Zip”
+- <strong>Custom Labeling</strong>: Choose “Extract From DICOM (Default)” or “Customize” to specify labels
+- <strong>Subject ID</strong> and <strong>Session Label</strong>: Enter if using custom labeling
+- <strong>Ignore unparsable files</strong>: Check to skip problematic files</p></li>
+<li><p><strong>Select Destination</strong>: Choose <strong>Prearchive</strong> (recommended for safety)</p></li>
+<li><p><strong>Choose File</strong>: Select your downloaded ZIP file</p></li>
+<li><p>Click <strong>“Begin Upload”</strong></p></li>
+<li><p>Wait for confirmation message</p></li>
+</ol>
+<p>For detailed instructions, see <a class="reference internal" href="uploading.html"><span class="doc">Data Upload Procedures</span></a>.</p>
+<p><strong>Step 4: Verify and Archive</strong></p>
+<ol class="arabic simple">
+<li><p>Navigate to Prearchive in destination project</p></li>
+<li><p>Review the uploaded session</p></li>
+<li><p>Verify subject/session labels are correct</p></li>
+<li><p>Check that all scans are present</p></li>
+<li><p>Archive the session to move to permanent storage</p></li>
+</ol>
+</section>
+<section id="workflow-c-moving-data-copy-then-delete">
+<h3>Workflow C: Moving Data (Copy then Delete)<a class="headerlink" href="#workflow-c-moving-data-copy-then-delete" title="Link to this heading"></a></h3>
+<p>To <strong>move</strong> data (rather than copy), follow these additional steps after completing Workflow A or B:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Permanent Deletion</strong></p>
+<p>Deleting data from the source project is <strong>permanent</strong>. Only proceed after thorough verification that all data has been successfully transferred to the destination.</p>
+<p>If you accidentally delete data, contact XNAT administrators immediately. See <a class="reference internal" href="../support/data_loss_recovery.html"><span class="doc">Data Loss and Recovery</span></a> for information about data recovery options.</p>
+</div>
+<p><strong>Step 1: Complete Copy Workflow</strong></p>
+<ul class="simple">
+<li><p>Follow Workflow A or B to copy data to destination project</p></li>
+<li><p>Ensure upload is complete and archived</p></li>
+</ul>
+<p><strong>Step 2: Verify in Destination</strong></p>
+<ul class="simple">
+<li><p>Thoroughly verify all data transferred correctly:
+- All subjects and sessions present
+- All scans present with correct counts
+- File sizes match
+- Sample downloads work correctly
+- No errors in upload logs</p></li>
+</ul>
+<p><strong>Step 3: Delete from Source (if appropriate)</strong></p>
+<ul class="simple">
+<li><p>Only proceed if you have deletion permissions and have verified the transfer</p></li>
+<li><p>Navigate to source project</p></li>
+<li><p>Delete subjects or sessions as needed</p></li>
+<li><p><strong>Note</strong>: Deletion may require Owner-level permissions</p></li>
+</ul>
+<p><strong>Step 4: Final Verification</strong></p>
+<ul class="simple">
+<li><p>Confirm deletion from source project</p></li>
+<li><p>Verify destination data is complete and accessible</p></li>
+<li><p>Document the transfer for project records</p></li>
+</ul>
+</section>
+</section>
+<section id="about-resources-advanced-users">
+<h2>About Resources (Advanced Users)<a class="headerlink" href="#about-resources-advanced-users" title="Link to this heading"></a></h2>
+<section id="what-are-resources">
+<h3>What are Resources?<a class="headerlink" href="#what-are-resources" title="Link to this heading"></a></h3>
+<p>Resources are folders in XNAT that store pipeline outputs and processed data:</p>
+<ul class="simple">
+<li><p><strong>Session-level Resources</strong>: BIDS rawdata, fMRIPrep outputs, MRIQC reports, processing logs</p></li>
+<li><p><strong>Subject-level Resources</strong>: Subject-specific processed data</p></li>
+<li><p><strong>Project-level Resources</strong>: Shared configuration files, project-wide data</p></li>
+</ul>
+<p>Resources are typically stored in the <code class="docutils literal notranslate"><span class="pre">Resources</span></code> folder at each hierarchy level (Project, Subject, Session).</p>
+</section>
+<section id="when-to-transfer-resources">
+<h3>When to Transfer Resources<a class="headerlink" href="#when-to-transfer-resources" title="Link to this heading"></a></h3>
+<p><strong>Generally, Resources should NOT be transferred</strong> because:</p>
+<ul class="simple">
+<li><p>They are outputs from pipelines that can be <strong>regenerated</strong> by running the same pipelines in the destination project</p></li>
+<li><p>Transferring Resources can be complex and error-prone</p></li>
+<li><p>Pipeline outputs are often project-specific and may not work correctly in a different project context</p></li>
+</ul>
+<p><strong>Transfer Resources only if</strong>:</p>
+<ul class="simple">
+<li><p>You need to preserve specific pipeline outputs that cannot be easily regenerated</p></li>
+<li><p>You have custom processing results that are not reproducible</p></li>
+<li><p>You need to maintain exact version compatibility</p></li>
+</ul>
+</section>
+<section id="how-to-transfer-resources-advanced">
+<h3>How to Transfer Resources (Advanced)<a class="headerlink" href="#how-to-transfer-resources-advanced" title="Link to this heading"></a></h3>
+<p>If you need to transfer Resources, use API-based methods:</p>
+<ul class="simple">
+<li><p><strong>Python</strong>: Use xnatpy library or Python scripts (see <a class="reference internal" href="../data_download/python_scripts.html"><span class="doc">Download via Python</span></a>)</p></li>
+<li><p><strong>MATLAB</strong>: Use MATLAB scripts with XNAT API (see <a class="reference internal" href="../data_download/matlab_scripts.html"><span class="doc">Download via MATLAB</span></a>)</p></li>
+<li><p><strong>REST API</strong>: Direct API calls to download and upload Resources</p></li>
+</ul>
+<p><strong>Note</strong>: Desktop Client is primarily designed for DICOM transfers, not Resources. For Resource transfers, API methods are required.</p>
+</section>
+</section>
+<section id="verification-steps">
+<h2>Verification Steps<a class="headerlink" href="#verification-steps" title="Link to this heading"></a></h2>
+<p>After completing a transfer, verify the data integrity:</p>
+<ol class="arabic simple">
+<li><p><strong>Subject/Session Creation</strong>: Check that all subjects and sessions were created in the destination project</p></li>
+<li><p><strong>Scan Counts</strong>: Verify the number of scans matches between source and destination</p></li>
+<li><p><strong>File Sizes</strong>: Compare file sizes to ensure no data loss during transfer</p></li>
+<li><p><strong>DICOM Metadata</strong>: If applicable, verify Study Instance UIDs and Patient IDs are correct</p></li>
+<li><p><strong>Prearchive Review</strong>: If using Prearchive, review all data before archiving</p></li>
+<li><p><strong>Sample Download</strong>: Test downloading a sample scan to verify file integrity</p></li>
+<li><p><strong>Upload Logs</strong>: Review upload logs for any warnings or errors</p></li>
+</ol>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<section id="common-issues-and-solutions">
+<h3>Common Issues and Solutions<a class="headerlink" href="#common-issues-and-solutions" title="Link to this heading"></a></h3>
+<p><strong>Permission Errors</strong></p>
+<ul class="simple">
+<li><p><strong>Symptom</strong>: Cannot access source project or cannot upload to destination</p></li>
+<li><p><strong>Solution</strong>: Verify you have Member or Owner access to both projects. Contact project administrators if needed.</p></li>
+</ul>
+<p><strong>Duplicate Label Conflicts</strong></p>
+<ul class="simple">
+<li><p><strong>Symptom</strong>: Data merges with existing sessions instead of creating new ones</p></li>
+<li><p><strong>Solution</strong>: Check for existing subjects/sessions with the same labels in destination. Use different labels or coordinate with project administrators.</p></li>
+</ul>
+<p><strong>Upload Failures</strong></p>
+<ul class="simple">
+<li><p><strong>Symptom</strong>: Uploads fail or timeout</p></li>
+<li><p><strong>Solution</strong>:
+- Check file permissions and quota limits
+- Verify network connectivity
+- Try smaller batches or use Desktop Client for better reliability
+- Check upload logs for specific error messages</p></li>
+</ul>
+<p><strong>Missing Data After Transfer</strong></p>
+<ul class="simple">
+<li><p><strong>Symptom</strong>: Not all scans appear in destination</p></li>
+<li><p><strong>Solution</strong>:
+- Verify all scans were selected during upload
+- Check upload logs for failed scans
+- Ensure all DICOM files were included in download
+- Retry failed uploads if needed</p></li>
+</ul>
+<p><strong>DICOM Routing Issues</strong></p>
+<ul class="simple">
+<li><p><strong>Symptom</strong>: Data doesn’t route correctly when using DICOM receiver</p></li>
+<li><p><strong>Solution</strong>: Verify Study Description routing strings (<code class="docutils literal notranslate"><span class="pre">xnat://project_id/subject_label/session_label</span></code>) are correct for destination project</p></li>
+</ul>
+<p><strong>Prearchive Stuck</strong></p>
+<ul class="simple">
+<li><p><strong>Symptom</strong>: Data remains in Prearchive and cannot be archived</p></li>
+<li><p><strong>Solution</strong>: Contact XNAT administrators at <a class="reference external" href="mailto:admin&#46;nyuad&#46;xnat&#37;&#52;&#48;nyu&#46;edu">admin<span>&#46;</span>nyuad<span>&#46;</span>xnat<span>&#64;</span>nyu<span>&#46;</span>edu</a> for assistance</p></li>
+</ul>
+<p><strong>Large Transfer Performance</strong></p>
+<ul class="simple">
+<li><p><strong>Symptom</strong>: Very slow transfers or timeouts</p></li>
+<li><p><strong>Solution</strong>:
+- Use Desktop Client for large transfers (better resume capability)
+- Transfer during off-peak hours
+- Break large transfers into smaller batches
+- Ensure stable network connection</p></li>
+</ul>
+</section>
+</section>
+<section id="getting-help">
+<h2>Getting Help<a class="headerlink" href="#getting-help" title="Link to this heading"></a></h2>
+<p>If you encounter issues not covered here:</p>
+<ul class="simple">
+<li><p>Review <a class="reference internal" href="../support/troubleshooting.html"><span class="doc">Troubleshooting Guide</span></a> for additional troubleshooting steps</p></li>
+<li><p>Check <a class="reference internal" href="../support/faq.html"><span class="doc">Frequently Asked Questions</span></a> for common questions</p></li>
+<li><p>Contact XNAT administrators at <a class="reference external" href="mailto:admin&#46;nyuad&#46;xnat&#37;&#52;&#48;nyu&#46;edu">admin<span>&#46;</span>nyuad<span>&#46;</span>xnat<span>&#64;</span>nyu<span>&#46;</span>edu</a></p></li>
+</ul>
+</section>
+<section id="best-practices">
+<h2>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading"></a></h2>
+<p>Follow these best practices for safe and efficient data transfers:</p>
+<ol class="arabic simple">
+<li><p><strong>Always Verify Before Deleting</strong>: Never delete source data until you’ve thoroughly verified the transfer in the destination project. If data is accidentally deleted, see <a class="reference internal" href="../support/data_loss_recovery.html"><span class="doc">Data Loss and Recovery</span></a> for recovery options</p></li>
+<li><p><strong>Use Prearchive</strong>: Upload to Prearchive first to allow review before archiving</p></li>
+<li><p><strong>Document Transfers</strong>: Keep records of what was transferred, when, and why for project documentation</p></li>
+<li><p><strong>Coordinate with Administrators</strong>: For large transfers or complex scenarios, coordinate with project administrators</p></li>
+<li><p><strong>Test First</strong>: Test with a small dataset before attempting bulk transfers</p></li>
+<li><p><strong>Check Naming Conventions</strong>: Verify subject/session label conventions match destination project requirements</p></li>
+<li><p><strong>Ensure Anonymization</strong>: Always verify data anonymization compliance before transfer</p></li>
+<li><p><strong>Monitor Transfers</strong>: Keep an eye on transfer progress and logs to catch issues early</p></li>
+</ol>
+</section>
+<section id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading"></a></h2>
+<p><strong>Related Documentation</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="uploading.html"><span class="doc">Data Upload Procedures</span></a> - Detailed upload procedures and methods</p></li>
+<li><p><a class="reference internal" href="../data_download/browser.html"><span class="doc">Download via Browser</span></a> - Browser-based download methods</p></li>
+<li><p><a class="reference internal" href="../data_download/desktop_client.html"><span class="doc">Download via Desktop Client</span></a> - Desktop Client download and upload</p></li>
+<li><p><a class="reference internal" href="install_desktop_client.html"><span class="doc">Install XNAT Desktop Client</span></a> - Desktop Client installation guide</p></li>
+<li><p><a class="reference internal" href="access.html"><span class="doc">Accessing XNAT</span></a> - Project access and permissions information</p></li>
+<li><p><a class="reference internal" href="../understanding_data/overview.html"><span class="doc">Understanding Data Structure</span></a> - Understanding XNAT data structure</p></li>
+</ul>
+<p><strong>Advanced Resource Transfers</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../data_download/python_scripts.html"><span class="doc">Download via Python</span></a> - Python API methods for Resource transfers</p></li>
+<li><p><a class="reference internal" href="../data_download/matlab_scripts.html"><span class="doc">Download via MATLAB</span></a> - MATLAB API methods for Resource transfers</p></li>
+</ul>
+<p><strong>Support</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../support/data_loss_recovery.html"><span class="doc">Data Loss and Recovery</span></a> - Information about backups and data recovery</p></li>
+<li><p><a class="reference internal" href="../support/troubleshooting.html"><span class="doc">Troubleshooting Guide</span></a> - Troubleshooting guide</p></li>
+<li><p><a class="reference internal" href="../support/faq.html"><span class="doc">Frequently Asked Questions</span></a> - Frequently asked questions</p></li>
+<li><p><a class="reference internal" href="../support/contact.html"><span class="doc">Contact Information</span></a> - Contact information</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="uploading.html" class="btn btn-neutral float-left" title="Data Upload Procedures" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="install_desktop_client.html" class="btn btn-neutral float-right" title="Install XNAT Desktop Client" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Puti Wen, Soumen Mohanty.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

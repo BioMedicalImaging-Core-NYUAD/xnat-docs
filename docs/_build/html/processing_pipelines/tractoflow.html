@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TractoFlow &mdash; NYUAD XNAT User Documentation 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1fb475a3" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="HCP (Under Development)" href="hcp-pipeline.html" />
+    <link rel="prev" title="fMRIPrep" href="fmriprep.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NYUAD XNAT User Documentation
+              <img src="../_static/NYU_Logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/what_is_xnat.html">What is NYUAD XNAT?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Getting Started with XNAT Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Working with XNAT</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/access.html">Accessing XNAT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/uploading.html">Data Upload Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/transferring_data.html">Transferring Data Between Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/install_desktop_client.html">Install XNAT Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/enabling_pipelines.html">Enabling Pipelines for Your Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/running_pipelines.html">Running Pipelines on XNAT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/parallel_processing.html">Running Pipelines Across Multiple Subjects</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Understanding MRI Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../understanding_data/overview.html">Understanding Data Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding_data/bids.html">BIDS Format</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">XNAT Pipelines</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">XNAT Pipelines Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dcm2niix.html">dcm2niix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dcm2bids.html">dcm2bids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dcm2hcp.html">dcm2hcp (Under Development)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mriqc.html">MRIQC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ari-validator.html">ari-validator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fmriprep.html">fMRIPrep</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">TractoFlow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-tractoflow">What is TractoFlow?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-you-need-before-running">What You Need Before Running</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-launch-the-pipeline">How to Launch the Pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#output-structure">Output Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#component-versions">Component Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pipeline-command">Pipeline Command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hcp-pipeline.html">HCP (Under Development)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Download Methods</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/browser.html">Download via Browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/desktop_client.html">Download via Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/python_scripts.html">Download via Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/matlab_scripts.html">Download via MATLAB</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/troubleshooting.html">Troubleshooting Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/data_loss_recovery.html">Data Loss and Recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">Contributing to this Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contact.html">Contact Information</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Coming Soon</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/navigation.html">XNAT Navigation Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/project_management.html">Project Management</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NYUAD XNAT User Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">TractoFlow</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/processing_pipelines/tractoflow.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tractoflow">
+<h1>TractoFlow<a class="headerlink" href="#tractoflow" title="Link to this heading"></a></h1>
+<p>This page provides information on running the TractoFlow pipeline via XNAT.
+<strong>TractoFlow</strong> is a robust diffusion MRI processing pipeline developed by the SCIL (Sherbrooke Connectivity Imaging Lab). It performs a fully automated dMRI processing from raw data to tractography.</p>
+<section id="what-is-tractoflow">
+<h2>What is TractoFlow?<a class="headerlink" href="#what-is-tractoflow" title="Link to this heading"></a></h2>
+<p>TractoFlow processes diffusion MRI data to correct for artifacts and reconstruct white matter pathways. Its main steps include:</p>
+<ul class="simple">
+<li><p><strong>Denoising</strong>: MP-PCA denoising on DWI data.</p></li>
+<li><p><strong>Preprocessing</strong>: Eddy current correction, Topup (if reverse phase encoding is available), and motion correction.</p></li>
+<li><p><strong>T1w Image Processing</strong>: Brain extraction and registration to DWI space.</p></li>
+<li><p><strong>DTI Metrics</strong>: Computation of Fractional Anisotropy (FA), Mean Diffusivity (MD), Axial Diffusivity (AD), and Radial Diffusivity (RD).</p></li>
+<li><p><strong>fODF computation</strong>: Fiber Orientation Distribution Function using Constrained Spherical Deconvolution (CSD).</p></li>
+<li><p><strong>Tractography</strong>: Probabilistic or deterministic tracking (Particle Filtering Tracking).</p></li>
+</ul>
+<p>For detailed information, visit the <a class="reference external" href="https://tractoflow-documentation.readthedocs.io/en/latest/">official Tractoflow documentation</a>.</p>
+</section>
+<section id="what-you-need-before-running">
+<h2>What You Need Before Running<a class="headerlink" href="#what-you-need-before-running" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>BIDS Conversion</strong>: You must run <a class="reference internal" href="dcm2bids.html"><span class="doc">dcm2bids</span></a> first. The pipeline expects data in the <code class="docutils literal notranslate"><span class="pre">Resources/rawdata</span></code> folder.</p>
+<ul class="simple">
+<li><p><strong>Required</strong>: A valid T1w anatomical image.</p></li>
+<li><p><strong>Required</strong>: A valid DWI acquisition (dwi.nii.gz, .bval, .bvec).</p></li>
+<li><p><strong>Optional but Recommended</strong>: A reverse phase encoding b0 image (fmap) for distortion correction.</p></li>
+</ul>
+</li>
+<li><p><strong>FreeSurfer (Recommended)</strong>: While TractoFlow can perform its own brain extraction, running FreeSurfer beforehand and having the outputs available in <code class="docutils literal notranslate"><span class="pre">Resources/freesurfer</span></code> is highly recommended. The XNAT pipeline script explicitly checks for existing FreeSurfer outputs to improve T1w processing and registration.</p></li>
+</ol>
+</section>
+<section id="how-to-launch-the-pipeline">
+<h2>How to Launch the Pipeline<a class="headerlink" href="#how-to-launch-the-pipeline" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For step-by-step instructions on running any pipeline, see <a class="reference internal" href="../working_with_xnat/running_pipelines.html"><span class="doc">Running Pipelines on XNAT</span></a>. To enable pipelines for your project, see <a class="reference internal" href="../working_with_xnat/enabling_pipelines.html"><span class="doc">Enabling Pipelines for Your Project</span></a>. For running pipelines across multiple subjects in parallel, see <a class="reference internal" href="../working_with_xnat/parallel_processing.html"><span class="doc">Running Pipelines Across Multiple Subjects</span></a>.</p>
+</div>
+<ol class="arabic simple">
+<li><p>Navigate to your <strong>session</strong> on XNAT.</p></li>
+<li><p>Click <strong>“Run Preprocessing Pipeline”</strong>.</p></li>
+<li><p>Select <strong>“TractoFlow”</strong> from the pipeline dropdown.</p></li>
+<li><p>Configure the parameters:</p>
+<ul class="simple">
+<li><p><strong>Session Label</strong>: Typically auto-filled.</p></li>
+<li><p><strong>Project ID</strong>: Typically auto-filled.</p></li>
+<li><p><strong>FMRIPrep Flags</strong>: (Optional) Although labeled generic flags, this field is intended for passing specific Tractoflow Nextflow arguments if supported by the wrapper. <em>Note: In standard configuration, the pipeline runs with optimal defaults.</em></p></li>
+</ul>
+</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The pipeline requires significant computational resources. Please allow 12-24 hours for completion.</p>
+</div>
+</section>
+<section id="output-structure">
+<h2>Output Structure<a class="headerlink" href="#output-structure" title="Link to this heading"></a></h2>
+<p>TractoFlow generates a comprehensive set of derivatives. The XNAT pipeline transfers these back to a <strong>tractoflow</strong> folder in the session Resources.</p>
+<pre class="literal-block"><strong>&lt;Resources&gt;/</strong>
+  <strong>tractoflow/</strong>
+    <strong>DTI_Metrics/</strong>
+        sub-01_ses-01__fa.nii.gz       (Fractional Anisotropy)
+        sub-01_ses-01__md.nii.gz       (Mean Diffusivity)
+        sub-01_ses-01__ad.nii.gz
+        sub-01_ses-01__rd.nii.gz
+    <strong>FODF_Metrics/</strong>
+        ... (fODF data for tracking)
+    <strong>Tractography/</strong>
+        sub-01_ses-01__pft_tracking_prob_sc_t1_seeding_mask.trk
+    <strong>Readme.md</strong>
+    <strong>report.html</strong> (Quality Control Report)</pre>
+<p><strong>Key Output Files:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DTI_Metrics/*_fa.nii.gz</span></code>: Use this for voxel-based analysis of white matter integrity.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Tractography/*.trk</span></code>: The whole-brain tractogram. This can be visualized in software like <a class="reference external" href="https://imeka.ca/mi-brain/">MI-Brain</a>, <cite>Dipy</cite>, or <cite>Mrtrix</cite>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">report.html</span></code>: A visual report of the processing steps. Check this to verify brain extraction and registration quality.</p></li>
+</ul>
+</section>
+<section id="component-versions">
+<h2>Component Versions<a class="headerlink" href="#component-versions" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Version</p></th>
+<th class="head"><p>Filename / Command</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Java</p></td>
+<td><p>1.8.0_31</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">jdk/1.8.0_31</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Nextflow</p></td>
+<td><p>21.10.6</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/scratch/mri/singularityimages/nextflow</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Tractoflow</p></td>
+<td><p>2.4.4</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/scratch/mri/singularityimages/tractoflow/main.nf</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Container</p></td>
+<td><p>1.6.0</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scilus_1.6.0.sif</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pipeline-command">
+<h2>Pipeline Command<a class="headerlink" href="#pipeline-command" title="Link to this heading"></a></h2>
+<p>The pipeline is executed on the cluster using the following command structure:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/scratch/mri/singularityimages/nextflow<span class="w"> </span>run<span class="w"> </span>/scratch/mri/singularityimages/tractoflow/main.nf<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--input<span class="w"> </span>&lt;input_directory&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--output_dir<span class="w"> </span>&lt;output_directory&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-with-singularity<span class="w"> </span>/scratch/mri/singularityimages/scilus_1.6.0.sif<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-profile<span class="w"> </span>use_gpu,fully_reproducible<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-resume
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The pipeline is configured to use the GPU profile and ensures full reproducibility.</p>
+</div>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Missing T1w or DWI</strong>: The pipeline will fail immediately if these are not found in the BIDS structure.</p></li>
+<li><p><strong>Registration Failures</strong>: If the tracking results look wrong (e.g., streamlines exiting the brain), check the <cite>report.html</cite> for registration errors between T1w and DWI.</p></li>
+<li><p><strong>Job Errors</strong>: If the job fails, download the <code class="docutils literal notranslate"><span class="pre">slurm-*.out</span></code> and <code class="docutils literal notranslate"><span class="pre">slurm-*.err</span></code> logs from the <code class="docutils literal notranslate"><span class="pre">tractoflow/logs</span></code> directory (or <cite>temp_files</cite> if the transfer failed) and contact support.</p></li>
+</ul>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://tractoflow-documentation.readthedocs.io/en/latest/">TractoFlow Documentation</a></p></li>
+<li><p><a class="reference external" href="https://www.nextflow.io/">Nextflow</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="fmriprep.html" class="btn btn-neutral float-left" title="fMRIPrep" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hcp-pipeline.html" class="btn btn-neutral float-right" title="HCP (Under Development)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Puti Wen, Soumen Mohanty.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

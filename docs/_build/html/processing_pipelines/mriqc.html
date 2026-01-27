@@ -1,0 +1,324 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MRIQC &mdash; NYUAD XNAT User Documentation 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1fb475a3" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ari-validator" href="ari-validator.html" />
+    <link rel="prev" title="dcm2hcp (Under Development)" href="dcm2hcp.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NYUAD XNAT User Documentation
+              <img src="../_static/NYU_Logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/what_is_xnat.html">What is NYUAD XNAT?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Getting Started with XNAT Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Working with XNAT</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/access.html">Accessing XNAT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/uploading.html">Data Upload Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/transferring_data.html">Transferring Data Between Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/install_desktop_client.html">Install XNAT Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/enabling_pipelines.html">Enabling Pipelines for Your Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/running_pipelines.html">Running Pipelines on XNAT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/parallel_processing.html">Running Pipelines Across Multiple Subjects</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Understanding MRI Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../understanding_data/overview.html">Understanding Data Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding_data/bids.html">BIDS Format</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">XNAT Pipelines</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">XNAT Pipelines Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dcm2niix.html">dcm2niix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dcm2bids.html">dcm2bids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dcm2hcp.html">dcm2hcp (Under Development)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MRIQC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-mriqc">What is MRIQC?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-you-need-before-running">What You Need Before Running</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-launch-the-pipeline">How to Launch the Pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#important-things-to-pay-attention-to">Important Things to Pay Attention To</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#output-structure">Output Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-the-group-level-analysis">Running the Group Level Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ari-validator.html">ari-validator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fmriprep.html">fMRIPrep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tractoflow.html">TractoFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hcp-pipeline.html">HCP (Under Development)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Download Methods</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/browser.html">Download via Browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/desktop_client.html">Download via Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/python_scripts.html">Download via Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/matlab_scripts.html">Download via MATLAB</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/troubleshooting.html">Troubleshooting Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/data_loss_recovery.html">Data Loss and Recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">Contributing to this Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contact.html">Contact Information</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Coming Soon</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/navigation.html">XNAT Navigation Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/project_management.html">Project Management</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NYUAD XNAT User Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">MRIQC</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/processing_pipelines/mriqc.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mriqc">
+<h1>MRIQC<a class="headerlink" href="#mriqc" title="Link to this heading"></a></h1>
+<p>This page provides information on running the MRIQC pipeline via XNAT.
+We will explain <strong>what MRIQC does</strong>, show you <strong>what you need to run MRIQC</strong> and the exact steps to launch it, and help you understand some of the key <strong>MRIQC outputs</strong>.</p>
+<section id="what-is-mriqc">
+<h2>What is MRIQC?<a class="headerlink" href="#what-is-mriqc" title="Link to this heading"></a></h2>
+<p>MRIQC (MRI Quality Control) is an automated processing pipeline designed to calculate quality metrics for structural and functional MRI data. It functions with minimal manual intervention and provides:</p>
+<ul class="simple">
+<li><p><strong>Automated Quality Assessment</strong>: Extracts standardized image quality metrics (IQMs) from T1w, T2w, and BOLD data.</p></li>
+<li><p><strong>Visual Reports</strong>: Generates interactive HTML reports that allow researchers to visually inspect individual scans and identify artifacts (e.g., motion, susceptibility distortion).</p></li>
+<li><p><strong>Group-Level Analysis</strong>: Facilitates the comparison of quality metrics across the entire dataset to spot outliers.</p></li>
+</ul>
+<p>For detailed information about the metrics and methods, visit the <a class="reference external" href="https://mriqc.readthedocs.io/en/latest/">official MRIQC documentation</a>.</p>
+<br>
+<br></section>
+<section id="what-you-need-before-running">
+<h2>What You Need Before Running<a class="headerlink" href="#what-you-need-before-running" title="Link to this heading"></a></h2>
+<p>Before running MRIQC, you need to run <a class="reference internal" href="dcm2bids.html"><span class="doc">dcm2bids</span></a>, which will convert the raw data to BIDS format and output in the <code class="docutils literal notranslate"><span class="pre">rawdata</span></code> directory under <code class="docutils literal notranslate"><span class="pre">Resources</span></code>.</p>
+<a class="reference internal image-reference" href="../_images/3.6.fmriprep.input.png"><img alt="BIDS structure example" class="align-center" src="../_images/3.6.fmriprep.input.png" style="width: 900px;" />
+</a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The pipeline requires a valid BIDS structure. Ensure that your scans are correctly named and organized by <code class="docutils literal notranslate"><span class="pre">dcm2bids</span></code>.</p>
+</div>
+<br>
+<br></section>
+<section id="how-to-launch-the-pipeline">
+<h2>How to Launch the Pipeline<a class="headerlink" href="#how-to-launch-the-pipeline" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For step-by-step instructions on running any pipeline, see <a class="reference internal" href="../working_with_xnat/running_pipelines.html"><span class="doc">Running Pipelines on XNAT</span></a>. To enable pipelines for your project, see <a class="reference internal" href="../working_with_xnat/enabling_pipelines.html"><span class="doc">Enabling Pipelines for Your Project</span></a>. For running pipelines across multiple subjects in parallel, see <a class="reference internal" href="../working_with_xnat/parallel_processing.html"><span class="doc">Running Pipelines Across Multiple Subjects</span></a>.</p>
+</div>
+<p>Navigate to your <strong>session</strong> on XNAT, click <strong>“Run Preprocessing Pipeline”</strong>, select <strong>“MRIQC”</strong> from the pipeline dropdown, and then click <strong>Review and Submit</strong>.</p>
+<p>The current implementation on Jubail HPC is configured with standard settings:</p>
+<ul class="simple">
+<li><p><strong>Version</strong>: MRIQC v24.0.2</p></li>
+<li><p><strong>Resources</strong>: 16 CPUs, 64 GB RAM (approx.), 4 hour time limit</p></li>
+<li><p><strong>Modalities</strong>: Automatically processes T1w, T2w, BOLD, and DWI images found in the BIDS directory.</p></li>
+</ul>
+<p>The underlying submission logic looks like the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#SBATCH -n 1            # number of tasks</span>
+<span class="c1">#SBATCH -c 16           # number of cpus per task</span>
+<span class="c1">#SBATCH -o slurm-{workflow_id}.out</span>
+<span class="c1">#SBATCH -e slurm-{workflow_id}.err</span>
+<span class="c1">#SBATCH --time=04:00:00</span>
+
+<span class="c1"># Load singularity module</span>
+module<span class="w"> </span>load<span class="w"> </span>singularity
+<span class="nv">SINGULARITY_IMG</span><span class="o">=</span>/scratch/mri/singularityimages/mriqc_24.0.2.sif
+
+<span class="c1"># Create output directory</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">OUTPUT_DIR</span><span class="si">}</span><span class="s2">&quot;</span>
+
+singularity<span class="w"> </span>run<span class="w"> </span>--cleanenv<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-B<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">INPUT_DIR</span><span class="si">}</span><span class="s2">&quot;</span>:/data:ro<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-B<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">OUTPUT_DIR</span><span class="si">}</span><span class="s2">&quot;</span>:/out<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-B<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKDIR</span><span class="si">}</span><span class="s2">&quot;</span>:/work<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">SINGULARITY_IMG</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>/data<span class="w"> </span>/out<span class="w"> </span>participant<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--participant-label<span class="w"> </span><span class="o">{</span>sub_label<span class="o">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-m<span class="w"> </span>T1w<span class="w"> </span>T2w<span class="w"> </span>bold<span class="w"> </span>dwi<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--work-dir<span class="w"> </span>/work<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--n_procs<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-v
+</pre></div>
+</div>
+<br>
+<br></section>
+<section id="important-things-to-pay-attention-to">
+<h2>Important Things to Pay Attention To<a class="headerlink" href="#important-things-to-pay-attention-to" title="Link to this heading"></a></h2>
+<p><strong>During Processing:</strong></p>
+<ul class="simple">
+<li><p><strong>Monitor job status</strong> through XNAT pipeline interface</p></li>
+<li><p><strong>Be patient</strong> - processing typically takes 30-60 minutes per subject, but can vary depending on the number of scans.</p></li>
+</ul>
+<p><strong>After Completion:</strong></p>
+<ul class="simple">
+<li><p><strong>Review HTML reports</strong> for valid visual quality and artifacts.</p></li>
+<li><p><strong>Check IQMs</strong> for any statistical outliers.</p></li>
+</ul>
+<br>
+<br></section>
+<section id="output-structure">
+<h2>Output Structure<a class="headerlink" href="#output-structure" title="Link to this heading"></a></h2>
+<p>MRIQC generates outputs in the <code class="docutils literal notranslate"><span class="pre">Resources/mriqc</span></code> directory. The structure follows the BIDS Derivatives specification.</p>
+<pre class="literal-block"><strong>&lt;Resources&gt;/</strong>
+  <strong>mriqc/</strong>
+    dataset_description.json
+    logs/
+    <strong>sub-9527/</strong>
+        <strong>ses-01/</strong>
+            <strong>anat/</strong>
+                sub-9527_ses-01_T1w.json
+            <strong>func/</strong>
+                sub-9527_ses-01_task-restingstate_dir-AP_run-01_bold.json
+                sub-9527_ses-01_task-restingstate_dir-AP_run-01_timeseries.json
+                sub-9527_ses-01_task-restingstate_dir-AP_run-01_timeseries.tsv
+                ...
+    sub-9527_ses-01_T1w.html
+    sub-9527_ses-01_task-restingstate_dir-AP_run-01_bold.html
+    ...</pre>
+<p><strong>Key Output Files:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mriqc/sub-&lt;label&gt;_*_&lt;modality&gt;.html</span></code>: <strong>Individual HTML Reports</strong>. These are the most important files for visual inspection. They contain “carpet plots” for functional data, background noise assessments, and segmentation visualizations for structural data. Open these in a browser to check for motion spikes, ghosting, or wrong orientation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mriqc/sub-&lt;label&gt;/**/func/*_bold.json</span></code>: <strong>Image Quality Metrics (IQMs)</strong>. A JSON file containing calculated metrics like SNR (Signal-to-Noise Ratio), FD (Framewise Displacement), and others.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mriqc/sub-&lt;label&gt;/**/func/*_timeseries.tsv</span></code>: <strong>Timeseries Data</strong>. Tab-separated values file containing frame-wise metrics for functional runs, useful for detailed motion analysis (e.g., standard DVARS, FD per volume).</p></li>
+</ul>
+<br>
+<br></section>
+<section id="running-the-group-level-analysis">
+<h2>Running the Group Level Analysis<a class="headerlink" href="#running-the-group-level-analysis" title="Link to this heading"></a></h2>
+<p>After processing individual subjects, you can run the <strong>MRIQC Group Pipeline</strong> to generate study-wide reports. This is useful for identifying outliers across your entire cohort.</p>
+<p><strong>Prerequisites:</strong>
+You must have successfully run the participant-level MRIQC pipeline for your subjects.</p>
+<p><strong>How to Launch:</strong>
+Navigate to your <strong>Project Page</strong> (not the session page). Under the <strong>“Actions”</strong> menu on the right, select <strong>“Run Containers”</strong> -&gt; <strong>“MRIQC Group on Jubail”</strong>.</p>
+<br><a class="reference internal image-reference" href="../_images/3.7.mriqc.group.launch.png"><img alt="MRIQC Group Launch" class="align-center" src="../_images/3.7.mriqc.group.launch.png" style="width: 900px;" />
+</a>
+<p><strong>Outputs:</strong>
+The group pipeline aggregates metrics from all processed subjects and produces group reports in the <strong>Project Resources</strong>. You can access them via the <strong>“Manage Files”</strong> or <strong>“View Resources”</strong> button on the project page.</p>
+<br><a class="reference internal image-reference" href="../_images/3.7.mriqc.group.report.png"><img alt="MRIQC Group Report Example" class="align-center" src="../_images/3.7.mriqc.group.report.png" style="width: 900px;" />
+</a>
+<br><pre class="literal-block"><strong>&lt;Project RESOURCES&gt;/</strong>
+  <strong>mriqc-group-jubail/</strong>
+     <strong>mriqc/</strong>
+        dataset_description.json
+        logs/
+        group_T1w.html
+        group_T1w.tsv
+        group_bold.html
+        group_bold.tsv
+        ...</pre>
+<ul class="simple">
+<li><p><strong>group_*.html</strong>: Interactive HTML reports showing the distribution of quality metrics (e.g., SNR, CNR, Framewise Displacement) across all subjects. These reports allow you to easily identify outliers by hovering over the data points to see the subject ID.</p></li>
+<li><p><strong>group_*.tsv</strong>: Tab-separated files containing the raw metrics for all subjects. These are ideal for importing into statistical software (like R, Python/Pandas, or Excel) to perform custom analyses or to exclude participants based on specific quality criteria (e.g., “exclude all subjects with mean FD &gt; 0.5mm”).</p></li>
+</ul>
+<br>
+<br></section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Job Timeout</strong>: If the job fails with a timeout (exceeding 4 hours), it might be due to an unusually large dataset or high-resolution images. Please contact us for support.</p></li>
+<li><p><strong>Missing Outputs</strong>: If HTML reports are missing, check the <code class="docutils literal notranslate"><span class="pre">logs</span></code> directory (accessible via XNAT or the file system) to see if the pipeline crashed due to BIDS errors.</p></li>
+</ul>
+<br>
+<br></section>
+<section id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Use <a class="reference internal" href="../data_download/browser.html"><span class="doc">Download via Browser</span></a> to access results.</p></li>
+<li><p>If quality is good, proceed to preprocessing (e.g., <a class="reference internal" href="fmriprep.html"><span class="doc">fMRIPrep</span></a>).</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Currently, we are running <strong>MRIQC v24.0.2</strong>. We are working on making more versions available. If you have an urgent request for a specific version, please contact us.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="dcm2hcp.html" class="btn btn-neutral float-left" title="dcm2hcp (Under Development)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ari-validator.html" class="btn btn-neutral float-right" title="ari-validator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Puti Wen, Soumen Mohanty.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

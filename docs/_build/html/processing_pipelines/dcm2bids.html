@@ -1,0 +1,233 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dcm2bids &mdash; NYUAD XNAT User Documentation 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1fb475a3" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="dcm2hcp (Under Development)" href="dcm2hcp.html" />
+    <link rel="prev" title="dcm2niix" href="dcm2niix.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NYUAD XNAT User Documentation
+              <img src="../_static/NYU_Logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/what_is_xnat.html">What is NYUAD XNAT?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Getting Started with XNAT Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Working with XNAT</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/access.html">Accessing XNAT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/uploading.html">Data Upload Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/transferring_data.html">Transferring Data Between Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/install_desktop_client.html">Install XNAT Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/enabling_pipelines.html">Enabling Pipelines for Your Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/running_pipelines.html">Running Pipelines on XNAT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/parallel_processing.html">Running Pipelines Across Multiple Subjects</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Understanding MRI Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../understanding_data/overview.html">Understanding Data Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding_data/bids.html">BIDS Format</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">XNAT Pipelines</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">XNAT Pipelines Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dcm2niix.html">dcm2niix</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">dcm2bids</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-you-need">What You Need</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-launch-the-pipeline">How to Launch the Pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-you-get">What You Get</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-files-advanced">Configuration Files (Advanced)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#common-issues">Common Issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#next-steps">Next Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#related-documentation">Related Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dcm2hcp.html">dcm2hcp (Under Development)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mriqc.html">MRIQC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ari-validator.html">ari-validator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fmriprep.html">fMRIPrep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tractoflow.html">TractoFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hcp-pipeline.html">HCP (Under Development)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Download Methods</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/browser.html">Download via Browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/desktop_client.html">Download via Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/python_scripts.html">Download via Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/matlab_scripts.html">Download via MATLAB</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/troubleshooting.html">Troubleshooting Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/data_loss_recovery.html">Data Loss and Recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">Contributing to this Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contact.html">Contact Information</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Coming Soon</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/navigation.html">XNAT Navigation Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/project_management.html">Project Management</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NYUAD XNAT User Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">dcm2bids</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/processing_pipelines/dcm2bids.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dcm2bids">
+<h1>dcm2bids<a class="headerlink" href="#dcm2bids" title="Link to this heading"></a></h1>
+<p>The dcm2bids converts your DICOM data to BIDS format on XNAT. This is the <strong>essential first step</strong> that unlocks access to all modern analysis pipelines including <a class="reference internal" href="mriqc.html"><span class="doc">MRIQC</span></a>, <a class="reference internal" href="fmriprep.html"><span class="doc">fMRIPrep</span></a>, <a class="reference internal" href="tractoflow.html"><span class="doc">TractoFlow</span></a>, and others.</p>
+<p>For comprehensive information about dcm2bids, visit the <a class="reference external" href="https://unfmontreal.github.io/Dcm2Bids/">official documentation</a>.</p>
+<section id="what-you-need">
+<h2>What You Need<a class="headerlink" href="#what-you-need" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>DICOM data uploaded to your XNAT session</p></li>
+<li><p>Project permissions to run pipelines</p></li>
+<li><p>dcm2bids configuration file</p></li>
+</ul>
+</section>
+<section id="how-to-launch-the-pipeline">
+<h2>How to Launch the Pipeline<a class="headerlink" href="#how-to-launch-the-pipeline" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For step-by-step instructions on running any pipeline, see <a class="reference internal" href="../working_with_xnat/running_pipelines.html"><span class="doc">Running Pipelines on XNAT</span></a>. To enable pipelines for your project, see <a class="reference internal" href="../working_with_xnat/enabling_pipelines.html"><span class="doc">Enabling Pipelines for Your Project</span></a>.</p>
+</div>
+<p>Navigate to your <strong>session</strong> in XNAT, click <strong>“Run Pipeline”</strong>, select <strong>“dcm2bids”</strong>, and configure these parameters:</p>
+<ul class="simple">
+<li><p><strong>Subject Number</strong> (Optional): Override automatic subject numbering</p></li>
+<li><p><strong>Session Number</strong> (Optional): Override automatic session numbering</p></li>
+<li><p><strong>Enable Pydeface</strong> (Default: True): Automatically deface anatomical images</p></li>
+</ul>
+<p><strong>Automatic Features:</strong>
+- SBRef processing and fieldmap associations are handled automatically
+- BIDS validation ensures compliant output</p>
+</section>
+<section id="what-you-get">
+<h2>What You Get<a class="headerlink" href="#what-you-get" title="Link to this heading"></a></h2>
+<p>BIDS-formatted data in your session’s <strong>Resources/rawdata/</strong> directory:</p>
+<pre class="literal-block"><strong>Resources/rawdata/</strong>
+  dataset_description.json
+  participants.tsv
+  <strong>sub-&lt;subject&gt;/ses-&lt;session&gt;/</strong>
+    <strong>anat/</strong> → T1w, T2w images + JSON metadata
+    <strong>func/</strong> → BOLD runs, SBRef images + JSON metadata
+    <strong>fmap/</strong> → Fieldmaps + JSON metadata (with IntendedFor configured)</pre>
+<p>For BIDS format details, see <a class="reference internal" href="../understanding_data/bids.html"><span class="doc">BIDS Format</span></a>.</p>
+</section>
+<section id="configuration-files-advanced">
+<h2>Configuration Files (Advanced)<a class="headerlink" href="#configuration-files-advanced" title="Link to this heading"></a></h2>
+<p>For non-standard acquisition protocols, create a <strong>config.json</strong> file and upload it to your parent project. The pipeline will automatically detect and use it.</p>
+<p>For configuration file creation, see the <a class="reference external" href="https://unfmontreal.github.io/Dcm2Bids/3.2.0/how-to/create-config-file/">dcm2bids configuration guide</a>.</p>
+</section>
+<section id="common-issues">
+<h2>Common Issues<a class="headerlink" href="#common-issues" title="Link to this heading"></a></h2>
+<p><strong>Non-Standard Sequence Names:</strong> Create custom configuration file for site-specific protocols</p>
+<p><strong>Missing Data:</strong> Ensure all required sequences (T1w, functional) were acquired</p>
+<p><strong>Privacy Settings:</strong> Disable pydeface if needed using pipeline parameters</p>
+</section>
+<section id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Quality Control</strong>: Run <a class="reference internal" href="mriqc.html"><span class="doc">MRIQC</span></a> to assess data quality</p></li>
+<li><p><strong>Preprocessing</strong>: Use <a class="reference internal" href="fmriprep.html"><span class="doc">fMRIPrep</span></a> for functional data processing</p></li>
+<li><p><strong>Data Access</strong>: Use <a class="reference internal" href="../data_download/browser.html"><span class="doc">Download via Browser</span></a> to download converted data</p></li>
+</ol>
+</section>
+<section id="related-documentation">
+<h2>Related Documentation<a class="headerlink" href="#related-documentation" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../understanding_data/bids.html"><span class="doc">BIDS Format</span></a> - Understanding BIDS format</p></li>
+<li><p><a class="reference internal" href="mriqc.html"><span class="doc">MRIQC</span></a> - Quality control after conversion</p></li>
+<li><p><a class="reference internal" href="fmriprep.html"><span class="doc">fMRIPrep</span></a> - fMRI preprocessing pipeline</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="dcm2niix.html" class="btn btn-neutral float-left" title="dcm2niix" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dcm2hcp.html" class="btn btn-neutral float-right" title="dcm2hcp (Under Development)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Puti Wen, Soumen Mohanty.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

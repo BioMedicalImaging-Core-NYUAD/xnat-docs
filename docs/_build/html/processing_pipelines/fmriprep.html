@@ -1,0 +1,295 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>fMRIPrep &mdash; NYUAD XNAT User Documentation 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1fb475a3" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="TractoFlow" href="tractoflow.html" />
+    <link rel="prev" title="ari-validator" href="ari-validator.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NYUAD XNAT User Documentation
+              <img src="../_static/NYU_Logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/what_is_xnat.html">What is NYUAD XNAT?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Getting Started with XNAT Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Working with XNAT</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/access.html">Accessing XNAT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/uploading.html">Data Upload Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/transferring_data.html">Transferring Data Between Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/install_desktop_client.html">Install XNAT Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/enabling_pipelines.html">Enabling Pipelines for Your Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/running_pipelines.html">Running Pipelines on XNAT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/parallel_processing.html">Running Pipelines Across Multiple Subjects</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Understanding MRI Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../understanding_data/overview.html">Understanding Data Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding_data/bids.html">BIDS Format</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">XNAT Pipelines</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">XNAT Pipelines Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dcm2niix.html">dcm2niix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dcm2bids.html">dcm2bids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dcm2hcp.html">dcm2hcp (Under Development)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mriqc.html">MRIQC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ari-validator.html">ari-validator</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">fMRIPrep</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-fmriprep">What is fMRIPrep?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-you-need-before-running">What You Need Before Running</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-launch-the-pipeline">How to Launch the Pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#important-things-to-pay-attention-to">Important Things to Pay Attention To</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#output-structure">Output Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#next-steps-after-preprocessing">Next Steps After Preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tractoflow.html">TractoFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hcp-pipeline.html">HCP (Under Development)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Download Methods</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/browser.html">Download via Browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/desktop_client.html">Download via Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/python_scripts.html">Download via Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/matlab_scripts.html">Download via MATLAB</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/troubleshooting.html">Troubleshooting Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/data_loss_recovery.html">Data Loss and Recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">Contributing to this Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contact.html">Contact Information</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Coming Soon</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/navigation.html">XNAT Navigation Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/project_management.html">Project Management</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NYUAD XNAT User Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">fMRIPrep</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/processing_pipelines/fmriprep.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="fmriprep">
+<h1>fMRIPrep<a class="headerlink" href="#fmriprep" title="Link to this heading"></a></h1>
+<p>This page provides information on running the fMRIPrep pipeline via XNAT.
+We will explain <strong>what fMRIPrep does</strong>, show you <strong>what you need to run fMRIPrep</strong> and the exact steps to launch it, and help you understand some of the key <strong>fMRIPrep outputs</strong>. We will also talk about important <strong>configuration options</strong>, <strong>common issues</strong> to watch for, and how to <strong>troubleshoot problems</strong>.</p>
+<section id="what-is-fmriprep">
+<h2>What is fMRIPrep?<a class="headerlink" href="#what-is-fmriprep" title="Link to this heading"></a></h2>
+<p>fMRIPrep is a robust and automated preprocessing pipeline for functional MRI data. It performs:</p>
+<ul class="simple">
+<li><p><strong>Anatomical Processing</strong>: T1w/T2w image processing, brain extraction, and tissue segmentation</p></li>
+<li><p><strong>Functional Processing</strong>: Motion correction, slice timing correction, and distortion correction</p></li>
+<li><p><strong>Surface-Based Processing</strong>: FreeSurfer surface reconstruction and registration</p></li>
+<li><p><strong>Spatial Normalization</strong>: Registration to standard spaces (MNI152, fsaverage)</p></li>
+<li><p><strong>Confound Estimation</strong>: Comprehensive confound regression variables</p></li>
+<li><p><strong>Quality Control</strong>: Automated quality assessment and visual reports</p></li>
+</ul>
+<p>For detailed information about fMRIPrep, visit the <a class="reference external" href="https://fmriprep.org/en/stable/">official documentation</a>.</p>
+</section>
+<section id="what-you-need-before-running">
+<h2>What You Need Before Running<a class="headerlink" href="#what-you-need-before-running" title="Link to this heading"></a></h2>
+<p>Before running fMRIPrep, you need to run <a class="reference internal" href="dcm2bids.html"><span class="doc">dcm2bids</span></a>, which will convert the raw data to BIDS format and output in the <code class="docutils literal notranslate"><span class="pre">rawdata</span></code> directory under <code class="docutils literal notranslate"><span class="pre">Resources</span></code>.</p>
+<a class="reference internal image-reference" href="../_images/3.6.fmriprep.input.png"><img alt="fMRIPrep input" class="align-center" src="../_images/3.6.fmriprep.input.png" style="width: 900px;" />
+</a>
+<p>Incorrect sbref and fieldmaps are some of the most common issues when running fMRIPrep. Please refer to the <a class="reference internal" href="dcm2bids.html"><span class="doc">dcm2bids</span></a> page for more details. If dcm2bids ran successfully, there’s nothing else you need to do.</p>
+</section>
+<section id="how-to-launch-the-pipeline">
+<h2>How to Launch the Pipeline<a class="headerlink" href="#how-to-launch-the-pipeline" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For step-by-step instructions on running any pipeline, see <a class="reference internal" href="../working_with_xnat/running_pipelines.html"><span class="doc">Running Pipelines on XNAT</span></a>. To enable pipelines for your project, see <a class="reference internal" href="../working_with_xnat/enabling_pipelines.html"><span class="doc">Enabling Pipelines for Your Project</span></a>. For running pipelines across multiple subjects in parallel, see <a class="reference internal" href="../working_with_xnat/parallel_processing.html"><span class="doc">Running Pipelines Across Multiple Subjects</span></a>.</p>
+</div>
+<p>Navigate to your <strong>session</strong> on XNAT, click <strong>“Run Preprocessing Pipeline”</strong>, select <strong>“fMRIPrep”</strong> from the pipeline dropdown, and then configure the parameters below (see screenshot)</p>
+<a class="reference internal image-reference" href="../_images/3.6.fmriprep.run.preprocessing.pipeline.png"><img alt="fmriprep run preprocessing pipeline" class="align-center" src="../_images/3.6.fmriprep.run.preprocessing.pipeline.png" style="width: 900px;" />
+</a>
+<ul class="simple">
+<li><p><strong>Anat Only</strong>: Checkbox to run anatomical preprocessing only (freesurfer recon-all)</p></li>
+<li><p><strong>FMRIPrep Flags</strong>: Text box for additional command-line options such as <code class="docutils literal notranslate"><span class="pre">--output-spaces</span> <span class="pre">MNI152NLin2009cAsym:res-2</span></code>. For more information on the flags, see the <a class="reference external" href="https://fmriprep.org/en/stable/usage.html#command-line-arguments">fMRIPrep documentation</a>. Default output space is set to T1w, fsaverage, and fsnative : <code class="docutils literal notranslate"><span class="pre">--output-space</span> <span class="pre">T1w:res-native</span> <span class="pre">fsnative:den-41k</span> <span class="pre">fsaverage:den-41k</span></code>. Read more about output spaces <a class="reference external" href="https://fmriprep.org/en/25.1.3/spaces.html#standard-spaces">here</a>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The actual submission script used for running fMRIPrep on the Jubail HPC is maintained at: <a class="reference external" href="https://github.com/XNAT-NYUAD/fmriprep/blob/main/code/utilities/job.py">XNAT-NYUAD/fmriprep code/utilities/job.py</a>. This script handles job submission, resource allocation, and integration with XNAT sessions.</p>
+</div>
+</section>
+<section id="important-things-to-pay-attention-to">
+<h2>Important Things to Pay Attention To<a class="headerlink" href="#important-things-to-pay-attention-to" title="Link to this heading"></a></h2>
+<p><strong>During Processing:</strong></p>
+<ul class="simple">
+<li><p><strong>Monitor job status</strong> through XNAT pipeline interface</p></li>
+<li><p><strong>Be patient</strong> - preprocessing can take 12+ hours</p></li>
+</ul>
+<p><strong>After Completion:</strong></p>
+<ul class="simple">
+<li><p><strong>Review HTML reports</strong> for quality assessment</p></li>
+<li><p><strong>Verify output completeness</strong> - ensure all expected files are generated</p></li>
+<li><p><strong>Check for warnings</strong> in the processing logs</p></li>
+</ul>
+<p><strong>Common Issues to Watch For:</strong></p>
+<ul class="simple">
+<li><p><strong>Surface reconstruction failures</strong>: Poor T1w quality can cause FreeSurfer errors</p></li>
+<li><p><strong>Registration issues</strong>: Check alignment in HTML reports</p></li>
+<li><p><strong>Missing fieldmaps</strong>: Distortion correction will not be applied</p></li>
+<li><p><strong>Memory errors</strong>: Large datasets may exceed memory limits (please contact us).</p></li>
+</ul>
+</section>
+<section id="output-structure">
+<h2>Output Structure<a class="headerlink" href="#output-structure" title="Link to this heading"></a></h2>
+<p>fMRIPrep generates outputs in BIDS derivatives format:</p>
+<pre class="literal-block"><strong>&lt;Resources&gt;/</strong>
+  <strong>fmriprep/</strong>
+    logs/
+    sub-9527/
+        figures/
+        logs/
+        ses-01/
+            anat/
+                ...
+                sub-9527_­ses-01_­desc-preproc_­T1w.­nii.­gz
+            fmap/
+            func/
+                ...
+                sub-9527_­ses-01_­task-restingstate_­run-01_­space-T1w_­desc-preproc_­bold.­nii.­gz
+                sub-9527_­ses-01_task-restingstate_run-01_hemi-L_space-fsnative_bold.func.gii
+                sub-9527_­ses-01_task-restingstate_run-01_hemi-R_space-fsnative_bold.func.gii
+                sub-9527_ses-01_task-restingstate_run-01_hemi-L_space-fsaverage6_bold.func.gii
+                sub-9527_ses-01_task-restingstate_run-01_hemi-R_space-fsaverage6_bold.func.gii
+                sub-9527_­ses-01_­task-restingstate_­run-01_­desc-confounds_­timeseries.­tsv
+    dataset_description.json
+    desc-aparcaseg_dseg.tsv
+    desc-aseg_dseg.tsv
+    sub-9527.html
+  <strong>freesurfer/</strong>
+    fsaverage/
+    fsaverage6/
+    sub-9527/
+        ses-01/
+           label/
+           mri/
+           scripts/
+           stats/
+              ...
+              aseg.stats
+           surf/
+           tmp/
+           touch/</pre>
+<p><strong>Some of the example output files:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fmriprep/sub-&lt;label&gt;.html</span></code>: Quality control report that you can use to check the quality of the preprocessing especially regarding motion correction, distortion correction, and registration between the functional and anatomical data. This is the first file you should check after the pipeline is complete.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fmriprep/sub-&lt;label&gt;/func/*_desc-preproc_bold.nii.gz</span></code>: Preprocessed functional data in T1w space, this is your actual data that you can use for your analysis in the volume space.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fmriprep/sub-&lt;label&gt;/func/*_space-fsnative_bold.func.gii</span></code>: Preprocessed functional data in fsnative space, this is the data that you can use for surface-based analysis.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fmriprep/sub-&lt;label&gt;/func/*_space-fsaverage6_bold.func.gii</span></code>: Preprocessed functional data in fsaverage6 space, this is also for surface-based analysis but it is in a template space.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fmriprep/sub-&lt;label&gt;/func/*_desc-confounds_timeseries.tsv</span></code>: Confound regression variables that you can use to regress out from your data, especially relevant for GLM.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">freesurfer/sub-&lt;label&gt;/ses-&lt;label&gt;/stats/aseg.stats</span></code>: FreeSurfer segmentation statistics. We get a lot of requests to help parsing this file, as a result, we will be building a pipeline to automate the process of parsing this file and others, stay tuned!</p></li>
+</ul>
+<p>For detailed output descriptions, see the <a class="reference external" href="https://fmriprep.org/en/stable/outputs.html">fMRIPrep outputs documentation</a>.</p>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<p><em>Email us your error logs and we will add it to the troubleshooting section</em></p>
+</section>
+<section id="next-steps-after-preprocessing">
+<h2>Next Steps After Preprocessing<a class="headerlink" href="#next-steps-after-preprocessing" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Use <a class="reference internal" href="../data_download/browser.html"><span class="doc">Download via Browser</span></a> to access results</p></li>
+<li><p><strong>Enjoy!</strong></p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Currently, we are running <strong>fMRIPrep</strong> (v24.1.1) and <strong>FreeSurfer</strong> (v7.3.2). We are working on making more versions available. If you have an urgent request for a specific version, please contact us.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ari-validator.html" class="btn btn-neutral float-left" title="ari-validator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tractoflow.html" class="btn btn-neutral float-right" title="TractoFlow" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Puti Wen, Soumen Mohanty.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

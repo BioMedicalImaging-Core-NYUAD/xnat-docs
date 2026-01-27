@@ -1,0 +1,492 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ari-validator &mdash; NYUAD XNAT User Documentation 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1fb475a3" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fMRIPrep" href="fmriprep.html" />
+    <link rel="prev" title="MRIQC" href="mriqc.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NYUAD XNAT User Documentation
+              <img src="../_static/NYU_Logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/what_is_xnat.html">What is NYUAD XNAT?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Getting Started with XNAT Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Working with XNAT</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/access.html">Accessing XNAT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/uploading.html">Data Upload Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/transferring_data.html">Transferring Data Between Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/install_desktop_client.html">Install XNAT Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/enabling_pipelines.html">Enabling Pipelines for Your Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/running_pipelines.html">Running Pipelines on XNAT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/parallel_processing.html">Running Pipelines Across Multiple Subjects</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Understanding MRI Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../understanding_data/overview.html">Understanding Data Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding_data/bids.html">BIDS Format</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">XNAT Pipelines</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">XNAT Pipelines Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dcm2niix.html">dcm2niix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dcm2bids.html">dcm2bids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dcm2hcp.html">dcm2hcp (Under Development)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mriqc.html">MRIQC</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ari-validator</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#validation-steps">Validation Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#input-requirements">Input Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-launch-the-pipeline">How to Launch the Pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#output-and-reports">Output and Reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-validation-dashboard">Data Validation Dashboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#validation-scope-disclaimer">Validation Scope &amp; Disclaimer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ari-project-versions">ARI Project Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fmriprep.html">fMRIPrep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tractoflow.html">TractoFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hcp-pipeline.html">HCP (Under Development)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Download Methods</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/browser.html">Download via Browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/desktop_client.html">Download via Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/python_scripts.html">Download via Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/matlab_scripts.html">Download via MATLAB</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/troubleshooting.html">Troubleshooting Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/data_loss_recovery.html">Data Loss and Recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">Contributing to this Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contact.html">Contact Information</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Coming Soon</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/navigation.html">XNAT Navigation Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/project_management.html">Project Management</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NYUAD XNAT User Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ari-validator</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/processing_pipelines/ari-validator.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ari-validator">
+<h1>ari-validator<a class="headerlink" href="#ari-validator" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For step-by-step instructions on running any pipeline, see <a class="reference internal" href="../working_with_xnat/running_pipelines.html"><span class="doc">Running Pipelines on XNAT</span></a>. To enable pipelines for your project, see <a class="reference internal" href="../working_with_xnat/enabling_pipelines.html"><span class="doc">Enabling Pipelines for Your Project</span></a>. For running pipelines across multiple subjects in parallel, see <a class="reference internal" href="../working_with_xnat/parallel_processing.html"><span class="doc">Running Pipelines Across Multiple Subjects</span></a>.</p>
+</div>
+<p>The ari-validator pipeline validates ARI project datasets by checking BIDS and ARI-specific compliance, producing a detailed log file which can be used to track the status of your data.</p>
+<p>Similar validation pipelines can be created for your projects if you have specific requirements for your scans and want to have a way to validate your data before spending time on preprocessing.</p>
+<section id="validation-steps">
+<h2>Validation Steps<a class="headerlink" href="#validation-steps" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Sbref Phase Encoding:</strong> Validates phase encoding directions of sbref scans.</p></li>
+<li><p><strong>Fieldmap IntendedFor:</strong> Ensures bold images are associated with the correct fieldmap.</p></li>
+<li><p><strong>DWI Parameter Matching:</strong> Verifies diffusion parameter between DWI and reverse b0.</p></li>
+<li><p><strong>NIFTI Properties:</strong> Checks image dimensions, TR, and other parameters</p></li>
+<li><p><strong>Required Files Presence:</strong> Verifies all necessary files exist</p></li>
+<li><p><strong>Unexpected Extra Files:</strong> Identifies files that shouldn’t be present</p></li>
+<li><p><strong>Protocol Version:</strong> Checks the version of of the protocol used for the DWI and ASL scans.</p></li>
+</ol>
+</section>
+<section id="input-requirements">
+<h2>Input Requirements<a class="headerlink" href="#input-requirements" title="Link to this heading"></a></h2>
+<p><strong>Required:</strong>
+- <a class="reference internal" href="dcm2bids.html"><span class="doc">dcm2bids</span></a> must have been run on the data before running the ari-validator pipeline.</p>
+</section>
+<section id="how-to-launch-the-pipeline">
+<h2>How to Launch the Pipeline<a class="headerlink" href="#how-to-launch-the-pipeline" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For step-by-step instructions on running any pipeline, see <a class="reference internal" href="../working_with_xnat/running_pipelines.html"><span class="doc">Running Pipelines on XNAT</span></a>. To enable pipelines for your project, see <a class="reference internal" href="../working_with_xnat/enabling_pipelines.html"><span class="doc">Enabling Pipelines for Your Project</span></a>. For running pipelines across multiple subjects in parallel, see <a class="reference internal" href="../working_with_xnat/parallel_processing.html"><span class="doc">Running Pipelines Across Multiple Subjects</span></a>.</p>
+</div>
+</section>
+<section id="output-and-reports">
+<h2>Output and Reports<a class="headerlink" href="#output-and-reports" title="Link to this heading"></a></h2>
+<p><strong>Validation Log:</strong>
+- Creates <cite>ari-validation-details.txt</cite> in session directory with detailed logs</p>
+<style>
+  /* overall container */
+  .two-col{
+    display: flex;
+    gap: 20px;              /* space between the two panes */
+    width: 800px;           /* total width as requested */
+    margin: 20px auto;      /* centre the whole block */
+  }
+
+  /* generic scrollable pane */
+  .scroll-box{
+    flex: 1 1 0;            /* grow & shrink evenly */
+    width: 340px;           /* each column 340px wide */
+    height: 300px;          /* height as requested */
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 0;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .scroll-box h3 {
+    margin: 0 0 10px 0;
+    padding: 8px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+  }
+</style>
+
+<div class="two-col">
+  <div class="scroll-box">
+    <h3>Example log of valid data</h3>
+    <iframe src="../_static/3.5.ari-validation-details-good.txt"
+            style="width: 100%; height: 250px; border: none; background: white;">
+    </iframe>
+  </div>
+  <div class="scroll-box">
+    <h3>Example log of data with issues</h3>
+    <iframe src="../_static/3.5.ari-validation-details-bad.txt"
+            style="width: 100%; height: 250px; border: none; background: white;">
+    </iframe>
+  </div>
+</div><p><em>can you tell what is wrong with the data on the right?</em></p>
+</section>
+<section id="data-validation-dashboard">
+<h2>Data Validation Dashboard<a class="headerlink" href="#data-validation-dashboard" title="Link to this heading"></a></h2>
+<div id="validation-summary" style="margin-bottom: 10px;">
+  Loading validation summary...
+</div>
+
+<script>
+// Load validation summary from text file
+fetch('../_static/validation_summary.txt')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('validation-summary').innerHTML = data.trim();
+  })
+  .catch(error => {
+    console.error('Error loading validation summary:', error);
+    document.getElementById('validation-summary').innerHTML = 'The ARI validation pipeline has been run on subjects. The following dashboard shows the current status. This dashboard is updated daily at 4:00 AM Abu Dhabi time.';
+  });
+</script><div class="dashboard-container" style="max-height: 400px; overflow-y: auto; border: 1px solid #ddd; margin: 20px 0; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+  <table class="dashboard-table" style="width: 100%; border-collapse: collapse; font-size: 0.9em;">
+    <thead style="background: linear-gradient(135deg, #6c757d 0%, #495057 100%); color: white; position: sticky; top: 0; z-index: 10;">
+      <tr>
+        <th style="padding: 12px 8px; border: 1px solid #ddd; text-align: left; font-weight: 600;">Subject ID</th>
+        <th style="padding: 12px 8px; border: 1px solid #ddd; text-align: left; font-weight: 600;">Status</th>
+        <th style="padding: 12px 8px; border: 1px solid #ddd; text-align: left; font-weight: 600;">Sbref Direction</th>
+        <th style="padding: 12px 8px; border: 1px solid #ddd; text-align: left; font-weight: 600;">IntendedFor</th>
+        <th style="padding: 12px 8px; border: 1px solid #ddd; text-align: left; font-weight: 600;">DWI Parameters</th>
+        <th style="padding: 12px 8px; border: 1px solid #ddd; text-align: left; font-weight: 600;">File Properties</th>
+        <th style="padding: 12px 8px; border: 1px solid #ddd; text-align: left; font-weight: 600;">Missing Files</th>
+        <th style="padding: 12px 8px; border: 1px solid #ddd; text-align: left; font-weight: 600;">Extra Files</th>
+        <th style="padding: 12px 8px; border: 1px solid #ddd; text-align: left; font-weight: 600;">DWI Version</th>
+        <th style="padding: 12px 8px; border: 1px solid #ddd; text-align: left; font-weight: 600;">ASL Version</th>
+      </tr>
+    </thead>
+    <tbody id="dashboard-table-body">
+      <!-- Table content will be loaded by JavaScript -->
+    </tbody>
+  </table>
+</div>
+
+<script>
+// Load CSV data and populate table
+fetch('../_static/xnat_ari_dashboard_display.csv')
+  .then(response => response.text())
+  .then(data => {
+    const lines = data.trim().split('\n');
+    const tbody = document.getElementById('dashboard-table-body');
+
+    // Skip header row (index 0)
+    for (let i = 1; i < lines.length; i++) {
+      const columns = lines[i].split(',');
+      const row = document.createElement('tr');
+
+      // Add hover effect and alternating row colors
+      row.style.cursor = 'pointer';
+      row.style.backgroundColor = i % 2 === 0 ? '#f8f9fa' : 'white';
+      row.onmouseover = function() {
+        this.style.backgroundColor = '#e3f2fd';
+        this.style.transform = 'scale(1.02)';
+        this.style.transition = 'all 0.2s ease';
+      };
+      row.onmouseout = function() {
+        this.style.backgroundColor = i % 2 === 0 ? '#f8f9fa' : 'white';
+        this.style.transform = 'scale(1)';
+      };
+
+      for (let j = 0; j < columns.length; j++) {
+        const cell = document.createElement('td');
+        cell.style.padding = '10px 8px';
+        cell.style.border = '1px solid #ddd';
+        cell.style.fontSize = '0.85em';
+        cell.style.transition = 'all 0.2s ease';
+
+        let cellContent = columns[j].trim();
+
+        // Color code status column (index 1)
+        if (j === 1) {
+          cell.style.fontWeight = '600';
+          if (cellContent === 'PASSED') {
+            cell.style.backgroundColor = '#d4edda';
+            cell.style.color = '#155724';
+            cell.style.borderColor = '#c3e6cb';
+            cellContent = '✅ PASSED';
+          } else if (cellContent === 'HAS ISSUES') {
+            cell.style.backgroundColor = '#f8d7da';
+            cell.style.color = '#721c24';
+            cell.style.borderColor = '#f5c6cb';
+            cellContent = '❌ HAS ISSUES';
+          } else if (cellContent === 'MULTIPLE SESSION') {
+            cell.style.backgroundColor = '#fff3cd';
+            cell.style.color = '#856404';
+            cell.style.borderColor = '#ffeaa7';
+            cellContent = '⚠️ MULTIPLE SESSION';
+          } else if (cellContent.includes('Validation Outdated')) {
+            cell.style.backgroundColor = '#e2e3e5';
+            cell.style.color = '#6c757d';
+            cell.style.borderColor = '#d1ecf1';
+            cellContent = '🔄 OUTDATED';
+          }
+        }
+
+        // Color code validation columns (indices 2-7)
+        if (j >= 2 && j <= 7) {
+          if (cellContent === 'CORRECT') {
+            cell.style.backgroundColor = '#d1f2eb';
+            cell.style.color = '#0c5460';
+            cell.style.borderColor = '#bee5eb';
+            cellContent = '✓ CORRECT';
+          } else if (cellContent === 'INCORRECT') {
+            cell.style.backgroundColor = '#f8d7da';
+            cell.style.color = '#721c24';
+            cell.style.borderColor = '#f5c6cb';
+            cellContent = '✗ INCORRECT';
+          } else if (cellContent === '' || cellContent === 'nan') {
+            cell.style.backgroundColor = '#f8f9fa';
+            cell.style.color = '#6c757d';
+            cellContent = '—';
+          }
+        }
+
+        // Color code version columns (indices 8-9)
+        if (j >= 8 && j <= 9) {
+          if (cellContent.includes('v2') || cellContent.includes('LATEST')) {
+            cell.style.backgroundColor = '#d4edda';
+            cell.style.color = '#155724';
+            cell.style.borderColor = '#c3e6cb';
+            cellContent = '🟢 v2 (LATEST)';
+          } else if (cellContent.includes('v1') || cellContent.includes('DEPRECATED')) {
+            cell.style.backgroundColor = '#fff3cd';
+            cell.style.color = '#856404';
+            cell.style.borderColor = '#ffeaa7';
+            cellContent = '🟡 v1 (DEPRECATED)';
+          } else if (cellContent === 'UNKNOWN' || cellContent === '' || cellContent === 'nan') {
+            cell.style.backgroundColor = '#f8f9fa';
+            cell.style.color = '#6c757d';
+            cellContent = '❓ UNKNOWN';
+          }
+        }
+
+        // Truncate long text and add tooltip
+        if (cellContent.length > 20) {
+          cell.title = cellContent; // Show full text on hover
+          cellContent = cellContent.substring(0, 17) + '...';
+        }
+
+        cell.textContent = cellContent;
+        row.appendChild(cell);
+      }
+
+      tbody.appendChild(row);
+    }
+
+    // Add row count info
+    const totalRows = lines.length - 1;
+    const infoDiv = document.createElement('div');
+    infoDiv.style.textAlign = 'center';
+    infoDiv.style.marginTop = '10px';
+    infoDiv.style.fontSize = '0.9em';
+    infoDiv.style.color = '#6c757d';
+    document.querySelector('.dashboard-container').parentNode.appendChild(infoDiv);
+  })
+  .catch(error => {
+    console.error('Error loading CSV data:', error);
+    document.getElementById('dashboard-table-body').innerHTML =
+      '<tr><td colspan="10" style="text-align: center; padding: 20px; color: #dc3545;">Error loading data. Please download the CSV file below.</td></tr>';
+  });
+</script><p><em>For detailed validation information including specific file names and parameters:</em></p>
+<div style="margin: 20px 0;">
+  <a href="../_static/xnat_ari_dashboard.csv"
+     style="display: inline-block; background: #007bff; color: white; padding: 10px 20px;
+            text-decoration: none; border-radius: 5px;">
+    📥 Download Complete Dashboard Data (CSV)
+  </a>
+</div><br></section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>SBREF:</strong> Sometimes the phase encoding directions is flipped even though the the AP/PA direction in the file name is correct. You should delete the incorrect sbref files. <a class="reference external" href="../_static/3.5.sbref-flip-example.png">See example of incorrect SBREF</a></p></li>
+<li><p><strong>IntendedFor:</strong> Check the intendedFor field in the epi.json file in fmap and see exacly what is incorrect. First thing to check is if there’s missing or extra files. If that’s not the issue, then please contact us and we can help you take a look.</p></li>
+<li><p><strong>DWI Parameters:</strong> Version 1 of the DWI protocol is deprecated due to mismatches in the DWI and reverse b0 parameters. If someone was not scanned under version 1 yet still has mismatching issues then you need to investigate further.</p></li>
+<li><p><strong>Incorrect dimensions and TR:</strong> Check if data is incomplete or if wrong sequence was used.</p></li>
+<li><p><strong>Missing files:</strong> transfer missing files to the correct location.</p></li>
+<li><p><strong>Extra files:</strong> delete extra files depending on the reason.</p></li>
+<li><p><strong>Multiple sessions:</strong> Scans collected in separate sessions should be merged into one session. For example, if anantomicals were skipped because they had already been collected before, please transfer a copy of the anat files to the new session so the data is complete.</p></li>
+<li><p><strong>Repeated scans:</strong> If a scan was collected multiple times, please delete the extra scans according to why the scan was repeated. Ideally, invalid scans should not be sent from scanner to XNAT in the first place.</p></li>
+</ul>
+<br></section>
+<section id="validation-scope-disclaimer">
+<h2>Validation Scope &amp; Disclaimer<a class="headerlink" href="#validation-scope-disclaimer" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We provide a simple validation check to ensure data compliance with basic BIDS standards, but <strong>it is ultimately the researcher’s responsibility to verify their own data in detail.</strong></p>
+</div>
+<p>We do <strong>not</strong> check everything. Do not assume that data passing our check is perfect.</p>
+<ul class="simple">
+<li><p><strong>What we check:</strong> Basic properties of BIDS <code class="docutils literal notranslate"><span class="pre">rawdata</span></code> (e.g., <code class="docutils literal notranslate"><span class="pre">anat</span></code>, <code class="docutils literal notranslate"><span class="pre">fmap</span></code>, <code class="docutils literal notranslate"><span class="pre">func</span></code>, <code class="docutils literal notranslate"><span class="pre">dwi</span></code>, <code class="docutils literal notranslate"><span class="pre">asl</span></code>).</p></li>
+<li><p><strong>What we do NOT check:</strong> Data currently outside the standard pipeline scope, such as abdomen scans, OCT scans, or behavioral data.</p></li>
+<li><p><strong>Custom Checks:</strong> If you have specific properties you wish to validate (e.g., checking for specific parameters), please inform us, and we can work on implementing those checks if suitable.</p></li>
+</ul>
+<br></section>
+<section id="ari-project-versions">
+<h2>ARI Project Versions<a class="headerlink" href="#ari-project-versions" title="Link to this heading"></a></h2>
+<p>Over time, several ARI project folders have been created. This log clarifies the purpose and status of each:</p>
+<p><strong>1. ARI (ari)</strong> - Current / Active</p>
+<ul class="simple">
+<li><p>This is the main project folder displayed on the dashboard above. All new data collected after Summer 2025 is stored here.</p></li>
+<li><p>Data here is supposed to be verified and valid. If invalid scans are found, they are removed.</p></li>
+<li><p>This is the primary folder for end-users.</p></li>
+</ul>
+<p><strong>2. ARI HFS - new (rokerslab_ari-hfs_2024_001)</strong> - Archive / In-Progress</p>
+<ul class="simple">
+<li><p>Contains all older data collected, includes both valid and invalid data.</p></li>
+<li><p>RAs are actively validating this folder. Valid data is being migrated to the new <strong>ARI</strong> folder, while invalid data is either removed or kept here as an archive.</p></li>
+</ul>
+<p><strong>3. ARI Clean (Rokerslab_ari-clean)</strong> - Internal / Testing</p>
+<ul class="simple">
+<li><p>Made for temporary analysis of the 100 ARI dataset. XNAT admins also use this as a testing ground for pipelines.</p></li>
+<li><p>Users do not need access to this folder.</p></li>
+</ul>
+<p><strong>4. ARI HFS (Rokerslab_vri-hfs_2024_001)</strong> - Deprecated</p>
+<ul class="simple">
+<li><p>The first ARI folder on XNAT. It had many issues and is now outdated.</p></li>
+<li><p>Users no longer need to access this folder.</p></li>
+</ul>
+<p><strong>5. UAEU ARI (uaeu_ari)</strong> - Active / External</p>
+<ul class="simple">
+<li><p>Project hosting the ARI data collected at UAEU.</p></li>
+</ul>
+<br></section>
+<section id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix any validation errors identified</p></li>
+<li><p>Proceed with preprocessing using <a class="reference internal" href="fmriprep.html"><span class="doc">fMRIPrep</span></a> or <a class="reference internal" href="tractoflow.html"><span class="doc">TractoFlow</span></a></p></li>
+<li><p>Learn about <a class="reference internal" href="../understanding_data/bids.html"><span class="doc">BIDS Format</span></a> format requirements</p></li>
+<li><p>See <a class="reference internal" href="../data_download/browser.html"><span class="doc">Download via Browser</span></a> for accessing validated data</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="mriqc.html" class="btn btn-neutral float-left" title="MRIQC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fmriprep.html" class="btn btn-neutral float-right" title="fMRIPrep" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Puti Wen, Soumen Mohanty.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

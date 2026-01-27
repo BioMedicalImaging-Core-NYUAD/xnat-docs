@@ -1,0 +1,237 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Loss and Recovery &mdash; NYUAD XNAT User Documentation 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1fb475a3" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Contributing to this Documentation" href="contributing.html" />
+    <link rel="prev" title="Troubleshooting Guide" href="troubleshooting.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NYUAD XNAT User Documentation
+              <img src="../_static/NYU_Logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/what_is_xnat.html">What is NYUAD XNAT?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Getting Started with XNAT Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Working with XNAT</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/access.html">Accessing XNAT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/uploading.html">Data Upload Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/transferring_data.html">Transferring Data Between Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/install_desktop_client.html">Install XNAT Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/enabling_pipelines.html">Enabling Pipelines for Your Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/running_pipelines.html">Running Pipelines on XNAT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/parallel_processing.html">Running Pipelines Across Multiple Subjects</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Understanding MRI Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../understanding_data/overview.html">Understanding Data Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding_data/bids.html">BIDS Format</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">XNAT Pipelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/overview.html">XNAT Pipelines Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/dcm2niix.html">dcm2niix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/dcm2bids.html">dcm2bids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/dcm2hcp.html">dcm2hcp (Under Development)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/mriqc.html">MRIQC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/ari-validator.html">ari-validator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/fmriprep.html">fMRIPrep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/tractoflow.html">TractoFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/hcp-pipeline.html">HCP (Under Development)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Download Methods</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/browser.html">Download via Browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/desktop_client.html">Download via Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/python_scripts.html">Download via Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/matlab_scripts.html">Download via MATLAB</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Data Loss and Recovery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#backup-procedures">Backup Procedures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-deletion-and-cache">Data Deletion and Cache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-recovery">Data Recovery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#preventing-data-loss">Preventing Data Loss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#see-also">See Also</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to this Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact Information</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Coming Soon</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/navigation.html">XNAT Navigation Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/project_management.html">Project Management</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NYUAD XNAT User Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Data Loss and Recovery</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/support/data_loss_recovery.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="data-loss-and-recovery">
+<h1>Data Loss and Recovery<a class="headerlink" href="#data-loss-and-recovery" title="Link to this heading"></a></h1>
+<p>This page provides information about XNAT backup procedures and data recovery options.</p>
+<section id="backup-procedures">
+<h2>Backup Procedures<a class="headerlink" href="#backup-procedures" title="Link to this heading"></a></h2>
+<p>XNAT at NYUAD maintains regular backups to protect against data loss:</p>
+<p><strong>Daily Backups</strong>
+- Rolling backups are taken every night
+- These backups capture the current state of the XNAT system</p>
+<p><strong>Full Backups</strong>
+- Two full backups are created every 30 days
+- Full backups are retained for up to 60 days</p>
+<p>These backup procedures help ensure data can be recovered in case of system failures or accidental deletions.</p>
+</section>
+<section id="data-deletion-and-cache">
+<h2>Data Deletion and Cache<a class="headerlink" href="#data-deletion-and-cache" title="Link to this heading"></a></h2>
+<p>When data is deleted from XNAT:</p>
+<ul class="simple">
+<li><p><strong>User Deletion</strong>: Data deleted by users is removed from the active system</p></li>
+<li><p><strong>Temporary Cache</strong>: XNAT may store deleted data temporarily in its cache</p></li>
+<li><p><strong>Permanent Removal</strong>: After cache expiration, data is permanently removed from the active system</p></li>
+</ul>
+<p><strong>Important</strong>: Once data is permanently removed from the system and cache, it cannot be recovered without restoring from backups.</p>
+</section>
+<section id="data-recovery">
+<h2>Data Recovery<a class="headerlink" href="#data-recovery" title="Link to this heading"></a></h2>
+<p><strong>User-Side Recovery</strong></p>
+<p>Data recovery is <strong>not available from the user side</strong>. Once data is deleted, users cannot restore it themselves.</p>
+<p><strong>Administrator-Assisted Recovery</strong></p>
+<p>If you have experienced data loss or need to recover deleted data:</p>
+<ol class="arabic simple">
+<li><p><strong>Contact XNAT Administrators</strong>: Email <a class="reference external" href="mailto:admin&#46;nyuad&#46;xnat&#37;&#52;&#48;nyu&#46;edu">admin<span>&#46;</span>nyuad<span>&#46;</span>xnat<span>&#64;</span>nyu<span>&#46;</span>edu</a> immediately</p></li>
+<li><p><strong>Provide Details</strong>: Include:
+- Project name and ID
+- Subject and session labels (if applicable)
+- Approximate date/time of deletion
+- Description of what was lost</p></li>
+<li><p><strong>Recovery Process</strong>: Administrators can restore data from backups if:
+- The data loss occurred within the backup retention period (60 days for full backups)
+- The backup contains the data you need
+- Recovery is technically feasible</p></li>
+</ol>
+<p><strong>Recovery Timeline</strong></p>
+<ul class="simple">
+<li><p>Recovery requests are processed as quickly as possible</p></li>
+<li><p>Recovery time depends on:
+- The size of data to be recovered
+- The age of the backup needed
+- Current system load</p></li>
+<li><p>You will be notified once recovery is complete or if recovery is not possible</p></li>
+</ul>
+</section>
+<section id="preventing-data-loss">
+<h2>Preventing Data Loss<a class="headerlink" href="#preventing-data-loss" title="Link to this heading"></a></h2>
+<p>To minimize the risk of data loss:</p>
+<ol class="arabic simple">
+<li><p><strong>Verify Before Deleting</strong>: Always verify data before deletion, especially when transferring data between projects</p></li>
+<li><p><strong>Use Prearchive</strong>: When uploading, use Prearchive first to review data before archiving</p></li>
+<li><p><strong>Document Important Data</strong>: Keep records of critical data and processing steps</p></li>
+<li><p><strong>Regular Backups</strong>: For critical analysis results, maintain your own backups outside of XNAT</p></li>
+<li><p><strong>Coordinate Deletions</strong>: For large-scale deletions, coordinate with project administrators</p></li>
+</ol>
+</section>
+<section id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../working_with_xnat/transferring_data.html"><span class="doc">Transferring Data Between Projects</span></a> - For safe data transfer procedures</p></li>
+<li><p><a class="reference internal" href="../working_with_xnat/running_pipelines.html"><span class="doc">Running Pipelines on XNAT</span></a> - For pipeline execution and data management</p></li>
+<li><p><a class="reference internal" href="../working_with_xnat/uploading.html"><span class="doc">Data Upload Procedures</span></a> - For upload procedures and Prearchive usage</p></li>
+<li><p><a class="reference internal" href="contact.html"><span class="doc">Contact Information</span></a> - For administrator contact information</p></li>
+<li><p><a class="reference internal" href="troubleshooting.html"><span class="doc">Troubleshooting Guide</span></a> - For troubleshooting data access issues</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="troubleshooting.html" class="btn btn-neutral float-left" title="Troubleshooting Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="contributing.html" class="btn btn-neutral float-right" title="Contributing to this Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Puti Wen, Soumen Mohanty.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,291 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accessing XNAT &mdash; NYUAD XNAT User Documentation 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1fb475a3" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Data Upload Procedures" href="uploading.html" />
+    <link rel="prev" title="Getting Started with XNAT Documentation" href="../getting_started/overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NYUAD XNAT User Documentation
+              <img src="../_static/NYU_Logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/what_is_xnat.html">What is NYUAD XNAT?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Getting Started with XNAT Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Working with XNAT</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Accessing XNAT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#network-access-requirements">Network Access Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#account-registration">Account Registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#account-approval-process">Account Approval Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#project-access">Project Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#signing-in">Signing In</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#account-management">Account Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="uploading.html">Data Upload Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transferring_data.html">Transferring Data Between Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_desktop_client.html">Install XNAT Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enabling_pipelines.html">Enabling Pipelines for Your Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running_pipelines.html">Running Pipelines on XNAT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parallel_processing.html">Running Pipelines Across Multiple Subjects</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Understanding MRI Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../understanding_data/overview.html">Understanding Data Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding_data/bids.html">BIDS Format</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">XNAT Pipelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/overview.html">XNAT Pipelines Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/dcm2niix.html">dcm2niix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/dcm2bids.html">dcm2bids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/dcm2hcp.html">dcm2hcp (Under Development)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/mriqc.html">MRIQC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/ari-validator.html">ari-validator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/fmriprep.html">fMRIPrep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/tractoflow.html">TractoFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/hcp-pipeline.html">HCP (Under Development)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Download Methods</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/browser.html">Download via Browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/desktop_client.html">Download via Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/python_scripts.html">Download via Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/matlab_scripts.html">Download via MATLAB</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/troubleshooting.html">Troubleshooting Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/data_loss_recovery.html">Data Loss and Recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">Contributing to this Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contact.html">Contact Information</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Coming Soon</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="navigation.html">XNAT Navigation Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_management.html">Project Management</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NYUAD XNAT User Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Accessing XNAT</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/working_with_xnat/access.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="accessing-xnat">
+<h1>Accessing XNAT<a class="headerlink" href="#accessing-xnat" title="Link to this heading"></a></h1>
+<p>This guide covers how to access the NYUAD XNAT platform, from initial account creation to project access.</p>
+<section id="network-access-requirements">
+<h2>Network Access Requirements<a class="headerlink" href="#network-access-requirements" title="Link to this heading"></a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>XNAT at NYUAD is hosted within NYUAD’s network and is not accessible to the public.</strong></p>
+<ul class="simple">
+<li><p><strong>On Campus</strong>: Users must be connected to NYU Abu Dhabi WiFi to access XNAT</p></li>
+<li><p><strong>Off Campus</strong>: Users must connect to the NYUAD VPN before accessing XNAT</p></li>
+</ul>
+<p><strong>VPN Setup:</strong></p>
+<ul class="simple">
+<li><p>VPN Address for Abu Dhabi: <code class="docutils literal notranslate"><span class="pre">vpn.abudhabi.nyu.edu</span></code></p></li>
+<li><p>For installation and setup instructions, see the <a class="reference external" href="https://www.nyu.edu/life/information-technology/infrastructure/network-services/vpn.html">NYU VPN Guide</a></p></li>
+</ul>
+<p>If you are unable to access XNAT, ensure you are connected to NYUAD WiFi or the VPN before attempting to log in.</p>
+</div>
+</section>
+<section id="account-registration">
+<h2>Account Registration<a class="headerlink" href="#account-registration" title="Link to this heading"></a></h2>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/5.1.access.png"><img alt="access" class="align-center" src="../_images/5.1.access.png" style="width: 900px;" />
+</a>
+</div></blockquote>
+<hr class="docutils" />
+<dl class="simple">
+<dt><strong>Step 1: Navigate to XNAT</strong></dt><dd><p>Visit <a class="reference external" href="https://xnat.abudhabi.nyu.edu">https://xnat.abudhabi.nyu.edu</a></p>
+</dd>
+<dt><strong>Step 2: Sign in with Google</strong></dt><dd><p>Click the “Sign in with Google” button to begin registration.</p>
+</dd>
+<dt><strong>Step 3: Complete Registration</strong></dt><dd><p>Enter information in the required fields.</p>
+</dd>
+<dt><strong>Step 4: Submit Registration</strong></dt><dd><p>Scroll to the bottom and click “Register” to submit your account request.</p>
+</dd>
+</dl>
+</section>
+<section id="account-approval-process">
+<h2>Account Approval Process<a class="headerlink" href="#account-approval-process" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt><strong>Authorization Required</strong></dt><dd><p>All new accounts require administrator approval for security purposes.</p>
+</dd>
+<dt><strong>Approval Timeline</strong></dt><dd><ul class="simple">
+<li><p>Your registration request is sent to the site administrator</p></li>
+<li><p><strong>Contact</strong>: <a class="reference external" href="mailto:admin&#46;nyuad&#46;xnat&#37;&#52;&#48;nyu&#46;edu">admin<span>&#46;</span>nyuad<span>&#46;</span>xnat<span>&#64;</span>nyu<span>&#46;</span>edu</a></p></li>
+<li><p><strong>Processing time</strong>: Typically 1-2 business days</p></li>
+</ul>
+</dd>
+<dt><strong>Approval Notification</strong></dt><dd><p>You’ll receive an email confirmation once your account is approved.</p>
+</dd>
+</dl>
+</section>
+<section id="project-access">
+<h2>Project Access<a class="headerlink" href="#project-access" title="Link to this heading"></a></h2>
+<p><strong>Requesting Project Access</strong></p>
+<p>After your account is approved, you’ll need access to specific projects:</p>
+<ol class="arabic simple">
+<li><p><strong>Identify Projects</strong>: Determine which research projects you need access to</p></li>
+<li><p><strong>Email Request</strong>: Contact us (<a class="reference external" href="mailto:admin&#46;nyuad&#46;xnat&#37;&#52;&#48;nyu&#46;edu">admin<span>&#46;</span>nyuad<span>&#46;</span>xnat<span>&#64;</span>nyu<span>&#46;</span>edu</a>) with:</p>
+<ul class="simple">
+<li><p>Your name and email address</p></li>
+<li><p>Specific project names you need access to</p></li>
+<li><p>Brief explanation of your role/purpose</p></li>
+</ul>
+</li>
+</ol>
+<dl class="simple">
+<dt><strong>Project Access Timeline</strong></dt><dd><p>Project access is typically granted within 1 business day of request.</p>
+</dd>
+</dl>
+</section>
+<section id="signing-in">
+<h2>Signing In<a class="headerlink" href="#signing-in" title="Link to this heading"></a></h2>
+<p><strong>For Existing Users</strong></p>
+<p>Once your account is approved:</p>
+<ol class="arabic simple">
+<li><p><strong>Ensure Network Access</strong>: Make sure you are connected to NYUAD WiFi or the NYUAD VPN (<code class="docutils literal notranslate"><span class="pre">vpn.abudhabi.nyu.edu</span></code>)</p></li>
+<li><p>Navigate to <a class="reference external" href="https://xnat.abudhabi.nyu.edu">https://xnat.abudhabi.nyu.edu</a></p></li>
+<li><p>Click “Sign in with Google”</p></li>
+<li><p>Use your approved Google account credentials</p></li>
+<li><p>Access your authorized projects</p></li>
+</ol>
+<dl class="simple">
+<dt><strong>Authentication Method</strong></dt><dd><p>XNAT uses Google OAuth for secure authentication. You must use the same Google account that was approved during registration.</p>
+</dd>
+</dl>
+</section>
+<section id="account-management">
+<h2>Account Management<a class="headerlink" href="#account-management" title="Link to this heading"></a></h2>
+<dl>
+<dt><strong>API Tokens</strong></dt><dd><p>For programmatic access (scripts, automated downloads):</p>
+<a class="reference internal image-reference" href="../_images/5.1.API.png"><img alt="API" class="align-center" src="../_images/5.1.API.png" style="width: 900px;" />
+</a>
+</dd>
+</dl>
+<hr class="docutils" />
+<blockquote>
+<div><ul class="simple">
+<li><p>Go to your profile → “Manage Alias Tokens”</p></li>
+<li><p>Create new tokens as needed</p></li>
+<li><p>Use tokens instead of passwords for security</p></li>
+</ul>
+</div></blockquote>
+<dl class="simple">
+<dt><strong>Password Requirements</strong></dt><dd><p>No separate XNAT password needed - authentication is handled through Google OAuth.</p>
+</dd>
+<dt><strong>Session Management</strong></dt><dd><ul class="simple">
+<li><p>Sessions remain active while using XNAT</p></li>
+<li><p>Log out when finished for security</p></li>
+<li><p>Re-authentication required after extended inactivity</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h2>
+<p>After gaining access to XNAT:</p>
+<ul class="simple">
+<li><p>Explore <a class="reference internal" href="navigation.html"><span class="doc">XNAT Navigation Basics</span></a> to learn the XNAT interface</p></li>
+<li><p>Set up <a class="reference internal" href="install_desktop_client.html"><span class="doc">Install XNAT Desktop Client</span></a> for bulk downloads</p></li>
+<li><p>Learn about <a class="reference internal" href="../data_download/browser.html"><span class="doc">Download via Browser</span></a> methods</p></li>
+<li><p>Review <a class="reference internal" href="../processing_pipelines/overview.html"><span class="doc">XNAT Pipelines Overview</span></a> for data analysis</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../getting_started/overview.html" class="btn btn-neutral float-left" title="Getting Started with XNAT Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="uploading.html" class="btn btn-neutral float-right" title="Data Upload Procedures" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Puti Wen, Soumen Mohanty.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

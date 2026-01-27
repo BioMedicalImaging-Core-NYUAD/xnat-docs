@@ -1,0 +1,241 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Download via Browser &mdash; NYUAD XNAT User Documentation 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1fb475a3" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Download via Desktop Client" href="desktop_client.html" />
+    <link rel="prev" title="HCP (Under Development)" href="../processing_pipelines/hcp-pipeline.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NYUAD XNAT User Documentation
+              <img src="../_static/NYU_Logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/what_is_xnat.html">What is NYUAD XNAT?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Getting Started with XNAT Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Working with XNAT</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/access.html">Accessing XNAT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/uploading.html">Data Upload Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/transferring_data.html">Transferring Data Between Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/install_desktop_client.html">Install XNAT Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/enabling_pipelines.html">Enabling Pipelines for Your Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/running_pipelines.html">Running Pipelines on XNAT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/parallel_processing.html">Running Pipelines Across Multiple Subjects</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Understanding MRI Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../understanding_data/overview.html">Understanding Data Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding_data/bids.html">BIDS Format</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">XNAT Pipelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/overview.html">XNAT Pipelines Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/dcm2niix.html">dcm2niix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/dcm2bids.html">dcm2bids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/dcm2hcp.html">dcm2hcp (Under Development)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/mriqc.html">MRIQC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/ari-validator.html">ari-validator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/fmriprep.html">fMRIPrep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/tractoflow.html">TractoFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/hcp-pipeline.html">HCP (Under Development)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Download Methods</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Download via Browser</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#accessing-the-web-interface">Accessing the Web Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navigating-to-your-data">Navigating to Your Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#single-file-download">Single File Download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#session-download">Session Download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bulk-download">Bulk Download</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#common-issues">Common Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#see-also">See Also</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="desktop_client.html">Download via Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_scripts.html">Download via Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matlab_scripts.html">Download via MATLAB</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/troubleshooting.html">Troubleshooting Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/data_loss_recovery.html">Data Loss and Recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">Contributing to this Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contact.html">Contact Information</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Coming Soon</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/navigation.html">XNAT Navigation Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/project_management.html">Project Management</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NYUAD XNAT User Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Download via Browser</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/data_download/browser.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="download-via-browser">
+<h1>Download via Browser<a class="headerlink" href="#download-via-browser" title="Link to this heading"></a></h1>
+<p>This guide covers how to download data directly from the XNAT web interface using your browser.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The XNAT web interface provides a user-friendly way to browse and download data without requiring any programming knowledge. This method is ideal for:</p>
+<ul class="simple">
+<li><p>Small-scale data downloads</p></li>
+<li><p>Exploring data before bulk downloads</p></li>
+<li><p>One-off data retrieval tasks</p></li>
+<li><p>Users who prefer graphical interfaces</p></li>
+</ul>
+</section>
+<section id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
+<section id="accessing-the-web-interface">
+<h3>Accessing the Web Interface<a class="headerlink" href="#accessing-the-web-interface" title="Link to this heading"></a></h3>
+<p><a class="reference external" href="https://xnat.abudhabi.nyu.edu/">https://xnat.abudhabi.nyu.edu/</a></p>
+</section>
+<section id="navigating-to-your-data">
+<h3>Navigating to Your Data<a class="headerlink" href="#navigating-to-your-data" title="Link to this heading"></a></h3>
+<a class="reference internal image-reference" href="../_images/4.1.browser.navigate.png"><img alt="browser navigate" class="align-center" src="../_images/4.1.browser.navigate.png" style="width: 900px;" />
+</a>
+<p>Navigate through the XNAT interface to find your project and browse available subjects and sessions.</p>
+</section>
+<hr class="docutils" />
+<section id="single-file-download">
+<h3>Single File Download<a class="headerlink" href="#single-file-download" title="Link to this heading"></a></h3>
+<a class="reference internal image-reference" href="../_images/4.1.browser.single.png"><img alt="browser single" class="align-center" src="../_images/4.1.browser.single.png" style="width: 900px;" />
+</a>
+<p>Click on individual files to download them one at a time directly through the browser.</p>
+</section>
+<hr class="docutils" />
+<section id="session-download">
+<h3>Session Download<a class="headerlink" href="#session-download" title="Link to this heading"></a></h3>
+<a class="reference internal image-reference" href="../_images/4.1.browser.session.png"><img alt="browser session" class="align-center" src="../_images/4.1.browser.session.png" style="width: 900px;" />
+</a>
+<p>Use the session-level download options to get all scans from a single imaging session.</p>
+</section>
+<hr class="docutils" />
+<section id="bulk-download">
+<h3>Bulk Download<a class="headerlink" href="#bulk-download" title="Link to this heading"></a></h3>
+<a class="reference internal image-reference" href="../_images/4.1.browser.bulk.png"><img alt="browser bulk" class="align-center" src="../_images/4.1.browser.bulk.png" style="width: 900px;" />
+</a>
+<p>Access bulk download features to download multiple sessions or entire projects at once.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<section id="common-issues">
+<h3>Common Issues<a class="headerlink" href="#common-issues" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Large file timeout issues (this has been patched)</p></li>
+<li><p>Browser compatibility problems (needs to be tested)</p></li>
+<li><p>Network interruption (make sure you have a stable internet connection)</p></li>
+</ul>
+</section>
+</section>
+<section id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="python_scripts.html"><span class="doc">Download via Python</span></a> - For programmatic downloads</p></li>
+<li><p><a class="reference internal" href="desktop_client.html"><span class="doc">Download via Desktop Client</span></a> - For desktop application downloads</p></li>
+<li><p><a class="reference internal" href="../working_with_xnat/transferring_data.html"><span class="doc">Transferring Data Between Projects</span></a> - For transferring data between projects</p></li>
+<li><p><a class="reference internal" href="../working_with_xnat/navigation.html"><span class="doc">XNAT Navigation Basics</span></a> - For general XNAT navigation</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../processing_pipelines/hcp-pipeline.html" class="btn btn-neutral float-left" title="HCP (Under Development)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="desktop_client.html" class="btn btn-neutral float-right" title="Download via Desktop Client" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Puti Wen, Soumen Mohanty.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
