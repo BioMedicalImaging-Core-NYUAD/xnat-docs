@@ -6,15 +6,6 @@ build:
   tools:
     python: "3.10"
 
-  # ── NEW: ask RTD to fetch the tip of the tracked branch
-  jobs:
-    post_checkout:          # runs immediately after git clone
-      - git submodule update --init --recursive --remote
-
-submodules:
-  include: all              # clone every sub-module
-  recursive: true           # and any nested ones
-
 sphinx:
   configuration: docs/source/conf.py
   fail_on_warning: true
