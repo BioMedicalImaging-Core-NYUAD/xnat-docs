@@ -27,7 +27,7 @@ What You Need Before Running
    - **Required**: A valid DWI acquisition (dwi.nii.gz, .bval, .bvec).
    - **Optional but Recommended**: A reverse phase encoding b0 image (fmap) for distortion correction.
 
-2. **FreeSurfer (Recommended)**: While TractoFlow can perform its own brain extraction, running :doc:`freesurfer` beforehand and having the outputs available in ``Resources/freesurfer`` is highly recommended. The XNAT pipeline script explicitly checks for existing FreeSurfer outputs to improve T1w processing and registration.
+2. **FreeSurfer (Recommended)**: While TractoFlow can perform its own brain extraction, running FreeSurfer beforehand and having the outputs available in ``Resources/freesurfer`` is highly recommended. The XNAT pipeline script explicitly checks for existing FreeSurfer outputs to improve T1w processing and registration.
 
 How to Launch the Pipeline
 --------------------------
