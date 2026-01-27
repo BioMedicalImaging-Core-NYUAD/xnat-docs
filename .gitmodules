@@ -1,4 +1,4 @@
 [submodule "fmriprep"]
 	path = fmriprep
-	url = https://github.com/XNAT-NYUAD/fmriprep
+	url = https://github.com/XNAT-NYUAD/pipeline_fmriprep.git
 	branch = main
