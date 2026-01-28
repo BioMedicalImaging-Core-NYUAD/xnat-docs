@@ -19,4 +19,5 @@ See Also
 
 - :doc:`faq` - For frequently asked questions
 - :doc:`contact` - For support contact information
+- :doc:`../working_with_xnat/uid_errors_archiving` - Resolving UID errors during archiving
 - :doc:`../data_download/browser` - For download procedures

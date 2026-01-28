@@ -15,7 +15,7 @@ XNAT provides multiple ways to upload research data, each suited for different u
    *   **Prearchive**: Staging area. Data can be edited or deleted.
    *   **Archive**: Permanent storage. Data is indexed and protected.
    
-   For more details, refer to the `Official XNAT Documentation on Data Archiving <https://wiki.xnat.org/display/XNAT18/Archiving+Data>`_.
+   For more details about the Prearchive, see :doc:`prearchive`. For official XNAT documentation, refer to the `Official XNAT Documentation on Data Archiving <https://wiki.xnat.org/display/XNAT18/Archiving+Data>`_.
 
 Important Considerations
 ------------------------
@@ -261,6 +261,8 @@ Troubleshooting
 
 *   **Labeling Issues**: Use only alphanumeric characters, hyphens, and underscores. Duplicate labels will merge data with existing sessions.
 
+*   **UID Errors During Archiving**: If you encounter errors about "Invalid modification of session UID" or see "Conflict" status in Prearchive when merging different sessions, see :doc:`uid_errors_archiving` for step-by-step resolution.
+
 *   **Bulk Upload Restrictions**: Some projects restrict bulk uploads. Upload sessions individually or contact the project administrator.
 
 *   **Network/Performance**: Large datasets take time to upload. Use the transfer manager to monitor progress. Desktop Client supports resumable uploads if connectivity is interrupted.
@@ -272,7 +274,9 @@ See Also
 
 **Related Documentation**
 
+*   :doc:`prearchive` - Understanding the Prearchive system
 *   :doc:`transferring_data` - Guide for transferring data between projects
+*   :doc:`uid_errors_archiving` - Resolving UID errors during archiving
 *   :doc:`install_desktop_client` - Installation and setup guide for Desktop Client
 *   :doc:`../support/data_loss_recovery` - Information about backups and data recovery
 *   :doc:`project_management` - Project management and configuration

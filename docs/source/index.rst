@@ -17,7 +17,9 @@ Welcome to the NYUAD XNAT User Documentation. This guide is designed to help you
 
    working_with_xnat/access
    working_with_xnat/uploading
+   working_with_xnat/prearchive
    working_with_xnat/transferring_data
+   working_with_xnat/uid_errors_archiving
    working_with_xnat/install_desktop_client
    working_with_xnat/enabling_pipelines
    working_with_xnat/running_pipelines
