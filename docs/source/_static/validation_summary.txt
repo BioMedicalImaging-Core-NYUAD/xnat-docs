@@ -1,1 +1,1 @@
-The ARI validation pipeline has been run on 89 out of 114 subjects. The following dashboard shows the current status. This dashboard is updated daily at 4:00 AM Abu Dhabi time.
+The ARI validation pipeline has been run on 143 out of 216 subjects. The following dashboard shows the current status. This dashboard is updated daily at 4:00 AM Abu Dhabi time.
