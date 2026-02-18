@@ -1,6 +1,7 @@
 Subject_ID,Overall_Status,Sbref_Direction,IntendedFor,DWI_Parameters,File_Properties,Missing_Files,Extra_Files,DWI_Version,ASL_Version
 sub-0238,Validation Not Found,,,,,,,,
 sub-0259,PASSED,CORRECT,CORRECT,CORRECT,CORRECT,CORRECT,CORRECT,v2 (LATEST),v2 (LATEST)
+sub-0263,Validation Not Found,,,,,,,,
 sub-0285,Validation Not Found,,,,,,,,
 sub-0286,Validation Not Found,,,,,,,,
 sub-0302,Validation Not Found,,,,,,,,
@@ -44,6 +45,13 @@ sub-0736,Validation Not Found,,,,,,,,
 sub-0737,Validation Not Found,,,,,,,,
 sub-0738,Validation Not Found,,,,,,,,
 sub-0739,Validation Not Found,,,,,,,,
+sub-0742,Validation Not Found,,,,,,,,
+sub-0744,Validation Not Found,,,,,,,,
+sub-0747,Validation Not Found,,,,,,,,
+sub-0750,Validation Not Found,,,,,,,,
+sub-0751,Validation Not Found,,,,,,,,
+sub-0754,Validation Not Found,,,,,,,,
+sub-0756,Validation Not Found,,,,,,,,
 sub-0763,Validation Not Found,,,,,,,,
 sub-0764,Validation Not Found,,,,,,,,
 sub-0765,PASSED,CORRECT,CORRECT,CORRECT,CORRECT,CORRECT,CORRECT,v2 (LATEST),v2 (LATEST)
@@ -167,6 +175,8 @@ sub-0934,Validation Not Found,,,,,,,,
 sub-0935,Validation Not Found,,,,,,,,
 sub-0937,Validation Not Found,,,,,,,,
 sub-0938,Validation Not Found,,,,,,,,
+sub-0939,Validation Not Found,,,,,,,,
+sub-0940,Validation Not Found,,,,,,,,
 sub-238,PASSED,CORRECT,CORRECT,CORRECT,CORRECT,CORRECT,CORRECT,v2 (LATEST),v2 (LATEST)
 sub-286,PASSED,CORRECT,CORRECT,CORRECT,CORRECT,CORRECT,CORRECT,v2 (LATEST),v2 (LATEST)
 sub-302,PASSED,CORRECT,CORRECT,CORRECT,CORRECT,CORRECT,CORRECT,v2 (LATEST),v2 (LATEST)
