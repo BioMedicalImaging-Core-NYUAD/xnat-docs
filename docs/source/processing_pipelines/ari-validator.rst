@@ -172,8 +172,21 @@ Data Validation Dashboard
            cell.style.border = '1px solid #ddd';
            cell.style.fontSize = '0.85em';
            cell.style.transition = 'all 0.2s ease';
-           
+
            let cellContent = columns[j].trim();
+
+           // Subject ID column (index 0): normalize to 4-digit zero-padded display
+           // and flag subjects stored without leading zeros (e.g. sub-238 instead of sub-0238)
+           if (j === 0) {
+             const subMatch = cellContent.match(/^(sub-)(\d+)$/);
+             if (subMatch && subMatch[2].length < 4) {
+               const paddedId = 'sub-' + subMatch[2].padStart(4, '0');
+               cell.title = 'Stored as ' + cellContent + ' (missing leading zero — dcm2bids was run with an unpadded subject number)';
+               cellContent = paddedId + ' ⚠';
+               cell.style.backgroundColor = '#fff3cd';
+               cell.style.color = '#856404';
+             }
+           }
            
            // Color code status column (index 1)
            if (j === 1) {

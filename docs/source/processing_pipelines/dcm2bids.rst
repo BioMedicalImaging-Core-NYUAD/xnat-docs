@@ -21,8 +21,13 @@ How to Launch the Pipeline
 
 Navigate to your **session** in XNAT, click **"Run Pipeline"**, select **"dcm2bids"**, and configure these parameters:
 
-- **Subject Number** (Optional): Override automatic subject numbering
-- **Session Number** (Optional): Override automatic session numbering  
+- **Subject Number** (Optional): Leave this **empty** unless you want to use a different subject ID than the one derived from the DICOM. When left empty, the pipeline automatically extracts the subject number from the session label and zero-pads it to 4 digits (e.g. ``0201`` → ``sub-0201``).
+
+  .. warning::
+
+     Do not enter a subject number here unless you specifically need to override it. If you do enter a value, XNAT strips any leading zeros before passing it to the pipeline — so entering ``0201`` will produce ``sub-201`` instead of ``sub-0201``. To preserve the correct zero-padded ID, simply leave this field empty.
+
+- **Session Number** (Optional): Override automatic session numbering
 - **Enable Pydeface** (Default: True): Automatically deface anatomical images
 
 **Automatic Features:**
