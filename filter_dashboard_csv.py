@@ -44,8 +44,43 @@ def filter_dashboard_csv(input_file, output_file):
             display_columns = [col for col in display_columns if col in df.columns]
         
         # Filter to only the display columns
-        filtered_df = df[display_columns]
-        
+        filtered_df = df[display_columns].copy()
+
+        # Merge unpadded subject IDs (e.g. sub-238) into their zero-padded counterparts
+        # (e.g. sub-0238) when the padded row shows "Validation Not Found".
+        # This happens when dcm2bids was run with an unpadded --subject_number, causing
+        # the rawdata folder to be sub-238 instead of sub-0238.
+        import re
+
+        def padded_id(subject_id):
+            """Return the 4-digit zero-padded version of a sub-XXXX ID."""
+            m = re.match(r'^(sub-)(\d+)$', str(subject_id))
+            if m:
+                return 'sub-' + m.group(2).zfill(4)
+            return subject_id
+
+        # Build a lookup: padded_id -> row index for rows that are "Validation Not Found"
+        not_found_mask = filtered_df['Overall_Status'] == 'Validation Not Found'
+        not_found_padded = {
+            padded_id(row['Subject_ID']): idx
+            for idx, row in filtered_df[not_found_mask].iterrows()
+        }
+
+        rows_to_drop = []
+        for idx, row in filtered_df[~not_found_mask].iterrows():
+            pid = padded_id(row['Subject_ID'])
+            if pid != row['Subject_ID'] and pid in not_found_padded:
+                # This row has real data (e.g. sub-238); its padded twin (sub-0238)
+                # is a "Validation Not Found" phantom. Overwrite the phantom with
+                # this row's data, using the canonical padded ID, then drop this row.
+                target_idx = not_found_padded[pid]
+                filtered_df.loc[target_idx] = row.values
+                filtered_df.at[target_idx, 'Subject_ID'] = pid
+                rows_to_drop.append(idx)
+
+        if rows_to_drop:
+            filtered_df = filtered_df.drop(index=rows_to_drop).reset_index(drop=True)
+
         # Write the filtered CSV
         filtered_df.to_csv(output_file, index=False)
         
