@@ -235,17 +235,38 @@ Data Validation Dashboard
            
            // Color code version columns (indices 8-9)
            if (j >= 8 && j <= 9) {
-             if (cellContent.includes('v2') || cellContent.includes('LATEST')) {
+             const versionText = cellContent.toUpperCase();
+             if (versionText.includes('V2') || versionText.includes('LATEST')) {
                cell.style.backgroundColor = '#d4edda';
                cell.style.color = '#155724';
                cell.style.borderColor = '#c3e6cb';
                cellContent = '🟢 v2 (LATEST)';
-             } else if (cellContent.includes('v1') || cellContent.includes('DEPRECATED')) {
+             } else if (versionText.includes('V1 DWI-ONLY')) {
+               cell.style.backgroundColor = '#d1ecf1';
+               cell.style.color = '#0c5460';
+               cell.style.borderColor = '#bee5eb';
+               cellContent = '🔵 v1 DWI-ONLY';
+             } else if (versionText.includes('V1.5 PILOT')) {
+               cell.style.backgroundColor = '#d1ecf1';
+               cell.style.color = '#0c5460';
+               cell.style.borderColor = '#bee5eb';
+               cellContent = '🔵 v1.5 PILOT';
+             } else if (versionText.includes('LEGACY BAD REVB0')) {
+               cell.style.backgroundColor = '#f8d7da';
+               cell.style.color = '#721c24';
+               cell.style.borderColor = '#f5c6cb';
+               cellContent = '🔴 BAD REVB0';
+             } else if (versionText.includes('UNEXPECTED') || versionText.includes('MISSING DWI')) {
+               cell.style.backgroundColor = '#f8d7da';
+               cell.style.color = '#721c24';
+               cell.style.borderColor = '#f5c6cb';
+               cellContent = '🔴 ' + cellContent;
+             } else if (versionText.includes('V1') || versionText.includes('DEPRECATED')) {
                cell.style.backgroundColor = '#fff3cd';
                cell.style.color = '#856404';
                cell.style.borderColor = '#ffeaa7';
                cellContent = '🟡 v1 (DEPRECATED)';
-             } else if (cellContent === 'UNKNOWN' || cellContent === '' || cellContent === 'nan') {
+             } else if (versionText === 'UNKNOWN' || cellContent === '' || cellContent === 'nan') {
                cell.style.backgroundColor = '#f8f9fa';
                cell.style.color = '#6c757d';
                cellContent = '❓ UNKNOWN';
