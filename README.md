@@ -7,7 +7,7 @@ This is a Sphinx-based documentation project for NYUAD XNAT User Documentation.
 
 ### Prerequisites
 
-- **Python 3.8 or higher** (required for Sphinx 7.2.6)
+- **Python 3.10 or higher** (matching the ReadTheDocs build configuration)
 - pip (Python package manager)
 
 **Note:** If you're on macOS and don't have Python 3.8+, you can install it using:

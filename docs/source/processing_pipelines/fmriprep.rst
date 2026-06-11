@@ -47,7 +47,9 @@ Navigate to your **session** on XNAT, click **"Run Preprocessing Pipeline"**, se
 - **FMRIPrep Flags**: Text box for additional command-line options such as ``--output-spaces MNI152NLin2009cAsym:res-2``. For more information on the flags, see the `fMRIPrep documentation <https://fmriprep.org/en/stable/usage.html#command-line-arguments>`_. Default output space is set to T1w, fsaverage, and fsnative : ``--output-space T1w:res-native fsnative:den-41k fsaverage:den-41k``. Read more about output spaces `here <https://fmriprep.org/en/25.1.3/spaces.html#standard-spaces>`_.
 
 .. note::
-   The actual submission script used for running fMRIPrep on the Jubail HPC is maintained at: `XNAT-NYUAD/fmriprep code/utilities/job.py <https://github.com/XNAT-NYUAD/fmriprep/blob/main/code/utilities/job.py>`_. This script handles job submission, resource allocation, and integration with XNAT sessions.
+   fMRIPrep runs on NYUAD-managed compute infrastructure after you submit it from XNAT. You do not need to log into the cluster or run fMRIPrep manually.
+
+   For users who need to understand the underlying compute environment, see the CRC documentation for `Jubail system details <https://crc-docs.abudhabi.nyu.edu/hpc/system/index.html>`_, `job submission and SLURM <https://crc-docs.abudhabi.nyu.edu/hpc/jobs/quick_start.html>`_, and the `detailed SLURM guide <https://crc-docs.abudhabi.nyu.edu/hpc/jobs/hpc_slurm.html>`_.
 
 
 Important Things to Pay Attention To
@@ -133,7 +135,7 @@ For detailed output descriptions, see the `fMRIPrep outputs documentation <https
 Troubleshooting
 ---------------
 
-*Email us your error logs and we will add it to the troubleshooting section* 
+If fMRIPrep fails, check the output resource for logs and include them when contacting support. Common issues include invalid BIDS inputs, missing anatomical images, fieldmap problems, and FreeSurfer failures caused by poor T1w image quality.
 
 Next Steps After Preprocessing
 ------------------------------
@@ -143,6 +145,4 @@ Next Steps After Preprocessing
 
 .. note::
    Currently, we are running **fMRIPrep** (v24.1.1) and **FreeSurfer** (v7.3.2). We are working on making more versions available. If you have an urgent request for a specific version, please contact us.
-
-
 

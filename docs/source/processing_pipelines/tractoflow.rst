@@ -71,55 +71,22 @@ TractoFlow generates a comprehensive set of derivatives. The XNAT pipeline trans
 **Key Output Files:**
 
 - ``DTI_Metrics/*_fa.nii.gz``: Use this for voxel-based analysis of white matter integrity.
-- ``Tractography/*.trk``: The whole-brain tractogram. This can be visualized in software like `MI-Brain <https://imeka.ca/mi-brain/>`_, `Dipy`, or `Mrtrix`.
+- ``Tractography/*.trk``: The whole-brain tractogram. This can be visualized in software like `MI-Brain <https://github.com/imeka/mi-brain>`_, Dipy, or MRtrix.
 - ``report.html``: A visual report of the processing steps. Check this to verify brain extraction and registration quality.
 
-Component Versions
-------------------
+Version and Runtime Notes
+-------------------------
 
-.. list-table::
-   :widths: 20 20 60
-   :header-rows: 1
+TractoFlow runs through NYUAD-managed compute infrastructure after you submit it from XNAT. You do not need to run Nextflow manually. If your analysis requires a specific TractoFlow or container version, contact support before launching a large batch.
 
-   * - Component
-     - Version
-     - Filename / Command
-   * - Java
-     - 1.8.0_31
-     - ``module load jdk/1.8.0_31``
-   * - Nextflow
-     - 21.10.6
-     - ``/scratch/mri/singularityimages/nextflow``
-   * - Tractoflow
-     - 2.4.4
-     - ``/scratch/mri/singularityimages/tractoflow/main.nf``
-   * - Container
-     - 1.6.0
-     - ``scilus_1.6.0.sif``
-
-Pipeline Command
-----------------
-
-The pipeline is executed on the cluster using the following command structure:
-
-.. code-block:: bash
-
-   /scratch/mri/singularityimages/nextflow run /scratch/mri/singularityimages/tractoflow/main.nf \
-       --input <input_directory> \
-       --output_dir <output_directory> \
-       -with-singularity /scratch/mri/singularityimages/scilus_1.6.0.sif \
-       -profile use_gpu,fully_reproducible \
-       -resume
-
-.. note::
-   The pipeline is configured to use the GPU profile and ensures full reproducibility.
+For users who need to understand the runtime environment, see the CRC documentation for `Jubail system details <https://crc-docs.abudhabi.nyu.edu/hpc/system/index.html>`_, `job submission and SLURM <https://crc-docs.abudhabi.nyu.edu/hpc/jobs/quick_start.html>`_, and `Singularity on HPC <https://crc-docs.abudhabi.nyu.edu/hpc/software/singularity_commands.html>`_.
 
 Troubleshooting
 ---------------
 
 - **Missing T1w or DWI**: The pipeline will fail immediately if these are not found in the BIDS structure.
 - **Registration Failures**: If the tracking results look wrong (e.g., streamlines exiting the brain), check the `report.html` for registration errors between T1w and DWI.
-- **Job Errors**: If the job fails, download the ``slurm-*.out`` and ``slurm-*.err`` logs from the ``tractoflow/logs`` directory (or `temp_files` if the transfer failed) and contact support.
+- **Job Errors**: If the job fails, download the available logs from the ``tractoflow/logs`` directory and contact support with the project, subject, session, and pipeline name.
 
 References
 ----------

@@ -15,7 +15,7 @@ XNAT provides multiple ways to upload research data, each suited for different u
    *   **Prearchive**: Staging area. Data can be edited or deleted.
    *   **Archive**: Permanent storage. Data is indexed and protected.
    
-   For more details about the Prearchive, see :doc:`prearchive`. For official XNAT documentation, refer to the `Official XNAT Documentation on Data Archiving <https://wiki.xnat.org/display/XNAT18/Archiving+Data>`_.
+   For more details about the Prearchive, see :doc:`prearchive`. For official XNAT documentation, refer to the `XNAT Wiki Archiving Data search <https://wiki.xnat.org/search.html?l=en&max=10&ol=&q=Archiving+Data&s=documentation&start=0>`_.
 
 Important Considerations
 ------------------------
@@ -58,11 +58,7 @@ This method is the standard way for MRI scanners and automated scripts (like `st
 
 **Connection Details**
 
-Configure your scanner or sender script with the following parameters:
-
-*   **Remote AE Title**: ``xnatad``
-*   **Remote IP**: ``10.230.12.52``
-*   **Remote Port**: ``8104``
+The NYUAD DICOM receiver is available only from the approved NYUAD network. Receiver host, port, and AE title values may change as infrastructure is updated, so approved users should contact the XNAT administrators for the current connection details before configuring a scanner or sender script.
 
 **How it works**
 
@@ -93,7 +89,7 @@ If the Study Description field contains no routing information or conflicting in
 The **XNAT Desktop Client** is a standalone application that provides a robust way to upload large batches of data or complex folder structures. It is recommended for users who prefer a graphical interface with resumable uploads.
 
 **Installation**
-Ensure you have the XNAT Desktop Client installed. (See :doc:`install_desktop_client` if available, or check the `Official XNAT Desktop Client Wiki <https://wiki.xnat.org/xnat-tools/xnat-desktop-client>`_).
+Ensure you have the XNAT Desktop Client installed. See :doc:`install_desktop_client` or the `Official XNAT Desktop Client Wiki <https://wiki.xnat.org/xnat-tools/xnat-desktop-client-dxm>`_.
 
 **Step-by-Step Upload Guide**
 
@@ -156,7 +152,7 @@ For more details on bulk upload workflows, see the `official XNAT documentation 
     
     As long as the application is running and you have an active network connection, uploads will proceed in the background.
 
-For more information on managing transfers, see the `official XNAT documentation on managing data transfers <https://wiki.xnat.org/xnat-tools/managing-data-transfers>`_.
+For more information on the Desktop Client, see the `official XNAT Desktop Client documentation <https://wiki.xnat.org/xnat-tools/xnat-desktop-client-dxm>`_.
 
 **Project Settings**
 
@@ -253,7 +249,7 @@ Troubleshooting
 
 **Common Issues**
 
-*   **Connection Refused (DICOM Receiver)**: Ensure you are on the correct network (VPN/Intranet) to access ``10.230.12.52``. For routing issues, verify the DICOM Study Description field contains ``xnat://project_id/subject_label/session_label``. Missing or incorrect routing strings require manual routing from the Prearchive.
+*   **Connection Refused (DICOM Receiver)**: Ensure you are on the approved NYUAD network or VPN and that you are using the current receiver details from the XNAT administrators. For routing issues, verify the DICOM Study Description field contains ``xnat://project_id/subject_label/session_label``. Missing or incorrect routing strings require manual routing from the Prearchive.
 
 *   **Permission Errors**: Ensure you have "Member" or "Owner" access to the destination project. If subject creation is restricted, register subjects in the project before uploading.
 
@@ -285,6 +281,6 @@ See Also
 **Official XNAT Documentation**
 
 *   `XNAT Wiki: Uploading Image Sessions <https://wiki.xnat.org/xnat-tools/uploading-image-sessions>`_ - Comprehensive guide to uploading image sessions
-*   `XNAT Desktop Client Documentation <https://wiki.xnat.org/xnat-tools/xnat-desktop-client>`_ - Complete Desktop Client reference
+*   `XNAT Desktop Client Documentation <https://wiki.xnat.org/xnat-tools/xnat-desktop-client-dxm>`_ - Complete Desktop Client reference
 *   `Setting Project Defaults for Desktop Client Behavior <https://wiki.xnat.org/xnat-tools/setting-project-defaults-for-desktop-client-behavi>`_ - Project configuration options
-*   `Managing Data Transfers <https://wiki.xnat.org/xnat-tools/managing-data-transfers>`_ - Transfer management guide
+*   `XNAT Desktop Client Application Settings <https://wiki.xnat.org/xnat-tools/application-settings>`_ - Desktop Client configuration reference

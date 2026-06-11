@@ -8,7 +8,7 @@ Reporting Issues
 
 If you find errors, have suggestions, or notice missing information, please raise an issue on our GitHub repository:
 
-- `GitHub Issues <https://github.com/XNAT-NYUAD/xnat-docs/issues>`_
+- `GitHub Issues <https://github.com/BioMedicalImaging-Core-NYUAD/xnat-docs/issues>`_
 
 When creating an issue, please include:
 - A clear description of the problem or suggestion
