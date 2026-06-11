@@ -96,5 +96,5 @@ See Also
 
 **Official XNAT Documentation**
 
-- `XNAT Wiki: Prearchive <https://wiki.xnat.org/display/XNAT18/Prearchive>`_ - Official documentation on the Prearchive system
-- `XNAT Wiki: Archiving Data <https://wiki.xnat.org/display/XNAT18/Archiving+Data>`_ - Information about the archiving process
+- `XNAT Wiki: Prearchive search <https://wiki.xnat.org/search.html?l=en&max=10&ol=&q=Prearchive&s=documentation&start=0>`_ - Official documentation search results for the Prearchive system
+- `XNAT Wiki: Archiving Data search <https://wiki.xnat.org/search.html?l=en&max=10&ol=&q=Archiving+Data&s=documentation&start=0>`_ - Official documentation search results for the archiving process

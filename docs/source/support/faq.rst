@@ -49,22 +49,21 @@ Account and Access
 I forgot my password. How do I reset it?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Password reset procedures depend on your institution's authentication system:
+NYUAD XNAT uses Google OAuth for web sign-in. There is no separate XNAT password for normal browser access.
 
-**For NYU AD Users:**
-- Use NYU AD's NetID password reset system
-- Contact NYU AD IT support if needed
-- XNAT will automatically sync with updated credentials
+**For NYUAD users:**
+- Reset or recover access through the Google or NYU identity system associated with your approved account.
+- Contact NYUAD IT support if you cannot access that identity provider.
+- Contact XNAT administrators if your identity works but XNAT still does not let you sign in.
 
-**Self-Service Options:**
-- Look for "Forgot Password" link on the login page
-- Check your email for reset instructions
-- Contact your XNAT administrator if self-service isn't available
+**API and Desktop Client access:**
+- Use XNAT alias tokens rather than your Google password.
+- See :doc:`../working_with_xnat/access` for token creation instructions.
 
 **Security Best Practices:**
-- Use strong, unique passwords
-- Enable two-factor authentication if available
-- Never share login credentials
+- Never share login credentials or alias token secrets
+- Rotate alias tokens if you suspect they were exposed
+- Store tokens outside version-controlled scripts
 
 How do I change my account information?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -544,7 +543,7 @@ Error messages provide important clues for troubleshooting. Here's how to handle
 
 - Check :doc:`troubleshooting` for detailed error solutions
 - Review pipeline-specific documentation for processing errors
-- Consult the `official XNAT troubleshooting guide <https://wiki.xnat.org/documentation/getting-started-with-xnat/troubleshooting-xnat-login-and-session-issues>`_
+- Consult the `official XNAT troubleshooting guide <https://wiki.xnat.org/documentation/troubleshooting-xnat-login-and-session-issues>`_
 
 **When to Contact Support:**
 
@@ -724,7 +723,7 @@ XNAT provides a RESTful API for programmatic access to data and functionality:
 
 1. **Alias Tokens:** Generate in XNAT under your user profile → "Manage Alias Tokens"
 2. **Session Authentication:** Use JSESSIONID from web login
-3. **Basic Authentication:** Username/password (less secure, not recommended)
+3. **Basic Authentication:** Legacy username/password flows may not apply to NYUAD Google OAuth accounts. Use alias tokens unless administrators tell you otherwise.
 
 **Common API Operations:**
 

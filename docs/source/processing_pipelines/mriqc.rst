@@ -44,40 +44,14 @@ How to Launch the Pipeline
 
 Navigate to your **session** on XNAT, click **"Run Preprocessing Pipeline"**, select **"MRIQC"** from the pipeline dropdown, and then click **Review and Submit**.
 
-The current implementation on Jubail HPC is configured with standard settings:
+The current NYUAD XNAT implementation is configured with standard settings:
 
 - **Version**: MRIQC v24.0.2
-- **Resources**: 16 CPUs, 64 GB RAM (approx.), 4 hour time limit
 - **Modalities**: Automatically processes T1w, T2w, BOLD, and DWI images found in the BIDS directory.
 
-The underlying submission logic looks like the following:
+You do not need to configure compute resources manually. XNAT submits the job using the site-managed settings.
 
-.. code-block:: bash
-
-   #SBATCH -n 1            # number of tasks
-   #SBATCH -c 16           # number of cpus per task
-   #SBATCH -o slurm-{workflow_id}.out
-   #SBATCH -e slurm-{workflow_id}.err
-   #SBATCH --time=04:00:00
-
-   # Load singularity module
-   module load singularity
-   SINGULARITY_IMG=/scratch/mri/singularityimages/mriqc_24.0.2.sif
-
-   # Create output directory
-   mkdir -p "${OUTPUT_DIR}"
-
-   singularity run --cleanenv \
-       -B "${INPUT_DIR}":/data:ro \
-       -B "${OUTPUT_DIR}":/out \
-       -B "${WORKDIR}":/work \
-       "${SINGULARITY_IMG}" \
-       /data /out participant \
-       --participant-label {sub_label} \
-       -m T1w T2w bold dwi \
-       --work-dir /work \
-       --n_procs 16 \
-       -v
+For users who need more detail about the underlying compute environment, see the CRC documentation for `Jubail system details <https://crc-docs.abudhabi.nyu.edu/hpc/system/index.html>`_, `job submission and SLURM <https://crc-docs.abudhabi.nyu.edu/hpc/jobs/quick_start.html>`_, and the `detailed SLURM guide <https://crc-docs.abudhabi.nyu.edu/hpc/jobs/hpc_slurm.html>`_.
 
 .. raw:: html
 
@@ -198,7 +172,7 @@ Troubleshooting
 ---------------
 
 - **Job Timeout**: If the job fails with a timeout (exceeding 4 hours), it might be due to an unusually large dataset or high-resolution images. Please contact us for support.
-- **Missing Outputs**: If HTML reports are missing, check the ``logs`` directory (accessible via XNAT or the file system) to see if the pipeline crashed due to BIDS errors.
+- **Missing Outputs**: If HTML reports are missing, check the ``logs`` directory in the output resource to see whether the pipeline crashed due to BIDS errors.
 
 .. raw:: html
 

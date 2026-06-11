@@ -73,7 +73,7 @@ Getting Help
 **For Desktop Client specific issues:**
 
 - Review the `official XNAT Desktop Client documentation <https://wiki.xnat.org/xnat-tools/xnat-desktop-client-dxm>`_
-- Check `application settings guide <https://wiki.xnat.org/xnat-tools/xnat-desktop-client-dxm/application-settings>`_
+- Check `application settings guide <https://wiki.xnat.org/xnat-tools/application-settings>`_
 - Consult `version compatibility matrix <https://wiki.xnat.org/xnat-tools/desktop-client-version-compatibility-matrix>`_
 
 Next Steps
