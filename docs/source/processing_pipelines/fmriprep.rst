@@ -22,6 +22,12 @@ What You Need Before Running
 ----------------------------
 Before running fMRIPrep, you need to run :doc:`dcm2bids`, which will convert the raw data to BIDS format and output in the ``rawdata`` directory under ``Resources``.
 
+The subject must also have a T1w anatomical image available in the same XNAT
+project. The T1w image does not need to be in the same scanning session as the
+functional data; the pipeline can automatically pull it from another session for
+the same subject, as long as that session is within the same project. If no T1w
+image is available in the project, fMRIPrep will not run.
+
 .. image:: ../_static/3.6.fmriprep.input.png
    :alt: fMRIPrep input
    :align: center
@@ -47,9 +53,10 @@ Navigate to your **session** on XNAT, click **"Run Preprocessing Pipeline"**, se
 - **FMRIPrep Flags**: Text box for additional command-line options such as ``--output-spaces MNI152NLin2009cAsym:res-2``. For more information on the flags, see the `fMRIPrep documentation <https://fmriprep.org/en/stable/usage.html#command-line-arguments>`_. Default output space is set to T1w, fsaverage, and fsnative : ``--output-space T1w:res-native fsnative:den-41k fsaverage:den-41k``. Read more about output spaces `here <https://fmriprep.org/en/25.1.3/spaces.html#standard-spaces>`_.
 
 .. note::
-   fMRIPrep runs on NYUAD-managed compute infrastructure after you submit it from XNAT. You do not need to log into the cluster or run fMRIPrep manually.
-
-   For users who need to understand the underlying compute environment, see the CRC documentation for `Jubail system details <https://crc-docs.abudhabi.nyu.edu/hpc/system/index.html>`_, `job submission and SLURM <https://crc-docs.abudhabi.nyu.edu/hpc/jobs/quick_start.html>`_, and the `detailed SLURM guide <https://crc-docs.abudhabi.nyu.edu/hpc/jobs/hpc_slurm.html>`_.
+   If a subject has multiple sessions, fMRIPrep can reuse the subject's existing
+   FreeSurfer ``recon-all`` output. After fMRIPrep has completed successfully for
+   one session, running fMRIPrep on another session for the same subject will use
+   the existing FreeSurfer output instead of running ``recon-all`` again.
 
 
 Important Things to Pay Attention To
@@ -145,4 +152,3 @@ Next Steps After Preprocessing
 
 .. note::
    Currently, we are running **fMRIPrep** (v24.1.1) and **FreeSurfer** (v7.3.2). We are working on making more versions available. If you have an urgent request for a specific version, please contact us.
-

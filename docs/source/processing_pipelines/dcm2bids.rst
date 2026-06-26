@@ -56,7 +56,32 @@ For BIDS format details, see :doc:`../understanding_data/bids`.
 Configuration Files (Advanced)
 ------------------------------
 
-For non-standard acquisition protocols, create a **config.json** file and upload it to your parent project. The pipeline will automatically detect and use it.
+The dcm2bids configuration file tells dcm2bids how to map your study's DICOM series
+into BIDS files. Because sequence names and scan protocols vary across projects, you
+should create a ``config.json`` file tailored to your own study.
+
+Upload the configuration file as a **project-level resource**:
+
+1. Navigate to your project page in XNAT.
+2. In the **Actions** panel, click **Manage Files**.
+3. Under **Resources**, create a folder named ``configs`` if it does not already exist.
+4. Upload your dcm2bids configuration file as ``config.json`` inside that folder.
+
+The expected project resource path is:
+
+.. code-block:: text
+
+   Resources/configs/config.json
+
+.. image:: ../_static/dcm2bids_config_file_manager.png
+   :alt: XNAT File Manager showing a project Resources configs folder containing config.json
+   :width: 900px
+
+When the pipeline runs, it looks for this project-level ``config.json`` first. If it
+cannot find a dcm2bids configuration file, it will try to use the default ARI
+configuration maintained for NYUAD XNAT. That default is only a fallback. You should
+always make your own configuration file for your study so sequence matching, task
+labels, fieldmaps, SBRefs, and other BIDS metadata reflect your acquisition protocol.
 
 For configuration file creation, see the `dcm2bids configuration guide <https://unfmontreal.github.io/Dcm2Bids/3.2.0/how-to/create-config-file/>`_.
 
