@@ -1,22 +1,24 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Download via Python &mdash; NYUAD XNAT User Documentation 0.1 documentation</title>
+  <title>XNAT API with Python &mdash; NYUAD XNAT User Documentation 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1fb475a3" />
 
   
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=2709fde1"></script>
-      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
-      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -53,8 +55,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/access.html">Accessing XNAT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/uploading.html">Data Upload Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/prearchive.html">Understanding the Prearchive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/transferring_data.html">Transferring Data Between Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/uid_errors_archiving.html">Resolving UID Errors During Archiving</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/install_desktop_client.html">Install XNAT Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/navigation.html">XNAT Navigation Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/project_management.html">Project Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/enabling_pipelines.html">Enabling Pipelines for Your Project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/running_pipelines.html">Running Pipelines on XNAT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/parallel_processing.html">Running Pipelines Across Multiple Subjects</a></li>
@@ -80,16 +86,34 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="browser.html">Download via Browser</a></li>
 <li class="toctree-l1"><a class="reference internal" href="desktop_client.html">Download via Desktop Client</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Download via Python</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#available-scripts">Available Scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#setup-instructions">Setup Instructions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#usage-examples">Usage Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#script-configuration">Script Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#output-structure">Output Structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#security-best-practices">Security Best Practices</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">XNAT API with Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#when-to-use-the-api">When to Use the API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#safety-rules">Safety Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-an-alias-token">Create an Alias Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#environment-setup">Environment Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#laptop-or-workstation">Laptop or Workstation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jubail-hpc">Jubail HPC</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#secrets-management">Secrets Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#option-1-environment-variables">Option 1: Environment Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#option-2-private-env-file">Option 2: Private <code class="docutils literal notranslate"><span class="pre">.env</span></code> File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#option-3-prompt-at-runtime">Option 3: Prompt at Runtime</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#first-connection-test">First Connection Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#common-xnat-objects">Common XNAT Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list-subjects-sessions-scans-and-resources">List Subjects, Sessions, Scans, and Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-selected-dicom-scans">Download Selected DICOM Scans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-session-resources">Download Session Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-one-specific-file-from-many-sessions">Download One Specific File From Many Sessions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#parse-aseg-stats-into-a-csv">Parse <code class="docutils literal notranslate"><span class="pre">aseg.stats</span></code> Into a CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-directly-to-jubail-and-run-your-own-processing">Download Directly to Jubail and Run Your Own Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#build-scripts-with-ai-assistance">Build Scripts With AI Assistance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#recommended-script-features">Recommended Script Features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#next-steps">Next Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-help">Getting Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#related-documentation">Related Documentation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="matlab_scripts.html">Download via MATLAB</a></li>
@@ -101,11 +125,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../support/data_loss_recovery.html">Data Loss and Recovery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">Contributing to this Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../support/contact.html">Contact Information</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Coming Soon</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/navigation.html">XNAT Navigation Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/project_management.html">Project Management</a></li>
 </ul>
 
         </div>
@@ -122,7 +141,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Download via Python</li>
+      <li class="breadcrumb-item active">XNAT API with Python</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/data_download/python_scripts.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -132,135 +151,543 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="download-via-python">
-<h1>Download via Python<a class="headerlink" href="#download-via-python" title="Link to this heading"></a></h1>
-<p>Automated data download using Python scripts from the XNAT template-scripts repository.</p>
-<section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
-<p>Python scripts provide automated, programmatic data access with batch download capabilities and integration with analysis workflows.</p>
-</section>
-<section id="available-scripts">
-<h2>Available Scripts<a class="headerlink" href="#available-scripts" title="Link to this heading"></a></h2>
-<p>Four main Python scripts are available for different download tasks:</p>
-<dl class="simple">
-<dt><strong>1. List Projects</strong> (<code class="docutils literal notranslate"><span class="pre">1_list_projects.py</span></code>)</dt><dd><p>Lists all accessible projects on XNAT with IDs, names, and descriptions.</p>
-</dd>
-<dt><strong>2. List Subjects</strong> (<code class="docutils literal notranslate"><span class="pre">2_list_subjects.py</span></code>)</dt><dd><p>Shows detailed information for subjects in a project, including sessions, scans, and metadata.</p>
-</dd>
-<dt><strong>3. Download Single Scan</strong> (<code class="docutils literal notranslate"><span class="pre">3_download_single_scan.py</span></code>)</dt><dd><p>Downloads DICOM files from a specific scan with precise control over selection.</p>
-</dd>
-<dt><strong>4. Download Session</strong> (<code class="docutils literal notranslate"><span class="pre">4_download_session.py</span></code>)</dt><dd><p>Downloads all scans from a session, with optional filtering by scan type.</p>
-</dd>
-</dl>
-</section>
-<section id="setup-instructions">
-<h2>Setup Instructions<a class="headerlink" href="#setup-instructions" title="Link to this heading"></a></h2>
-<p><strong>1. Environment Setup</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create conda environment</span>
-conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>xnat-env<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.9
-conda<span class="w"> </span>activate<span class="w"> </span>xnat-env
-pip<span class="w"> </span>install<span class="w"> </span>xnat
-</pre></div>
-</div>
-<p><strong>2. Get Template Scripts</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/XNAT-NYUAD/template-scripts.git
-<span class="nb">cd</span><span class="w"> </span>template-scripts
-</pre></div>
-</div>
-<p><strong>3. Configure Authentication</strong></p>
-<ol class="arabic simple">
-<li><p>Create API token in XNAT:
-- Go to your profile → “Manage Alias Tokens”
-- Click “Create New Token”
-- Copy the alias and secret values</p></li>
-<li><p>Edit each script file and replace:
-- <code class="docutils literal notranslate"><span class="pre">TOKEN_USER</span> <span class="pre">=</span> <span class="pre">&quot;&lt;paste</span> <span class="pre">your</span> <span class="pre">token</span> <span class="pre">alias</span> <span class="pre">here&gt;&quot;</span></code>
-- <code class="docutils literal notranslate"><span class="pre">TOKEN_SECRET</span> <span class="pre">=</span> <span class="pre">&quot;&lt;paste</span> <span class="pre">your</span> <span class="pre">token</span> <span class="pre">secret</span> <span class="pre">here&gt;&quot;</span></code></p></li>
-</ol>
-</section>
-<section id="usage-examples">
-<h2>Usage Examples<a class="headerlink" href="#usage-examples" title="Link to this heading"></a></h2>
-<p><strong>List Available Projects</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>1_list_projects.py
-</pre></div>
-</div>
-<p><strong>Examine Subject Details</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show first subject in project</span>
-python<span class="w"> </span>2_list_subjects.py
-
-<span class="c1"># Show specific subject</span>
-python<span class="w"> </span>2_list_subjects.py<span class="w"> </span>--subject<span class="w"> </span>sub-001
-</pre></div>
-</div>
-<p><strong>Download Single Scan</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download first scan (uses default project)</span>
-python<span class="w"> </span>3_download_single_scan.py
-
-<span class="c1"># Download specific scan</span>
-python<span class="w"> </span>3_download_single_scan.py<span class="w"> </span>--subject<span class="w"> </span>sub-001<span class="w"> </span>--session<span class="w"> </span>ses-01<span class="w"> </span>--scan<span class="w"> </span><span class="m">1</span>
-</pre></div>
-</div>
-<p><strong>Download Complete Session</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download all scans</span>
-python<span class="w"> </span>4_download_session.py<span class="w"> </span>--subject<span class="w"> </span>sub-001<span class="w"> </span>--session<span class="w"> </span>ses-01
-
-<span class="c1"># Download only T1 and T2 scans</span>
-python<span class="w"> </span>4_download_session.py<span class="w"> </span>--subject<span class="w"> </span>sub-001<span class="w"> </span>--session<span class="w"> </span>ses-01<span class="w"> </span>--scan-types<span class="w"> </span>T1<span class="w"> </span>T2
-</pre></div>
-</div>
-</section>
-<section id="script-configuration">
-<h2>Script Configuration<a class="headerlink" href="#script-configuration" title="Link to this heading"></a></h2>
-<p>Each script contains these configurable parameters:</p>
+  <section id="xnat-api-with-python">
+<h1>XNAT API with Python<a class="headerlink" href="#xnat-api-with-python" title="Link to this heading"></a></h1>
+<p>This guide shows how to use Python to work with NYUAD XNAT directly from your laptop, lab workstation, or Jubail HPC. It is intended for users who want to create their own scripts instead of asking XNAT administrators to write one-off download or processing helpers.</p>
+<p>Most users should start with the official Python package:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">XNAT_SERVER</span></code>: Server URL (default: <a class="reference external" href="https://xnat.abudhabi.nyu.edu">https://xnat.abudhabi.nyu.edu</a>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">TOKEN_USER</span></code>: Your API token alias</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">TOKEN_SECRET</span></code>: Your API token secret</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PROJECT_ID</span></code>: Default project (default: rokerslab_ari-clean)</p></li>
+<li><p>Install package: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">xnat</span></code></p></li>
+<li><p>Package documentation: <a class="reference external" href="https://xnat.readthedocs.io/en/stable/">XNAT Python Client</a></p></li>
+<li><p>XNAT server: <code class="docutils literal notranslate"><span class="pre">https://xnat.abudhabi.nyu.edu</span></code></p></li>
+</ul>
+<section id="when-to-use-the-api">
+<h2>When to Use the API<a class="headerlink" href="#when-to-use-the-api" title="Link to this heading"></a></h2>
+<p>Use the API when the browser or Desktop Client is too manual for your workflow. Common examples include:</p>
+<ul class="simple">
+<li><p>Download all scans for selected subjects and sessions.</p></li>
+<li><p>Download only one scan type, such as T1w, DWI, or fieldmaps.</p></li>
+<li><p>Download only pipeline outputs, such as <code class="docutils literal notranslate"><span class="pre">fmriprep</span></code>, <code class="docutils literal notranslate"><span class="pre">mriqc</span></code>, <code class="docutils literal notranslate"><span class="pre">rawdata</span></code>, or <code class="docutils literal notranslate"><span class="pre">freesurfer</span></code> resources.</p></li>
+<li><p>Extract one specific file from many sessions, such as FreeSurfer <code class="docutils literal notranslate"><span class="pre">aseg.stats</span></code>.</p></li>
+<li><p>Build a manifest of what exists in XNAT before downloading.</p></li>
+<li><p>Download data directly to Jubail before running your own processing.</p></li>
+<li><p>Run the same script repeatedly without re-downloading files that already exist.</p></li>
+</ul>
+<p>Prefer the XNAT Desktop Client for simple large DICOM downloads. Prefer the API when you need filtering, manifests, automation, or downstream analysis.</p>
+</section>
+<section id="safety-rules">
+<h2>Safety Rules<a class="headerlink" href="#safety-rules" title="Link to this heading"></a></h2>
+<p>Before writing scripts, follow these rules:</p>
+<ul class="simple">
+<li><p>Start with read-only tasks: list projects, list sessions, list resources, then download.</p></li>
+<li><p>Do not delete, overwrite, archive, or upload data from a script unless you have discussed the plan with the XNAT administrators.</p></li>
+<li><p>Test on one subject and one session before running a whole project.</p></li>
+<li><p>Keep a manifest of what your script downloaded.</p></li>
+<li><p>Never put token secrets directly in scripts, notebooks, GitHub repos, email, Slack, or shared folders.</p></li>
+<li><p>If an AI tool helps you write code, ask it to avoid destructive operations and to keep credentials in environment variables.</p></li>
 </ul>
 </section>
-<section id="output-structure">
-<h2>Output Structure<a class="headerlink" href="#output-structure" title="Link to this heading"></a></h2>
-<p>Downloaded files are organized as:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>downloaded_data/
-├── scan-1_T1/          # Single scan downloads
-│   ├── file1.dcm
-│   └── file2.dcm
-└── session-ses-01/     # Session downloads
-    ├── scan-1_T1/
-    ├── scan-2_T2/
-    └── scan-3_func/
+<section id="create-an-alias-token">
+<h2>Create an Alias Token<a class="headerlink" href="#create-an-alias-token" title="Link to this heading"></a></h2>
+<p>Use an XNAT alias token rather than your Google password.</p>
+<ol class="arabic simple">
+<li><p>Log into XNAT.</p></li>
+<li><p>Click your user name in the top right.</p></li>
+<li><p>Open <strong>Manage Alias Tokens</strong>.</p></li>
+<li><p>Create a new token.</p></li>
+<li><p>Copy the token alias and token secret.</p></li>
+</ol>
+<p>Treat the alias and secret like a password. If you think they were exposed, delete the token and create a new one.</p>
+</section>
+<section id="environment-setup">
+<h2>Environment Setup<a class="headerlink" href="#environment-setup" title="Link to this heading"></a></h2>
+<section id="laptop-or-workstation">
+<h3>Laptop or Workstation<a class="headerlink" href="#laptop-or-workstation" title="Link to this heading"></a></h3>
+<p>Create a small Python environment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>xnat-api-env
+<span class="nb">source</span><span class="w"> </span>xnat-api-env/bin/activate
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>xnat<span class="w"> </span>pandas<span class="w"> </span>python-dotenv
+</pre></div>
+</div>
+<p>If you prefer conda:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>xnat-api<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11
+conda<span class="w"> </span>activate<span class="w"> </span>xnat-api
+pip<span class="w"> </span>install<span class="w"> </span>xnat<span class="w"> </span>pandas<span class="w"> </span>python-dotenv
 </pre></div>
 </div>
 </section>
-<section id="security-best-practices">
-<h2>Security Best Practices<a class="headerlink" href="#security-best-practices" title="Link to this heading"></a></h2>
+<section id="jubail-hpc">
+<h3>Jubail HPC<a class="headerlink" href="#jubail-hpc" title="Link to this heading"></a></h3>
+<p>For workflows that produce large outputs, it is often better to download directly to Jubail instead of downloading to a laptop and uploading again.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span>&lt;your-netid&gt;@jubail.abudhabi.nyu.edu
+mkdir<span class="w"> </span>-p<span class="w"> </span>~/xnat-api-work
+<span class="nb">cd</span><span class="w"> </span>~/xnat-api-work
+python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>xnat-api-env
+<span class="nb">source</span><span class="w"> </span>xnat-api-env/bin/activate
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>xnat<span class="w"> </span>pandas<span class="w"> </span>python-dotenv
+</pre></div>
+</div>
+<p>For long downloads or downstream processing, use a Jubail job instead of leaving work running in an interactive shell. See the CRC documentation for <a class="reference external" href="https://crc-docs.abudhabi.nyu.edu/hpc/system/index.html">Jubail system details</a> and <a class="reference external" href="https://crc-docs.abudhabi.nyu.edu/hpc/jobs/quick_start.html">SLURM job submission</a>.</p>
+</section>
+</section>
+<section id="secrets-management">
+<h2>Secrets Management<a class="headerlink" href="#secrets-management" title="Link to this heading"></a></h2>
+<section id="option-1-environment-variables">
+<h3>Option 1: Environment Variables<a class="headerlink" href="#option-1-environment-variables" title="Link to this heading"></a></h3>
+<p>This is the recommended default.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">XNAT_HOST</span><span class="o">=</span><span class="s2">&quot;https://xnat.abudhabi.nyu.edu&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">XNAT_USER</span><span class="o">=</span><span class="s2">&quot;your-token-alias&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">XNAT_PASS</span><span class="o">=</span><span class="s2">&quot;your-token-secret&quot;</span>
+</pre></div>
+</div>
+<p>Then your Python code can read:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">XNAT_HOST</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;XNAT_HOST&quot;</span><span class="p">]</span>
+<span class="n">XNAT_USER</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;XNAT_USER&quot;</span><span class="p">]</span>
+<span class="n">XNAT_PASS</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;XNAT_PASS&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="option-2-private-env-file">
+<h3>Option 2: Private <code class="docutils literal notranslate"><span class="pre">.env</span></code> File<a class="headerlink" href="#option-2-private-env-file" title="Link to this heading"></a></h3>
+<p>For a project folder on your own machine:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>&gt;<span class="w"> </span>.env<span class="w"> </span><span class="s">&lt;&lt;&#39;EOF&#39;</span>
+<span class="s">XNAT_HOST=https://xnat.abudhabi.nyu.edu</span>
+<span class="s">XNAT_USER=your-token-alias</span>
+<span class="s">XNAT_PASS=your-token-secret</span>
+<span class="s">EOF</span>
+chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>.env
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;.env&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>.gitignore
+</pre></div>
+</div>
+<p>Use it in Python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dotenv</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_dotenv</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">load_dotenv</span><span class="p">()</span>
+<span class="n">XNAT_HOST</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;XNAT_HOST&quot;</span><span class="p">]</span>
+<span class="n">XNAT_USER</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;XNAT_USER&quot;</span><span class="p">]</span>
+<span class="n">XNAT_PASS</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;XNAT_PASS&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>On Jubail, keep token files in your home directory or a private project directory. Do not store secrets in shared group folders unless the permissions are restricted.</p>
+</section>
+<section id="option-3-prompt-at-runtime">
+<h3>Option 3: Prompt at Runtime<a class="headerlink" href="#option-3-prompt-at-runtime" title="Link to this heading"></a></h3>
+<p>Prompting avoids saving secrets on disk:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">getpass</span>
+
+<span class="n">XNAT_USER</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;XNAT alias token: &quot;</span><span class="p">)</span>
+<span class="n">XNAT_PASS</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getpass</span><span class="p">(</span><span class="s2">&quot;XNAT alias secret: &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="first-connection-test">
+<h2>First Connection Test<a class="headerlink" href="#first-connection-test" title="Link to this heading"></a></h2>
+<p>Create <code class="docutils literal notranslate"><span class="pre">01_test_connection.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xnat</span>
+
+<span class="n">host</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;XNAT_HOST&quot;</span><span class="p">,</span> <span class="s2">&quot;https://xnat.abudhabi.nyu.edu&quot;</span><span class="p">)</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;XNAT_USER&quot;</span><span class="p">]</span>
+<span class="n">password</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;XNAT_PASS&quot;</span><span class="p">]</span>
+
+<span class="k">with</span> <span class="n">xnat</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Connected to:&quot;</span><span class="p">,</span> <span class="n">host</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accessible projects:&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">project_id</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">projects</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; -&quot;</span><span class="p">,</span> <span class="n">project_id</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Run it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>01_test_connection.py
+</pre></div>
+</div>
+<p>If this fails, check VPN/network access, token spelling, and project permissions.</p>
+</section>
+<section id="common-xnat-objects">
+<h2>Common XNAT Objects<a class="headerlink" href="#common-xnat-objects" title="Link to this heading"></a></h2>
+<p>The XNAT Python client exposes XNAT as a hierarchy:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">session</span>
+  <span class="n">projects</span><span class="p">[</span><span class="n">project_id</span><span class="p">]</span>
+    <span class="n">subjects</span><span class="p">[</span><span class="n">subject_label</span><span class="p">]</span>
+      <span class="n">experiments</span><span class="p">[</span><span class="n">session_label</span><span class="p">]</span>
+        <span class="n">scans</span><span class="p">[</span><span class="n">scan_id</span><span class="p">]</span>
+          <span class="n">resources</span><span class="p">[</span><span class="n">resource_label</span><span class="p">]</span>
+            <span class="n">files</span><span class="p">[</span><span class="n">file_name</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>In XNAT, imaging sessions are often called <code class="docutils literal notranslate"><span class="pre">experiments</span></code> in the API. That is normal.</p>
+</section>
+<section id="list-subjects-sessions-scans-and-resources">
+<h2>List Subjects, Sessions, Scans, and Resources<a class="headerlink" href="#list-subjects-sessions-scans-and-resources" title="Link to this heading"></a></h2>
+<p>This is usually the first script to write for a new project.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xnat</span>
+
+<span class="n">PROJECT_ID</span> <span class="o">=</span> <span class="s2">&quot;your_project_id&quot;</span>
+
+<span class="k">with</span> <span class="n">xnat</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;XNAT_HOST&quot;</span><span class="p">,</span> <span class="s2">&quot;https://xnat.abudhabi.nyu.edu&quot;</span><span class="p">),</span>
+    <span class="n">user</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;XNAT_USER&quot;</span><span class="p">],</span>
+    <span class="n">password</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;XNAT_PASS&quot;</span><span class="p">],</span>
+<span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+    <span class="n">project</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">projects</span><span class="p">[</span><span class="n">PROJECT_ID</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">subject</span> <span class="ow">in</span> <span class="n">project</span><span class="o">.</span><span class="n">subjects</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Subject: </span><span class="si">{</span><span class="n">subject</span><span class="o">.</span><span class="n">label</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">experiment</span> <span class="ow">in</span> <span class="n">subject</span><span class="o">.</span><span class="n">experiments</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Session: </span><span class="si">{</span><span class="n">experiment</span><span class="o">.</span><span class="n">label</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">scan</span> <span class="ow">in</span> <span class="n">experiment</span><span class="o">.</span><span class="n">scans</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                <span class="n">resource_names</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">resources</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Scan </span><span class="si">{</span><span class="n">scan</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">scan</span><span class="o">.</span><span class="n">type</span><span class="si">}</span><span class="s2"> resources=[</span><span class="si">{</span><span class="n">resource_names</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">experiment</span><span class="o">.</span><span class="n">resources</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    Session resources:&quot;</span><span class="p">,</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">experiment</span><span class="o">.</span><span class="n">resources</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+</pre></div>
+</div>
+<p>Use the output from this script to decide what to download.</p>
+</section>
+<section id="download-selected-dicom-scans">
+<h2>Download Selected DICOM Scans<a class="headerlink" href="#download-selected-dicom-scans" title="Link to this heading"></a></h2>
+<p>This pattern appears often in project-specific scripts: choose subjects, choose sessions, then download each scan resource.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xnat</span>
+
+<span class="n">PROJECT_ID</span> <span class="o">=</span> <span class="s2">&quot;your_project_id&quot;</span>
+<span class="n">SUBJECTS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Subject_0001&quot;</span><span class="p">,</span> <span class="s2">&quot;Subject_0002&quot;</span><span class="p">]</span>
+<span class="n">SESSIONS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ses_01&quot;</span><span class="p">]</span>
+<span class="n">OUTPUT_DIR</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;xnat_downloads&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">safe_name</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">c</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">isalnum</span><span class="p">()</span> <span class="ow">or</span> <span class="n">c</span> <span class="ow">in</span> <span class="s2">&quot;-_.&quot;</span> <span class="k">else</span> <span class="s2">&quot;_&quot;</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+
+<span class="k">with</span> <span class="n">xnat</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;XNAT_HOST&quot;</span><span class="p">,</span> <span class="s2">&quot;https://xnat.abudhabi.nyu.edu&quot;</span><span class="p">),</span>
+    <span class="n">user</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;XNAT_USER&quot;</span><span class="p">],</span>
+    <span class="n">password</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;XNAT_PASS&quot;</span><span class="p">],</span>
+<span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+    <span class="n">project</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">projects</span><span class="p">[</span><span class="n">PROJECT_ID</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">subject_label</span> <span class="ow">in</span> <span class="n">SUBJECTS</span><span class="p">:</span>
+        <span class="n">subject</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">subjects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">subject_label</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">subject</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Missing subject:&quot;</span><span class="p">,</span> <span class="n">subject_label</span><span class="p">)</span>
+            <span class="k">continue</span>
+
+        <span class="k">for</span> <span class="n">experiment</span> <span class="ow">in</span> <span class="n">subject</span><span class="o">.</span><span class="n">experiments</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">SESSIONS</span> <span class="ow">and</span> <span class="n">experiment</span><span class="o">.</span><span class="n">label</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">SESSIONS</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="k">for</span> <span class="n">scan</span> <span class="ow">in</span> <span class="n">experiment</span><span class="o">.</span><span class="n">scans</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                <span class="k">if</span> <span class="s2">&quot;DICOM&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">scan</span><span class="o">.</span><span class="n">resources</span><span class="p">:</span>
+                    <span class="k">continue</span>
+
+                <span class="n">scan_dir</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">OUTPUT_DIR</span>
+                    <span class="o">/</span> <span class="n">safe_name</span><span class="p">(</span><span class="n">subject</span><span class="o">.</span><span class="n">label</span><span class="p">)</span>
+                    <span class="o">/</span> <span class="n">safe_name</span><span class="p">(</span><span class="n">experiment</span><span class="o">.</span><span class="n">label</span><span class="p">)</span>
+                    <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;scan-</span><span class="si">{</span><span class="n">safe_name</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">id</span><span class="p">)</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">safe_name</span><span class="p">(</span><span class="n">scan</span><span class="o">.</span><span class="n">type</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+                <span class="k">if</span> <span class="n">scan_dir</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="ow">and</span> <span class="nb">any</span><span class="p">(</span><span class="n">scan_dir</span><span class="o">.</span><span class="n">iterdir</span><span class="p">()):</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Skipping existing:&quot;</span><span class="p">,</span> <span class="n">scan_dir</span><span class="p">)</span>
+                    <span class="k">continue</span>
+
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Downloading:&quot;</span><span class="p">,</span> <span class="n">subject</span><span class="o">.</span><span class="n">label</span><span class="p">,</span> <span class="n">experiment</span><span class="o">.</span><span class="n">label</span><span class="p">,</span> <span class="n">scan</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">scan</span><span class="o">.</span><span class="n">type</span><span class="p">)</span>
+                <span class="n">scan</span><span class="o">.</span><span class="n">resources</span><span class="p">[</span><span class="s2">&quot;DICOM&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">download_dir</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">scan_dir</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>This downloads one directory per scan. For large projects, add logging and retry logic.</p>
+</section>
+<section id="download-session-resources">
+<h2>Download Session Resources<a class="headerlink" href="#download-session-resources" title="Link to this heading"></a></h2>
+<p>Pipeline outputs usually live in session resources such as <code class="docutils literal notranslate"><span class="pre">rawdata</span></code>, <code class="docutils literal notranslate"><span class="pre">mriqc</span></code>, <code class="docutils literal notranslate"><span class="pre">fmriprep</span></code>, <code class="docutils literal notranslate"><span class="pre">freesurfer</span></code>, or <code class="docutils literal notranslate"><span class="pre">tractoflow</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xnat</span>
+
+<span class="n">PROJECT_ID</span> <span class="o">=</span> <span class="s2">&quot;your_project_id&quot;</span>
+<span class="n">RESOURCE_LABEL</span> <span class="o">=</span> <span class="s2">&quot;fmriprep&quot;</span>
+<span class="n">OUTPUT_DIR</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;pipeline_outputs&quot;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">xnat</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;XNAT_HOST&quot;</span><span class="p">,</span> <span class="s2">&quot;https://xnat.abudhabi.nyu.edu&quot;</span><span class="p">),</span>
+    <span class="n">user</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;XNAT_USER&quot;</span><span class="p">],</span>
+    <span class="n">password</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;XNAT_PASS&quot;</span><span class="p">],</span>
+<span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+    <span class="n">project</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">projects</span><span class="p">[</span><span class="n">PROJECT_ID</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">subject</span> <span class="ow">in</span> <span class="n">project</span><span class="o">.</span><span class="n">subjects</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">experiment</span> <span class="ow">in</span> <span class="n">subject</span><span class="o">.</span><span class="n">experiments</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="n">resource</span> <span class="o">=</span> <span class="n">experiment</span><span class="o">.</span><span class="n">resources</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">RESOURCE_LABEL</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">resource</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="n">out_dir</span> <span class="o">=</span> <span class="n">OUTPUT_DIR</span> <span class="o">/</span> <span class="n">subject</span><span class="o">.</span><span class="n">label</span> <span class="o">/</span> <span class="n">experiment</span><span class="o">.</span><span class="n">label</span> <span class="o">/</span> <span class="n">RESOURCE_LABEL</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Downloading resource:&quot;</span><span class="p">,</span> <span class="n">subject</span><span class="o">.</span><span class="n">label</span><span class="p">,</span> <span class="n">experiment</span><span class="o">.</span><span class="n">label</span><span class="p">,</span> <span class="n">RESOURCE_LABEL</span><span class="p">)</span>
+            <span class="n">resource</span><span class="o">.</span><span class="n">download_dir</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">out_dir</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>For fMRIPrep and TractoFlow, resources can be large. Test with one subject before downloading a full project.</p>
+</section>
+<section id="download-one-specific-file-from-many-sessions">
+<h2>Download One Specific File From Many Sessions<a class="headerlink" href="#download-one-specific-file-from-many-sessions" title="Link to this heading"></a></h2>
+<p>A common request is: “Download every FreeSurfer <code class="docutils literal notranslate"><span class="pre">aseg.stats</span></code> file, but not the full fMRIPrep output.” The safest approach is:</p>
+<ol class="arabic simple">
+<li><p>Loop through subjects and sessions.</p></li>
+<li><p>Inspect the resource file listing.</p></li>
+<li><p>Download only files whose path ends with <code class="docutils literal notranslate"><span class="pre">stats/aseg.stats</span></code>.</p></li>
+<li><p>Save a manifest.</p></li>
+</ol>
+<p>The exact file listing can vary by resource, so inspect the file names before downloading. Many FreeSurfer resources store this file as <code class="docutils literal notranslate"><span class="pre">&lt;subject&gt;/stats/aseg.stats</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xnat</span>
+
+<span class="n">PROJECT_ID</span> <span class="o">=</span> <span class="s2">&quot;your_project_id&quot;</span>
+<span class="n">RESOURCE_LABEL</span> <span class="o">=</span> <span class="s2">&quot;freesurfer&quot;</span>
+<span class="n">OUTPUT_DIR</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;aseg_stats_bids&quot;</span><span class="p">)</span>
+<span class="n">MANIFEST</span> <span class="o">=</span> <span class="n">OUTPUT_DIR</span> <span class="o">/</span> <span class="s2">&quot;aseg_stats_manifest.tsv&quot;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">safe_label</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">c</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">isalnum</span><span class="p">()</span> <span class="ow">or</span> <span class="n">c</span> <span class="ow">in</span> <span class="s2">&quot;-_&quot;</span> <span class="k">else</span> <span class="s2">&quot;_&quot;</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+
+<span class="k">with</span> <span class="n">xnat</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;XNAT_HOST&quot;</span><span class="p">,</span> <span class="s2">&quot;https://xnat.abudhabi.nyu.edu&quot;</span><span class="p">),</span>
+    <span class="n">user</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;XNAT_USER&quot;</span><span class="p">],</span>
+    <span class="n">password</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;XNAT_PASS&quot;</span><span class="p">],</span>
+<span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+    <span class="n">project</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">projects</span><span class="p">[</span><span class="n">PROJECT_ID</span><span class="p">]</span>
+    <span class="n">MANIFEST</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">MANIFEST</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">manifest_file</span><span class="p">:</span>
+        <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">manifest_file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s2">&quot;subject&quot;</span><span class="p">,</span> <span class="s2">&quot;session&quot;</span><span class="p">,</span> <span class="s2">&quot;resource&quot;</span><span class="p">,</span> <span class="s2">&quot;xnat_file&quot;</span><span class="p">,</span> <span class="s2">&quot;local_path&quot;</span><span class="p">])</span>
+
+        <span class="k">for</span> <span class="n">subject</span> <span class="ow">in</span> <span class="n">project</span><span class="o">.</span><span class="n">subjects</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">experiment</span> <span class="ow">in</span> <span class="n">subject</span><span class="o">.</span><span class="n">experiments</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">RESOURCE_LABEL</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">experiment</span><span class="o">.</span><span class="n">resources</span><span class="p">:</span>
+                    <span class="k">continue</span>
+
+                <span class="n">resource</span> <span class="o">=</span> <span class="n">experiment</span><span class="o">.</span><span class="n">resources</span><span class="p">[</span><span class="n">RESOURCE_LABEL</span><span class="p">]</span>
+                <span class="k">for</span> <span class="n">file_key</span><span class="p">,</span> <span class="n">file_obj</span> <span class="ow">in</span> <span class="n">resource</span><span class="o">.</span><span class="n">files</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                    <span class="n">file_name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">file_key</span> <span class="ow">or</span> <span class="n">file_obj</span><span class="o">.</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\\\</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;/&quot;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">file_name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;stats/aseg.stats&quot;</span><span class="p">):</span>
+                        <span class="k">continue</span>
+
+                    <span class="n">local_path</span> <span class="o">=</span> <span class="p">(</span>
+                        <span class="n">OUTPUT_DIR</span>
+                        <span class="o">/</span> <span class="s2">&quot;derivatives&quot;</span>
+                        <span class="o">/</span> <span class="s2">&quot;freesurfer&quot;</span>
+                        <span class="o">/</span> <span class="n">safe_label</span><span class="p">(</span><span class="n">subject</span><span class="o">.</span><span class="n">label</span><span class="p">)</span>
+                        <span class="o">/</span> <span class="n">safe_label</span><span class="p">(</span><span class="n">experiment</span><span class="o">.</span><span class="n">label</span><span class="p">)</span>
+                        <span class="o">/</span> <span class="s2">&quot;stats&quot;</span>
+                        <span class="o">/</span> <span class="s2">&quot;aseg.stats&quot;</span>
+                    <span class="p">)</span>
+                    <span class="n">local_path</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+                    <span class="k">if</span> <span class="n">local_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Skipping existing:&quot;</span><span class="p">,</span> <span class="n">local_path</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Downloading:&quot;</span><span class="p">,</span> <span class="n">file_name</span><span class="p">,</span> <span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">local_path</span><span class="p">)</span>
+                        <span class="n">file_obj</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">local_path</span><span class="p">))</span>
+
+                    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="n">subject</span><span class="o">.</span><span class="n">label</span><span class="p">,</span> <span class="n">experiment</span><span class="o">.</span><span class="n">label</span><span class="p">,</span> <span class="n">RESOURCE_LABEL</span><span class="p">,</span> <span class="n">file_name</span><span class="p">,</span> <span class="n">local_path</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>The local output is intentionally BIDS-like:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>aseg_stats_bids/
+  derivatives/
+    freesurfer/
+      Subject_0001/
+        ses_01/
+          stats/
+            aseg.stats
+  aseg_stats_manifest.tsv
+</pre></div>
+</div>
+</section>
+<section id="parse-aseg-stats-into-a-csv">
+<h2>Parse <code class="docutils literal notranslate"><span class="pre">aseg.stats</span></code> Into a CSV<a class="headerlink" href="#parse-aseg-stats-into-a-csv" title="Link to this heading"></a></h2>
+<p>After downloading <code class="docutils literal notranslate"><span class="pre">aseg.stats</span></code> files, you can parse them into a table. This minimal parser extracts <code class="docutils literal notranslate"><span class="pre">Volume_mm3</span></code> values by structure name.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">INPUT_DIR</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;aseg_stats_bids&quot;</span><span class="p">)</span>
+<span class="n">OUTPUT_CSV</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;aseg_stats_wide.csv&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">parse_aseg</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="n">measures</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">columns</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">with</span> <span class="n">path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;replace&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;# ColHeaders&quot;</span><span class="p">):</span>
+                <span class="n">columns</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">2</span><span class="p">:]</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span> <span class="ow">or</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">columns</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+            <span class="n">row</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">columns</span><span class="p">,</span> <span class="n">values</span><span class="p">))</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;StructName&quot;</span><span class="p">)</span>
+            <span class="n">volume</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Volume_mm3&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="ow">and</span> <span class="n">volume</span><span class="p">:</span>
+                <span class="n">measures</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">volume</span>
+    <span class="k">return</span> <span class="n">measures</span>
+
+<span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">all_columns</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">stats_path</span> <span class="ow">in</span> <span class="n">INPUT_DIR</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">&quot;aseg.stats&quot;</span><span class="p">):</span>
+    <span class="n">parts</span> <span class="o">=</span> <span class="n">stats_path</span><span class="o">.</span><span class="n">parts</span>
+    <span class="n">subject</span> <span class="o">=</span> <span class="nb">next</span><span class="p">((</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">parts</span> <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;sub-&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">p</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;Subject_&quot;</span><span class="p">)),</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">session</span> <span class="o">=</span> <span class="nb">next</span><span class="p">((</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">parts</span> <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;ses&quot;</span><span class="p">)),</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">parse_aseg</span><span class="p">(</span><span class="n">stats_path</span><span class="p">)</span>
+    <span class="n">values</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;subject&quot;</span><span class="p">:</span> <span class="n">subject</span><span class="p">,</span> <span class="s2">&quot;session&quot;</span><span class="p">:</span> <span class="n">session</span><span class="p">,</span> <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">stats_path</span><span class="p">)})</span>
+    <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+    <span class="n">all_columns</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+
+<span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;subject&quot;</span><span class="p">,</span> <span class="s2">&quot;session&quot;</span><span class="p">,</span> <span class="s2">&quot;path&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">all_columns</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">&quot;subject&quot;</span><span class="p">,</span> <span class="s2">&quot;session&quot;</span><span class="p">,</span> <span class="s2">&quot;path&quot;</span><span class="p">})</span>
+<span class="k">with</span> <span class="n">OUTPUT_CSV</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Wrote:&quot;</span><span class="p">,</span> <span class="n">OUTPUT_CSV</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For production analysis, keep the original <code class="docutils literal notranslate"><span class="pre">aseg.stats</span></code> files and the manifest alongside the CSV.</p>
+</section>
+<section id="download-directly-to-jubail-and-run-your-own-processing">
+<h2>Download Directly to Jubail and Run Your Own Processing<a class="headerlink" href="#download-directly-to-jubail-and-run-your-own-processing" title="Link to this heading"></a></h2>
+<p>For larger workflows, use this pattern:</p>
+<ol class="arabic simple">
+<li><p>Create a script locally and test it on one session.</p></li>
+<li><p>Copy the script to Jubail, or write it directly in your Jubail project folder.</p></li>
+<li><p>Store XNAT credentials in environment variables or a private <code class="docutils literal notranslate"><span class="pre">.env</span></code> file.</p></li>
+<li><p>Download data to a project scratch/work directory.</p></li>
+<li><p>Submit downstream processing as a SLURM job.</p></li>
+</ol>
+<p>Example job wrapper:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --job-name=xnat-download-test</span>
+<span class="c1">#SBATCH --time=01:00:00</span>
+<span class="c1">#SBATCH --cpus-per-task=2</span>
+<span class="c1">#SBATCH --mem=8G</span>
+<span class="c1">#SBATCH --output=xnat-download-%j.out</span>
+<span class="c1">#SBATCH --error=xnat-download-%j.err</span>
+
+<span class="nb">set</span><span class="w"> </span>-euo<span class="w"> </span>pipefail
+
+<span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/xnat-api-work&quot;</span>
+<span class="nb">source</span><span class="w"> </span>xnat-api-env/bin/activate
+
+<span class="c1"># Keep this file private: chmod 600 ~/.xnat.env</span>
+<span class="nb">source</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.xnat.env&quot;</span>
+
+python<span class="w"> </span>01_test_connection.py
+python<span class="w"> </span>download_selected_resources.py
+</pre></div>
+</div>
+<p>Submit it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sbatch<span class="w"> </span>xnat_download_job.sh
+</pre></div>
+</div>
+<p>Do not print token secrets in job logs. If a script prints its configuration, redact <code class="docutils literal notranslate"><span class="pre">XNAT_PASS</span></code> before sharing logs.</p>
+</section>
+<section id="build-scripts-with-ai-assistance">
+<h2>Build Scripts With AI Assistance<a class="headerlink" href="#build-scripts-with-ai-assistance" title="Link to this heading"></a></h2>
+<p>AI tools can be helpful for turning a clear download request into a script. They are most useful when you give them:</p>
 <ul class="simple">
-<li><p>Never commit API tokens to version control</p></li>
-<li><p>Regularly rotate API tokens</p></li>
-<li><p>Use project-specific tokens when possible</p></li>
-<li><p>Store tokens in environment variables for production use</p></li>
+<li><p>The XNAT server URL.</p></li>
+<li><p>The project ID.</p></li>
+<li><p>The exact subject/session labels you want.</p></li>
+<li><p>The resource label, such as <code class="docutils literal notranslate"><span class="pre">DICOM</span></code>, <code class="docutils literal notranslate"><span class="pre">rawdata</span></code>, <code class="docutils literal notranslate"><span class="pre">fmriprep</span></code>, <code class="docutils literal notranslate"><span class="pre">mriqc</span></code>, <code class="docutils literal notranslate"><span class="pre">freesurfer</span></code>, or <code class="docutils literal notranslate"><span class="pre">tractoflow</span></code>.</p></li>
+<li><p>The file pattern, such as <code class="docutils literal notranslate"><span class="pre">stats/aseg.stats</span></code> or <code class="docutils literal notranslate"><span class="pre">*.html</span></code>.</p></li>
+<li><p>The desired output structure.</p></li>
+</ul>
+<p>Use a prompt like this:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Write a Python script using the xnat package to connect to XNAT with
+XNAT_HOST, XNAT_USER, and XNAT_PASS from environment variables.
+The script should be read-only. It should not delete, upload, archive,
+overwrite, or modify anything on XNAT.
+
+Task:
+- Project: &lt;project_id&gt;
+- Subjects: &lt;list or &quot;all&quot;&gt;
+- Sessions: &lt;list or &quot;all&quot;&gt;
+- Resource: &lt;resource label&gt;
+- File pattern: &lt;for example, stats/aseg.stats&gt;
+- Output directory: &lt;local path&gt;
+
+Requirements:
+- Do a dry run option first.
+- Skip files that already exist.
+- Write a manifest TSV.
+- Print clear progress messages.
+- Keep token secrets out of the code and logs.
+</pre></div>
+</div>
+<p>Always review AI-generated scripts before running them. If you are unsure whether a script is safe, send it to <a class="reference external" href="mailto:admin&#46;nyuad&#46;xnat&#37;&#52;&#48;nyu&#46;edu">admin<span>&#46;</span>nyuad<span>&#46;</span>xnat<span>&#64;</span>nyu<span>&#46;</span>edu</a> and ask for review.</p>
+</section>
+<section id="recommended-script-features">
+<h2>Recommended Script Features<a class="headerlink" href="#recommended-script-features" title="Link to this heading"></a></h2>
+<p>For scripts you plan to reuse, add:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--dry-run</span></code> to list planned downloads without writing files.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--project</span></code> to make the project configurable.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--subject</span></code> and <code class="docutils literal notranslate"><span class="pre">--session</span></code> filters.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--resource</span></code> to choose a resource label.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--output-dir</span></code> to choose where files go.</p></li>
+<li><p>Existing-file checks to avoid re-downloading.</p></li>
+<li><p>A manifest TSV with subject, session, resource, XNAT file name or URI, and local path.</p></li>
+<li><p>Logging to a text file.</p></li>
+<li><p>A small test mode that stops after the first matching session.</p></li>
 </ul>
 </section>
 <section id="troubleshooting">
 <h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
 <dl class="simple">
-<dt><strong>Authentication Errors</strong></dt><dd><p>Verify your API token is correct and hasn’t expired. Create a new token if needed.</p>
+<dt><strong>Authentication fails</strong></dt><dd><p>Confirm that <code class="docutils literal notranslate"><span class="pre">XNAT_USER</span></code> is the alias token and <code class="docutils literal notranslate"><span class="pre">XNAT_PASS</span></code> is the alias secret. Do not use your Google password.</p>
 </dd>
-<dt><strong>Project Not Found</strong></dt><dd><p>Check project ID spelling and ensure you have access permissions.</p>
+<dt><strong>Cannot reach XNAT</strong></dt><dd><p>Confirm you are on the NYUAD network or VPN. On Jubail, confirm that the job environment has network access to XNAT.</p>
 </dd>
-<dt><strong>No Scans Found</strong></dt><dd><p>Verify subject/session IDs exist and contain DICOM data.</p>
+<dt><strong>Project or subject is missing</strong></dt><dd><p>Check spelling and project access. The API only shows data your account is allowed to see.</p>
 </dd>
-<dt><strong>Download Failures</strong></dt><dd><p>Check network connectivity and ensure sufficient disk space.</p>
+<dt><strong>Resource label is missing</strong></dt><dd><p>Open the session in XNAT and check the resource name. Common labels include <code class="docutils literal notranslate"><span class="pre">DICOM</span></code>, <code class="docutils literal notranslate"><span class="pre">rawdata</span></code>, <code class="docutils literal notranslate"><span class="pre">mriqc</span></code>, <code class="docutils literal notranslate"><span class="pre">fmriprep</span></code>, <code class="docutils literal notranslate"><span class="pre">freesurfer</span></code>, and <code class="docutils literal notranslate"><span class="pre">tractoflow</span></code>, but projects can differ.</p>
+</dd>
+<dt><strong>Downloads are incomplete</strong></dt><dd><p>Add retry logic, skip existing complete files, and keep a manifest. For large DICOM downloads, consider using the Desktop Client.</p>
+</dd>
+<dt><strong>The script works for one subject but fails for a project</strong></dt><dd><p>Add error handling around each subject/session so one bad session does not stop the whole run.</p>
 </dd>
 </dl>
 </section>
-<section id="next-steps">
-<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h2>
+<section id="getting-help">
+<h2>Getting Help<a class="headerlink" href="#getting-help" title="Link to this heading"></a></h2>
+<p>If you need help, email <a class="reference external" href="mailto:admin&#46;nyuad&#46;xnat&#37;&#52;&#48;nyu&#46;edu">admin<span>&#46;</span>nyuad<span>&#46;</span>xnat<span>&#64;</span>nyu<span>&#46;</span>edu</a> with:</p>
 <ul class="simple">
-<li><p>Learn about <a class="reference internal" href="../understanding_data/bids.html"><span class="doc">BIDS Format</span></a> for data organization</p></li>
-<li><p>See <a class="reference internal" href="../processing_pipelines/overview.html"><span class="doc">XNAT Pipelines Overview</span></a> for processing pipelines</p></li>
-<li><p>Try <a class="reference internal" href="matlab_scripts.html"><span class="doc">Download via MATLAB</span></a> for MATLAB-based downloads</p></li>
+<li><p>The project ID.</p></li>
+<li><p>The subject/session you tested.</p></li>
+<li><p>The resource or file you are trying to download.</p></li>
+<li><p>The script or AI prompt you used.</p></li>
+<li><p>The error message or log.</p></li>
+</ul>
+</section>
+<section id="related-documentation">
+<h2>Related Documentation<a class="headerlink" href="#related-documentation" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="browser.html"><span class="doc">Download via Browser</span></a> - Browser download method</p></li>
+<li><p><a class="reference internal" href="desktop_client.html"><span class="doc">Download via Desktop Client</span></a> - Desktop Client download method</p></li>
+<li><p><a class="reference internal" href="../working_with_xnat/access.html"><span class="doc">Accessing XNAT</span></a> - Alias token creation</p></li>
+<li><p><a class="reference internal" href="../processing_pipelines/fmriprep.html"><span class="doc">fMRIPrep</span></a> - fMRIPrep outputs</p></li>
+<li><p><a class="reference internal" href="../processing_pipelines/mriqc.html"><span class="doc">MRIQC</span></a> - MRIQC outputs</p></li>
+<li><p><a class="reference internal" href="../processing_pipelines/tractoflow.html"><span class="doc">TractoFlow</span></a> - TractoFlow outputs</p></li>
+<li><p><a class="reference external" href="https://xnat.readthedocs.io/en/stable/">XNAT Python Client documentation</a></p></li>
+<li><p><a class="reference external" href="https://crc-docs.abudhabi.nyu.edu/">CRC Jubail documentation</a></p></li>
 </ul>
 </section>
 </section>

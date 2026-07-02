@@ -354,7 +354,7 @@ Common Issues and Solutions
 **Duplicate Label Conflicts**
 
 - **Symptom**: Data merges with existing sessions instead of creating new ones
-- **Solution**: Check for existing subjects/sessions with the same labels in destination. Use different labels or coordinate with project administrators.
+- **Solution**: Check for existing subjects/sessions with the same labels in destination. Use different labels or coordinate with project administrators. If you encounter UID errors (such as "Invalid modification of session UID") when merging different sessions, see :doc:`uid_errors_archiving` for detailed resolution steps.
 
 **Upload Failures**
 
@@ -422,6 +422,7 @@ See Also
 **Related Documentation**
 
 - :doc:`uploading` - Detailed upload procedures and methods
+- :doc:`uid_errors_archiving` - Resolving UID errors during archiving
 - :doc:`../data_download/browser` - Browser-based download methods
 - :doc:`../data_download/desktop_client` - Desktop Client download and upload
 - :doc:`install_desktop_client` - Desktop Client installation guide

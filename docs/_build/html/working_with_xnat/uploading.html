@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
@@ -8,19 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Data Upload Procedures &mdash; NYUAD XNAT User Documentation 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1fb475a3" />
 
   
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=2709fde1"></script>
-      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
-      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Transferring Data Between Projects" href="transferring_data.html" />
+    <link rel="next" title="Understanding the Prearchive" href="prearchive.html" />
     <link rel="prev" title="Accessing XNAT" href="access.html" /> 
 </head>
 
@@ -67,8 +69,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#see-also">See Also</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="prearchive.html">Understanding the Prearchive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transferring_data.html">Transferring Data Between Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uid_errors_archiving.html">Resolving UID Errors During Archiving</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install_desktop_client.html">Install XNAT Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="navigation.html">XNAT Navigation Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_management.html">Project Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enabling_pipelines.html">Enabling Pipelines for Your Project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="running_pipelines.html">Running Pipelines on XNAT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="parallel_processing.html">Running Pipelines Across Multiple Subjects</a></li>
@@ -94,7 +100,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../data_download/browser.html">Download via Browser</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_download/desktop_client.html">Download via Desktop Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../data_download/python_scripts.html">Download via Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/python_scripts.html">XNAT API with Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_download/matlab_scripts.html">Download via MATLAB</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Support</span></p>
@@ -104,11 +110,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../support/data_loss_recovery.html">Data Loss and Recovery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">Contributing to this Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../support/contact.html">Contact Information</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Coming Soon</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="navigation.html">XNAT Navigation Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="project_management.html">Project Management</a></li>
 </ul>
 
         </div>
@@ -149,7 +150,7 @@ In XNAT, data typically lands in a temporary holding area called the <strong>Pre
 <li><p><strong>Prearchive</strong>: Staging area. Data can be edited or deleted.</p></li>
 <li><p><strong>Archive</strong>: Permanent storage. Data is indexed and protected.</p></li>
 </ul>
-<p>For more details, refer to the <a class="reference external" href="https://wiki.xnat.org/display/XNAT18/Archiving+Data">Official XNAT Documentation on Data Archiving</a>.</p>
+<p>For more details about the Prearchive, see <a class="reference internal" href="prearchive.html"><span class="doc">Understanding the Prearchive</span></a>. For official XNAT documentation, refer to the <a class="reference external" href="https://wiki.xnat.org/search.html?l=en&amp;max=10&amp;ol=&amp;q=Archiving+Data&amp;s=documentation&amp;start=0">XNAT Wiki Archiving Data search</a>.</p>
 </div>
 </section>
 <section id="important-considerations">
@@ -191,12 +192,7 @@ In XNAT, data typically lands in a temporary holding area called the <strong>Pre
 <h3><a class="toc-backref" href="#id6" role="doc-backlink">1. Uploading using Scripts (DICOM Receiver)</a><a class="headerlink" href="#uploading-using-scripts-dicom-receiver" title="Link to this heading"></a></h3>
 <p>This method is the standard way for MRI scanners and automated scripts (like <cite>storescu</cite> or C-STORE clients) to push data directly to XNAT.</p>
 <p><strong>Connection Details</strong></p>
-<p>Configure your scanner or sender script with the following parameters:</p>
-<ul class="simple">
-<li><p><strong>Remote AE Title</strong>: <code class="docutils literal notranslate"><span class="pre">xnatad</span></code></p></li>
-<li><p><strong>Remote IP</strong>: <code class="docutils literal notranslate"><span class="pre">10.230.12.52</span></code></p></li>
-<li><p><strong>Remote Port</strong>: <code class="docutils literal notranslate"><span class="pre">8104</span></code></p></li>
-</ul>
+<p>The NYUAD DICOM receiver is available only from the approved NYUAD network. Receiver host, port, and AE title values may change as infrastructure is updated, so approved users should contact the XNAT administrators for the current connection details before configuring a scanner or sender script.</p>
 <p><strong>How it works</strong></p>
 <p>Data sent to this receiver is routed to the XNAT Prearchive. From the Prearchive, you can review and archive the sessions.</p>
 <p><strong>Study Description Routing</strong></p>
@@ -218,15 +214,14 @@ In XNAT, data typically lands in a temporary holding area called the <strong>Pre
 <h3><a class="toc-backref" href="#id7" role="doc-backlink">2. XNAT Desktop Client</a><a class="headerlink" href="#xnat-desktop-client" title="Link to this heading"></a></h3>
 <p>The <strong>XNAT Desktop Client</strong> is a standalone application that provides a robust way to upload large batches of data or complex folder structures. It is recommended for users who prefer a graphical interface with resumable uploads.</p>
 <p><strong>Installation</strong>
-Ensure you have the XNAT Desktop Client installed. (See <a class="reference internal" href="install_desktop_client.html"><span class="doc">Install XNAT Desktop Client</span></a> if available, or check the <a class="reference external" href="https://wiki.xnat.org/xnat-tools/xnat-desktop-client">Official XNAT Desktop Client Wiki</a>).</p>
+Ensure you have the XNAT Desktop Client installed. See <a class="reference internal" href="install_desktop_client.html"><span class="doc">Install XNAT Desktop Client</span></a> or the <a class="reference external" href="https://wiki.xnat.org/xnat-tools/xnat-desktop-client-dxm">Official XNAT Desktop Client Wiki</a>.</p>
 <p><strong>Step-by-Step Upload Guide</strong></p>
 <p>You can start an upload in two ways:</p>
 <p><strong>Option 1: Launch from XNAT Web Interface</strong></p>
 <p>Navigate to the project or subject page where you want to upload data. Click <strong>Upload Images</strong> from the <strong>Actions</strong> menu. This will automatically open the Desktop Client and log you in using your current web session credentials.</p>
 <blockquote>
 <div><figure class="align-default" id="id1">
-<a class="reference internal image-reference" href="../_images/desktop_client_launch_from_web.png"><img alt="Launching Desktop Client from XNAT web interface" src="../_images/desktop_client_launch_from_web.png" style="width: 600px;" />
-</a>
+<a class="reference internal image-reference" href="../_images/desktop_client_launch_from_web.png"><img alt="Launching Desktop Client from XNAT web interface" src="../_images/desktop_client_launch_from_web.png" style="width: 600px;" /></a>
 <figcaption>
 <p><span class="caption-text"><em>Clicking “Upload Images” from the Actions menu automatically opens and logs into the Desktop Client</em></span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
 </figcaption>
@@ -278,7 +273,7 @@ Ensure you have the XNAT Desktop Client installed. (See <a class="reference inte
 <p>As long as the application is running and you have an active network connection, uploads will proceed in the background.</p>
 </li>
 </ol>
-<p>For more information on managing transfers, see the <a class="reference external" href="https://wiki.xnat.org/xnat-tools/managing-data-transfers">official XNAT documentation on managing data transfers</a>.</p>
+<p>For more information on the Desktop Client, see the <a class="reference external" href="https://wiki.xnat.org/xnat-tools/xnat-desktop-client-dxm">official XNAT Desktop Client documentation</a>.</p>
 <p><strong>Project Settings</strong></p>
 <p>Some project settings may affect your upload workflow, including:</p>
 <ul class="simple">
@@ -368,10 +363,11 @@ Ensure you have the XNAT Desktop Client installed. (See <a class="reference inte
 <h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
 <p><strong>Common Issues</strong></p>
 <ul class="simple">
-<li><p><strong>Connection Refused (DICOM Receiver)</strong>: Ensure you are on the correct network (VPN/Intranet) to access <code class="docutils literal notranslate"><span class="pre">10.230.12.52</span></code>. For routing issues, verify the DICOM Study Description field contains <code class="docutils literal notranslate"><span class="pre">xnat://project_id/subject_label/session_label</span></code>. Missing or incorrect routing strings require manual routing from the Prearchive.</p></li>
+<li><p><strong>Connection Refused (DICOM Receiver)</strong>: Ensure you are on the approved NYUAD network or VPN and that you are using the current receiver details from the XNAT administrators. For routing issues, verify the DICOM Study Description field contains <code class="docutils literal notranslate"><span class="pre">xnat://project_id/subject_label/session_label</span></code>. Missing or incorrect routing strings require manual routing from the Prearchive.</p></li>
 <li><p><strong>Permission Errors</strong>: Ensure you have “Member” or “Owner” access to the destination project. If subject creation is restricted, register subjects in the project before uploading.</p></li>
 <li><p><strong>Upload Failures</strong>: Check file permissions, quota limits, and avoid special characters in Subject/Session labels. Rejected series may be due to Series Import Filters—contact the project administrator if needed.</p></li>
 <li><p><strong>Labeling Issues</strong>: Use only alphanumeric characters, hyphens, and underscores. Duplicate labels will merge data with existing sessions.</p></li>
+<li><p><strong>UID Errors During Archiving</strong>: If you encounter errors about “Invalid modification of session UID” or see “Conflict” status in Prearchive when merging different sessions, see <a class="reference internal" href="uid_errors_archiving.html"><span class="doc">Resolving UID Errors During Archiving</span></a> for step-by-step resolution.</p></li>
 <li><p><strong>Bulk Upload Restrictions</strong>: Some projects restrict bulk uploads. Upload sessions individually or contact the project administrator.</p></li>
 <li><p><strong>Network/Performance</strong>: Large datasets take time to upload. Use the transfer manager to monitor progress. Desktop Client supports resumable uploads if connectivity is interrupted.</p></li>
 </ul>
@@ -381,7 +377,9 @@ Ensure you have the XNAT Desktop Client installed. (See <a class="reference inte
 <h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading"></a></h2>
 <p><strong>Related Documentation</strong></p>
 <ul class="simple">
+<li><p><a class="reference internal" href="prearchive.html"><span class="doc">Understanding the Prearchive</span></a> - Understanding the Prearchive system</p></li>
 <li><p><a class="reference internal" href="transferring_data.html"><span class="doc">Transferring Data Between Projects</span></a> - Guide for transferring data between projects</p></li>
+<li><p><a class="reference internal" href="uid_errors_archiving.html"><span class="doc">Resolving UID Errors During Archiving</span></a> - Resolving UID errors during archiving</p></li>
 <li><p><a class="reference internal" href="install_desktop_client.html"><span class="doc">Install XNAT Desktop Client</span></a> - Installation and setup guide for Desktop Client</p></li>
 <li><p><a class="reference internal" href="../support/data_loss_recovery.html"><span class="doc">Data Loss and Recovery</span></a> - Information about backups and data recovery</p></li>
 <li><p><a class="reference internal" href="project_management.html"><span class="doc">Project Management</span></a> - Project management and configuration</p></li>
@@ -390,9 +388,9 @@ Ensure you have the XNAT Desktop Client installed. (See <a class="reference inte
 <p><strong>Official XNAT Documentation</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://wiki.xnat.org/xnat-tools/uploading-image-sessions">XNAT Wiki: Uploading Image Sessions</a> - Comprehensive guide to uploading image sessions</p></li>
-<li><p><a class="reference external" href="https://wiki.xnat.org/xnat-tools/xnat-desktop-client">XNAT Desktop Client Documentation</a> - Complete Desktop Client reference</p></li>
+<li><p><a class="reference external" href="https://wiki.xnat.org/xnat-tools/xnat-desktop-client-dxm">XNAT Desktop Client Documentation</a> - Complete Desktop Client reference</p></li>
 <li><p><a class="reference external" href="https://wiki.xnat.org/xnat-tools/setting-project-defaults-for-desktop-client-behavi">Setting Project Defaults for Desktop Client Behavior</a> - Project configuration options</p></li>
-<li><p><a class="reference external" href="https://wiki.xnat.org/xnat-tools/managing-data-transfers">Managing Data Transfers</a> - Transfer management guide</p></li>
+<li><p><a class="reference external" href="https://wiki.xnat.org/xnat-tools/application-settings">XNAT Desktop Client Application Settings</a> - Desktop Client configuration reference</p></li>
 </ul>
 </section>
 </section>
@@ -402,7 +400,7 @@ Ensure you have the XNAT Desktop Client installed. (See <a class="reference inte
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="access.html" class="btn btn-neutral float-left" title="Accessing XNAT" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="transferring_data.html" class="btn btn-neutral float-right" title="Transferring Data Between Projects" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="prearchive.html" class="btn btn-neutral float-right" title="Understanding the Prearchive" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

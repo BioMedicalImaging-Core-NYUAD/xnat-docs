@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
@@ -8,19 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Download via Desktop Client &mdash; NYUAD XNAT User Documentation 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1fb475a3" />
 
   
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=2709fde1"></script>
-      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
-      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Download via Python" href="python_scripts.html" />
+    <link rel="next" title="XNAT API with Python" href="python_scripts.html" />
     <link rel="prev" title="Download via Browser" href="browser.html" /> 
 </head>
 
@@ -53,8 +55,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/access.html">Accessing XNAT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/uploading.html">Data Upload Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/prearchive.html">Understanding the Prearchive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/transferring_data.html">Transferring Data Between Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/uid_errors_archiving.html">Resolving UID Errors During Archiving</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/install_desktop_client.html">Install XNAT Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/navigation.html">XNAT Navigation Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/project_management.html">Project Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/enabling_pipelines.html">Enabling Pipelines for Your Project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/running_pipelines.html">Running Pipelines on XNAT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/parallel_processing.html">Running Pipelines Across Multiple Subjects</a></li>
@@ -89,7 +95,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#related-documentation">Related Documentation</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="python_scripts.html">Download via Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_scripts.html">XNAT API with Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matlab_scripts.html">Download via MATLAB</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Support</span></p>
@@ -99,11 +105,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../support/data_loss_recovery.html">Data Loss and Recovery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">Contributing to this Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../support/contact.html">Contact Information</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Coming Soon</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/navigation.html">XNAT Navigation Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/project_management.html">Project Management</a></li>
 </ul>
 
         </div>
@@ -143,8 +144,7 @@
 </section>
 <section id="generate-xml-file-in-xnat">
 <h2>Generate XML file in XNAT<a class="headerlink" href="#generate-xml-file-in-xnat" title="Link to this heading"></a></h2>
-<a class="reference internal image-reference" href="../_images/4.2.desktop.xml.png"><img alt="desktop xml" class="align-center" src="../_images/4.2.desktop.xml.png" style="width: 900px;" />
-</a>
+<a class="reference internal image-reference" href="../_images/4.2.desktop.xml.png"><img alt="desktop xml" class="align-center" src="../_images/4.2.desktop.xml.png" style="width: 900px;" /></a>
 <hr class="docutils" />
 <blockquote>
 <div><ul class="simple">
@@ -156,8 +156,7 @@
 </section>
 <section id="import-to-desktop-client">
 <h2>Import to Desktop Client<a class="headerlink" href="#import-to-desktop-client" title="Link to this heading"></a></h2>
-<a class="reference internal image-reference" href="../_images/4.2.desktop.client.png"><img alt="desktop xml" class="align-center" src="../_images/4.2.desktop.client.png" style="width: 900px;" />
-</a>
+<a class="reference internal image-reference" href="../_images/4.2.desktop.client.png"><img alt="desktop xml" class="align-center" src="../_images/4.2.desktop.client.png" style="width: 900px;" /></a>
 <hr class="docutils" />
 <blockquote>
 <div><ul class="simple">
@@ -193,7 +192,7 @@
 <p><strong>For Desktop Client specific issues:</strong></p>
 <ul class="simple">
 <li><p>Review the <a class="reference external" href="https://wiki.xnat.org/xnat-tools/xnat-desktop-client-dxm">official XNAT Desktop Client documentation</a></p></li>
-<li><p>Check <a class="reference external" href="https://wiki.xnat.org/xnat-tools/xnat-desktop-client-dxm/application-settings">application settings guide</a></p></li>
+<li><p>Check <a class="reference external" href="https://wiki.xnat.org/xnat-tools/application-settings">application settings guide</a></p></li>
 <li><p>Consult <a class="reference external" href="https://wiki.xnat.org/xnat-tools/desktop-client-version-compatibility-matrix">version compatibility matrix</a></p></li>
 </ul>
 </section>
@@ -212,7 +211,7 @@
 <li><p><a class="reference internal" href="../working_with_xnat/install_desktop_client.html"><span class="doc">Install XNAT Desktop Client</span></a> - Installation guide</p></li>
 <li><p><a class="reference internal" href="../working_with_xnat/transferring_data.html"><span class="doc">Transferring Data Between Projects</span></a> - For transferring data between projects</p></li>
 <li><p><a class="reference internal" href="browser.html"><span class="doc">Download via Browser</span></a> - Web browser download method</p></li>
-<li><p><a class="reference internal" href="python_scripts.html"><span class="doc">Download via Python</span></a> - Programmatic download methods</p></li>
+<li><p><a class="reference internal" href="python_scripts.html"><span class="doc">XNAT API with Python</span></a> - Programmatic download methods</p></li>
 </ul>
 </section>
 </section>
@@ -222,7 +221,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="browser.html" class="btn btn-neutral float-left" title="Download via Browser" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="python_scripts.html" class="btn btn-neutral float-right" title="Download via Python" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="python_scripts.html" class="btn btn-neutral float-right" title="XNAT API with Python" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

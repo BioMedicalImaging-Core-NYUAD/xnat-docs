@@ -1,7 +1,7 @@
 NYUAD XNAT User Documentation
 ==============================
 
-Welcome to the NYUAD XNAT User Documentation. This guide is designed to help you effectively use xnat with a focus on practical, hands-on workflows.
+Welcome to the NYUAD XNAT User Documentation. This guide is designed to help you effectively use XNAT with a focus on practical, hands-on workflows.
 
    
 .. toctree::
@@ -17,8 +17,12 @@ Welcome to the NYUAD XNAT User Documentation. This guide is designed to help you
 
    working_with_xnat/access
    working_with_xnat/uploading
+   working_with_xnat/prearchive
    working_with_xnat/transferring_data
+   working_with_xnat/uid_errors_archiving
    working_with_xnat/install_desktop_client
+   working_with_xnat/navigation
+   working_with_xnat/project_management
    working_with_xnat/enabling_pipelines
    working_with_xnat/running_pipelines
    working_with_xnat/parallel_processing
@@ -62,10 +66,3 @@ Welcome to the NYUAD XNAT User Documentation. This guide is designed to help you
    support/data_loss_recovery
    support/contributing
    support/contact
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Coming Soon
-
-   working_with_xnat/navigation
-   working_with_xnat/project_management

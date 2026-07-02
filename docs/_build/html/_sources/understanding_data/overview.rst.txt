@@ -39,7 +39,7 @@ You can also read more about this `here <https://wiki.xnat.org/documentation/und
 The ``Project`` level ``RESOURCE`` folder contains files that are shared across all subjects in the project. For example, we store the ``dcm2bids`` configuration file here, which is used to run the :doc:`../processing_pipelines/dcm2bids` pipeline.
 
 :doc:`../processing_pipelines/dcm2niix` pipeline is a scan level pipeline while :doc:`../processing_pipelines/dcm2bids` is a session level pipeline.
-:doc:`../processing_pipelines/dcm2bids` takes all the data under ``SCANS`` within a session and converts them to the the BIDS format (which is a standard way to structrure neuroimaging data). The output is stored in the session level ``RESOURCE`` folder called ``rawdata``.
+:doc:`../processing_pipelines/dcm2bids` takes all the data under ``SCANS`` within a session and converts them to the BIDS format (which is a standard way to structure neuroimaging data). The output is stored in the session level ``RESOURCE`` folder called ``rawdata``.
 This ``rawdata`` folder is then used as input for many other BIDS compliant pipelines such as the :doc:`../processing_pipelines/mriqc` and :doc:`../processing_pipelines/fmriprep`.
 
 Format Overview
@@ -83,4 +83,4 @@ Choosing Your Workflow
 Next Steps
 ----------
 
-- Learn about :doc:`bids` 
+- Learn about :doc:`bids`

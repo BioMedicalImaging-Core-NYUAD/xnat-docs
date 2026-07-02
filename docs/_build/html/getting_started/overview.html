@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
@@ -8,15 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Getting Started with XNAT Documentation &mdash; NYUAD XNAT User Documentation 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1fb475a3" />
 
   
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=2709fde1"></script>
-      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
-      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -57,8 +59,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/access.html">Accessing XNAT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/uploading.html">Data Upload Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/prearchive.html">Understanding the Prearchive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/transferring_data.html">Transferring Data Between Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/uid_errors_archiving.html">Resolving UID Errors During Archiving</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/install_desktop_client.html">Install XNAT Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/navigation.html">XNAT Navigation Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/project_management.html">Project Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/enabling_pipelines.html">Enabling Pipelines for Your Project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/running_pipelines.html">Running Pipelines on XNAT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/parallel_processing.html">Running Pipelines Across Multiple Subjects</a></li>
@@ -84,7 +90,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../data_download/browser.html">Download via Browser</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_download/desktop_client.html">Download via Desktop Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../data_download/python_scripts.html">Download via Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/python_scripts.html">XNAT API with Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_download/matlab_scripts.html">Download via MATLAB</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Support</span></p>
@@ -94,11 +100,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../support/data_loss_recovery.html">Data Loss and Recovery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">Contributing to this Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../support/contact.html">Contact Information</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Coming Soon</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/navigation.html">XNAT Navigation Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/project_management.html">Project Management</a></li>
 </ul>
 
         </div>
@@ -127,13 +128,11 @@
              
   <section id="getting-started-with-xnat-documentation">
 <h1>Getting Started with XNAT Documentation<a class="headerlink" href="#getting-started-with-xnat-documentation" title="Link to this heading"></a></h1>
-<p>Welcome to the NYUAD XNAT User Documentation. This guide is designed to help you effectively use xnat with a focus on practical, hands-on workflows.
-This documentation is currently in development and is not yet complete.</p>
+<p>Welcome to the NYUAD XNAT User Documentation. This guide is designed to help you use XNAT through practical, hands-on workflows.</p>
 <section id="documentation-structure">
 <h2>Documentation Structure<a class="headerlink" href="#documentation-structure" title="Link to this heading"></a></h2>
-<p>This documentation focuses on <strong>three core activities</strong> :</p>
-<a class="reference internal image-reference" href="../_images/1.1.docStructure.png"><img alt="XNAT Documentation Structure" class="align-center" src="../_images/1.1.docStructure.png" style="width: 900px;" />
-</a>
+<p>This documentation focuses on the core activities most users need:</p>
+<a class="reference internal image-reference" href="../_images/1.1.docStructure.png"><img alt="XNAT Documentation Structure" class="align-center" src="../_images/1.1.docStructure.png" style="width: 900px;" /></a>
 <dl class="simple">
 <dt><strong>1. Understanding MRI Data</strong></dt><dd><p>Data formats and their relationships (DICOM → NIfTI → BIDS/HCP)</p>
 </dd>
@@ -143,7 +142,7 @@ This documentation is currently in development and is not yet complete.</p>
 </dd>
 </dl>
 <p><strong>Additional Resources:</strong>
-This documentation also includes step‑by‑step guidance on account setup and platform navigation, best‑practice instructions for data uploads and project management, and a consolidated troubleshooting &amp; FAQ section. Advanced users can also consult our dedicated guide on building and deploying custom pipelines within XNAT.</p>
+This documentation also includes account setup, data upload, prearchive review, project management, and support guidance.</p>
 </section>
 <section id="how-to-use-this-documentation">
 <h2>How to Use This Documentation<a class="headerlink" href="#how-to-use-this-documentation" title="Link to this heading"></a></h2>
@@ -152,13 +151,14 @@ This documentation also includes step‑by‑step guidance on account setup and 
 <li><p>Read <a class="reference internal" href="what_is_xnat.html"><span class="doc">What is NYUAD XNAT?</span></a> to understand what XNAT is and how we use it at NYUAD</p></li>
 <li><p>Start with <a class="reference internal" href="../working_with_xnat/access.html"><span class="doc">Accessing XNAT</span></a> to set up your account</p></li>
 <li><p>Read <a class="reference internal" href="../understanding_data/overview.html"><span class="doc">Understanding Data Structure</span></a> to understand data formats</p></li>
+<li><p>Review <a class="reference internal" href="../working_with_xnat/uploading.html"><span class="doc">Data Upload Procedures</span></a> before adding new data</p></li>
 <li><p>Browse <a class="reference internal" href="../processing_pipelines/overview.html"><span class="doc">XNAT Pipelines Overview</span></a> to see available tools</p></li>
-<li><p>For general XNAT concepts, see the <a class="reference external" href="https://wiki.xnat.org/documentation/getting-started-with-xnat">official XNAT getting started guide</a></p></li>
 </ol>
 <p><strong>If you’re experienced:</strong></p>
 <ul class="simple">
 <li><p>Jump directly to the pipeline documentation for specific tools</p></li>
 <li><p>Use the download methods section for efficient data retrieval</p></li>
+<li><p>Use <a class="reference internal" href="../support/troubleshooting.html"><span class="doc">Troubleshooting Guide</span></a> when a workflow fails or produces unexpected output</p></li>
 </ul>
 </section>
 </section>

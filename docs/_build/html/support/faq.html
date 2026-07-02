@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
@@ -8,15 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Frequently Asked Questions &mdash; NYUAD XNAT User Documentation 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1fb475a3" />
 
   
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=2709fde1"></script>
-      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
-      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -53,8 +55,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/access.html">Accessing XNAT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/uploading.html">Data Upload Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/prearchive.html">Understanding the Prearchive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/transferring_data.html">Transferring Data Between Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/uid_errors_archiving.html">Resolving UID Errors During Archiving</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/install_desktop_client.html">Install XNAT Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/navigation.html">XNAT Navigation Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/project_management.html">Project Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/enabling_pipelines.html">Enabling Pipelines for Your Project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/running_pipelines.html">Running Pipelines on XNAT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/parallel_processing.html">Running Pipelines Across Multiple Subjects</a></li>
@@ -80,7 +86,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../data_download/browser.html">Download via Browser</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_download/desktop_client.html">Download via Desktop Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../data_download/python_scripts.html">Download via Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/python_scripts.html">XNAT API with Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_download/matlab_scripts.html">Download via MATLAB</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Support</span></p>
@@ -143,11 +149,6 @@
 <li class="toctree-l1"><a class="reference internal" href="data_loss_recovery.html">Data Loss and Recovery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to this Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contact.html">Contact Information</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Coming Soon</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/navigation.html">XNAT Navigation Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/project_management.html">Project Management</a></li>
 </ul>
 
         </div>
@@ -216,19 +217,18 @@
 <h2>Account and Access<a class="headerlink" href="#account-and-access" title="Link to this heading"></a></h2>
 <section id="i-forgot-my-password-how-do-i-reset-it">
 <h3>I forgot my password. How do I reset it?<a class="headerlink" href="#i-forgot-my-password-how-do-i-reset-it" title="Link to this heading"></a></h3>
-<p>Password reset procedures depend on your institution’s authentication system:</p>
-<p><strong>For NYU AD Users:</strong>
-- Use NYU AD’s NetID password reset system
-- Contact NYU AD IT support if needed
-- XNAT will automatically sync with updated credentials</p>
-<p><strong>Self-Service Options:</strong>
-- Look for “Forgot Password” link on the login page
-- Check your email for reset instructions
-- Contact your XNAT administrator if self-service isn’t available</p>
+<p>NYUAD XNAT uses Google OAuth for web sign-in. There is no separate XNAT password for normal browser access.</p>
+<p><strong>For NYUAD users:</strong>
+- Reset or recover access through the Google or NYU identity system associated with your approved account.
+- Contact NYUAD IT support if you cannot access that identity provider.
+- Contact XNAT administrators if your identity works but XNAT still does not let you sign in.</p>
+<p><strong>API and Desktop Client access:</strong>
+- Use XNAT alias tokens rather than your Google password.
+- See <a class="reference internal" href="../working_with_xnat/access.html"><span class="doc">Accessing XNAT</span></a> for token creation instructions.</p>
 <p><strong>Security Best Practices:</strong>
-- Use strong, unique passwords
-- Enable two-factor authentication if available
-- Never share login credentials</p>
+- Never share login credentials or alias token secrets
+- Rotate alias tokens if you suspect they were exposed
+- Store tokens outside version-controlled scripts</p>
 </section>
 <section id="how-do-i-change-my-account-information">
 <h3>How do I change my account information?<a class="headerlink" href="#how-do-i-change-my-account-information" title="Link to this heading"></a></h3>
@@ -324,7 +324,7 @@
 - XNAT can automatically extract archives</p></li>
 <li><p><strong>Programmatic Upload</strong> - For automation
 - Use Python scripts with the XNAT API
-- See <a class="reference internal" href="../data_download/python_scripts.html"><span class="doc">Download via Python</span></a></p></li>
+- See <a class="reference internal" href="../data_download/python_scripts.html"><span class="doc">XNAT API with Python</span></a></p></li>
 </ol>
 <p><strong>Best Practices:</strong></p>
 <ul class="simple">
@@ -371,7 +371,7 @@
 - Implement retry logic in scripts
 - Use chunked downloads for large files
 - Verify API authentication tokens
-- See <a class="reference internal" href="../data_download/python_scripts.html"><span class="doc">Download via Python</span></a></p></li>
+- See <a class="reference internal" href="../data_download/python_scripts.html"><span class="doc">XNAT API with Python</span></a></p></li>
 </ol>
 <p><strong>When to Contact Support:</strong>
 - Repeated failures with different methods
@@ -606,7 +606,7 @@
 <ul class="simple">
 <li><p>Use any of the download methods described in <a class="reference internal" href="../data_download/browser.html"><span class="doc">Download via Browser</span></a></p></li>
 <li><p>For large datasets, consider the <a class="reference internal" href="../data_download/desktop_client.html"><span class="doc">Download via Desktop Client</span></a></p></li>
-<li><p>Automated downloads via <a class="reference internal" href="../data_download/python_scripts.html"><span class="doc">Download via Python</span></a></p></li>
+<li><p>Automated downloads via <a class="reference internal" href="../data_download/python_scripts.html"><span class="doc">XNAT API with Python</span></a></p></li>
 </ul>
 </section>
 </section>
@@ -686,7 +686,7 @@
 <ul class="simple">
 <li><p>Check <a class="reference internal" href="troubleshooting.html"><span class="doc">Troubleshooting Guide</span></a> for detailed error solutions</p></li>
 <li><p>Review pipeline-specific documentation for processing errors</p></li>
-<li><p>Consult the <a class="reference external" href="https://wiki.xnat.org/documentation/getting-started-with-xnat/troubleshooting-xnat-login-and-session-issues">official XNAT troubleshooting guide</a></p></li>
+<li><p>Consult the <a class="reference external" href="https://wiki.xnat.org/documentation/troubleshooting-xnat-login-and-session-issues">official XNAT troubleshooting guide</a></p></li>
 </ul>
 <p><strong>When to Contact Support:</strong></p>
 <ul class="simple">
@@ -858,7 +858,7 @@
 <ol class="arabic simple">
 <li><p><strong>Alias Tokens:</strong> Generate in XNAT under your user profile → “Manage Alias Tokens”</p></li>
 <li><p><strong>Session Authentication:</strong> Use JSESSIONID from web login</p></li>
-<li><p><strong>Basic Authentication:</strong> Username/password (less secure, not recommended)</p></li>
+<li><p><strong>Basic Authentication:</strong> Legacy username/password flows may not apply to NYUAD Google OAuth accounts. Use alias tokens unless administrators tell you otherwise.</p></li>
 </ol>
 <p><strong>Common API Operations:</strong></p>
 <ul class="simple">
@@ -882,7 +882,7 @@
 <li><p><strong>MATLAB:</strong> XNAT MATLAB tools available</p></li>
 <li><p><strong>R:</strong> RxNAT package for R users</p></li>
 </ul>
-<p>For more examples, see <a class="reference internal" href="../data_download/python_scripts.html"><span class="doc">Download via Python</span></a>.</p>
+<p>For more examples, see <a class="reference internal" href="../data_download/python_scripts.html"><span class="doc">XNAT API with Python</span></a>.</p>
 </section>
 <section id="can-i-integrate-xnat-with-other-tools">
 <h3>Can I integrate XNAT with other tools?<a class="headerlink" href="#can-i-integrate-xnat-with-other-tools" title="Link to this heading"></a></h3>
@@ -997,7 +997,7 @@
 </ul>
 <p><strong>Experienced Users:</strong></p>
 <ul class="simple">
-<li><p>Set up <a class="reference internal" href="../data_download/python_scripts.html"><span class="doc">Download via Python</span></a> for automation</p></li>
+<li><p>Set up <a class="reference internal" href="../data_download/python_scripts.html"><span class="doc">XNAT API with Python</span></a> for automation</p></li>
 <li><p>Configure <a class="reference internal" href="../working_with_xnat/install_desktop_client.html"><span class="doc">Install XNAT Desktop Client</span></a> for efficient downloads</p></li>
 <li><p>Explore advanced API features for custom workflows</p></li>
 <li><p>Share feedback to improve documentation</p></li>

@@ -1,5 +1,6 @@
 # Sphinx build directory
 build/
+docs/_build/html/.doctrees/
 
 # Python virtual environments
 venv/
@@ -31,4 +32,4 @@ docs/source/_static/xnat_ari_dashboard_display.csv
 docs/source/_static/validation_summary.txt
 
 # Adobe Illustrator files
-docs/source/_static/*.ai 
+docs/source/_static/*.ai

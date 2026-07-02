@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
@@ -8,15 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Troubleshooting Guide &mdash; NYUAD XNAT User Documentation 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1fb475a3" />
 
   
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=2709fde1"></script>
-      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
-      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -53,8 +55,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/access.html">Accessing XNAT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/uploading.html">Data Upload Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/prearchive.html">Understanding the Prearchive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/transferring_data.html">Transferring Data Between Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/uid_errors_archiving.html">Resolving UID Errors During Archiving</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/install_desktop_client.html">Install XNAT Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/navigation.html">XNAT Navigation Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/project_management.html">Project Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/enabling_pipelines.html">Enabling Pipelines for Your Project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/running_pipelines.html">Running Pipelines on XNAT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/parallel_processing.html">Running Pipelines Across Multiple Subjects</a></li>
@@ -80,13 +86,18 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../data_download/browser.html">Download via Browser</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_download/desktop_client.html">Download via Desktop Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../data_download/python_scripts.html">Download via Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/python_scripts.html">XNAT API with Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_download/matlab_scripts.html">Download via MATLAB</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Support</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Troubleshooting Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#login-and-access">Login and Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#upload-and-prearchive">Upload and Prearchive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pipeline-jobs">Pipeline Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#downloads">Downloads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-safety">Data Safety</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#getting-help">Getting Help</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#see-also">See Also</a></li>
 </ul>
@@ -94,11 +105,6 @@
 <li class="toctree-l1"><a class="reference internal" href="data_loss_recovery.html">Data Loss and Recovery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to this Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contact.html">Contact Information</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Coming Soon</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/navigation.html">XNAT Navigation Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/project_management.html">Project Management</a></li>
 </ul>
 
         </div>
@@ -128,20 +134,72 @@
   <section id="troubleshooting-guide">
 <h1>Troubleshooting Guide<a class="headerlink" href="#troubleshooting-guide" title="Link to this heading"></a></h1>
 <p>This guide provides systematic approaches to resolving common issues with XNAT.</p>
+<section id="login-and-access">
+<h2>Login and Access<a class="headerlink" href="#login-and-access" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt><strong>XNAT does not load</strong></dt><dd><p>Confirm that you are on the NYUAD network or connected to the NYUAD VPN. See <a class="reference internal" href="../working_with_xnat/access.html"><span class="doc">Accessing XNAT</span></a>.</p>
+</dd>
+<dt><strong>Google sign-in works but project is missing</strong></dt><dd><p>Your account may not have access to that project. Request access using the instructions in <a class="reference internal" href="../working_with_xnat/access.html"><span class="doc">Accessing XNAT</span></a>.</p>
+</dd>
+<dt><strong>A button or action is missing</strong></dt><dd><p>Your project role may not include that permission. Contact the project owner or XNAT administrators.</p>
+</dd>
+</dl>
+</section>
+<section id="upload-and-prearchive">
+<h2>Upload and Prearchive<a class="headerlink" href="#upload-and-prearchive" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt><strong>Upload appears complete but data is not in the project</strong></dt><dd><p>Check the Prearchive. Uploaded sessions may be waiting for review before they appear in the Archive.</p>
+</dd>
+<dt><strong>Session shows Conflict in Prearchive</strong></dt><dd><p>Review the session labels and Study Instance UIDs. For UID-specific conflicts, see <a class="reference internal" href="../working_with_xnat/uid_errors_archiving.html"><span class="doc">Resolving UID Errors During Archiving</span></a>.</p>
+</dd>
+<dt><strong>Upload is slow or interrupted</strong></dt><dd><p>Use the XNAT Desktop Client for large uploads because it supports pause and resume. See <a class="reference internal" href="../working_with_xnat/uploading.html"><span class="doc">Data Upload Procedures</span></a>.</p>
+</dd>
+</dl>
+</section>
+<section id="pipeline-jobs">
+<h2>Pipeline Jobs<a class="headerlink" href="#pipeline-jobs" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt><strong>Pipeline is not listed</strong></dt><dd><p>The pipeline may not be enabled for the project, or you may not have permission to run it. See <a class="reference internal" href="../working_with_xnat/enabling_pipelines.html"><span class="doc">Enabling Pipelines for Your Project</span></a>.</p>
+</dd>
+<dt><strong>Pipeline fails immediately</strong></dt><dd><p>Check that the required input resource exists. For MRIQC, fMRIPrep, and TractoFlow, this usually means running dcm2bids first.</p>
+</dd>
+<dt><strong>Pipeline finishes but output looks wrong</strong></dt><dd><p>Review the HTML report and logs before using the outputs for analysis. If you contact support, include the project, subject, session, pipeline name, and error logs.</p>
+</dd>
+</dl>
+</section>
+<section id="downloads">
+<h2>Downloads<a class="headerlink" href="#downloads" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt><strong>Browser download fails</strong></dt><dd><p>Try the XNAT Desktop Client for large sessions or project-level downloads. See <a class="reference internal" href="../data_download/desktop_client.html"><span class="doc">Download via Desktop Client</span></a>.</p>
+</dd>
+<dt><strong>Desktop Client cannot connect</strong></dt><dd><p>Confirm the server URL, network access, and alias token/secret. See <a class="reference internal" href="../working_with_xnat/install_desktop_client.html"><span class="doc">Install XNAT Desktop Client</span></a>.</p>
+</dd>
+</dl>
+</section>
+<section id="data-safety">
+<h2>Data Safety<a class="headerlink" href="#data-safety" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt><strong>Data was deleted or appears missing</strong></dt><dd><p>Contact administrators immediately and include the project, subject, session, approximate time, and what changed. See <a class="reference internal" href="data_loss_recovery.html"><span class="doc">Data Loss and Recovery</span></a>.</p>
+</dd>
+</dl>
+</section>
 <section id="getting-help">
 <h2>Getting Help<a class="headerlink" href="#getting-help" title="Link to this heading"></a></h2>
-<p>If you have tried the troubleshooting steps above and are still experiencing issues, please contact the XNAT administrators at <a class="reference external" href="mailto:admin&#46;nyuad&#46;xnat&#37;&#52;&#48;nyu&#46;edu">admin<span>&#46;</span>nyuad<span>&#46;</span>xnat<span>&#64;</span>nyu<span>&#46;</span>edu</a>.</p>
-<p>Before contacting support, please:
-1. Try the solutions in this guide
-2. Check the <a class="reference internal" href="faq.html"><span class="doc">Frequently Asked Questions</span></a> section
-3. Gather error messages and logs
-4. Document steps to reproduce the issue</p>
+<p>If you have tried the troubleshooting steps above and are still experiencing issues, contact the XNAT administrators at <a class="reference external" href="mailto:admin&#46;nyuad&#46;xnat&#37;&#52;&#48;nyu&#46;edu">admin<span>&#46;</span>nyuad<span>&#46;</span>xnat<span>&#64;</span>nyu<span>&#46;</span>edu</a>.</p>
+<p>Before contacting support, please:</p>
+<ol class="arabic simple">
+<li><p>Try the solutions in this guide</p></li>
+<li><p>Check the <a class="reference internal" href="faq.html"><span class="doc">Frequently Asked Questions</span></a> section</p></li>
+<li><p>Gather error messages and logs</p></li>
+<li><p>Document steps to reproduce the issue</p></li>
+</ol>
 </section>
 <section id="see-also">
 <h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="faq.html"><span class="doc">Frequently Asked Questions</span></a> - For frequently asked questions</p></li>
 <li><p><a class="reference internal" href="contact.html"><span class="doc">Contact Information</span></a> - For support contact information</p></li>
+<li><p><a class="reference internal" href="../working_with_xnat/uid_errors_archiving.html"><span class="doc">Resolving UID Errors During Archiving</span></a> - Resolving UID errors during archiving</p></li>
 <li><p><a class="reference internal" href="../data_download/browser.html"><span class="doc">Download via Browser</span></a> - For download procedures</p></li>
 </ul>
 </section>

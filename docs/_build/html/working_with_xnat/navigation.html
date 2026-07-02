@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
@@ -8,20 +6,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>XNAT Navigation Basics &mdash; NYUAD XNAT User Documentation 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1fb475a3" />
 
   
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=2709fde1"></script>
-      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
-      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Project Management" href="project_management.html" />
-    <link rel="prev" title="Contact Information" href="../support/contact.html" /> 
+    <link rel="prev" title="Install XNAT Desktop Client" href="install_desktop_client.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -50,11 +52,21 @@
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Getting Started with XNAT Documentation</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Working with XNAT</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="access.html">Accessing XNAT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="uploading.html">Data Upload Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prearchive.html">Understanding the Prearchive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transferring_data.html">Transferring Data Between Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uid_errors_archiving.html">Resolving UID Errors During Archiving</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install_desktop_client.html">Install XNAT Desktop Client</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">XNAT Navigation Basics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#main-hierarchy">Main Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#finding-your-data">Finding Your Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#common-actions">Common Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tips">Tips</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="project_management.html">Project Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enabling_pipelines.html">Enabling Pipelines for Your Project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="running_pipelines.html">Running Pipelines on XNAT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="parallel_processing.html">Running Pipelines Across Multiple Subjects</a></li>
@@ -80,7 +92,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../data_download/browser.html">Download via Browser</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_download/desktop_client.html">Download via Desktop Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../data_download/python_scripts.html">Download via Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/python_scripts.html">XNAT API with Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_download/matlab_scripts.html">Download via MATLAB</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Support</span></p>
@@ -90,11 +102,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../support/data_loss_recovery.html">Data Loss and Recovery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">Contributing to this Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../support/contact.html">Contact Information</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Coming Soon</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">XNAT Navigation Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="project_management.html">Project Management</a></li>
 </ul>
 
         </div>
@@ -123,15 +130,56 @@
              
   <section id="xnat-navigation-basics">
 <h1>XNAT Navigation Basics<a class="headerlink" href="#xnat-navigation-basics" title="Link to this heading"></a></h1>
-<p>This guide is coming soon.</p>
-<p>For now, you can access XNAT at <a class="reference external" href="https://xnat.abudhabi.nyu.edu">https://xnat.abudhabi.nyu.edu</a> and explore the interface. For help with specific navigation tasks, please see the <a class="reference internal" href="../support/faq.html"><span class="doc">Frequently Asked Questions</span></a> or <a class="reference internal" href="../support/contact.html"><span class="doc">Contact Information</span></a> pages.</p>
+<p>This guide introduces the main areas of the XNAT web interface and where common actions live.</p>
+<section id="main-hierarchy">
+<h2>Main Hierarchy<a class="headerlink" href="#main-hierarchy" title="Link to this heading"></a></h2>
+<p>XNAT data is organized in a hierarchy:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Project</span> <span class="o">-&gt;</span> <span class="n">Subject</span> <span class="o">-&gt;</span> <span class="n">Session</span> <span class="o">-&gt;</span> <span class="n">Scan</span> <span class="o">-&gt;</span> <span class="n">Resource</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Project</strong>: A study, collaboration, or data collection.</p></li>
+<li><p><strong>Subject</strong>: A participant or research subject within a project.</p></li>
+<li><p><strong>Session</strong>: A visit or scan session for that subject.</p></li>
+<li><p><strong>Scan</strong>: An individual imaging series.</p></li>
+<li><p><strong>Resource</strong>: Files attached to a project, subject, session, or scan. Pipeline outputs are usually stored as resources.</p></li>
+</ul>
+</section>
+<section id="finding-your-data">
+<h2>Finding Your Data<a class="headerlink" href="#finding-your-data" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Log into XNAT at <a class="reference external" href="https://xnat.abudhabi.nyu.edu">https://xnat.abudhabi.nyu.edu</a>.</p></li>
+<li><p>Open the project list from the home page or navigation menu.</p></li>
+<li><p>Select your project.</p></li>
+<li><p>Use the subject table to open the participant you need.</p></li>
+<li><p>Open the session to review scans, resources, and available actions.</p></li>
+</ol>
+</section>
+<section id="common-actions">
+<h2>Common Actions<a class="headerlink" href="#common-actions" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Upload data</strong>: Use the project or upload menu. See <a class="reference internal" href="uploading.html"><span class="doc">Data Upload Procedures</span></a>.</p></li>
+<li><p><strong>Review pending uploads</strong>: Use <strong>Upload</strong> &gt; <strong>Go to prearchive</strong>. See <a class="reference internal" href="prearchive.html"><span class="doc">Understanding the Prearchive</span></a>.</p></li>
+<li><p><strong>Download data</strong>: Use browser download options or the Desktop Client. See <a class="reference internal" href="../data_download/browser.html"><span class="doc">Download via Browser</span></a>.</p></li>
+<li><p><strong>Run a pipeline</strong>: Open the session or project and use the available actions menu. See <a class="reference internal" href="running_pipelines.html"><span class="doc">Running Pipelines on XNAT</span></a>.</p></li>
+<li><p><strong>Manage project settings</strong>: Project owners can adjust selected project settings. See <a class="reference internal" href="project_management.html"><span class="doc">Project Management</span></a>.</p></li>
+</ul>
+</section>
+<section id="tips">
+<h2>Tips<a class="headerlink" href="#tips" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>If a button or menu item is missing, you may not have the required project role.</p></li>
+<li><p>If a session is not where you expect it to be, check the Prearchive before assuming the upload failed.</p></li>
+<li><p>Use consistent subject and session labels. This avoids accidental merges and makes pipeline outputs easier to interpret.</p></li>
+</ul>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../support/contact.html" class="btn btn-neutral float-left" title="Contact Information" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="install_desktop_client.html" class="btn btn-neutral float-left" title="Install XNAT Desktop Client" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="project_management.html" class="btn btn-neutral float-right" title="Project Management" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

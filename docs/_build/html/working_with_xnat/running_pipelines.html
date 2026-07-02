@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
@@ -8,15 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Running Pipelines on XNAT &mdash; NYUAD XNAT User Documentation 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1fb475a3" />
 
   
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=2709fde1"></script>
-      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
-      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -53,13 +55,19 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="access.html">Accessing XNAT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="uploading.html">Data Upload Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prearchive.html">Understanding the Prearchive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transferring_data.html">Transferring Data Between Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uid_errors_archiving.html">Resolving UID Errors During Archiving</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install_desktop_client.html">Install XNAT Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="navigation.html">XNAT Navigation Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_management.html">Project Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enabling_pipelines.html">Enabling Pipelines for Your Project</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Running Pipelines on XNAT</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#general-pipeline-interface">General Pipeline Interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#step-by-step-instructions">Step-by-Step Instructions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#common-parameters">Common Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#before-you-start">Before You Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#session-level-pipelines">Session-Level Pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#project-level-pipelines">Project-Level Pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#choosing-parameters">Choosing Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#monitoring-results">Monitoring Results</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#next-steps">Next Steps</a></li>
 </ul>
@@ -87,7 +95,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../data_download/browser.html">Download via Browser</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_download/desktop_client.html">Download via Desktop Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../data_download/python_scripts.html">Download via Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/python_scripts.html">XNAT API with Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_download/matlab_scripts.html">Download via MATLAB</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Support</span></p>
@@ -97,11 +105,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../support/data_loss_recovery.html">Data Loss and Recovery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">Contributing to this Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../support/contact.html">Contact Information</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Coming Soon</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="navigation.html">XNAT Navigation Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="project_management.html">Project Management</a></li>
 </ul>
 
         </div>
@@ -130,102 +133,82 @@
              
   <section id="running-pipelines-on-xnat">
 <h1>Running Pipelines on XNAT<a class="headerlink" href="#running-pipelines-on-xnat" title="Link to this heading"></a></h1>
-<p>This page provides general instructions for running any processing pipeline on XNAT. Individual pipeline pages reference this guide for the basic workflow.</p>
-<section id="general-pipeline-interface">
-<h2>General Pipeline Interface<a class="headerlink" href="#general-pipeline-interface" title="Link to this heading"></a></h2>
-<p>All pipelines on XNAT follow the same basic interface through the web UI:</p>
+<p>This page explains the common workflow for launching processing pipelines from the XNAT web interface. Individual pipeline pages describe the inputs and outputs for each tool.</p>
+<section id="before-you-start">
+<h2>Before You Start<a class="headerlink" href="#before-you-start" title="Link to this heading"></a></h2>
+<p>Before launching a pipeline, check the following:</p>
+<ul class="simple">
+<li><p>You have access to the project and session you want to process.</p></li>
+<li><p>The pipeline is enabled for your project. See <a class="reference internal" href="enabling_pipelines.html"><span class="doc">Enabling Pipelines for Your Project</span></a>.</p></li>
+<li><p>The required input data is present. For BIDS-based pipelines, run <a class="reference internal" href="../processing_pipelines/dcm2bids.html"><span class="doc">dcm2bids</span></a> first.</p></li>
+<li><p>You understand where the output will appear, usually in the session or project <strong>Resources</strong> area.</p></li>
+</ul>
+</section>
+<section id="session-level-pipelines">
+<h2>Session-Level Pipelines<a class="headerlink" href="#session-level-pipelines" title="Link to this heading"></a></h2>
+<p>Most conversion, quality-control, and preprocessing pipelines are launched from an imaging session.</p>
 <ol class="arabic simple">
-<li><p><strong>Navigate to your project</strong></p></li>
-<li><p><strong>Select the subject and session</strong></p></li>
-<li><p><strong>Access the pipeline launcher</strong></p></li>
-<li><p><strong>Configure pipeline parameters</strong></p></li>
-<li><p><strong>Submit the job</strong></p></li>
-<li><p><strong>Monitor progress and results</strong></p></li>
+<li><p>Log into XNAT at <a class="reference external" href="https://xnat.abudhabi.nyu.edu">https://xnat.abudhabi.nyu.edu</a>.</p></li>
+<li><p>Open your project.</p></li>
+<li><p>Open the subject and session you want to process.</p></li>
+<li><p>Use the session actions menu to choose the available pipeline launcher. Depending on the pipeline, this may appear as <strong>Run Pipeline</strong>, <strong>Run Preprocessing Pipeline</strong>, or <strong>Run Containers</strong>.</p></li>
+<li><p>Select the pipeline.</p></li>
+<li><p>Review the parameters. Leave optional fields unchanged unless the pipeline page tells you to change them.</p></li>
+<li><p>Submit the job.</p></li>
+<li><p>Monitor the job status and review logs if the job fails.</p></li>
 </ol>
 </section>
-<section id="step-by-step-instructions">
-<h2>Step-by-Step Instructions<a class="headerlink" href="#step-by-step-instructions" title="Link to this heading"></a></h2>
-<p><strong>1. Navigate to Your Data</strong></p>
+<section id="project-level-pipelines">
+<h2>Project-Level Pipelines<a class="headerlink" href="#project-level-pipelines" title="Link to this heading"></a></h2>
+<p>Some workflows run across multiple sessions or subjects from the project page. Examples include group-level quality-control reports or project-wide batch launches.</p>
+<ol class="arabic simple">
+<li><p>Open the project page.</p></li>
+<li><p>Use the project actions menu to find the batch or container launcher.</p></li>
+<li><p>Select the pipeline and the subjects or sessions to include.</p></li>
+<li><p>Submit the job and monitor progress from the project or processing view.</p></li>
+</ol>
+<p>For multi-subject launches, see <a class="reference internal" href="parallel_processing.html"><span class="doc">Running Pipelines Across Multiple Subjects</span></a>.</p>
+</section>
+<section id="choosing-parameters">
+<h2>Choosing Parameters<a class="headerlink" href="#choosing-parameters" title="Link to this heading"></a></h2>
+<p>Pipeline forms vary, but these fields are common:</p>
 <ul class="simple">
-<li><p>Log into XNAT (<a class="reference external" href="https://xnat.abudhabi.nyu.edu">https://xnat.abudhabi.nyu.edu</a>)</p></li>
-<li><p>Select your project from the project list</p></li>
-<li><p>Navigate to the subject and session you want to process</p></li>
-</ul>
-<p><strong>2. Launch Pipeline Interface</strong></p>
-<p>[PLACEHOLDER - Screenshot of pipeline button location]</p>
-<ul class="simple">
-<li><p>On the session page, look for the “Run Pipeline” or “Actions” button</p></li>
-<li><p>Click to open the pipeline selection interface</p></li>
-</ul>
-<p><strong>3. Select Pipeline</strong></p>
-<p>[PLACEHOLDER - Screenshot of pipeline selection dropdown]</p>
-<ul class="simple">
-<li><p>Choose the desired pipeline from the dropdown menu</p></li>
-<li><p>Available pipelines depend on your project configuration</p></li>
-</ul>
-<p><strong>4. Configure Parameters</strong></p>
-<p>[PLACEHOLDER - Screenshot of parameter configuration interface]</p>
-<ul class="simple">
-<li><p><strong>Input Selection:</strong> Choose which scans to process</p></li>
-<li><p><strong>Output Destination:</strong> Specify where results should be stored</p></li>
-<li><p><strong>Pipeline Parameters:</strong> Set pipeline-specific options</p></li>
-<li><p><strong>Resource Allocation:</strong> Configure computing resources (if applicable)</p></li>
-</ul>
-<p><strong>5. Submit Job</strong></p>
-<p>[PLACEHOLDER - Screenshot of job submission button]</p>
-<ul class="simple">
-<li><p>Review your configuration</p></li>
-<li><p>Click “Submit” or “Run” to start the pipeline</p></li>
-<li><p>Note the job ID for tracking</p></li>
-</ul>
-<p><strong>6. Monitor Progress</strong></p>
-<p>[PLACEHOLDER - Screenshot of job monitoring interface]</p>
-<ul class="simple">
-<li><p>Check job status in the “Processing” or “Jobs” section</p></li>
-<li><p>Monitor logs for progress and any errors</p></li>
-<li><p>Receive notifications when job completes</p></li>
+<li><p><strong>Subject or session label</strong>: Usually auto-filled from the XNAT session. Change only when the pipeline documentation explicitly asks you to.</p></li>
+<li><p><strong>Input resource</strong>: The folder or resource the pipeline reads from, such as <code class="docutils literal notranslate"><span class="pre">rawdata</span></code> for BIDS inputs.</p></li>
+<li><p><strong>Output resource</strong>: The folder where results will be stored, such as <code class="docutils literal notranslate"><span class="pre">mriqc</span></code>, <code class="docutils literal notranslate"><span class="pre">fmriprep</span></code>, or <code class="docutils literal notranslate"><span class="pre">tractoflow</span></code>.</p></li>
+<li><p><strong>Optional flags</strong>: Advanced command options. Use these carefully; invalid flags can cause jobs to fail.</p></li>
 </ul>
 </section>
-<section id="common-parameters">
-<h2>Common Parameters<a class="headerlink" href="#common-parameters" title="Link to this heading"></a></h2>
-<p><strong>Input Selection:</strong>
-- <strong>Scan Selection:</strong> Choose specific scans to process
-- <strong>Session Level:</strong> Process entire session
-- <strong>Quality Control:</strong> Include/exclude based on QC status</p>
-<p><strong>Output Configuration:</strong>
-- <strong>Output Location:</strong> Where to store results
-- <strong>Naming Convention:</strong> How to name output files
-- <strong>Sharing Settings:</strong> Who can access results</p>
-<p><strong>Processing Options:</strong>
-- <strong>Resource Allocation:</strong> CPU, memory, time limits
-- <strong>Notification Settings:</strong> Email alerts for completion
-- <strong>Debug Mode:</strong> Enable detailed logging</p>
+<section id="monitoring-results">
+<h2>Monitoring Results<a class="headerlink" href="#monitoring-results" title="Link to this heading"></a></h2>
+<p>After submission:</p>
+<ul class="simple">
+<li><p>Check the job status in XNAT.</p></li>
+<li><p>Wait for the pipeline to finish before launching dependent pipelines.</p></li>
+<li><p>Open the output resource and review reports or logs.</p></li>
+<li><p>For quality-control and preprocessing pipelines, inspect HTML reports before using the derivatives for analysis.</p></li>
+</ul>
 </section>
 <section id="troubleshooting">
 <h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
-<p><strong>Common Issues:</strong>
-- <strong>Permission Errors:</strong> Check project access rights
-- <strong>Input Validation:</strong> Ensure required scans are present
-- <strong>Resource Limits:</strong> Job may need more time or memory
-- <strong>Network Issues:</strong> Check XNAT connectivity</p>
-<p><strong>Getting Help:</strong>
-- Check pipeline logs for specific error messages
-- Review pipeline documentation for parameter requirements
-- Contact support if issues persist</p>
-<p><strong>Data Loss Concerns:</strong>
-- If you accidentally delete pipeline outputs or data, see <a class="reference internal" href="../support/data_loss_recovery.html"><span class="doc">Data Loss and Recovery</span></a> for recovery options
-- Contact XNAT administrators immediately if critical data is lost</p>
+<dl class="simple">
+<dt><strong>Pipeline is not listed</strong></dt><dd><p>The pipeline may not be enabled for the project, or you may not have permission to run it. See <a class="reference internal" href="enabling_pipelines.html"><span class="doc">Enabling Pipelines for Your Project</span></a>.</p>
+</dd>
+<dt><strong>Pipeline fails quickly</strong></dt><dd><p>Check whether the required input resource exists and whether the session labels match the expected format.</p>
+</dd>
+<dt><strong>Pipeline runs but output is missing</strong></dt><dd><p>Check the logs in the output resource. If the transfer back to XNAT failed, include the workflow ID and session label when contacting support.</p>
+</dd>
+<dt><strong>Pipeline takes longer than expected</strong></dt><dd><p>Some pipelines, especially fMRIPrep and TractoFlow, can take many hours. If a job appears stuck or repeatedly times out, contact support with the project, subject, session, pipeline name, and any available logs.</p>
+</dd>
+</dl>
+<p>For more help, see <a class="reference internal" href="../support/troubleshooting.html"><span class="doc">Troubleshooting Guide</span></a>.</p>
 </section>
 <section id="next-steps">
 <h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h2>
-<p>After completing this general overview:</p>
 <ul class="simple">
-<li><p>Explore specific pipeline documentation:
-- <a class="reference internal" href="../processing_pipelines/dcm2bids.html"><span class="doc">dcm2bids</span></a> for DICOM conversion
-- <a class="reference internal" href="../processing_pipelines/fmriprep.html"><span class="doc">fMRIPrep</span></a> for fMRI preprocessing
-- <a class="reference internal" href="../processing_pipelines/tractoflow.html"><span class="doc">TractoFlow</span></a> for tractography</p></li>
-<li><p>Learn about <a class="reference internal" href="../data_download/browser.html"><span class="doc">Download via Browser</span></a> for accessing results</p></li>
-<li><p>See <a class="reference internal" href="../support/troubleshooting.html"><span class="doc">Troubleshooting Guide</span></a> for common issues</p></li>
+<li><p>Explore <a class="reference internal" href="../processing_pipelines/overview.html"><span class="doc">XNAT Pipelines Overview</span></a> for available pipelines.</p></li>
+<li><p>Read the page for the specific pipeline you want to run.</p></li>
+<li><p>Use <a class="reference internal" href="../data_download/browser.html"><span class="doc">Download via Browser</span></a> or <a class="reference internal" href="../data_download/desktop_client.html"><span class="doc">Download via Desktop Client</span></a> to access results.</p></li>
 </ul>
 </section>
 </section>

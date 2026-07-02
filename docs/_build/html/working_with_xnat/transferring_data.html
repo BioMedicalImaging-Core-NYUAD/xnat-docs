@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
@@ -8,20 +6,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Transferring Data Between Projects &mdash; NYUAD XNAT User Documentation 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1fb475a3" />
 
   
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=2709fde1"></script>
-      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
-      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Install XNAT Desktop Client" href="install_desktop_client.html" />
-    <link rel="prev" title="Data Upload Procedures" href="uploading.html" /> 
+    <link rel="next" title="Resolving UID Errors During Archiving" href="uid_errors_archiving.html" />
+    <link rel="prev" title="Understanding the Prearchive" href="prearchive.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -53,6 +55,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="access.html">Accessing XNAT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="uploading.html">Data Upload Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prearchive.html">Understanding the Prearchive</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Transferring Data Between Projects</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#prerequisites-planning">Prerequisites &amp; Planning</a><ul>
@@ -93,7 +96,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#see-also">See Also</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="uid_errors_archiving.html">Resolving UID Errors During Archiving</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install_desktop_client.html">Install XNAT Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="navigation.html">XNAT Navigation Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_management.html">Project Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enabling_pipelines.html">Enabling Pipelines for Your Project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="running_pipelines.html">Running Pipelines on XNAT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="parallel_processing.html">Running Pipelines Across Multiple Subjects</a></li>
@@ -119,7 +125,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../data_download/browser.html">Download via Browser</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_download/desktop_client.html">Download via Desktop Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../data_download/python_scripts.html">Download via Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/python_scripts.html">XNAT API with Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_download/matlab_scripts.html">Download via MATLAB</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Support</span></p>
@@ -129,11 +135,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../support/data_loss_recovery.html">Data Loss and Recovery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">Contributing to this Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../support/contact.html">Contact Information</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Coming Soon</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="navigation.html">XNAT Navigation Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="project_management.html">Project Management</a></li>
 </ul>
 
         </div>
@@ -175,7 +176,7 @@
 <p><strong>Primary Focus: DICOM Data Transfers</strong></p>
 <p>This guide focuses on transferring DICOM data (raw imaging data from scanners), which is the most common transfer scenario. DICOM data can be downloaded and re-uploaded using standard XNAT tools.</p>
 <p><strong>About Resources (Pipeline Outputs)</strong></p>
-<p>Data stored in Resources folders (such as BIDS rawdata, fMRIPrep outputs, MRIQC reports) are typically <strong>regenerated by running pipelines</strong> in the destination project rather than transferred. However, advanced users can transfer Resources using API methods (Python xnatpy, MATLAB scripts, or REST API) if needed. See <a class="reference internal" href="../data_download/python_scripts.html"><span class="doc">Download via Python</span></a> and <a class="reference internal" href="../data_download/matlab_scripts.html"><span class="doc">Download via MATLAB</span></a> for API-based transfer methods.</p>
+<p>Data stored in Resources folders (such as BIDS rawdata, fMRIPrep outputs, MRIQC reports) are typically <strong>regenerated by running pipelines</strong> in the destination project rather than transferred. However, advanced users can transfer Resources using API methods (Python xnatpy, MATLAB scripts, or REST API) if needed. See <a class="reference internal" href="../data_download/python_scripts.html"><span class="doc">XNAT API with Python</span></a> and <a class="reference internal" href="../data_download/matlab_scripts.html"><span class="doc">Download via MATLAB</span></a> for API-based transfer methods.</p>
 </section>
 <section id="prerequisites-planning">
 <h2>Prerequisites &amp; Planning<a class="headerlink" href="#prerequisites-planning" title="Link to this heading"></a></h2>
@@ -454,7 +455,7 @@
 <h3>How to Transfer Resources (Advanced)<a class="headerlink" href="#how-to-transfer-resources-advanced" title="Link to this heading"></a></h3>
 <p>If you need to transfer Resources, use API-based methods:</p>
 <ul class="simple">
-<li><p><strong>Python</strong>: Use xnatpy library or Python scripts (see <a class="reference internal" href="../data_download/python_scripts.html"><span class="doc">Download via Python</span></a>)</p></li>
+<li><p><strong>Python</strong>: Use xnatpy library or Python scripts (see <a class="reference internal" href="../data_download/python_scripts.html"><span class="doc">XNAT API with Python</span></a>)</p></li>
 <li><p><strong>MATLAB</strong>: Use MATLAB scripts with XNAT API (see <a class="reference internal" href="../data_download/matlab_scripts.html"><span class="doc">Download via MATLAB</span></a>)</p></li>
 <li><p><strong>REST API</strong>: Direct API calls to download and upload Resources</p></li>
 </ul>
@@ -486,7 +487,7 @@
 <p><strong>Duplicate Label Conflicts</strong></p>
 <ul class="simple">
 <li><p><strong>Symptom</strong>: Data merges with existing sessions instead of creating new ones</p></li>
-<li><p><strong>Solution</strong>: Check for existing subjects/sessions with the same labels in destination. Use different labels or coordinate with project administrators.</p></li>
+<li><p><strong>Solution</strong>: Check for existing subjects/sessions with the same labels in destination. Use different labels or coordinate with project administrators. If you encounter UID errors (such as “Invalid modification of session UID”) when merging different sessions, see <a class="reference internal" href="uid_errors_archiving.html"><span class="doc">Resolving UID Errors During Archiving</span></a> for detailed resolution steps.</p></li>
 </ul>
 <p><strong>Upload Failures</strong></p>
 <ul class="simple">
@@ -555,6 +556,7 @@
 <p><strong>Related Documentation</strong></p>
 <ul class="simple">
 <li><p><a class="reference internal" href="uploading.html"><span class="doc">Data Upload Procedures</span></a> - Detailed upload procedures and methods</p></li>
+<li><p><a class="reference internal" href="uid_errors_archiving.html"><span class="doc">Resolving UID Errors During Archiving</span></a> - Resolving UID errors during archiving</p></li>
 <li><p><a class="reference internal" href="../data_download/browser.html"><span class="doc">Download via Browser</span></a> - Browser-based download methods</p></li>
 <li><p><a class="reference internal" href="../data_download/desktop_client.html"><span class="doc">Download via Desktop Client</span></a> - Desktop Client download and upload</p></li>
 <li><p><a class="reference internal" href="install_desktop_client.html"><span class="doc">Install XNAT Desktop Client</span></a> - Desktop Client installation guide</p></li>
@@ -563,7 +565,7 @@
 </ul>
 <p><strong>Advanced Resource Transfers</strong></p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../data_download/python_scripts.html"><span class="doc">Download via Python</span></a> - Python API methods for Resource transfers</p></li>
+<li><p><a class="reference internal" href="../data_download/python_scripts.html"><span class="doc">XNAT API with Python</span></a> - Python API methods for Resource transfers</p></li>
 <li><p><a class="reference internal" href="../data_download/matlab_scripts.html"><span class="doc">Download via MATLAB</span></a> - MATLAB API methods for Resource transfers</p></li>
 </ul>
 <p><strong>Support</strong></p>
@@ -580,8 +582,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="uploading.html" class="btn btn-neutral float-left" title="Data Upload Procedures" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="install_desktop_client.html" class="btn btn-neutral float-right" title="Install XNAT Desktop Client" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="prearchive.html" class="btn btn-neutral float-left" title="Understanding the Prearchive" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="uid_errors_archiving.html" class="btn btn-neutral float-right" title="Resolving UID Errors During Archiving" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

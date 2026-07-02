@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
@@ -8,15 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ari-validator &mdash; NYUAD XNAT User Documentation 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1fb475a3" />
 
   
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=2709fde1"></script>
-      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
-      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -53,8 +55,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/access.html">Accessing XNAT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/uploading.html">Data Upload Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/prearchive.html">Understanding the Prearchive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/transferring_data.html">Transferring Data Between Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/uid_errors_archiving.html">Resolving UID Errors During Archiving</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/install_desktop_client.html">Install XNAT Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/navigation.html">XNAT Navigation Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/project_management.html">Project Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/enabling_pipelines.html">Enabling Pipelines for Your Project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/running_pipelines.html">Running Pipelines on XNAT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/parallel_processing.html">Running Pipelines Across Multiple Subjects</a></li>
@@ -79,7 +85,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#data-validation-dashboard">Data Validation Dashboard</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#validation-scope-disclaimer">Validation Scope &amp; Disclaimer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ari-project-versions">ARI Project Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#choosing-the-correct-ari-project">Choosing the Correct ARI Project</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#next-steps">Next Steps</a></li>
 </ul>
 </li>
@@ -91,7 +97,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../data_download/browser.html">Download via Browser</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_download/desktop_client.html">Download via Desktop Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../data_download/python_scripts.html">Download via Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/python_scripts.html">XNAT API with Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_download/matlab_scripts.html">Download via MATLAB</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Support</span></p>
@@ -101,11 +107,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../support/data_loss_recovery.html">Data Loss and Recovery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">Contributing to this Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../support/contact.html">Contact Information</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Coming Soon</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/navigation.html">XNAT Navigation Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../working_with_xnat/project_management.html">Project Management</a></li>
 </ul>
 
         </div>
@@ -217,7 +218,7 @@
             style="width: 100%; height: 250px; border: none; background: white;">
     </iframe>
   </div>
-</div><p><em>can you tell what is wrong with the data on the right?</em></p>
+</div><p>Compare the examples to see how validation issues appear in the log output.</p>
 </section>
 <section id="data-validation-dashboard">
 <h2>Data Validation Dashboard<a class="headerlink" href="#data-validation-dashboard" title="Link to this heading"></a></h2>
@@ -293,6 +294,19 @@ fetch('../_static/xnat_ari_dashboard_display.csv')
 
         let cellContent = columns[j].trim();
 
+        // Subject ID column (index 0): normalize to 4-digit zero-padded display
+        // and flag subjects stored without leading zeros (e.g. sub-238 instead of sub-0238)
+        if (j === 0) {
+          const subMatch = cellContent.match(/^(sub-)(\d+)$/);
+          if (subMatch && subMatch[2].length < 4) {
+            const paddedId = 'sub-' + subMatch[2].padStart(4, '0');
+            cell.title = 'Stored as ' + cellContent + ' (missing leading zero — dcm2bids was run with an unpadded subject number)';
+            cellContent = paddedId + ' ⚠';
+            cell.style.backgroundColor = '#fff3cd';
+            cell.style.color = '#856404';
+          }
+        }
+
         // Color code status column (index 1)
         if (j === 1) {
           cell.style.fontWeight = '600';
@@ -340,17 +354,38 @@ fetch('../_static/xnat_ari_dashboard_display.csv')
 
         // Color code version columns (indices 8-9)
         if (j >= 8 && j <= 9) {
-          if (cellContent.includes('v2') || cellContent.includes('LATEST')) {
+          const versionText = cellContent.toUpperCase();
+          if (versionText.includes('V2') || versionText.includes('LATEST')) {
             cell.style.backgroundColor = '#d4edda';
             cell.style.color = '#155724';
             cell.style.borderColor = '#c3e6cb';
             cellContent = '🟢 v2 (LATEST)';
-          } else if (cellContent.includes('v1') || cellContent.includes('DEPRECATED')) {
+          } else if (versionText.includes('V1 DWI-ONLY')) {
+            cell.style.backgroundColor = '#d1ecf1';
+            cell.style.color = '#0c5460';
+            cell.style.borderColor = '#bee5eb';
+            cellContent = '🔵 v1 DWI-ONLY';
+          } else if (versionText.includes('V1.5 PILOT')) {
+            cell.style.backgroundColor = '#d1ecf1';
+            cell.style.color = '#0c5460';
+            cell.style.borderColor = '#bee5eb';
+            cellContent = '🔵 v1.5 PILOT';
+          } else if (versionText.includes('LEGACY BAD REVB0')) {
+            cell.style.backgroundColor = '#f8d7da';
+            cell.style.color = '#721c24';
+            cell.style.borderColor = '#f5c6cb';
+            cellContent = '🔴 BAD REVB0';
+          } else if (versionText.includes('UNEXPECTED') || versionText.includes('MISSING DWI')) {
+            cell.style.backgroundColor = '#f8d7da';
+            cell.style.color = '#721c24';
+            cell.style.borderColor = '#f5c6cb';
+            cellContent = '🔴 ' + cellContent;
+          } else if (versionText.includes('V1') || versionText.includes('DEPRECATED')) {
             cell.style.backgroundColor = '#fff3cd';
             cell.style.color = '#856404';
             cell.style.borderColor = '#ffeaa7';
             cellContent = '🟡 v1 (DEPRECATED)';
-          } else if (cellContent === 'UNKNOWN' || cellContent === '' || cellContent === 'nan') {
+          } else if (versionText === 'UNKNOWN' || cellContent === '' || cellContent === 'nan') {
             cell.style.backgroundColor = '#f8f9fa';
             cell.style.color = '#6c757d';
             cellContent = '❓ UNKNOWN';
@@ -395,14 +430,14 @@ fetch('../_static/xnat_ari_dashboard_display.csv')
 <section id="troubleshooting">
 <h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p><strong>SBREF:</strong> Sometimes the phase encoding directions is flipped even though the the AP/PA direction in the file name is correct. You should delete the incorrect sbref files. <a class="reference external" href="../_static/3.5.sbref-flip-example.png">See example of incorrect SBREF</a></p></li>
-<li><p><strong>IntendedFor:</strong> Check the intendedFor field in the epi.json file in fmap and see exacly what is incorrect. First thing to check is if there’s missing or extra files. If that’s not the issue, then please contact us and we can help you take a look.</p></li>
+<li><p><strong>SBREF:</strong> Sometimes the phase encoding direction is flipped even though the AP/PA direction in the file name is correct. Review the affected files and coordinate with the project owner or XNAT administrators before removing anything. <a class="reference external" href="../_static/3.5.sbref-flip-example.png">See example of incorrect SBREF</a></p></li>
+<li><p><strong>IntendedFor:</strong> Check the <code class="docutils literal notranslate"><span class="pre">IntendedFor</span></code> field in the <code class="docutils literal notranslate"><span class="pre">epi.json</span></code> file in <code class="docutils literal notranslate"><span class="pre">fmap</span></code> and identify what is incorrect. First check for missing or extra files. If that is not the issue, contact us and we can help you take a look.</p></li>
 <li><p><strong>DWI Parameters:</strong> Version 1 of the DWI protocol is deprecated due to mismatches in the DWI and reverse b0 parameters. If someone was not scanned under version 1 yet still has mismatching issues then you need to investigate further.</p></li>
 <li><p><strong>Incorrect dimensions and TR:</strong> Check if data is incomplete or if wrong sequence was used.</p></li>
-<li><p><strong>Missing files:</strong> transfer missing files to the correct location.</p></li>
-<li><p><strong>Extra files:</strong> delete extra files depending on the reason.</p></li>
-<li><p><strong>Multiple sessions:</strong> Scans collected in separate sessions should be merged into one session. For example, if anantomicals were skipped because they had already been collected before, please transfer a copy of the anat files to the new session so the data is complete.</p></li>
-<li><p><strong>Repeated scans:</strong> If a scan was collected multiple times, please delete the extra scans according to why the scan was repeated. Ideally, invalid scans should not be sent from scanner to XNAT in the first place.</p></li>
+<li><p><strong>Missing files:</strong> Re-upload or transfer missing files to the correct location after confirming the intended session structure.</p></li>
+<li><p><strong>Extra files:</strong> Review extra files and remove only files that the project owner confirms are invalid or out of scope.</p></li>
+<li><p><strong>Multiple sessions:</strong> Scans collected in separate sessions may need to be consolidated for analysis. For example, if anatomical scans were skipped because they had already been collected before, coordinate with the project owner or administrators to copy the required anatomical files into the analysis session.</p></li>
+<li><p><strong>Repeated scans:</strong> If a scan was collected multiple times, decide which scan should be retained based on the acquisition notes and project quality-control criteria.</p></li>
 </ul>
 <br></section>
 <section id="validation-scope-disclaimer">
@@ -418,33 +453,25 @@ fetch('../_static/xnat_ari_dashboard_display.csv')
 <li><p><strong>Custom Checks:</strong> If you have specific properties you wish to validate (e.g., checking for specific parameters), please inform us, and we can work on implementing those checks if suitable.</p></li>
 </ul>
 <br></section>
-<section id="ari-project-versions">
-<h2>ARI Project Versions<a class="headerlink" href="#ari-project-versions" title="Link to this heading"></a></h2>
-<p>Over time, several ARI project folders have been created. This log clarifies the purpose and status of each:</p>
-<p><strong>1. ARI (ari)</strong> - Current / Active</p>
+<section id="choosing-the-correct-ari-project">
+<h2>Choosing the Correct ARI Project<a class="headerlink" href="#choosing-the-correct-ari-project" title="Link to this heading"></a></h2>
+<p>Over time, several ARI project folders have been created for active data collection, historical data, validation, and migration work. Most users should work only in the project folder assigned by the ARI project team.</p>
+<p><strong>Current ARI data</strong></p>
 <ul class="simple">
-<li><p>This is the main project folder displayed on the dashboard above. All new data collected after Summer 2025 is stored here.</p></li>
-<li><p>Data here is supposed to be verified and valid. If invalid scans are found, they are removed.</p></li>
-<li><p>This is the primary folder for end-users.</p></li>
+<li><p>The current ARI project is the primary folder for end users.</p></li>
+<li><p>New data should be validated before downstream preprocessing.</p></li>
+<li><p>If a subject appears in more than one ARI-related project, confirm which project should be used before downloading or processing data.</p></li>
 </ul>
-<p><strong>2. ARI HFS - new (rokerslab_ari-hfs_2024_001)</strong> - Archive / In-Progress</p>
+<p><strong>Historical or migration projects</strong></p>
 <ul class="simple">
-<li><p>Contains all older data collected, includes both valid and invalid data.</p></li>
-<li><p>RAs are actively validating this folder. Valid data is being migrated to the new <strong>ARI</strong> folder, while invalid data is either removed or kept here as an archive.</p></li>
+<li><p>Some older folders may contain historical, migrated, or partially validated data.</p></li>
+<li><p>Do not assume historical folders are ready for analysis.</p></li>
+<li><p>Contact the project team or XNAT administrators if you are unsure which folder to use.</p></li>
 </ul>
-<p><strong>3. ARI Clean (Rokerslab_ari-clean)</strong> - Internal / Testing</p>
+<p><strong>External collaborations</strong></p>
 <ul class="simple">
-<li><p>Made for temporary analysis of the 100 ARI dataset. XNAT admins also use this as a testing ground for pipelines.</p></li>
-<li><p>Users do not need access to this folder.</p></li>
-</ul>
-<p><strong>4. ARI HFS (Rokerslab_vri-hfs_2024_001)</strong> - Deprecated</p>
-<ul class="simple">
-<li><p>The first ARI folder on XNAT. It had many issues and is now outdated.</p></li>
-<li><p>Users no longer need to access this folder.</p></li>
-</ul>
-<p><strong>5. UAEU ARI (uaeu_ari)</strong> - Active / External</p>
-<ul class="simple">
-<li><p>Project hosting the ARI data collected at UAEU.</p></li>
+<li><p>Collaborating sites may have separate ARI project folders.</p></li>
+<li><p>Confirm access and data-use expectations with the project team before using external-site data.</p></li>
 </ul>
 <br></section>
 <section id="next-steps">

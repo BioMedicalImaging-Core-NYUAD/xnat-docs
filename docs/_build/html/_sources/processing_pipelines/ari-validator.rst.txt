@@ -90,7 +90,7 @@ Output and Reports
      </div>
    </div>
 
-*can you tell what is wrong with the data on the right?*
+Compare the examples to see how validation issues appear in the log output.
 
 
 
@@ -172,8 +172,21 @@ Data Validation Dashboard
            cell.style.border = '1px solid #ddd';
            cell.style.fontSize = '0.85em';
            cell.style.transition = 'all 0.2s ease';
-           
+
            let cellContent = columns[j].trim();
+
+           // Subject ID column (index 0): normalize to 4-digit zero-padded display
+           // and flag subjects stored without leading zeros (e.g. sub-238 instead of sub-0238)
+           if (j === 0) {
+             const subMatch = cellContent.match(/^(sub-)(\d+)$/);
+             if (subMatch && subMatch[2].length < 4) {
+               const paddedId = 'sub-' + subMatch[2].padStart(4, '0');
+               cell.title = 'Stored as ' + cellContent + ' (missing leading zero — dcm2bids was run with an unpadded subject number)';
+               cellContent = paddedId + ' ⚠';
+               cell.style.backgroundColor = '#fff3cd';
+               cell.style.color = '#856404';
+             }
+           }
            
            // Color code status column (index 1)
            if (j === 1) {
@@ -222,17 +235,38 @@ Data Validation Dashboard
            
            // Color code version columns (indices 8-9)
            if (j >= 8 && j <= 9) {
-             if (cellContent.includes('v2') || cellContent.includes('LATEST')) {
+             const versionText = cellContent.toUpperCase();
+             if (versionText.includes('V2') || versionText.includes('LATEST')) {
                cell.style.backgroundColor = '#d4edda';
                cell.style.color = '#155724';
                cell.style.borderColor = '#c3e6cb';
                cellContent = '🟢 v2 (LATEST)';
-             } else if (cellContent.includes('v1') || cellContent.includes('DEPRECATED')) {
+             } else if (versionText.includes('V1 DWI-ONLY')) {
+               cell.style.backgroundColor = '#d1ecf1';
+               cell.style.color = '#0c5460';
+               cell.style.borderColor = '#bee5eb';
+               cellContent = '🔵 v1 DWI-ONLY';
+             } else if (versionText.includes('V1.5 PILOT')) {
+               cell.style.backgroundColor = '#d1ecf1';
+               cell.style.color = '#0c5460';
+               cell.style.borderColor = '#bee5eb';
+               cellContent = '🔵 v1.5 PILOT';
+             } else if (versionText.includes('LEGACY BAD REVB0')) {
+               cell.style.backgroundColor = '#f8d7da';
+               cell.style.color = '#721c24';
+               cell.style.borderColor = '#f5c6cb';
+               cellContent = '🔴 BAD REVB0';
+             } else if (versionText.includes('UNEXPECTED') || versionText.includes('MISSING DWI')) {
+               cell.style.backgroundColor = '#f8d7da';
+               cell.style.color = '#721c24';
+               cell.style.borderColor = '#f5c6cb';
+               cellContent = '🔴 ' + cellContent;
+             } else if (versionText.includes('V1') || versionText.includes('DEPRECATED')) {
                cell.style.backgroundColor = '#fff3cd';
                cell.style.color = '#856404';
                cell.style.borderColor = '#ffeaa7';
                cellContent = '🟡 v1 (DEPRECATED)';
-             } else if (cellContent === 'UNKNOWN' || cellContent === '' || cellContent === 'nan') {
+             } else if (versionText === 'UNKNOWN' || cellContent === '' || cellContent === 'nan') {
                cell.style.backgroundColor = '#f8f9fa';
                cell.style.color = '#6c757d';
                cellContent = '❓ UNKNOWN';
@@ -289,14 +323,14 @@ Data Validation Dashboard
 Troubleshooting
 ---------------
 
-- **SBREF:** Sometimes the phase encoding directions is flipped even though the the AP/PA direction in the file name is correct. You should delete the incorrect sbref files. `See example of incorrect SBREF <../_static/3.5.sbref-flip-example.png>`_ 
-- **IntendedFor:** Check the intendedFor field in the epi.json file in fmap and see exacly what is incorrect. First thing to check is if there's missing or extra files. If that's not the issue, then please contact us and we can help you take a look.
+- **SBREF:** Sometimes the phase encoding direction is flipped even though the AP/PA direction in the file name is correct. Review the affected files and coordinate with the project owner or XNAT administrators before removing anything. `See example of incorrect SBREF <../_static/3.5.sbref-flip-example.png>`_
+- **IntendedFor:** Check the ``IntendedFor`` field in the ``epi.json`` file in ``fmap`` and identify what is incorrect. First check for missing or extra files. If that is not the issue, contact us and we can help you take a look.
 - **DWI Parameters:** Version 1 of the DWI protocol is deprecated due to mismatches in the DWI and reverse b0 parameters. If someone was not scanned under version 1 yet still has mismatching issues then you need to investigate further. 
 - **Incorrect dimensions and TR:** Check if data is incomplete or if wrong sequence was used.
-- **Missing files:** transfer missing files to the correct location.
-- **Extra files:** delete extra files depending on the reason.
-- **Multiple sessions:** Scans collected in separate sessions should be merged into one session. For example, if anantomicals were skipped because they had already been collected before, please transfer a copy of the anat files to the new session so the data is complete.
-- **Repeated scans:** If a scan was collected multiple times, please delete the extra scans according to why the scan was repeated. Ideally, invalid scans should not be sent from scanner to XNAT in the first place.
+- **Missing files:** Re-upload or transfer missing files to the correct location after confirming the intended session structure.
+- **Extra files:** Review extra files and remove only files that the project owner confirms are invalid or out of scope.
+- **Multiple sessions:** Scans collected in separate sessions may need to be consolidated for analysis. For example, if anatomical scans were skipped because they had already been collected before, coordinate with the project owner or administrators to copy the required anatomical files into the analysis session.
+- **Repeated scans:** If a scan was collected multiple times, decide which scan should be retained based on the acquisition notes and project quality-control criteria.
 
 .. raw:: html
 
@@ -319,35 +353,27 @@ We do **not** check everything. Do not assume that data passing our check is per
 
    <br>
 
-ARI Project Versions
---------------------
+Choosing the Correct ARI Project
+--------------------------------
 
-Over time, several ARI project folders have been created. This log clarifies the purpose and status of each:
+Over time, several ARI project folders have been created for active data collection, historical data, validation, and migration work. Most users should work only in the project folder assigned by the ARI project team.
 
-**1. ARI (ari)** - Current / Active
+**Current ARI data**
 
-- This is the main project folder displayed on the dashboard above. All new data collected after Summer 2025 is stored here.
-- Data here is supposed to be verified and valid. If invalid scans are found, they are removed.
-- This is the primary folder for end-users.
+- The current ARI project is the primary folder for end users.
+- New data should be validated before downstream preprocessing.
+- If a subject appears in more than one ARI-related project, confirm which project should be used before downloading or processing data.
 
-**2. ARI HFS - new (rokerslab_ari-hfs_2024_001)** - Archive / In-Progress
+**Historical or migration projects**
 
-- Contains all older data collected, includes both valid and invalid data.
-- RAs are actively validating this folder. Valid data is being migrated to the new **ARI** folder, while invalid data is either removed or kept here as an archive.
+- Some older folders may contain historical, migrated, or partially validated data.
+- Do not assume historical folders are ready for analysis.
+- Contact the project team or XNAT administrators if you are unsure which folder to use.
 
-**3. ARI Clean (Rokerslab_ari-clean)** - Internal / Testing
+**External collaborations**
 
-- Made for temporary analysis of the 100 ARI dataset. XNAT admins also use this as a testing ground for pipelines.
-- Users do not need access to this folder.
-
-**4. ARI HFS (Rokerslab_vri-hfs_2024_001)** - Deprecated
-
-- The first ARI folder on XNAT. It had many issues and is now outdated.
-- Users no longer need to access this folder.
-
-**5. UAEU ARI (uaeu_ari)** - Active / External
-
-- Project hosting the ARI data collected at UAEU.
+- Collaborating sites may have separate ARI project folders.
+- Confirm access and data-use expectations with the project team before using external-site data.
 
 .. raw:: html
 

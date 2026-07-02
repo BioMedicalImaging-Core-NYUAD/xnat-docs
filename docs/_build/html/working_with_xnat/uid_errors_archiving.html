@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resolving UID Errors During Archiving &mdash; NYUAD XNAT User Documentation 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1fb475a3" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Install XNAT Desktop Client" href="install_desktop_client.html" />
+    <link rel="prev" title="Transferring Data Between Projects" href="transferring_data.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NYUAD XNAT User Documentation
+              <img src="../_static/NYU_Logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/what_is_xnat.html">What is NYUAD XNAT?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Getting Started with XNAT Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Working with XNAT</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="access.html">Accessing XNAT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uploading.html">Data Upload Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prearchive.html">Understanding the Prearchive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transferring_data.html">Transferring Data Between Projects</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Resolving UID Errors During Archiving</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#understanding-dicom-uids">Understanding DICOM UIDs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#understanding-the-prearchive">Understanding the Prearchive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#understanding-the-error">Understanding the Error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#identifying-the-problem">Identifying the Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-by-step-resolution">Step-by-Step Resolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#see-also">See Also</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="install_desktop_client.html">Install XNAT Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="navigation.html">XNAT Navigation Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_management.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enabling_pipelines.html">Enabling Pipelines for Your Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running_pipelines.html">Running Pipelines on XNAT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parallel_processing.html">Running Pipelines Across Multiple Subjects</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Understanding MRI Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../understanding_data/overview.html">Understanding Data Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding_data/bids.html">BIDS Format</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">XNAT Pipelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/overview.html">XNAT Pipelines Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/dcm2niix.html">dcm2niix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/dcm2bids.html">dcm2bids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/dcm2hcp.html">dcm2hcp (Under Development)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/mriqc.html">MRIQC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/ari-validator.html">ari-validator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/fmriprep.html">fMRIPrep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/tractoflow.html">TractoFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_pipelines/hcp-pipeline.html">HCP (Under Development)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Download Methods</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/browser.html">Download via Browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/desktop_client.html">Download via Desktop Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/python_scripts.html">XNAT API with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_download/matlab_scripts.html">Download via MATLAB</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/troubleshooting.html">Troubleshooting Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/data_loss_recovery.html">Data Loss and Recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contributing.html">Contributing to this Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/contact.html">Contact Information</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NYUAD XNAT User Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Resolving UID Errors During Archiving</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/working_with_xnat/uid_errors_archiving.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="resolving-uid-errors-during-archiving">
+<h1>Resolving UID Errors During Archiving<a class="headerlink" href="#resolving-uid-errors-during-archiving" title="Link to this heading"></a></h1>
+<p>This guide explains how to identify and resolve UID (Unique Identifier) errors that occur during the archiving process, particularly when attempting to merge data from different sessions with conflicting UIDs into a single XNAT session.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>UID errors during archiving typically occur when:</p>
+<ul class="simple">
+<li><p><strong>Merging different sessions</strong>: Attempting to combine data from multiple DICOM sessions (each with unique UIDs) into a single XNAT session</p></li>
+<li><p><strong>Transferring data</strong>: Moving data between projects where session labels are manually mapped to match existing sessions</p></li>
+<li><p><strong>Bulk uploads</strong>: Uploading multiple sessions simultaneously where some sessions are incorrectly mapped to the same target session</p></li>
+</ul>
+<p>When XNAT detects that incoming data contains UIDs that conflict with an existing session’s UIDs, it prevents the archiving operation to maintain data integrity. These errors are most commonly encountered during the archiving step, after data has been uploaded to the Prearchive.</p>
+</section>
+<section id="understanding-dicom-uids">
+<h2>Understanding DICOM UIDs<a class="headerlink" href="#understanding-dicom-uids" title="Link to this heading"></a></h2>
+<p>DICOM (Digital Imaging and Communications in Medicine) files use a hierarchical system of Unique Identifiers (UIDs) to catalog and organize imaging data. Understanding this system is crucial for understanding why UID conflicts occur.</p>
+<p><strong>How DICOM Databases Catalog Files</strong></p>
+<p>DICOM files are organized using several types of UIDs:</p>
+<ul class="simple">
+<li><p><strong>Study Instance UID</strong>: Uniquely identifies a study (imaging session) from a scanner</p></li>
+<li><p><strong>Series Instance UID</strong>: Uniquely identifies each scan series within a study</p></li>
+<li><p><strong>SOP Instance UID</strong>: Uniquely identifies individual DICOM files</p></li>
+</ul>
+<p>These UIDs are embedded in every DICOM file’s header and serve as the primary mechanism for organizing and tracking imaging data in DICOM-compliant systems.</p>
+<p><strong>Why UIDs Are Critical for Data Integrity</strong></p>
+<p>UIDs ensure that:</p>
+<ul class="simple">
+<li><p>Each imaging study can be uniquely identified across different systems</p></li>
+<li><p>Data from different scanners or sessions can be distinguished</p></li>
+<li><p>Files can be correctly associated with their parent studies and series</p></li>
+<li><p>Data integrity is maintained when files are moved or copied between systems</p></li>
+</ul>
+<p><strong>What Happens When Different UIDs Are Merged</strong></p>
+<p>When you attempt to merge data from two different DICOM sessions (each with unique Study Instance UIDs) into a single XNAT session, you’re essentially trying to combine:</p>
+<ul class="simple">
+<li><p>Data from Session A (with Study Instance UID: <code class="docutils literal notranslate"><span class="pre">1.2.3.4.5...</span></code>)</p></li>
+<li><p>Data from Session B (with Study Instance UID: <code class="docutils literal notranslate"><span class="pre">6.7.8.9.10...</span></code>)</p></li>
+</ul>
+<p>Into one XNAT session. This creates a conflict because:</p>
+<ol class="arabic simple">
+<li><p>The DICOM files from Session A contain references to their original Study Instance UID</p></li>
+<li><p>The DICOM files from Session B contain references to a different Study Instance UID</p></li>
+<li><p>XNAT cannot modify these UIDs during archiving (as they are fundamental to DICOM data integrity)</p></li>
+<li><p>Having two different Study Instance UIDs in one session violates DICOM standards and XNAT’s data model</p></li>
+</ol>
+<p><strong>Why XNAT Detects and Prevents Invalid UID Modifications</strong></p>
+<p>XNAT’s archiving process validates that:</p>
+<ul class="simple">
+<li><p>All DICOM files in a session belong to the same study (same Study Instance UID)</p></li>
+<li><p>UIDs are not modified inappropriately during the archiving process</p></li>
+<li><p>Data integrity is maintained according to DICOM standards</p></li>
+</ul>
+<p>If XNAT detects that you’re attempting to archive data with conflicting UIDs into an existing session, it will prevent the operation and flag it as a conflict.</p>
+</section>
+<section id="understanding-the-prearchive">
+<h2>Understanding the Prearchive<a class="headerlink" href="#understanding-the-prearchive" title="Link to this heading"></a></h2>
+<p>The <strong>Prearchive</strong> is XNAT’s staging area where uploaded data is held temporarily before being committed to the permanent Archive. It allows you to review, edit labels, and resolve conflicts before data becomes permanent.</p>
+<p>When data is uploaded to XNAT, it first lands in the Prearchive where you can:</p>
+<ul class="simple">
+<li><p>Review sessions and identify conflicts (including UID conflicts)</p></li>
+<li><p>Edit Subject IDs and Session Labels to resolve issues</p></li>
+<li><p>Delete incorrect data before archiving</p></li>
+<li><p>Select sessions and proceed with archiving once conflicts are resolved</p></li>
+</ul>
+<p>Sessions in the Prearchive display status indicators such as “Ready”, “Conflict”, or “Error” to help you identify issues that need attention before archiving.</p>
+<p>For more detailed information about the Prearchive, including status indicators and workflow, see <a class="reference internal" href="prearchive.html"><span class="doc">Understanding the Prearchive</span></a>.</p>
+</section>
+<section id="understanding-the-error">
+<h2>Understanding the Error<a class="headerlink" href="#understanding-the-error" title="Link to this heading"></a></h2>
+<p>When XNAT detects a UID discrepancy during the archiving process, it prevents the operation and reports an error. Understanding how these errors work helps you resolve them effectively.</p>
+<p><strong>UID Discrepancy Errors When Merging Different Sessions</strong></p>
+<p>UID errors occur when XNAT detects that:</p>
+<ul class="simple">
+<li><p>Incoming data contains DICOM files with Study Instance UIDs that differ from an existing session’s UIDs</p></li>
+<li><p>You’re attempting to merge data from multiple distinct DICOM studies into one XNAT session</p></li>
+<li><p>The archiving process would violate DICOM standards by combining incompatible UIDs</p></li>
+</ul>
+<p>These errors are not limited to a single error code—XNAT may report various error messages depending on the specific conflict detected.</p>
+<p><strong>How XNAT Detects Conflicts</strong></p>
+<p>During the archiving process, XNAT:</p>
+<ol class="arabic simple">
+<li><p><strong>Validates UID consistency</strong>: Checks that all DICOM files in a session reference the same Study Instance UID</p></li>
+<li><p><strong>Compares with existing sessions</strong>: If merging into an existing session, compares incoming UIDs with the session’s existing UIDs</p></li>
+<li><p><strong>Flags conflicts</strong>: When UID mismatches are detected, flags the session with a “Conflict” status in the Prearchive</p></li>
+<li><p><strong>Prevents archiving</strong>: Blocks the archiving operation until the conflict is resolved</p></li>
+</ol>
+<p><strong>Common Error Messages Related to UID Modifications</strong></p>
+<p>Error messages you may encounter include:</p>
+<ul class="simple">
+<li><p>“Invalid modification of session UID via archive process”</p></li>
+<li><p>“UID conflict detected during archiving”</p></li>
+<li><p>“Cannot merge sessions with different Study Instance UIDs”</p></li>
+<li><p>“Session upload failed” with UID-related details in the error log</p></li>
+</ul>
+<p>These messages all indicate that XNAT has detected a UID conflict that must be resolved before archiving can proceed.</p>
+<p><strong>Why These Errors Occur During the Archiving Process</strong></p>
+<p>UID errors typically occur during archiving (not during upload) because:</p>
+<ul class="simple">
+<li><p><strong>Upload stage</strong>: Data is accepted into the Prearchive without strict UID validation</p></li>
+<li><p><strong>Archiving stage</strong>: XNAT performs comprehensive validation, including UID consistency checks</p></li>
+<li><p><strong>Conflict detection</strong>: The archiving process is when XNAT compares incoming data with existing sessions and detects conflicts</p></li>
+</ul>
+<p>This design allows you to upload data and review it in the Prearchive, then resolve conflicts before committing to the Archive.</p>
+</section>
+<section id="identifying-the-problem">
+<h2>Identifying the Problem<a class="headerlink" href="#identifying-the-problem" title="Link to this heading"></a></h2>
+<p>The most reliable way to identify UID conflicts is through the error log, which shows detailed information about what went wrong:</p>
+<a class="reference internal image-reference" href="../_images/uid_error_error_log.png"><img alt="Error log showing UID error details" class="align-center" src="../_images/uid_error_error_log.png" style="width: 900px;" /></a>
+<hr class="docutils" />
+<p>The error log shows “Session upload failed” with details indicating “Invalid modification of session UID via archive process.” This confirms that a UID conflict prevented the archiving operation.</p>
+<p><strong>Prearchive Status Showing “Conflict”</strong></p>
+<p>When you navigate to the Prearchive, sessions with UID conflicts will show a “Conflict” status:</p>
+<a class="reference internal image-reference" href="../_images/uid_error_confirm_details.png"><img alt="Prearchive sessions table showing Conflict status" class="align-center" src="../_images/uid_error_confirm_details.png" style="width: 900px;" /></a>
+<hr class="docutils" />
+<p>In this example, you can see sessions in the Prearchive with “Conflict” status, indicating that XNAT has detected an issue (such as a UID conflict) that must be resolved before archiving.</p>
+<p><strong>Warning Dialogs During Archiving</strong></p>
+<p>When attempting to archive a session with a UID conflict, you may see warning dialogs:</p>
+<a class="reference internal image-reference" href="../_images/uid_error_upload_warnings.png"><img alt="Upload warnings dialog showing UID error" class="align-center" src="../_images/uid_error_upload_warnings.png" style="width: 900px;" /></a>
+<hr class="docutils" />
+<p>This dialog warns that merging the uploaded data will override warnings, including UID-related conflicts. The message indicates “Invalid modification of session UID via archive process,” which is a clear indicator of a UID conflict.</p>
+</section>
+<section id="step-by-step-resolution">
+<h2>Step-by-Step Resolution<a class="headerlink" href="#step-by-step-resolution" title="Link to this heading"></a></h2>
+<p>Follow these steps to resolve UID conflicts when archiving:</p>
+<p><strong>Step 1: Navigate to Prearchive and Identify Conflict Status</strong></p>
+<ol class="arabic simple">
+<li><p>Log into XNAT and navigate to <strong>Upload</strong> &gt; <strong>Go to prearchive</strong> from the top navigation menu</p></li>
+<li><p>Review the Sessions table to identify sessions with “Conflict” status</p></li>
+<li><p>Note which sessions are in conflict and what Subject/Session labels they’re using</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/uid_error_confirm_details.png"><img alt="Prearchive sessions table showing Conflict status" class="align-center" src="../_images/uid_error_confirm_details.png" style="width: 900px;" /></a>
+<hr class="docutils" />
+<p>In this example, you can see sessions in the Prearchive with “Conflict” status. This indicates that XNAT has detected a UID conflict that needs resolution before archiving can proceed.</p>
+<p><strong>Step 2: Understanding the Source of the Conflict</strong></p>
+<p>The conflict occurs when you attempt to map two separate DICOM sessions (each with unique Study Instance UIDs) to the same XNAT session label. This typically happens in Desktop Client’s “Confirm Details” screen during bulk upload:</p>
+<a class="reference internal image-reference" href="../_images/uid_error_prearchive_conflict.png"><img alt="Desktop Client Confirm Details screen showing two sessions mapped to same label" class="align-center" src="../_images/uid_error_prearchive_conflict.png" style="width: 900px;" /></a>
+<hr class="docutils" />
+<p>In this example, you can see that two distinct sessions are being mapped to the same XNAT Session Label:</p>
+<ul class="simple">
+<li><p><strong>Session 1</strong>: Patient Name “Subject_0259”, Study ID “PI-2024-001 (d47db28c-19b1-42)”, mapped to Session Label “_MR_X”</p></li>
+<li><p><strong>Session 2</strong>: Patient Name “Subject_0496”, Study ID “xnat://PI-2024-001/Subject_0496/ses_01 (3bddee24-d7cd-4e)”, also mapped to Session Label “_MR_X”</p></li>
+</ul>
+<p>These are two different DICOM studies with different Study Instance UIDs, but they’re both being assigned to the same XNAT session label. This is the source of the UID conflict that causes the error.</p>
+<p><strong>Step 3: Select Conflicted Session and Review</strong></p>
+<ol class="arabic simple">
+<li><p>From the Prearchive, select the conflicted session (check the checkbox)</p></li>
+<li><p>Click <strong>“Review and Archive”</strong> to proceed with reviewing the session details</p></li>
+<li><p>This will take you to a screen where you can review scans and force the merge if needed</p></li>
+</ol>
+<p><strong>Step 4: Force the Merge (If Required)</strong></p>
+<p>If you need to force the merge despite the UID conflict (for example, when sessions were broken down but need to be combined, or files from another study need to be together under one session):</p>
+<ol class="arabic simple">
+<li><p>Review the scan details in the session review screen</p></li>
+<li><p>Verify that you want to proceed with merging despite the UID conflict</p></li>
+<li><p>Click <strong>“Submit”</strong> to force the merge and proceed with archiving</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/uid_error_scan_details.png"><img alt="Scan details form with Submit button to force merge" class="align-center" src="../_images/uid_error_scan_details.png" style="width: 900px;" /></a>
+<hr class="docutils" />
+<p>This screen allows you to review individual scans and their metadata. The “Submit” button will force the merge despite the UID conflict warning.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Forcing Merges with UID Conflicts</strong></p>
+<p>Forcing a merge when UID conflicts exist should only be done when you understand the implications. This typically occurs when:</p>
+<ul class="simple">
+<li><p>Sessions were incorrectly broken down and need to be recombined</p></li>
+<li><p>Files from another study need to be together under one session for analysis purposes</p></li>
+<li><p>You have a specific reason to combine data with different Study Instance UIDs</p></li>
+</ul>
+<p>Be aware that this may affect data integrity and compliance with DICOM standards.</p>
+</div>
+<p><strong>Alternative: Assign Unique Session Labels</strong></p>
+<p>If you don’t need to merge the sessions, you can resolve the conflict by assigning unique session labels:</p>
+<ol class="arabic simple">
+<li><p>In Desktop Client “Confirm Details” screen or Prearchive, locate the “XNAT Session Label” field for each session</p></li>
+<li><p>Ensure each distinct DICOM session (with different Study Instance UIDs) has a unique XNAT Session Label</p></li>
+<li><p>For example:
+- Session 1 (Subject_0259): Change Session Label to “_MR_X_0259” or “Subject_0259_session01”
+- Session 2 (Subject_0496): Change Session Label to “_MR_X_0496” or “Subject_0496_session01”</p></li>
+<li><p>Verify that each session now has a unique label that doesn’t conflict with existing sessions</p></li>
+</ol>
+<p>After assigning unique labels, the UID conflict will be resolved, and each session can be archived separately.</p>
+</section>
+<section id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading"></a></h2>
+<p><strong>Related Documentation</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="prearchive.html"><span class="doc">Understanding the Prearchive</span></a> - Detailed information about the Prearchive system</p></li>
+<li><p><a class="reference internal" href="uploading.html"><span class="doc">Data Upload Procedures</span></a> - Detailed upload procedures and methods</p></li>
+<li><p><a class="reference internal" href="transferring_data.html"><span class="doc">Transferring Data Between Projects</span></a> - Guide for transferring data between projects</p></li>
+<li><p><a class="reference internal" href="install_desktop_client.html"><span class="doc">Install XNAT Desktop Client</span></a> - Desktop Client installation guide</p></li>
+<li><p><a class="reference internal" href="access.html"><span class="doc">Accessing XNAT</span></a> - Project access and permissions information</p></li>
+</ul>
+<p><strong>Official XNAT Documentation</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://wiki.xnat.org/search.html?l=en&amp;max=10&amp;ol=&amp;q=Archiving+Data&amp;s=documentation&amp;start=0">XNAT Wiki: Archiving Data search</a> - Official documentation search results for the archiving process</p></li>
+<li><p><a class="reference external" href="https://wiki.xnat.org/search.html?l=en&amp;max=10&amp;ol=&amp;q=Prearchive&amp;s=documentation&amp;start=0">XNAT Wiki: Prearchive search</a> - Official documentation search results for the Prearchive system</p></li>
+</ul>
+<p><strong>Support</strong></p>
+<ul class="simple">
+<li><p>Contact XNAT administrators at <a class="reference external" href="mailto:admin&#46;nyuad&#46;xnat&#37;&#52;&#48;nyu&#46;edu">admin<span>&#46;</span>nyuad<span>&#46;</span>xnat<span>&#64;</span>nyu<span>&#46;</span>edu</a> for assistance with persistent UID conflicts or complex scenarios</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="transferring_data.html" class="btn btn-neutral float-left" title="Transferring Data Between Projects" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="install_desktop_client.html" class="btn btn-neutral float-right" title="Install XNAT Desktop Client" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Puti Wen, Soumen Mohanty.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
