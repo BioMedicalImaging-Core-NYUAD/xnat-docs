@@ -79,6 +79,8 @@ Version and Runtime Notes
 
 TractoFlow runs through NYUAD-managed compute infrastructure after you submit it from XNAT. You do not need to run Nextflow manually. If your analysis requires a specific TractoFlow or container version, contact support before launching a large batch.
 
+The NYUAD ARI deployment requires two separately installed components: the `TractoFlow 2.4.4 Git repository <https://github.com/scilus/tractoflow/tree/2.4.4>`_ (commit ``d1daad89725a53bd9469063339376c63ba38be48``), obtained from the official ``scilus/tractoflow`` repository and checked out at ``/scratch/mri/singularityimages/tractoflow`` so that ``main.nf`` is available, and the official `Scilus 1.6.0 Singularity image <https://scil.usherbrooke.ca/containers/scilus_1.6.0.sif>`_, downloaded as ``/scratch/mri/singularityimages/scilus_1.6.0.sif``. Nextflow 21.10.6 reads the external TractoFlow workflow and executes its processing commands inside the Scilus image, so both the repository and SIF are required; the SIF does not replace the TractoFlow source directory.
+
 For users who need to understand the runtime environment, see the CRC documentation for `Jubail system details <https://crc-docs.abudhabi.nyu.edu/hpc/system/index.html>`_, `job submission and SLURM <https://crc-docs.abudhabi.nyu.edu/hpc/jobs/quick_start.html>`_, and `Singularity on HPC <https://crc-docs.abudhabi.nyu.edu/hpc/software/singularity_commands.html>`_.
 
 Troubleshooting
