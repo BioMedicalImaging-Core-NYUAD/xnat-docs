@@ -47,6 +47,9 @@ How to Launch the Pipeline
 .. warning::
    The pipeline requires significant computational resources. Please allow 12-24 hours for completion.
 
+.. important::
+   **We recommend submitting no more than 12 TractoFlow jobs at a time because additional jobs will remain pending under the current HPC concurrency limit.**
+
 Output Structure
 ----------------
 
