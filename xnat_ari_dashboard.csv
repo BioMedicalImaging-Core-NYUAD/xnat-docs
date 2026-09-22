@@ -227,3 +227,5 @@ sub-0965,PASSED,CORRECT,CORRECT,CORRECT,CORRECT,CORRECT,CORRECT,v2 (LATEST),UNKN
 sub-0967,PASSED,CORRECT,CORRECT,CORRECT,CORRECT,CORRECT,CORRECT,v2 (LATEST),UNKNOWN,v2 reverse-b0 matches DWI parameters,v2 (LATEST),SEPARATE,0.0,0.0,104 x 104 x 75 x 105,3200.0 ms,104 x 104 x 75,3200.0 ms,128 x 128 x 48 x 25,4200.0 ms,,,,
 sub-0968,PASSED,CORRECT,CORRECT,CORRECT,CORRECT,CORRECT,CORRECT,v2 (LATEST),UNKNOWN,v2 reverse-b0 matches DWI parameters,v2 (LATEST),SEPARATE,0.0,0.0,104 x 104 x 75 x 105,3200.0 ms,104 x 104 x 75,3200.0 ms,128 x 128 x 48 x 25,4200.0 ms,,,,
 sub-0969,HAS ISSUES,INCORRECT,CORRECT,CORRECT,CORRECT,INCORRECT,CORRECT,v2 (LATEST),UNKNOWN,v2 reverse-b0 matches DWI parameters,v2 (LATEST),SEPARATE,8.0,0.0,104 x 104 x 75 x 105,3200.0 ms,104 x 104 x 75,3200.0 ms,128 x 128 x 48 x 25,4200.0 ms,"AP_run-02_bold_nii, AP_run-02_bold_json, PA_run-02_bold_nii, PA_run-02_bold_json, AP_run-02_sbref_nii, AP_run-02_sbref_json, PA_run-02_sbref_nii, PA_run-02_sbref_json",,,
+sub-0970,Validation Not Found,,,,,,,,,,,,,,,,,,,,,,,
+sub-0971,Validation Not Found,,,,,,,,,,,,,,,,,,,,,,,
