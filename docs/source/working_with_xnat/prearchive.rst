@@ -1,39 +1,43 @@
 Understanding the Prearchive
 ============================
 
-The **Prearchive** is XNAT's staging area for uploaded imaging sessions. Use it
-to check that an upload contains the expected scans and is assigned to the right
-project and subject before saving it to the Archive. Depending on your project
-settings, XNAT may archive uploads automatically or leave them for manual review.
+The **Prearchive** is where XNAT stages uploaded imaging sessions before saving
+them to the **Archive**, where they appear under a subject in the project.
+While an upload is staged, you can check that it contains the expected scans
+and is going to the right project and subject.
 
-Find and review an upload
--------------------------
+When uploads need manual archiving
+----------------------------------
 
-1. Sign in to XNAT and choose **Upload** > **Go to prearchive**.
-2. Find the row for your **Project**, **Subject**, **Session** and **Scan Date**.
-   If it is missing, check the filters and use **Refresh**.
-3. Click the row to highlight it. Use **Details** to inspect the session and scan
-   list. Compare the scans and file counts with what you expected to upload.
-
-* **Ready**: Review the upload and archive it when it is complete.
-* **Receiving** or **Building**: Wait for XNAT to finish receiving or preparing
-  the session, then refresh the list.
-* **Conflict**: Compare the staged upload with the existing archive session.
-  If both copies should be kept, use an unused session label when archiving.
-* **Error**: Review the error in **Details**. Contact XNAT support if the error
-  persists or if you are unsure how to proceed.
+XNAT can archive uploads automatically or leave them in the Prearchive for
+review, depending on the project settings and upload method. If your project
+uses automatic archiving, look for the session in the destination project once
+the upload has finished. Sessions left in the Prearchive can be reviewed and
+archived by someone with permission to archive in the destination project.
 
 .. _review-and-archive-prearchive:
 
 Review and archive a session
 ----------------------------
 
-Use **Review and Archive** to verify the destination of one staged session.
-You need permission to archive data in the destination project.
+Use **Review and Archive** to check the destination and save one staged session.
 
-If the upload is incomplete, belongs to a different subject, or duplicates a
-complete archive session, ask the project owner or XNAT support to review it
-before archiving.
+Find and review an upload
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Sign in to XNAT and choose **Upload** > **Go to prearchive**.
+2. Find the row for your **Project**, **Subject**, **Session** and **Scan Date**.
+   If the row is missing, see :ref:`prearchive-troubleshooting`.
+3. Click the row to highlight it. Use **Details** to inspect the session and scan
+   list. Compare the scans and file counts with what you expected to upload.
+4. When the session shows **Ready** and the scans match what you expect,
+   continue to the next step. For other statuses or unexpected data, see
+   :ref:`prearchive-troubleshooting`.
+
+.. _prearchive-confirm-destination:
+
+Confirm the destination and submit
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Highlight the intended row, then click **Check** above the table. Confirm
    that only that session is checked. Highlighting a row shows its details.
@@ -58,7 +62,7 @@ before archiving.
    the label on the **Review and Archive** form.
 
 Verify the archived session
----------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Wait for archiving to finish. Use **Refresh** if the row still shows
    **Archiving now**.
@@ -68,12 +72,38 @@ Verify the archived session
    against the upload you reviewed. If you saved a recovery copy, identify the
    verified session when handing it off for analysis.
 
-For a Study Instance UID mismatch, see :doc:`uid_errors_archiving`.
+.. _prearchive-troubleshooting:
 
-See Also
+Troubleshoot an upload
+----------------------
+
+The upload is missing or still processing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you cannot find the upload, check the destination project in the Archive and
+clear any Prearchive filters that might hide the row. For **Receiving** or
+**Building**, wait for XNAT to finish and click **Refresh**.
+
+The upload shows Conflict or Error
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* **Conflict**: Compare the staged upload with the existing archive session.
+  If both copies should be kept, follow :ref:`prearchive-confirm-destination`
+  and enter an unused session label.
+  For a Study Instance UID mismatch, see :doc:`uid_errors_archiving`.
+* **Error**: Open **Details** to check the message. Contact XNAT support if
+  the error persists or you are unsure how to proceed.
+
+The scans or subject look wrong
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Ask the project owner or XNAT support to review an incomplete upload, an upload
+assigned to a different subject, or a duplicate of a complete archive session
+before archiving it.
+
+See also
 --------
 
-- :doc:`uploading` - Upload procedures and methods
-- :doc:`uid_errors_archiving` - Resolving UID errors in Prearchive
-- :doc:`transferring_data` - Transferring data between projects
+- :doc:`uploading`
+- :doc:`transferring_data`
 - `XNAT Wiki: Using the Prearchive <https://wiki.xnat.org/documentation/using-the-prearchive>`_
