@@ -1,100 +1,79 @@
 Understanding the Prearchive
 ============================
 
-The **Prearchive** is XNAT's staging area where uploaded data is held temporarily before being committed to the permanent Archive. Understanding how the Prearchive works is essential for managing data uploads and resolving conflicts.
+The **Prearchive** is XNAT's staging area for uploaded imaging sessions. Use it
+to check that an upload contains the expected scans and is assigned to the right
+project and subject before saving it to the Archive. Depending on your project
+settings, XNAT may archive uploads automatically or leave them for manual review.
 
-What is the Prearchive?
-------------------------
-
-The Prearchive is a temporary holding area where:
-
-- Data is stored after upload but before permanent archiving
-- You can review, inspect, and modify data before it becomes permanent
-- Conflicts and errors can be identified and resolved
-- Data can be deleted or corrected without affecting the Archive
-
-Think of the Prearchive as a "review queue" where you have full control over the data before it's permanently stored.
-
-What Operations Are Allowed in Prearchive
-------------------------------------------
-
-In the Prearchive, you can:
-
-- **Review data**: Inspect sessions, scans, and metadata before archiving
-- **Edit labels**: Modify Subject IDs and Session Labels to resolve conflicts
-- **Delete data**: Remove sessions that are incorrect or no longer needed
-- **Resolve conflicts**: Fix UID conflicts, labeling issues, or metadata problems
-- **Inspect scans**: Review individual scans and their properties
-- **Bulk operations**: Process multiple sessions simultaneously
-
-Once data is archived, these operations become more restricted. The Prearchive gives you the flexibility to fix issues before data becomes permanent.
-
-Why Prearchive is Crucial for Catching Conflicts
--------------------------------------------------
-
-The Prearchive workflow allows you to:
-
-1. **Identify conflicts early**: UID conflicts, duplicate labels, and other issues are detected and flagged in the Prearchive before archiving
-2. **Review before committing**: You can see exactly what data will be merged and identify conflicts
-3. **Resolve issues safely**: Fix labeling or mapping issues without affecting archived data
-4. **Avoid data corruption**: Prevent invalid merges from reaching the Archive
-
-Prearchive Status Indicators
------------------------------
-
-Sessions in the Prearchive display status indicators that help you identify issues:
-
-- **Ready**: Data is ready to be archived (no conflicts detected)
-- **Conflict**: A conflict has been detected (UID conflicts, duplicate labels, etc.)
-- **Error**: An error occurred during processing
-- **Receiving**: Data is still being uploaded
-- **Building**: XNAT is processing the uploaded data
-
-When you see a "Conflict" status, it means XNAT has detected an issue (such as a UID conflict) that must be resolved before archiving can proceed.
-
-The Prearchive Workflow
-------------------------
-
-The typical workflow is:
-
-::
-
-   Upload → Prearchive → Review/Resolve → Archive
-
-1. **Upload**: Data is uploaded to XNAT (via Desktop Client, Compressed Uploader, or DICOM receiver)
-2. **Prearchive**: Data lands in the Prearchive for review
-3. **Review/Resolve**: You review the data, identify conflicts, and fix any issues (like UID conflicts, incorrect labels, etc.)
-4. **Archive**: Once conflicts are resolved, data is archived to permanent storage
-
-This workflow ensures that data integrity issues are caught and resolved before data becomes permanent.
-
-Accessing the Prearchive
+Find and review an upload
 -------------------------
 
-To access the Prearchive:
+1. Sign in to XNAT and choose **Upload** > **Go to prearchive**.
+2. Find the row for your **Project**, **Subject**, **Session** and **Scan Date**.
+   If it is missing, check the filters and use **Refresh**.
+3. Click the row to highlight it. Use **Details** to inspect the session and scan
+   list. Compare the scans and file counts with what you expected to upload.
 
-1. Log into XNAT
-2. Navigate to **Upload** > **Go to prearchive** from the top navigation menu
-3. You'll see a table of sessions waiting to be archived, with their current status
+* **Ready**: Review the upload and archive it when it is complete.
+* **Receiving** or **Building**: Wait for XNAT to finish receiving or preparing
+  the session, then refresh the list.
+* **Conflict**: Compare the staged upload with the existing archive session.
+  If both copies should be kept, use an unused session label when archiving.
+* **Error**: Review the error in **Details**. Contact XNAT support if the error
+  persists or if you are unsure how to proceed.
 
-From the Prearchive, you can:
+.. _review-and-archive-prearchive:
 
-- Review session details
-- Edit Subject IDs and Session Labels
-- Select sessions and click "Review and Archive" to proceed with archiving
-- Delete sessions that are incorrect
-- Resolve conflicts before archiving
+Review and archive a session
+----------------------------
+
+Use **Review and Archive** to verify the destination of one staged session.
+You need permission to archive data in the destination project.
+
+If the upload is incomplete, belongs to a different subject, or duplicates a
+complete archive session, ask the project owner or XNAT support to review it
+before archiving.
+
+1. Highlight the intended row, then click **Check** above the table. Confirm
+   that only that session is checked. Highlighting a row shows its details.
+   Checking it selects it for the archive action.
+2. Click **Review and Archive** in the **Actions** panel.
+3. On the review form, confirm the **Project** and **Subject** and review the
+   scans. Find the editable field containing the current **session label**.
+4. Keep the proposed label if it is unused. To archive the upload as a separate
+   session, enter a label that is unused in that project. Follow your project's
+   naming convention. For example, a fuller export of
+   ``ExampleSubject_ses_03`` might be saved as ``ExampleSubject_ses_03_recovered``.
+   The recovery label refers to the same visit.
+5. Click **Submit**. If XNAT warns that it will merge with or overwrite an
+   existing session, cancel and recheck the destination and label.
+
+.. figure:: ../_static/prearchive-review-and-archive.png
+   :alt: In the Prearchive, select one row with Check and open Review and Archive. On the review form, confirm the project and subject, edit the session label and click Submit.
+   :align: center
+   :width: 720px
+
+   Illustration with example labels. Use **Check** to select the row, then edit
+   the label on the **Review and Archive** form.
+
+Verify the archived session
+---------------------------
+
+1. Wait for archiving to finish. Use **Refresh** if the row still shows
+   **Archiving now**.
+2. Open the destination project and subject, then locate the session under the
+   label you submitted.
+3. Confirm the project, subject, scan date, scan list and available file counts
+   against the upload you reviewed. If you saved a recovery copy, identify the
+   verified session when handing it off for analysis.
+
+For a Study Instance UID mismatch, see :doc:`uid_errors_archiving`.
 
 See Also
 --------
 
-**Related Documentation**
-
 - :doc:`uploading` - Upload procedures and methods
 - :doc:`uid_errors_archiving` - Resolving UID errors in Prearchive
 - :doc:`transferring_data` - Transferring data between projects
-
-**Official XNAT Documentation**
-
-- `XNAT Wiki: Prearchive search <https://wiki.xnat.org/search.html?l=en&max=10&ol=&q=Prearchive&s=documentation&start=0>`_ - Official documentation search results for the Prearchive system
-- `XNAT Wiki: Archiving Data search <https://wiki.xnat.org/search.html?l=en&max=10&ol=&q=Archiving+Data&s=documentation&start=0>`_ - Official documentation search results for the archiving process
+- `XNAT Wiki: Using the Prearchive <https://wiki.xnat.org/documentation/using-the-prearchive>`_
