@@ -62,7 +62,9 @@ The NYUAD DICOM receiver is available only from the approved NYUAD network. Rece
 
 **How it works**
 
-Data sent to this receiver is routed to the XNAT Prearchive. From the Prearchive, you can review and archive the sessions.
+Data sent to this receiver is routed to the XNAT Prearchive. If an upload
+needs manual archiving, follow :ref:`review-and-archive-prearchive` to check
+the destination and save the session.
 
 **Study Description Routing**
 
